@@ -131,8 +131,8 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   }
 
   Widget _buildAnimation(BuildContext context, Widget? child) {
-//    double widthOfImage = assignWidth(context: context, fraction: 0.4);
-//    double heightOfImage = assignHeight(context: context, fraction: 1);
+//    double widthOfImage = assignWidth(context,  0.4);
+//    double heightOfImage = assignHeight(context,  1);
     return Stack(
       children: <Widget>[
         Container(
@@ -141,9 +141,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
               Row(
                 children: <Widget>[
                   ContentWrapper(
-                    width: assignWidth(
-                      context: context,
-                      fraction: widthOfLeftContentWrapperAnimation.value,
+                    width: assignWidth(context,  widthOfLeftContentWrapperAnimation.value,
                     ),
                     color: AppColors.primaryColor,
 //                    gradient: Gradients.primaryGradient,
@@ -160,37 +158,29 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                     ),
                   ),
                   ContentWrapper(
-                    width: assignWidth(
-                      context: context,
-                      fraction: widthOfRightContentWrapperAnimation.value,
+                    width: assignWidth(context,  widthOfRightContentWrapperAnimation.value,
                     ),
                     color: AppColors.secondaryColor,
                     child: Row(
                       children: [
                         Container(
-                          width: assignWidth(
-                              context: context,
-                              fraction: widthOfPortfolioAnimation.value),
+                          width: assignWidth(context,  widthOfPortfolioAnimation.value),
                           padding: EdgeInsets.symmetric(
                             horizontal:
-                                assignWidth(context: context, fraction: 0.04),
+                                assignWidth(context,  0.04),
                             vertical:
-                                assignHeight(context: context, fraction: 0.04),
+                                assignHeight(context,  0.04),
                           ),
                           child: _isPortfolioVisible
                               ? _buildPortfolioGallery()
                               : Container(),
                         ),
                         SizedBox(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.025,
+                          width: assignWidth(context,  0.025,
                           ),
                         ),
                         TrailingInfo(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.075,
+                          width: assignWidth(context,  0.075,
                           ),
                           trailingWidget: CustomScroller(
                             onUpTap: () {
@@ -244,8 +234,8 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
       children: [
         Wrap(
           direction: Axis.horizontal,
-          spacing: assignWidth(context: context, fraction: 0.0099),
-          runSpacing: assignHeight(context: context, fraction: 0.02),
+          spacing: assignWidth(context,  0.0099),
+          runSpacing: assignHeight(context,  0.02),
           children: _portfolioItem(Data.portfolioData),
         ),
       ],
@@ -303,16 +293,12 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
               );
             },
             height: isDisplaySmallDesktopOrIpadPro(context)
-                ? assignHeight(context: context, fraction: 0.3)
-                : assignHeight(context: context, fraction: 0.45),
+                ? assignHeight(context,  0.3)
+                : assignHeight(context,  0.45),
             width: isDisplaySmallDesktopOrIpadPro(context)
-                ? assignWidth(
-                    context: context,
-                    fraction: 0.3,
+                ? assignWidth(context,  0.3,
                   )
-                : assignWidth(
-                    context: context,
-                    fraction: portfolioData[i].imageSize,
+                : assignWidth(context,  portfolioData[i].imageSize,
                   ),
           ),
         ),

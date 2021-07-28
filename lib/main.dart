@@ -1,3 +1,4 @@
+import 'package:aerium/presentation/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:aerium/app_theme.dart';
@@ -18,6 +19,7 @@ class Aerium extends StatelessWidget {
       title: StringConst.APP_TITLE,
       theme: AppTheme.lightThemeData,
       debugShowCheckedModeBanner: false,
+      // initialRoute: LoadingPage.loadingPageRoute,
       initialRoute: HomePage.homePageRoute,
       onGenerateRoute: RouteConfiguration.onGenerateRoute,
     );

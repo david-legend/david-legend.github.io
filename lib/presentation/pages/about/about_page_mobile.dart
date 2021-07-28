@@ -202,8 +202,8 @@ class _AboutPageMobileState extends State<AboutPageMobile>
       builder: (BuildContext context, Widget? child) {
         return Positioned(
           right: widthOfScreen(context) > 450
-              ? -assignWidth(context: context, fraction: 0.2)
-              : -assignWidth(context: context, fraction: 0.7),
+              ? -assignWidth(context,  0.2)
+              : -assignWidth(context,  0.7),
           child: FadeTransition(
             opacity: opacityAnimation,
             child: child,
@@ -227,7 +227,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
           child: Row(
             children: [
               Container(
-                width: assignWidth(context: context, fraction: 0.4),
+                width: assignWidth(context,  0.4),
                 child: child,
               ),
             ],

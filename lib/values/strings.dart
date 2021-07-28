@@ -70,7 +70,8 @@ class StringConst {
   static const String HTML_CSS = "HTML/CSS";
 
   //routes
-  static const String HOME_PAGE = "/";
+  static const String LOADING_PAGE = "/";
+  static const String HOME_PAGE = "/home";
   static const String ABOUT_PAGE = "/about";
   static const String PORTFOLIO_PAGE = "/portfolio";
   static const String CONTACT_PAGE = "/contact";

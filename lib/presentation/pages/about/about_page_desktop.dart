@@ -237,11 +237,11 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
   }
 
   Widget _buildAnimation(BuildContext context, Widget? child) {
-    double heightOfImage = assignHeight(context: context, fraction: 1);
+    double heightOfImage = assignHeight(context,  1);
 
     widthOfImage = isDisplaySmallDesktopOrIpadPro(context)
         ? 0.2
-        : assignWidth(context: context, fraction: 0.4);
+        : assignWidth(context,  0.4);
     return Stack(
       children: <Widget>[
         Container(
@@ -250,9 +250,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
               Row(
                 children: <Widget>[
                   ContentWrapper(
-                    width: assignWidth(
-                      context: context,
-                      fraction: widthOfLeftSide.value,
+                    width: assignWidth(context,  widthOfLeftSide.value,
                     ),
                     color: AppColors.primaryColor,
 //                    gradient: Gradients.primaryGradient,
@@ -270,27 +268,23 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                   ),
                   ContentWrapper(
                     width: assignWidth(
-                        context: context, fraction: widthOfRightSide.value),
+                         context,  widthOfRightSide.value),
 //                    color: Colors.pinkAccent,
                     color: AppColors.secondaryColor,
                     child: Row(
                       children: [
                         Container(
-                          width: assignWidth(
-                              context: context,
-                              fraction: widthOfAboutContent.value),
+                          width: assignWidth(context,  widthOfAboutContent.value),
                           child: _isAboutContentVisible
                               ? aboutPageContent()
                               : Container(),
                         ),
                         SizedBox(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.025,
+                          width: assignWidth(context,  0.025,
                           ),
                         ),
                         TrailingInfo(
-                          width: assignWidth(context: context, fraction: 0.075),
+                          width: assignWidth(context,  0.075),
                           onTrailingWidgetPressed: () => Navigator.pushNamed(
                             context,
                             PortfolioPage.portfolioPageRoute,
@@ -307,10 +301,10 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         Transform.translate(
           offset: Offset(
             assignWidth(
-                    context: context, fraction: widthPositionOfImage.value) -
+                     context,  widthPositionOfImage.value) -
                 widthOfImage! / 2,
             assignHeight(
-                context: context, fraction: heightPositionOfImage.value),
+                 context,  heightPositionOfImage.value),
           ),
           child: Transform.scale(
             scale: scale.value,
@@ -354,8 +348,8 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
           padding: EdgeInsets.only(
             left: (widthOfImage! / 2) + 20,
             top: isDisplaySmallDesktopOrIpadPro(context)
-                ? assignHeight(context: context, fraction: 0.05)
-                : assignHeight(context: context, fraction: 0.12),
+                ? assignHeight(context,  0.05)
+                : assignHeight(context,  0.12),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -407,8 +401,8 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                   ? SubMenuList(
                       subMenuData: Data.subMenuData,
                       width: assignWidth(
-                          context: context,
-                          fraction: 0.6,
+                           context,
+                           0.6,
                           subs: (widthOfImage! / 2) + 20),
                     )
                   : Container(),

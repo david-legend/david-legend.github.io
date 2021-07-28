@@ -40,9 +40,7 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
               Row(
                 children: <Widget>[
                   ContentWrapper(
-                    width: assignWidth(
-                      context: context,
-                      fraction: 0.2,
+                    width: assignWidth(context,  0.2,
                     ),
                     color: AppColors.primaryColor,
                     child: Container(
@@ -59,36 +57,28 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
                     ),
                   ),
                   ContentWrapper(
-                    width: assignWidth(
-                      context: context,
-                      fraction: 0.8,
+                    width: assignWidth(context,  0.8,
                     ),
                     color: AppColors.grey100,
                     child: Row(
                       children: [
                         Container(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.7,
+                          width: assignWidth(context,  0.7,
                           ),
                           padding: EdgeInsets.symmetric(
                             horizontal:
-                                assignWidth(context: context, fraction: 0.04),
+                                assignWidth(context,  0.04),
                             vertical:
-                                assignHeight(context: context, fraction: 0.04),
+                                assignHeight(context,  0.04),
                           ),
                           child: _buildAnimation(),
                         ),
                         SizedBox(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.025,
+                          width: assignWidth(context,  0.025,
                           ),
                         ),
                         TrailingInfo(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.075,
+                          width: assignWidth(context,  0.075,
                           ),
                           trailingWidget: CustomScroller(
                             onUpTap: () {
@@ -122,8 +112,8 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
       children: [
         Wrap(
           direction: Axis.horizontal,
-          spacing: assignWidth(context: context, fraction: 0.0099),
-          runSpacing: assignHeight(context: context, fraction: 0.02),
+          spacing: assignWidth(context,  0.0099),
+          runSpacing: assignHeight(context,  0.02),
           children: _certificateList(Data.certificationData),
         ),
       ],
@@ -169,16 +159,12 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
             subtitle: certificationData[i].awardedBy,
             actionTitle: StringConst.VIEW,
             height: isDisplaySmallDesktopOrIpadPro(context)
-                ? assignHeight(context: context, fraction: 0.3)
-                : assignHeight(context: context, fraction: 0.45),
+                ? assignHeight(context,  0.3)
+                : assignHeight(context,  0.45),
             width: isDisplaySmallDesktopOrIpadPro(context)
-                ? assignWidth(
-                    context: context,
-                    fraction: 0.3,
+                ? assignWidth(context,  0.3,
                   )
-                : assignWidth(
-                    context: context,
-                    fraction: certificationData[i].imageSize,
+                : assignWidth(context,  certificationData[i].imageSize,
                   ),
           ),
         ),

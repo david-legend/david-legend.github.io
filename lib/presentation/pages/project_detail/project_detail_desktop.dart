@@ -162,8 +162,8 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                 children: <Widget>[
                   ContentWrapper(
                     width: assignWidth(
-                      context: context,
-                      fraction: 0.2,
+                      context,
+                       0.2,
                     ),
                     color: AppColors.primaryColor,
                     child: Container(
@@ -179,36 +179,28 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                     ),
                   ),
                   ContentWrapper(
-                    width: assignWidth(
-                      context: context,
-                      fraction: 0.8,
+                    width: assignWidth(context,  0.8,
                     ),
                     color: AppColors.grey100,
                     child: Row(
                       children: [
                         Container(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.7,
+                          width: assignWidth(context,  0.7,
                           ),
                           padding: EdgeInsets.symmetric(
                             horizontal:
-                                assignWidth(context: context, fraction: 0.04),
+                                assignWidth(context,  0.04),
                             vertical:
-                                assignHeight(context: context, fraction: 0.04),
+                                assignHeight(context,  0.04),
                           ),
                           child: _buildProjectDetailContent(),
                         ),
                         SizedBox(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.025,
+                          width: assignWidth(context,  0.025,
                           ),
                         ),
                         TrailingInfo(
-                          width: assignWidth(
-                            context: context,
-                            fraction: 0.075,
+                          width: assignWidth(context,  0.075,
                           ),
                         ),
                       ],
@@ -238,7 +230,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
     return Row(
       children: [
         ProjectCover2(
-          width: assignWidth(context: context, fraction: 0.30),
+          width: assignWidth(context,  0.30),
           height: heightOfScreen(context),
           offset: offset,
           projectCoverScale: _projectCoverScaleAnimation.value,
@@ -247,10 +239,10 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
           projectCoverUrl: widget.projectDetails!.projectImage,
         ),
         SizedBox(
-          width: assignWidth(context: context, fraction: 0.03),
+          width: assignWidth(context,  0.03),
         ),
         Container(
-          width: assignWidth(context: context, fraction: 0.29),
+          width: assignWidth(context,  0.29),
           padding: EdgeInsets.only(top: offset),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

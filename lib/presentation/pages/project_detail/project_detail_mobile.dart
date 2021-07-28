@@ -197,7 +197,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
       children: [
         ProjectCover(
           width: widthOfScreen(context),
-          height: assignHeight(context: context, fraction: 0.4),
+          height: assignHeight(context,  0.4),
           offset: 20,
           projectCoverScale: _projectCoverScaleAnimation.value,
           backgroundScale: _projectBackgroundScaleAnimation.value,

@@ -36,7 +36,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                 Row(
                   children: [
                     ContentWrapper(
-                      width: assignWidth(context: context, fraction: 0.8),
+                      width: assignWidth(context,  0.8),
                       color: AppColors.primaryColor,
 //                        gradient: Gradients.primaryGradient,
                       child: Container(
@@ -44,9 +44,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              height: assignHeight(
-                                context: context,
-                                fraction: 0.2,
+                              height: assignHeight(context,  0.2,
                               ),
                             ),
                             Container(
@@ -108,9 +106,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                               ),
                             ),
                             SizedBox(
-                              height: assignHeight(
-                                context: context,
-                                fraction: 0.05,
+                              height: assignHeight(context,  0.05,
                               ),
                             ),
                           ],
@@ -118,7 +114,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                       ),
                     ),
                     ContentWrapper(
-                      width: assignWidth(context: context, fraction: 0.2),
+                      width: assignWidth(context,  0.2),
                       color: AppColors.secondaryColor,
                       child: Container(),
                     ),
@@ -178,11 +174,11 @@ class _HomePageMobileState extends State<HomePageMobile> {
   Widget _buildDevImage() {
     return Positioned(
       top: 56,
-      right: -assignWidth(context: context, fraction: 0.42),
+      right: -assignWidth(context,  0.42),
       child: Container(
         child: Image.asset(
           ImagePath.DEV,
-          height: assignHeight(context: context, fraction: 1),
+          height: assignHeight(context,  1),
           fit: BoxFit.cover,
         ),
       ),

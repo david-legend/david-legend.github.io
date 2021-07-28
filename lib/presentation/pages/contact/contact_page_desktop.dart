@@ -49,7 +49,7 @@
 //                  Row(
 //                    children: <Widget>[
 //                      ContentWrapper(
-//                        width: assignWidth(context: context, fraction: 0.20),
+//                        width: assignWidth(context,  0.20),
 //                        color: AppColors.primaryColor,
 //                        child: Container(
 //                          margin: EdgeInsets.only(
@@ -64,7 +64,7 @@
 //                        ),
 //                      ),
 //                      ContentWrapper(
-//                        width: assignWidth(context: context, fraction: 0.8),
+//                        width: assignWidth(context,  0.8),
 //                        color: AppColors.secondaryColor,
 //                        child: Row(
 //                          children: [
@@ -76,7 +76,7 @@
 //                            ),
 //                            Container(
 //                              width:
-//                                  assignWidth(context: context, fraction: 0.4),
+//                                  assignWidth(context,  0.4),
 //                              child: contactInfo(),
 //                            ),
 //                            SizedBox(

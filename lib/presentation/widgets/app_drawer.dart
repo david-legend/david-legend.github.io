@@ -31,9 +31,7 @@ class AppDrawer extends StatelessWidget {
     return Container(
       color: color,
       width: width ??
-          assignWidth(
-            context: context,
-            fraction: 0.65,
+          assignWidth(context,  0.65,
           ), //widthOfScreen(context),
       child: Drawer(
         child: Column(

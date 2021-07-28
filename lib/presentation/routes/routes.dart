@@ -1,3 +1,4 @@
+import 'package:aerium/presentation/pages/loading_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/presentation/pages/about/about_page.dart';
@@ -36,6 +37,7 @@ class RouteConfiguration {
   /// will be returned. This means that the paths higher up in the list will
   /// take priority.
   static List<Path> paths = [
+   
     Path(
       r'^' + AboutPage.aboutPageRoute,
       (context, matches) => const AboutPage(),
@@ -63,6 +65,10 @@ class RouteConfiguration {
     Path(
       r'^' + HomePage.homePageRoute,
       (context, matches) => const HomePage(),
+    ),
+     Path(
+      r'^' + LoadingPage.loadingPageRoute,
+      (context, matches) =>  LoadingPage(),
     ),
   ];
 

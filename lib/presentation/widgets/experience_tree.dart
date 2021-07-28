@@ -102,8 +102,8 @@ class ExperienceTree extends StatelessWidget {
           duration: experienceData[index].duration,
           width: widthOfTree,
           height: isDisplaySmallDesktop(context)
-              ? assignHeight(context: context, fraction: 0.45)
-              : assignHeight(context: context, fraction: 0.35),
+              ? assignHeight(context,  0.45)
+              : assignHeight(context,  0.35),
         ),
       );
     }
@@ -259,12 +259,12 @@ class LocationDateLeaf extends StatelessWidget {
                     theme.textTheme.bodyText2!.copyWith(color: AppColors.black),
               ),
               SpaceW4(),
-              Icon(
+              durationIcon ??
+                  Icon(
                     Icons.access_time,
                     color: AppColors.accentColor2,
                     size: 18,
-                  ) ??
-                  durationIcon!,
+                  ),
             ],
           ),
           SpaceH8(),
@@ -277,12 +277,12 @@ class LocationDateLeaf extends StatelessWidget {
                     theme.textTheme.bodyText2!.copyWith(color: AppColors.black),
               ),
               SpaceW4(),
-              Icon(
+              locationIcon ??
+                  Icon(
                     Icons.location_on,
                     color: AppColors.accentColor2,
                     size: 18,
-                  ) ??
-                  locationIcon!,
+                  ),
             ],
           )
         ],

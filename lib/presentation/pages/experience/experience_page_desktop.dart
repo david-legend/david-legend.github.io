@@ -25,8 +25,8 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
             children: <Widget>[
               ContentWrapper(
                 width: assignWidth(
-                  context: context,
-                  fraction: 0.2,
+                   context,
+                   0.2,
                 ),
                 color: AppColors.primaryColor,
 //                gradient: Gradients.primaryGradient,
@@ -44,35 +44,35 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
               ),
               ContentWrapper(
                 width: assignWidth(
-                  context: context,
-                  fraction: 0.8,
+                   context,
+                   0.8,
                 ),
                 color: AppColors.secondaryColor,
                 child: Row(
                   children: [
                     Container(
                       width: assignWidth(
-                        context: context,
-                        fraction: 0.7,
+                         context,
+                         0.7,
                       ),
                       padding: EdgeInsets.symmetric(
                         horizontal:
-                            assignWidth(context: context, fraction: 0.04),
+                            assignWidth(context,  0.04),
                         vertical:
-                            assignHeight(context: context, fraction: 0.04),
+                            assignHeight(context,  0.04),
                       ),
                       child: _buildExperience(),
                     ),
                     SizedBox(
                       width: assignWidth(
-                        context: context,
-                        fraction: 0.025,
+                         context,
+                         0.025,
                       ),
                     ),
                     TrailingInfo(
                       width: assignWidth(
-                        context: context,
-                        fraction: 0.075,
+                         context,
+                         0.075,
                       ),
                       trailingWidget: CustomScroller(
                         onUpTap: () {
@@ -99,7 +99,7 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
       tailTitle: StringConst.STARTED_MONTH_YEAR,
       experienceData: Data.experienceData,
       scrollController: _scrollController,
-      widthOfTree: assignWidth(context: context, fraction: 0.62),
+      widthOfTree: assignWidth(context,  0.62),
     );
   }
 

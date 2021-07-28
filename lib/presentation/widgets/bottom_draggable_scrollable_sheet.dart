@@ -134,7 +134,7 @@ class _BottomDraggableScrollableSheetState
     for (var index = 0; index < skills.length; index++) {
       skillWidgets.add(
         SkillLevel(
-          width: assignWidth(context: context, fraction: 0.4),
+          width: assignWidth(context,  0.4),
           skillLevel: skills[index].skillLevel,
           skillName: skills[index].skillName,
           progressColor: AppColors.secondaryColor,

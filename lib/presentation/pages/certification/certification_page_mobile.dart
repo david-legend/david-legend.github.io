@@ -92,7 +92,7 @@ class _CertificationPageMobileState extends State<CertificationPageMobile>
                 title: Data.certificationData[index].title,
                 subtitle: Data.certificationData[index].awardedBy,
                 actionTitle: StringConst.VIEW,
-                height: assignHeight(context: context, fraction: 0.35),
+                height: assignHeight(context,  0.35),
                 width: widthOfScreen(context),
               ),
               builder: (BuildContext context, Widget? child) {

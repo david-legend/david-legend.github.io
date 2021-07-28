@@ -22,7 +22,9 @@ class AppColors {
 //  static const Color accentColor2 = Color(0xFF000000);
 
   static const Color black = Color(0xFF000000);
+
   static const Color white = Color(0xFFFFFFFF);
+  
   static const Color grey = Color(0xFFD8D9DA);
   static const Color grey100 = Color(0xFFEBEBEB);
   static const Color grey200 = Color(0xFFE3E3E3);
@@ -47,6 +49,7 @@ class AppColors {
   static const Color deepBlue700 = Color(0xFF141A21);
   static const Color deepBlue800 = Color(0xFF242D36);
   static const Color deepBlue900 = Color(0xFF020A13);
+
 
   static const Color bodyText1 = Color(0xFF8393A1);
 

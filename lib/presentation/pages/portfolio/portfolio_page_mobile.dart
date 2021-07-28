@@ -91,7 +91,7 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
                 title: Data.portfolioData[index].title,
                 subtitle: Data.portfolioData[index].subtitle,
                 actionTitle: StringConst.VIEW,
-                height: assignHeight(context: context, fraction: 0.35),
+                height: assignHeight(context,  0.35),
                 width: widthOfScreen(context),
                 onTap: () {
                   _navigateToProjectDetail(
