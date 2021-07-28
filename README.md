@@ -1,9 +1,10 @@
 <h1 align="center">
-  <a href="http://davidcobbina.com" target="_blank">davidcobbina.com</a>
+  <a href=" https://david-legend.github.io/aerium-v2/" target="_blank"> david-legend.github.io/aerium-v2/</a>
 </h1>
 
 <p align="center">
-    This is Aerium, a beautifully designed portfolio website built with <strong>flutter</strong>.
+    This is the version 2 Aerium, a beautifully designed portfolio website built with <strong>flutter</strong>.
+    In this v2, I will use fluuter 2 and also port it to support null safety. I will also focus on changing some parts of the design, introduce new animations and finally make it more responsiveness. Enjoy & let me know what you think !!
 </p>
 <p align="center">
     It is inspired by <a href="https://www.behance.net/gallery/68081313/Portfolio-Design-Concept?tracking_source=search_projects_recommended%7Cportfolio" target="_blank">Pavel G's Designs on Behance</a>
