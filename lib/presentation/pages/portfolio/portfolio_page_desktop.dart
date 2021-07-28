@@ -18,12 +18,12 @@ class PortfolioPageDesktop extends StatefulWidget {
 class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     with TickerProviderStateMixin {
   ScrollController _scrollController = ScrollController();
-  AnimationController _controller;
-  AnimationController _portfolioController;
-  Animation<double> widthOfRightContentWrapperAnimation;
-  Animation<double> opacityAnimation;
-  Animation<double> widthOfLeftContentWrapperAnimation;
-  Animation<double> widthOfPortfolioAnimation;
+  late AnimationController _controller;
+  late AnimationController _portfolioController;
+  late Animation<double> widthOfRightContentWrapperAnimation;
+  Animation<double>? opacityAnimation;
+  late Animation<double> widthOfLeftContentWrapperAnimation;
+  late Animation<double> widthOfPortfolioAnimation;
   bool _isPortfolioVisible = false;
 
   @override
@@ -44,7 +44,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
         setState(() {
           _isPortfolioVisible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance!.addPersistentFrameCallback((_) {
           _playPortfolioAnimation();
         });
       }
@@ -130,7 +130,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     }
   }
 
-  Widget _buildAnimation(BuildContext context, Widget child) {
+  Widget _buildAnimation(BuildContext context, Widget? child) {
 //    double widthOfImage = assignWidth(context: context, fraction: 0.4);
 //    double heightOfImage = assignHeight(context: context, fraction: 1);
     return Stack(
@@ -255,9 +255,9 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   List<Widget> _portfolioItem(List<PortfolioData> portfolioData) {
     List<Widget> widgets = [];
     double duration =
-        _portfolioController.duration.inMilliseconds.roundToDouble();
+        _portfolioController.duration!.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
-        _portfolioController.duration.inMilliseconds.roundToDouble() /
+        _portfolioController.duration!.inMilliseconds.roundToDouble() /
             portfolioData.length;
     for (var i = 0; i < portfolioData.length; i++) {
 //      print("duration $duration");
@@ -330,7 +330,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   }
 
   void _navigateToProjectDetail({
-    @required ProjectDetails projectDetails,
+    required ProjectDetails projectDetails,
   }) {
     Navigator.push(
       context,

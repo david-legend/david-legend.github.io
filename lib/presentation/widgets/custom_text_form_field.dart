@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  final TextEditingController controller;
-  final TextStyle textFormFieldStyle;
-  final TextStyle hintTextStyle;
-  final TextStyle fieldTitleTextStyle;
+  final TextEditingController? controller;
+  final TextStyle? textFormFieldStyle;
+  final TextStyle? hintTextStyle;
+  final TextStyle? fieldTitleTextStyle;
   final BorderStyle borderStyle;
   final double borderRadius;
   final double borderWidth;
   final double contentPaddingHorizontal;
   final double contentPaddingVertical;
-  final String hintText;
-  final String fieldTitle;
+  final String? hintText;
+  final String? fieldTitle;
   final Color fillColor;
   final bool filled;
   final bool obscured;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
   final TextInputType textInputType;
-  final FormFieldValidator<String> validator;
+  final FormFieldValidator<String>? validator;
   final int maxLines;
   final InputBorder border;
   final InputBorder enabledBorder;
@@ -55,7 +55,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         style: textFormFieldStyle ??
-            theme.textTheme.subtitle1.copyWith(color: AppColors.primaryColor),
+            theme.textTheme.subtitle1!.copyWith(color: AppColors.primaryColor),
         validator: validator,
         onTap: onTap,
         autovalidate: true,

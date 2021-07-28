@@ -16,10 +16,10 @@ import 'package:aerium/values/values.dart';
 
 class ProjectDetailMobile extends StatefulWidget {
   ProjectDetailMobile({
-    @required this.projectDetails,
+    required this.projectDetails,
   });
 
-  final ProjectDetails projectDetails;
+  final ProjectDetails? projectDetails;
 
   @override
   _ProjectDetailMobileState createState() => _ProjectDetailMobileState();
@@ -28,12 +28,12 @@ class ProjectDetailMobile extends StatefulWidget {
 class _ProjectDetailMobileState extends State<ProjectDetailMobile>
     with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  AnimationController _controller;
-  AnimationController _flickerAnimationController;
-  AnimationController _contentAnimationController;
-  Animation<double> _projectCoverScaleAnimation;
-  Animation<double> _projectBackgroundScaleAnimation;
-  Animation<double> _projectContentAnimation;
+  late AnimationController _controller;
+  late AnimationController _flickerAnimationController;
+  late AnimationController _contentAnimationController;
+  late Animation<double> _projectCoverScaleAnimation;
+  late Animation<double> _projectBackgroundScaleAnimation;
+  late Animation<double> _projectContentAnimation;
   bool _isHeadingVisible = false;
   bool _isContentVisible = false;
 
@@ -58,7 +58,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
         setState(() {
           _isHeadingVisible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playFlickerAnimation();
         });
       }
@@ -68,7 +68,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
         setState(() {
           _isContentVisible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playProjectContentAnimation();
         });
       }
@@ -159,17 +159,17 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
-          title: widget.projectDetails.projectName,
+          title: widget.projectDetails!.projectName,
           actionIcon: Icon(
             Icons.arrow_back_ios,
             color: AppColors.accentColor2,
             size: Sizes.ICON_SIZE_20,
           ),
           onLeadingPressed: () {
-            if (_scaffoldKey.currentState.isEndDrawerOpen) {
-              _scaffoldKey.currentState.openEndDrawer();
+            if (_scaffoldKey.currentState!.isEndDrawerOpen) {
+              _scaffoldKey.currentState!.openEndDrawer();
             } else {
-              _scaffoldKey.currentState.openDrawer();
+              _scaffoldKey.currentState!.openDrawer();
             }
           },
           onActionsPressed: () {
@@ -187,7 +187,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
     );
   }
 
-  Widget _buildPage(BuildContext context, Widget child) {
+  Widget _buildPage(BuildContext context, Widget? child) {
     ThemeData theme = Theme.of(context);
     return ListView(
       padding: const EdgeInsets.symmetric(
@@ -202,12 +202,12 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
           projectCoverScale: _projectCoverScaleAnimation.value,
           backgroundScale: _projectBackgroundScaleAnimation.value,
           projectCoverBackgroundColor: AppColors.primaryColor,
-          projectCoverUrl: widget.projectDetails.projectImage,
+          projectCoverUrl: widget.projectDetails!.projectImage,
         ),
         SpaceH12(),
         _isHeadingVisible
             ? FlickerTextAnimation(
-                text: widget.projectDetails.projectName,
+                text: widget.projectDetails!.projectName,
                 textColor: AppColors.primaryColor,
                 fadeInColor: AppColors.primaryColor,
                 fontSize: Sizes.TEXT_SIZE_34,
@@ -222,8 +222,8 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.projectDetails.projectDescription,
-                      style: theme.textTheme.bodyText1.copyWith(
+                      widget.projectDetails!.projectDescription,
+                      style: theme.textTheme.bodyText1!.copyWith(
                         color: AppColors.primaryColor,
                         fontSize: Sizes.TEXT_SIZE_16,
                       ),
@@ -231,43 +231,43 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                     SpaceH8(),
                     Text(
                       StringConst.BUILT_WITH +
-                          widget.projectDetails.technologyUsed,
-                      style: theme.textTheme.headline6.copyWith(
+                          widget.projectDetails!.technologyUsed!,
+                      style: theme.textTheme.headline6!.copyWith(
                         color: AppColors.primaryColor,
                         fontSize: Sizes.TEXT_SIZE_14,
                       ),
                     ),
                     SpaceH8(),
-                    !widget.projectDetails.hasBeenReleased
+                    !widget.projectDetails!.hasBeenReleased!
                         ? Text(
                             StringConst.COMING_SOON,
-                            style: theme.textTheme.headline6.copyWith(
+                            style: theme.textTheme.headline6!.copyWith(
                               color: AppColors.primaryColor,
                               fontSize: Sizes.TEXT_SIZE_16,
                             ),
                           )
                         : Container(),
-                    !widget.projectDetails.hasBeenReleased
+                    !widget.projectDetails!.hasBeenReleased!
                         ? SpaceH8()
                         : Container(),
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        widget.projectDetails.isPublic
+                        widget.projectDetails!.isPublic
                             ? SocialButton(
                                 icon: FontAwesomeIcons.github,
                                 onPressed: () {
                                   Functions.launchUrl(
-                                      widget.projectDetails.gitHubUrl);
+                                      widget.projectDetails!.gitHubUrl!);
                                 },
                               )
                             : Emptiness(),
-                        widget.projectDetails.isOnPlayStore
+                        widget.projectDetails!.isOnPlayStore
                             ? InkWell(
                                 onTap: () {
                                   Functions.launchUrl(
-                                    widget.projectDetails.playStoreUrl,
+                                    widget.projectDetails!.playStoreUrl!,
                                   );
                                 },
                                 child: Padding(
@@ -281,13 +281,13 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                                 ),
                               )
                             : Emptiness(),
-                        widget.projectDetails.isLive
+                        widget.projectDetails!.isLive!
                             ? SocialButton(
                                 //web
                                 icon: FeatherIcons.globe,
                                 onPressed: () {
                                   Functions.launchUrl(
-                                    widget.projectDetails.webUrl,
+                                    widget.projectDetails!.webUrl!,
                                   );
                                 },
                               )

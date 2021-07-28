@@ -9,7 +9,7 @@ class PortfolioPage extends StatelessWidget {
   static const String portfolioPageRoute = StringConst.PORTFOLIO_PAGE;
 
   const PortfolioPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

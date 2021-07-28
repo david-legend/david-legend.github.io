@@ -5,8 +5,8 @@ import 'package:aerium/values/values.dart';
 
 class SkillLevel extends StatelessWidget {
   SkillLevel({
-    @required this.skillLevel,
-    @required this.skillName,
+    required this.skillLevel,
+    required this.skillName,
     this.width,
     this.circleWidth = Sizes.WIDTH_60,
     this.circleHeight = Sizes.HEIGHT_60,
@@ -19,11 +19,11 @@ class SkillLevel extends StatelessWidget {
 
   final double skillLevel;
   final String skillName;
-  final double width;
+  final double? width;
   final double circleWidth;
   final double circleHeight;
-  final TextStyle textStyle;
-  final TextStyle skillNameTextStyle;
+  final TextStyle? textStyle;
+  final TextStyle? skillNameTextStyle;
   final Duration duration;
   final Color progressColor;
   final Color baseColor;
@@ -47,7 +47,7 @@ class SkillLevel extends StatelessWidget {
                 child: Text(
                   actualSkillLevel.toString(),
                   style: textStyle ??
-                      theme.textTheme.subtitle1.copyWith(
+                      theme.textTheme.subtitle1!.copyWith(
                         color: AppColors.accentColor2,
                       ),
                 ),
@@ -56,7 +56,7 @@ class SkillLevel extends StatelessWidget {
             builder: (
               BuildContext context,
               double value,
-              Widget child,
+              Widget? child,
             ) {
               return CustomPaint(
                 foregroundPainter: SkillProgressPainter(
@@ -77,7 +77,7 @@ class SkillLevel extends StatelessWidget {
             child: Text(
               skillName,
               style: skillNameTextStyle ??
-                  theme.textTheme.subtitle1.copyWith(
+                  theme.textTheme.subtitle1!.copyWith(
                     color: AppColors.accentColor2,
                   ),
             ),

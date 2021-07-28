@@ -24,18 +24,18 @@ class PortfolioCard extends StatefulWidget {
 
   final double width;
   final double height;
-  final String imageUrl;
-  final double elevation;
-  final Shadow shadow;
-  final String title;
-  final String subtitle;
-  final String actionTitle;
+  final String? imageUrl;
+  final double? elevation;
+  final Shadow? shadow;
+  final String? title;
+  final String? subtitle;
+  final String? actionTitle;
   final Color hoverColor;
-  final TextStyle titleTextStyle;
-  final TextStyle subtitleTextStyle;
-  final TextStyle actionTitleTextStyle;
+  final TextStyle? titleTextStyle;
+  final TextStyle? subtitleTextStyle;
+  final TextStyle? actionTitleTextStyle;
   final int duration;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   _PortfolioCardState createState() => _PortfolioCardState();
@@ -43,8 +43,8 @@ class PortfolioCard extends StatefulWidget {
 
 class _PortfolioCardState extends State<PortfolioCard>
     with TickerProviderStateMixin {
-  AnimationController _portfolioCoverController;
-  Animation<double> _opacityAnimation;
+  late AnimationController _portfolioCoverController;
+  late Animation<double> _opacityAnimation;
   final int duration = 400;
   bool _hovering = false;
 
@@ -103,7 +103,7 @@ class _PortfolioCardState extends State<PortfolioCard>
           child: Stack(
             children: [
               Image.asset(
-                widget.imageUrl,
+                widget.imageUrl!,
                 width: widget.width,
                 height: widget.height,
                 fit: BoxFit.cover,
@@ -119,27 +119,27 @@ class _PortfolioCardState extends State<PortfolioCard>
                           children: [
                             Spacer(flex: 1),
                             Text(
-                              widget.title,
+                              widget.title!,
                               textAlign: TextAlign.center,
                               style: widget.titleTextStyle ??
-                                  theme.textTheme.headline4.copyWith(
+                                  theme.textTheme.headline4!.copyWith(
                                     color: AppColors.secondaryColor,
                                   ),
                             ),
                             SpaceH4(),
                             Text(
-                              widget.subtitle,
+                              widget.subtitle!,
                               textAlign: TextAlign.center,
                               style: widget.subtitleTextStyle ??
-                                  theme.textTheme.bodyText1.copyWith(
+                                  theme.textTheme.bodyText1!.copyWith(
                                       color: AppColors.secondaryColor,
                                       fontSize: Sizes.TEXT_SIZE_16),
                             ),
                             SpaceH16(),
                             Text(
-                              widget.actionTitleTextStyle ?? widget.actionTitle,
+                              widget.actionTitleTextStyle as String? ?? widget.actionTitle!,
                               textAlign: TextAlign.center,
-                              style: theme.textTheme.subtitle1
+                              style: theme.textTheme.subtitle1!
                                   .copyWith(color: AppColors.secondaryColor),
                             ),
                             SpaceH4(),

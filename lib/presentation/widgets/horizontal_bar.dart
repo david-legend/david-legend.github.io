@@ -12,7 +12,7 @@ class HorizontalBar extends StatelessWidget {
   final double width;
   final double height;
   final Color color;
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {

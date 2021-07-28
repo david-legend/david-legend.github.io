@@ -18,7 +18,7 @@ class PortfolioPageMobile extends StatefulWidget {
 class _PortfolioPageMobileState extends State<PortfolioPageMobile>
     with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  AnimationController _portfolioController;
+  late AnimationController _portfolioController;
 
   @override
   void initState() {
@@ -47,9 +47,9 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
   @override
   Widget build(BuildContext context) {
     double duration =
-        _portfolioController.duration.inMilliseconds.roundToDouble();
+        _portfolioController.duration!.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
-        _portfolioController.duration.inMilliseconds.roundToDouble() /
+        _portfolioController.duration!.inMilliseconds.roundToDouble() /
             Data.portfolioData.length;
 
     return Scaffold(
@@ -59,10 +59,10 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
         child: CustomAppBar(
           title: StringConst.PORTFOLIO,
           onLeadingPressed: () {
-            if (_scaffoldKey.currentState.isEndDrawerOpen) {
-              _scaffoldKey.currentState.openEndDrawer();
+            if (_scaffoldKey.currentState!.isEndDrawerOpen) {
+              _scaffoldKey.currentState!.openEndDrawer();
             } else {
-              _scaffoldKey.currentState.openDrawer();
+              _scaffoldKey.currentState!.openDrawer();
             }
           },
         ),
@@ -113,7 +113,7 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
                   );
                 },
               ),
-              builder: (BuildContext context, Widget child) {
+              builder: (BuildContext context, Widget? child) {
                 return FadeTransition(
                   opacity: Tween<double>(
                     begin: 0,
@@ -139,7 +139,7 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
   }
 
   void _navigateToProjectDetail({
-    @required ProjectDetails projectDetails,
+    required ProjectDetails projectDetails,
   }) {
     Navigator.push(
       context,

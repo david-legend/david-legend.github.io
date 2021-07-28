@@ -9,7 +9,7 @@ class ExperiencePage extends StatelessWidget {
   static const String experiencePageRoute = StringConst.EXPERIENCE_PAGE;
 
   const ExperiencePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

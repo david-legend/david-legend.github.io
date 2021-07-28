@@ -33,10 +33,10 @@ class _BottomDraggableScrollableSheetState
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    TextStyle selectedItem = theme.textTheme.bodyText1.copyWith(
+    TextStyle selectedItem = theme.textTheme.bodyText1!.copyWith(
       color: AppColors.secondaryColor,
     );
-    TextStyle unselectedItem = theme.textTheme.bodyText1.copyWith(
+    TextStyle unselectedItem = theme.textTheme.bodyText1!.copyWith(
       color: AppColors.deepBlue200,
     );
     return DraggableScrollableSheet(
@@ -104,7 +104,7 @@ class _BottomDraggableScrollableSheetState
                       isEducationSelected
                           ? Text(
                               StringConst.ABOUT_DEV_TEXT,
-                              style: theme.textTheme.bodyText2.copyWith(
+                              style: theme.textTheme.bodyText2!.copyWith(
                                 color: AppColors.secondaryColor,
                                 fontSize: Sizes.TEXT_SIZE_16,
                               ),
@@ -128,7 +128,7 @@ class _BottomDraggableScrollableSheetState
     });
   }
 
-  Widget _buildSkillsSection({@required List<SkillData> skills}) {
+  Widget _buildSkillsSection({required List<SkillData> skills}) {
     List<Widget> skillWidgets = [];
     ThemeData theme = Theme.of(context);
     for (var index = 0; index < skills.length; index++) {
@@ -139,9 +139,9 @@ class _BottomDraggableScrollableSheetState
           skillName: skills[index].skillName,
           progressColor: AppColors.secondaryColor,
           baseColor: AppColors.deepBlue200,
-          textStyle: theme.textTheme.bodyText1
+          textStyle: theme.textTheme.bodyText1!
               .copyWith(color: AppColors.secondaryColor),
-          skillNameTextStyle: theme.textTheme.bodyText1
+          skillNameTextStyle: theme.textTheme.bodyText1!
               .copyWith(color: AppColors.secondaryColor),
         ),
       );

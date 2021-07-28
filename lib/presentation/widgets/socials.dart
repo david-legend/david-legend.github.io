@@ -19,15 +19,15 @@ class Socials extends StatelessWidget {
   final bool isHorizontal;
   final Color color;
   final Color barColor;
-  final Alignment alignment;
-  final CrossAxisAlignment crossAxisAlignment;
+  final Alignment? alignment;
+  final CrossAxisAlignment? crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return isVertical
         ? Container(
             child: Column(
-              crossAxisAlignment: crossAxisAlignment,
+              crossAxisAlignment: crossAxisAlignment!,
               children: [
                 SocialButton(
                   icon: FontAwesomeIcons.github,
@@ -147,18 +147,18 @@ class SocialButton extends StatelessWidget {
   });
 
   final EdgeInsetsGeometry padding;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color color;
   final IconData icon;
   final double iconSize;
-  final Alignment alignment;
+  final Alignment? alignment;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       padding: padding,
       onPressed: onPressed,
-      alignment: alignment,
+      alignment: alignment!,
       icon: Icon(
         icon,
         color: color,

@@ -10,10 +10,10 @@ class ProjectDetailPage extends StatelessWidget {
 
   const ProjectDetailPage({
     this.projectDetails,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final ProjectDetails projectDetails;
+  final ProjectDetails? projectDetails;
 
   @override
   Widget build(BuildContext context) {

@@ -11,10 +11,10 @@ class CircularContainer extends StatelessWidget {
   });
 
   final Color color;
-  final Widget child;
+  final Widget? child;
   final double width;
   final double height;
-  final BorderRadiusGeometry borderRadius;
+  final BorderRadiusGeometry? borderRadius;
 
   @override
   Widget build(BuildContext context) {

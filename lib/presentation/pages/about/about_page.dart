@@ -9,7 +9,7 @@ class AboutPage extends StatelessWidget {
   static const String aboutPageRoute = StringConst.ABOUT_PAGE;
 
   const AboutPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

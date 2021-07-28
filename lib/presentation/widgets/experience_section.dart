@@ -5,11 +5,11 @@ import 'package:aerium/values/values.dart';
 
 class ExperienceSection extends StatelessWidget {
   ExperienceSection({
-    @required this.duration,
-    @required this.position,
-    @required this.company,
-    @required this.location,
-    @required this.roles,
+    required this.duration,
+    required this.position,
+    required this.company,
+    required this.location,
+    required this.roles,
     this.companyUrl,
     this.roleTextStyle,
     this.companyTextStyle,
@@ -21,16 +21,16 @@ class ExperienceSection extends StatelessWidget {
 
   final String duration;
   final String position;
-  final String company;
-  final String companyUrl;
+  final String? company;
+  final String? companyUrl;
   final String location;
   final List<String> roles;
-  final GestureTapCallback onTap;
-  final TextStyle roleTextStyle;
-  final TextStyle locationTextStyle;
-  final TextStyle companyTextStyle;
-  final TextStyle positionTextStyle;
-  final TextStyle durationTextStyle;
+  final GestureTapCallback? onTap;
+  final TextStyle? roleTextStyle;
+  final TextStyle? locationTextStyle;
+  final TextStyle? companyTextStyle;
+  final TextStyle? positionTextStyle;
+  final TextStyle? durationTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +43,17 @@ class ExperienceSection extends StatelessWidget {
               Text(
                 position,
                 style: positionTextStyle ??
-                    theme.textTheme.headline6.copyWith(
+                    theme.textTheme.headline6!.copyWith(
                       color: AppColors.complimentColor2,
                     ),
               ),
               SpaceW4(),
               InkWell(
-                onTap: onTap ?? () => Functions.launchUrl(companyUrl),
+                onTap: onTap ?? (() => Functions.launchUrl(companyUrl!)),
                 child: Text(
-                  '@' + company,
+                  '@' + company!,
                   style: companyTextStyle ??
-                      theme.textTheme.headline6.copyWith(
+                      theme.textTheme.headline6!.copyWith(
                         color: AppColors.complimentColor1,
                       ),
                 ),
@@ -63,7 +63,7 @@ class ExperienceSection extends StatelessWidget {
           Text(
             location,
             style: locationTextStyle ??
-                theme.textTheme.bodyText1.copyWith(
+                theme.textTheme.bodyText1!.copyWith(
                   fontSize: Sizes.TEXT_SIZE_16,
                   color: AppColors.accentColor,
                 ),
@@ -72,7 +72,7 @@ class ExperienceSection extends StatelessWidget {
           Text(
             duration,
             style: durationTextStyle ??
-                theme.textTheme.bodyText1.copyWith(
+                theme.textTheme.bodyText1!.copyWith(
                   fontSize: Sizes.TEXT_SIZE_16,
                   color: AppColors.accentColor,
                 ),
@@ -97,7 +97,7 @@ class ExperienceSection extends StatelessWidget {
 
 class Role extends StatelessWidget {
   Role({
-    @required this.role,
+    required this.role,
     this.roleTextStyle,
     this.icon = Icons.arrow_right,
     this.iconSize = Sizes.ICON_SIZE_18,
@@ -105,7 +105,7 @@ class Role extends StatelessWidget {
   });
 
   final String role;
-  final TextStyle roleTextStyle;
+  final TextStyle? roleTextStyle;
   final IconData icon;
   final Color color;
   final double iconSize;
@@ -125,7 +125,7 @@ class Role extends StatelessWidget {
           child: Text(
             role,
             style: roleTextStyle ??
-                theme.textTheme.bodyText1.copyWith(
+                theme.textTheme.bodyText1!.copyWith(
                   color: AppColors.accentColor3,
                 ),
           ),

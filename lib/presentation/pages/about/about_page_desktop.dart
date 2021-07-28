@@ -17,18 +17,18 @@ class AboutPageDesktop extends StatefulWidget {
 
 class _AboutPageDesktopState extends State<AboutPageDesktop>
     with TickerProviderStateMixin {
-  double widthOfImage;
-  AnimationController _controller;
-  AnimationController _flickerAnimationController;
-  AnimationController _flickerAnimationController2;
-  AnimationController _aboutDevAnimationController;
-  Animation<double> widthOfLeftSide;
-  Animation<double> widthOfRightSide;
-  Animation<double> widthOfAboutContent;
-  Animation<double> heightPositionOfImage;
-  Animation<double> widthPositionOfImage;
-  Animation<double> aboutDevAnimation;
-  Animation<double> scale;
+  double? widthOfImage;
+  late AnimationController _controller;
+  late AnimationController _flickerAnimationController;
+  late AnimationController _flickerAnimationController2;
+  late AnimationController _aboutDevAnimationController;
+  late Animation<double> widthOfLeftSide;
+  late Animation<double> widthOfRightSide;
+  late Animation<double> widthOfAboutContent;
+  late Animation<double> heightPositionOfImage;
+  late Animation<double> widthPositionOfImage;
+  late Animation<double> aboutDevAnimation;
+  late Animation<double> scale;
   bool _isAboutContentVisible = false;
   bool _visible = false;
   bool _isSubtitleVisible = false;
@@ -60,7 +60,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         setState(() {
           _isAboutContentVisible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playFlickerAnimation();
         });
       }
@@ -71,7 +71,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         setState(() {
           _isSubtitleVisible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playFlickerAnimation2();
         });
       }
@@ -82,7 +82,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         setState(() {
           _visible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playAboutDevAnimation();
         });
       }
@@ -236,7 +236,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
     }
   }
 
-  Widget _buildAnimation(BuildContext context, Widget child) {
+  Widget _buildAnimation(BuildContext context, Widget? child) {
     double heightOfImage = assignHeight(context: context, fraction: 1);
 
     widthOfImage = isDisplaySmallDesktopOrIpadPro(context)
@@ -308,7 +308,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
           offset: Offset(
             assignWidth(
                     context: context, fraction: widthPositionOfImage.value) -
-                widthOfImage / 2,
+                widthOfImage! / 2,
             assignHeight(
                 context: context, fraction: heightPositionOfImage.value),
           ),
@@ -352,7 +352,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
       children: [
         Container(
           padding: EdgeInsets.only(
-            left: (widthOfImage / 2) + 20,
+            left: (widthOfImage! / 2) + 20,
             top: isDisplaySmallDesktopOrIpadPro(context)
                 ? assignHeight(context: context, fraction: 0.05)
                 : assignHeight(context: context, fraction: 0.12),
@@ -365,7 +365,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                 textColor: AppColors.primaryColor,
                 fadeInColor: AppColors.primaryColor,
                 controller: _flickerAnimationController.view,
-                textStyle: theme.textTheme.bodyText1.copyWith(
+                textStyle: theme.textTheme.bodyText1!.copyWith(
                   fontSize: Sizes.TEXT_SIZE_18,
                   fontWeight: FontWeight.w400,
                   color: AppColors.accentColor2,
@@ -384,7 +384,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                       textColor: AppColors.primaryColor,
                       fadeInColor: AppColors.primaryColor,
                       controller: _flickerAnimationController2.view,
-                      textStyle: theme.textTheme.subtitle1.copyWith(
+                      textStyle: theme.textTheme.subtitle1!.copyWith(
                         fontSize: Sizes.TEXT_SIZE_34,
                         color: AppColors.accentColor2,
                       ),
@@ -393,10 +393,10 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
               SpaceH16(),
               AnimatedOpacity(
                 opacity: _visible ? aboutDevAnimation.value : 0.0,
-                duration: _aboutDevAnimationController.duration,
+                duration: _aboutDevAnimationController.duration!,
                 child: Text(
                   StringConst.ABOUT_DEV_TEXT,
-                  style: theme.textTheme.bodyText2.copyWith(
+                  style: theme.textTheme.bodyText2!.copyWith(
                     color: AppColors.black,
                     fontSize: Sizes.TEXT_SIZE_16,
                   ),
@@ -409,7 +409,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                       width: assignWidth(
                           context: context,
                           fraction: 0.6,
-                          subs: (widthOfImage / 2) + 20),
+                          subs: (widthOfImage! / 2) + 20),
                     )
                   : Container(),
             ],

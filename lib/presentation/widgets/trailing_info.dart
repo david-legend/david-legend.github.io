@@ -18,16 +18,16 @@ class TrailingInfo extends StatelessWidget {
     this.crossAxisAlignment = CrossAxisAlignment.end,
   });
 
-  final Widget leadingWidget;
-  final Widget middleWidget;
-  final Widget trailingWidget;
-  final Widget spacingWidget;
-  final EdgeInsetsGeometry padding;
+  final Widget? leadingWidget;
+  final Widget? middleWidget;
+  final Widget? trailingWidget;
+  final Widget? spacingWidget;
+  final EdgeInsetsGeometry? padding;
   final String info;
-  final double width;
-  final Color color;
-  final GestureTapCallback onTrailingWidgetPressed;
-  final GestureTapCallback onLeadingWidgetPressed;
+  final double? width;
+  final Color? color;
+  final GestureTapCallback? onTrailingWidgetPressed;
+  final GestureTapCallback? onLeadingWidgetPressed;
   final CrossAxisAlignment crossAxisAlignment;
 
   @override
@@ -69,7 +69,7 @@ class TrailingInfo extends StatelessWidget {
                 child: Text(
                   info,
                   textAlign: TextAlign.end,
-                  style: theme.textTheme.bodyText1.copyWith(
+                  style: theme.textTheme.bodyText1!.copyWith(
                     color: AppColors.black,
                     fontWeight: FontWeight.w200,
                   ),

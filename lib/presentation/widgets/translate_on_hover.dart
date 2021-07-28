@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 class TranslateOnHover extends StatefulWidget {
-  final Widget child;
-  TranslateOnHover({Key key, this.child}) : super(key: key);
+  final Widget? child;
+  TranslateOnHover({Key? key, this.child}) : super(key: key);
 
   @override
   _TranslateOnHoverState createState() => _TranslateOnHoverState();

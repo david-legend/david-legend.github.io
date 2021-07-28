@@ -16,23 +16,23 @@ class CustomAppBar extends StatelessWidget {
     this.titleTextStyle,
   });
 
-  final String title;
-  final TextStyle titleTextStyle;
-  final Widget leading;
-  final VoidCallback onLeadingPressed;
-  final List<Widget> actions;
-  final VoidCallback onActionsPressed;
-  final Icon actionIcon;
-  final PreferredSizeWidget bottom;
+  final String? title;
+  final TextStyle? titleTextStyle;
+  final Widget? leading;
+  final VoidCallback? onLeadingPressed;
+  final List<Widget>? actions;
+  final VoidCallback? onActionsPressed;
+  final Icon? actionIcon;
+  final PreferredSizeWidget? bottom;
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return AppBar(
       title: Text(
-        title,
+        title!,
         style: titleTextStyle ??
-            theme.textTheme.headline6.copyWith(
+            theme.textTheme.headline6!.copyWith(
               color: AppColors.secondaryColor,
             ),
       ),

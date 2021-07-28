@@ -8,7 +8,7 @@ import 'flicker_text_animation.dart';
 
 class MenuItem extends StatefulWidget {
   MenuItem({
-    @required this.title,
+    required this.title,
     this.titleStyle,
     this.onTap,
     this.selectedStyle,
@@ -17,11 +17,11 @@ class MenuItem extends StatefulWidget {
   });
 
   final String title;
-  final TextStyle titleStyle;
-  final TextStyle selectedStyle;
+  final TextStyle? titleStyle;
+  final TextStyle? selectedStyle;
   final bool selected;
   final bool isMobile;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   _MenuItemState createState() => _MenuItemState();
@@ -29,7 +29,7 @@ class MenuItem extends StatefulWidget {
 
 class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
   bool _hovering = false;
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -92,7 +92,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
                       fadeInColor: AppColors.accentColor,
                       controller: _controller.view,
                       textStyle: !widget.selected
-                          ? theme.textTheme.bodyText1
+                          ? theme.textTheme.bodyText1!
                               .copyWith(fontSize: Sizes.TEXT_SIZE_16)
                           : null,
                     ),
@@ -108,7 +108,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
 //                      mainAxisAlignment: MainAxisAlignment.center,
                       controller: _controller.view,
                       textStyle: !widget.selected
-                          ? theme.textTheme.bodyText1.copyWith(
+                          ? theme.textTheme.bodyText1!.copyWith(
                               fontSize: Sizes.TEXT_SIZE_16,
                               color: AppColors.accentColor2,
                             )

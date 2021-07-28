@@ -4,7 +4,7 @@ import 'package:aerium/presentation/widgets/spaces.dart';
 // ignore: must_be_immutable
 class SubMenuItem extends StatelessWidget {
   SubMenuItem({
-    @required this.title,
+    required this.title,
     this.isSelected = false,
     this.textStyle,
     this.color,
@@ -12,10 +12,10 @@ class SubMenuItem extends StatelessWidget {
   });
 
   final String title;
-  bool isSelected;
-  final Color color;
-  final double thickness;
-  final TextStyle textStyle;
+  bool? isSelected;
+  final Color? color;
+  final double? thickness;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +26,17 @@ class SubMenuItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             AnimatedOpacity(
-              opacity: isSelected ? 1 : 0.0,
+              opacity: isSelected! ? 1 : 0.0,
               duration: Duration(milliseconds: 300),
               child: VerticalDivider(
                 color: color,
                 thickness: thickness,
               ),
             ),
-            isSelected ? SpaceW8() : Container(),
+            isSelected! ? SpaceW8() : Container(),
             Text(
               title,
-              style: textStyle ?? theme.textTheme.headline6.copyWith(),
+              style: textStyle ?? theme.textTheme.headline6!.copyWith(),
             )
           ],
         ),

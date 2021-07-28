@@ -8,12 +8,12 @@ import 'package:aerium/values/values.dart';
 
 class MenuList extends StatelessWidget {
   MenuList({
-    @required this.menuList,
+    required this.menuList,
     this.selectedItemRouteName,
   });
 
   final List<MenuData> menuList;
-  final String selectedItemRouteName;
+  final String? selectedItemRouteName;
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +38,13 @@ class MenuList extends StatelessWidget {
         ),
         Text(
           StringConst.DEV_NAME,
-          style: theme.textTheme.headline4.copyWith(
+          style: theme.textTheme.headline4!.copyWith(
             color: AppColors.secondaryColor,
           ),
         ),
         Text(
           StringConst.SPECIALITY,
-          style: theme.textTheme.headline6.copyWith(
+          style: theme.textTheme.headline6!.copyWith(
             color: AppColors.secondaryColor,
           ),
         ),
@@ -53,7 +53,7 @@ class MenuList extends StatelessWidget {
           children: [
             Text(
               StringConst.DESIGNED_IN,
-              style: theme.textTheme.bodyText1.copyWith(
+              style: theme.textTheme.bodyText1!.copyWith(
                 color: AppColors.secondaryColor,
                 fontSize: Sizes.TEXT_SIZE_10,
               ),
@@ -70,7 +70,7 @@ class MenuList extends StatelessWidget {
           children: [
             Text(
               StringConst.BUILT_BY + ", " + StringConst.DESIGNED_BY,
-              style: theme.textTheme.bodyText1.copyWith(
+              style: theme.textTheme.bodyText1!.copyWith(
                 color: AppColors.secondaryColor,
                 fontSize: Sizes.TEXT_SIZE_10,
               ),
@@ -82,8 +82,8 @@ class MenuList extends StatelessWidget {
   }
 
   List<Widget> _buildMenuList({
-    @required BuildContext context,
-    @required List<MenuData> menuList,
+    required BuildContext context,
+    required List<MenuData> menuList,
   }) {
     List<Widget> menuItems = [];
     for (var i = 0; i < menuList.length; i++) {

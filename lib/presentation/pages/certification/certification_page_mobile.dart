@@ -18,7 +18,7 @@ class CertificationPageMobile extends StatefulWidget {
 class _CertificationPageMobileState extends State<CertificationPageMobile>
     with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  AnimationController _certificationController;
+  late AnimationController _certificationController;
 
   @override
   void initState() {
@@ -47,9 +47,9 @@ class _CertificationPageMobileState extends State<CertificationPageMobile>
   @override
   Widget build(BuildContext context) {
     double duration =
-        _certificationController.duration.inMilliseconds.roundToDouble();
+        _certificationController.duration!.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
-        _certificationController.duration.inMilliseconds.roundToDouble() /
+        _certificationController.duration!.inMilliseconds.roundToDouble() /
             Data.certificationData.length;
     return Scaffold(
       key: _scaffoldKey,
@@ -58,10 +58,10 @@ class _CertificationPageMobileState extends State<CertificationPageMobile>
         child: CustomAppBar(
           title: StringConst.CERTIFICATIONS,
           onLeadingPressed: () {
-            if (_scaffoldKey.currentState.isEndDrawerOpen) {
-              _scaffoldKey.currentState.openEndDrawer();
+            if (_scaffoldKey.currentState!.isEndDrawerOpen) {
+              _scaffoldKey.currentState!.openEndDrawer();
             } else {
-              _scaffoldKey.currentState.openDrawer();
+              _scaffoldKey.currentState!.openDrawer();
             }
           },
         ),
@@ -95,7 +95,7 @@ class _CertificationPageMobileState extends State<CertificationPageMobile>
                 height: assignHeight(context: context, fraction: 0.35),
                 width: widthOfScreen(context),
               ),
-              builder: (BuildContext context, Widget child) {
+              builder: (BuildContext context, Widget? child) {
                 return FadeTransition(
                   opacity: Tween<double>(
                     begin: 0,

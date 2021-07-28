@@ -21,10 +21,10 @@ class ExperiencePageMobile extends StatelessWidget {
           child: CustomAppBar(
             title: StringConst.WORK,
             onLeadingPressed: () {
-              if (_scaffoldKey.currentState.isEndDrawerOpen) {
-                _scaffoldKey.currentState.openEndDrawer();
+              if (_scaffoldKey.currentState!.isEndDrawerOpen) {
+                _scaffoldKey.currentState!.openEndDrawer();
               } else {
-                _scaffoldKey.currentState.openDrawer();
+                _scaffoldKey.currentState!.openDrawer();
               }
             },
             bottom: TabBar(
@@ -32,12 +32,12 @@ class ExperiencePageMobile extends StatelessWidget {
               indicatorColor: AppColors.complimentColor1,
               labelColor: AppColors.complimentColor1,
               labelPadding: EdgeInsets.all(Sizes.PADDING_8),
-              labelStyle: theme.textTheme.headline6.copyWith(
+              labelStyle: theme.textTheme.headline6!.copyWith(
                 fontSize: Sizes.TEXT_SIZE_16,
                 fontWeight: FontWeight.w600,
               ),
               unselectedLabelColor: AppColors.accentColor,
-              unselectedLabelStyle: theme.textTheme.bodyText1.copyWith(
+              unselectedLabelStyle: theme.textTheme.bodyText1!.copyWith(
                 fontSize: Sizes.TEXT_SIZE_16,
                 fontWeight: FontWeight.w600,
               ),
@@ -60,7 +60,7 @@ class ExperiencePageMobile extends StatelessWidget {
     List<Widget> tabBarItems = [];
     for (var index = 0; index < experienceData.length; index++) {
       tabBarItems.add(
-        Text(experienceData[index].company),
+        Text(experienceData[index].company!),
       );
     }
     return tabBarItems;

@@ -17,7 +17,7 @@ class CertificationPageDesktop extends StatefulWidget {
 
 class _CertificationPageDesktopState extends State<CertificationPageDesktop>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
   ScrollController _scrollController = ScrollController();
 
   @override
@@ -115,7 +115,7 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
 
   Widget _buildCertification(
     BuildContext context,
-    Widget child,
+    Widget? child,
   ) {
     return ListView(
       controller: _scrollController,
@@ -139,9 +139,9 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
 
   List<Widget> _certificateList(List<CertificationData> certificationData) {
     List<Widget> widgets = [];
-    double duration = _controller.duration.inMilliseconds.roundToDouble();
+    double duration = _controller.duration!.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
-        _controller.duration.inMilliseconds.roundToDouble() /
+        _controller.duration!.inMilliseconds.roundToDouble() /
             certificationData.length;
 
     for (var i = 0; i < certificationData.length; i++) {

@@ -14,10 +14,10 @@ class ProjectCover extends StatelessWidget {
     this.projectCoverScale = 1,
   });
 
-  final double width;
-  final double height;
-  final double offset;
-  final String projectCoverUrl;
+  final double? width;
+  final double? height;
+  final double? offset;
+  final String? projectCoverUrl;
   final Color projectCoverBackgroundColor;
   final double backgroundScale;
   final double projectCoverScale;
@@ -39,8 +39,8 @@ class ProjectCover extends StatelessWidget {
               origin: origin,
               alignment: alignment,
               child: Container(
-                width: width - offset,
-                height: height - offset,
+                width: width! - offset!,
+                height: height! - offset!,
                 color: projectCoverBackgroundColor,
               ),
             ),
@@ -53,9 +53,9 @@ class ProjectCover extends StatelessWidget {
               origin: origin,
               alignment: alignment,
               child: Image.asset(
-                projectCoverUrl,
-                width: width - offset,
-                height: height - offset,
+                projectCoverUrl!,
+                width: width! - offset!,
+                height: height! - offset!,
                 fit: BoxFit.cover,
               ),
             ),

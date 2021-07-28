@@ -9,7 +9,7 @@ class CertificationPage extends StatelessWidget {
   static const String certificationPageRoute = StringConst.CERTIFICATION_PAGE;
 
   const CertificationPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

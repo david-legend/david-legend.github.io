@@ -5,7 +5,7 @@ import 'package:aerium/values/values.dart';
 
 class SkillProgressPainter extends CustomPainter {
   SkillProgressPainter({
-    @required this.currentProgress,
+    required this.currentProgress,
     this.circleStrokeWidth = Sizes.SIZE_5,
     this.progressArcStrokeWidth = Sizes.SIZE_5,
     this.circleColor = const Color(0xFFB5B8BC),

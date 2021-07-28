@@ -9,7 +9,7 @@ import 'experience_section.dart';
 
 class ExperienceTree extends StatelessWidget {
   ExperienceTree({
-    @required this.experienceData,
+    required this.experienceData,
     this.head,
     this.widthOfTree,
     this.headTitle,
@@ -22,17 +22,17 @@ class ExperienceTree extends StatelessWidget {
     this.scrollController,
   });
 
-  final Widget head;
-  final double widthOfTree;
-  final String headTitle;
-  final TextStyle headTitleStyle;
-  final TextStyle tailTitleStyle;
-  final Color headBackgroundColor;
-  final String tailTitle;
-  final Color tailBackgroundColor;
-  final Widget tail;
+  final Widget? head;
+  final double? widthOfTree;
+  final String? headTitle;
+  final TextStyle? headTitleStyle;
+  final TextStyle? tailTitleStyle;
+  final Color? headBackgroundColor;
+  final String? tailTitle;
+  final Color? tailBackgroundColor;
+  final Widget? tail;
   final List<ExperienceData> experienceData;
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,9 @@ class ExperienceTree extends StatelessWidget {
                         .withOpacity(AppColors.primaryColorOpacity),
               ),
               child: Text(
-                headTitle,
+                headTitle!,
                 style: headTitleStyle ??
-                    theme.textTheme.subtitle1
+                    theme.textTheme.subtitle1!
                         .copyWith(color: AppColors.accentColor2),
               ),
             ),
@@ -74,9 +74,9 @@ class ExperienceTree extends StatelessWidget {
                         .withOpacity(AppColors.primaryColorOpacity),
               ),
               child: Text(
-                tailTitle,
+                tailTitle!,
                 style: tailTitleStyle ??
-                    theme.textTheme.subtitle1
+                    theme.textTheme.subtitle1!
                         .copyWith(color: AppColors.accentColor2),
               ),
             ),
@@ -87,8 +87,8 @@ class ExperienceTree extends StatelessWidget {
   }
 
   List<Widget> _buildExperienceBranches({
-    @required BuildContext context,
-    @required List<ExperienceData> experienceData,
+    required BuildContext context,
+    required List<ExperienceData> experienceData,
   }) {
     List<Widget> branchWidgets = [];
     for (var index = 0; index < experienceData.length; index++) {
@@ -126,16 +126,16 @@ class ExperienceBranch extends StatefulWidget {
     this.stalk = 0.1,
   });
 
-  final double width;
+  final double? width;
   final double stalk;
   final double height;
-  final String company;
-  final String companyUrl;
-  final String location;
-  final String duration;
-  final String position;
-  final List<String> roles;
-  final CustomPainter customPainter;
+  final String? company;
+  final String? companyUrl;
+  final String? location;
+  final String? duration;
+  final String? position;
+  final List<String>? roles;
+  final CustomPainter? customPainter;
 
   @override
   _ExperienceBranchState createState() => _ExperienceBranchState();
@@ -144,14 +144,14 @@ class ExperienceBranch extends StatefulWidget {
 class _ExperienceBranchState extends State<ExperienceBranch> {
   GlobalKey roleLeafKey = GlobalKey();
   GlobalKey locationLeafKey = GlobalKey();
-  double offsetRoleLeaf;
-  double offsetLocationLeaf;
+  double? offsetRoleLeaf;
+  double? offsetLocationLeaf;
 
   @override
   void initState() {
     offsetRoleLeaf = (widget.height / 5) - 10;
     offsetLocationLeaf = (widget.height / 2) - 16;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _getHeightOfRoleLeaf();
     });
     super.initState();
@@ -159,9 +159,9 @@ class _ExperienceBranchState extends State<ExperienceBranch> {
 
   _getHeightOfRoleLeaf() {
     final RenderBox roleLeafRenderBox =
-        roleLeafKey.currentContext.findRenderObject();
+        roleLeafKey.currentContext!.findRenderObject() as RenderBox;
     final RenderBox locationLeafRenderBox =
-        locationLeafKey.currentContext.findRenderObject();
+        locationLeafKey.currentContext!.findRenderObject() as RenderBox;
     final roleLeafHeight = roleLeafRenderBox.size.height;
     final locationLeafHeight = locationLeafRenderBox.size.height;
     setState(() {
@@ -188,12 +188,12 @@ class _ExperienceBranchState extends State<ExperienceBranch> {
         child: Stack(
           children: [
             Positioned(
-              width: widget.width / 2,
+              width: widget.width! / 2,
               top: offsetLocationLeaf,
               left: 0,
               child: Container(
                 key: locationLeafKey,
-                padding: EdgeInsets.only(right: (widget.width * widget.stalk)),
+                padding: EdgeInsets.only(right: (widget.width! * widget.stalk)),
                 child: LocationDateLeaf(
                   duration: widget.duration,
                   location: widget.location,
@@ -202,18 +202,18 @@ class _ExperienceBranchState extends State<ExperienceBranch> {
             ),
             SpaceH8(),
             Positioned(
-              width: widget.width / 2,
+              width: widget.width! / 2,
               top: offsetRoleLeaf,
               right: 0,
               child: Container(
                 key: roleLeafKey,
                 padding: EdgeInsets.only(
-                  left: (widget.width * widget.stalk),
+                  left: (widget.width! * widget.stalk),
                 ),
                 child: RoleLeaf(
                   company: widget.company,
                   onTap: () {
-                    Functions.launchUrl(widget.companyUrl);
+                    Functions.launchUrl(widget.companyUrl!);
                   },
                   position: widget.position,
                   roles: widget.roles,
@@ -229,20 +229,20 @@ class _ExperienceBranchState extends State<ExperienceBranch> {
 
 class LocationDateLeaf extends StatelessWidget {
   LocationDateLeaf({
-    @required this.duration,
-    @required this.location,
+    required this.duration,
+    required this.location,
     this.durationIcon,
     this.locationIcon,
     this.locationTextStyle,
     this.durationTextStyle,
   });
 
-  final String duration;
-  final TextStyle durationTextStyle;
-  final String location;
-  final TextStyle locationTextStyle;
-  final Icon locationIcon;
-  final Icon durationIcon;
+  final String? duration;
+  final TextStyle? durationTextStyle;
+  final String? location;
+  final TextStyle? locationTextStyle;
+  final Icon? locationIcon;
+  final Icon? durationIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -254,9 +254,9 @@ class LocationDateLeaf extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                duration,
+                duration!,
                 style: durationTextStyle ??
-                    theme.textTheme.bodyText2.copyWith(color: AppColors.black),
+                    theme.textTheme.bodyText2!.copyWith(color: AppColors.black),
               ),
               SpaceW4(),
               Icon(
@@ -264,7 +264,7 @@ class LocationDateLeaf extends StatelessWidget {
                     color: AppColors.accentColor2,
                     size: 18,
                   ) ??
-                  durationIcon,
+                  durationIcon!,
             ],
           ),
           SpaceH8(),
@@ -272,9 +272,9 @@ class LocationDateLeaf extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                location,
+                location!,
                 style: locationTextStyle ??
-                    theme.textTheme.bodyText2.copyWith(color: AppColors.black),
+                    theme.textTheme.bodyText2!.copyWith(color: AppColors.black),
               ),
               SpaceW4(),
               Icon(
@@ -282,7 +282,7 @@ class LocationDateLeaf extends StatelessWidget {
                     color: AppColors.accentColor2,
                     size: 18,
                   ) ??
-                  locationIcon,
+                  locationIcon!,
             ],
           )
         ],
@@ -293,22 +293,22 @@ class LocationDateLeaf extends StatelessWidget {
 
 class RoleLeaf extends StatelessWidget {
   RoleLeaf({
-    @required this.company,
-    @required this.position,
-    @required this.roles,
+    required this.company,
+    required this.position,
+    required this.roles,
     this.companyTextStyle,
     this.positionTextStyle,
     this.roleTextStyle,
     this.onTap,
   });
 
-  final String company;
-  final String position;
-  final List<String> roles;
-  final TextStyle companyTextStyle;
-  final TextStyle positionTextStyle;
-  final TextStyle roleTextStyle;
-  final GestureTapCallback onTap;
+  final String? company;
+  final String? position;
+  final List<String>? roles;
+  final TextStyle? companyTextStyle;
+  final TextStyle? positionTextStyle;
+  final TextStyle? roleTextStyle;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -320,23 +320,23 @@ class RoleLeaf extends StatelessWidget {
           InkWell(
             onTap: onTap,
             child: Text(
-              company,
+              company!,
               style: companyTextStyle ??
-                  theme.textTheme.subtitle1.copyWith(
+                  theme.textTheme.subtitle1!.copyWith(
                       fontSize: Sizes.TEXT_SIZE_18,
                       color: AppColors.accentColor2),
             ),
           ),
           Text(
-            position,
+            position!,
             style: positionTextStyle ??
-                theme.textTheme.subtitle2.copyWith(
+                theme.textTheme.subtitle2!.copyWith(
                     fontStyle: FontStyle.italic, color: AppColors.accentColor2),
           ),
           SpaceH8(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildRoles(roles: roles, context: context),
+            children: _buildRoles(roles: roles!, context: context),
           ),
         ],
       ),
@@ -344,8 +344,8 @@ class RoleLeaf extends StatelessWidget {
   }
 
   List<Widget> _buildRoles({
-    @required List<String> roles,
-    @required BuildContext context,
+    required List<String> roles,
+    required BuildContext context,
   }) {
     ThemeData theme = Theme.of(context);
     List<Widget> roleWidgets = [];
@@ -354,7 +354,7 @@ class RoleLeaf extends StatelessWidget {
         Role(
           role: roles[index],
           roleTextStyle: roleTextStyle ??
-              theme.textTheme.bodyText2.copyWith(color: AppColors.black),
+              theme.textTheme.bodyText2!.copyWith(color: AppColors.black),
           color: AppColors.primaryColor,
         ),
       );

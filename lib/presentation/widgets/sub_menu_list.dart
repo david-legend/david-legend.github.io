@@ -8,7 +8,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class SubMenuList extends StatefulWidget {
   SubMenuList({
-    @required this.subMenuData,
+    required this.subMenuData,
     this.spacing = Sizes.SIZE_8,
     this.runSpacing = Sizes.SIZE_8,
     this.width,
@@ -17,7 +17,7 @@ class SubMenuList extends StatefulWidget {
   final List<SubMenuData> subMenuData;
   final double spacing;
   final double runSpacing;
-  final double width;
+  final double? width;
 
   @override
   _SubMenuListState createState() => _SubMenuListState();
@@ -25,9 +25,9 @@ class SubMenuList extends StatefulWidget {
 
 class _SubMenuListState extends State<SubMenuList>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> menuAnimation;
-  Animation<double> contentAnimation;
+  late AnimationController _controller;
+  late Animation<double> menuAnimation;
+  Animation<double>? contentAnimation;
   bool _isSkillsVisible = false;
 
   @override
@@ -40,7 +40,7 @@ class _SubMenuListState extends State<SubMenuList>
     _playAnimation();
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           setState(() {
             _isSkillsVisible = true;
           });
@@ -91,7 +91,7 @@ class _SubMenuListState extends State<SubMenuList>
     );
   }
 
-  Widget _buildAnimation(BuildContext context, Widget child) {
+  Widget _buildAnimation(BuildContext context, Widget? child) {
     return Container(
       width: widget.width,
       child: Column(
@@ -99,7 +99,7 @@ class _SubMenuListState extends State<SubMenuList>
         children: [
           AnimatedOpacity(
             opacity: menuAnimation.value,
-            duration: _controller.duration,
+            duration: _controller.duration!,
             child: Wrap(
 //              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               runSpacing: 8,
@@ -147,23 +147,23 @@ class _SubMenuListState extends State<SubMenuList>
   Widget _buildContent(List<SubMenuData> menuData) {
     ThemeData theme = Theme.of(context);
     for (var index = 0; index < menuData.length; index++) {
-      if (menuData[index].isSelected) {
+      if (menuData[index].isSelected!) {
         if (menuData[index].isAnimation) {
           return ResponsiveBuilder(
             builder: (context, sizingInformation) {
               if (sizingInformation.screenSize.width > 900 &&
                   sizingInformation.screenSize.width < 1170) {
                 return _buildSkillsSection(
-                    skills: menuData[index].skillData, width: widget.width / 3);
+                    skills: menuData[index].skillData!, width: widget.width! / 3);
               }
               return _buildSkillsSection(
-                  skills: menuData[index].skillData, width: widget.width / 3.7);
+                  skills: menuData[index].skillData!, width: widget.width! / 3.7);
             },
           );
         } else {
           return Text(
-            menuData[index].content,
-            style: theme.textTheme.bodyText2.copyWith(
+            menuData[index].content!,
+            style: theme.textTheme.bodyText2!.copyWith(
               color: AppColors.black,
               fontSize: Sizes.TEXT_SIZE_16,
             ),
@@ -182,7 +182,7 @@ class _SubMenuListState extends State<SubMenuList>
   }
 
   Widget _buildSkillsSection(
-      {@required List<SkillData> skills, @required double width}) {
+      {required List<SkillData> skills, required double width}) {
     List<Widget> skillWidgets = [];
     for (var index = 0; index < skills.length; index++) {
       skillWidgets.add(

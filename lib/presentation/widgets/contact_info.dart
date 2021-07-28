@@ -18,12 +18,12 @@ class ContactInfo extends StatelessWidget {
 
   final String contactType;
   final String contact;
-  final TextStyle contactTypeTextStyle;
-  final TextStyle contactTextStyle;
+  final TextStyle? contactTypeTextStyle;
+  final TextStyle? contactTextStyle;
   final IconData iconData;
   final Color iconColor;
-  final double iconSize;
-  final GestureTapCallback onTap;
+  final double? iconSize;
+  final GestureTapCallback? onTap;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment iconsMainAxisAlignment;
 
@@ -37,7 +37,7 @@ class ContactInfo extends StatelessWidget {
           Text(
             contactType,
             style: contactTypeTextStyle ??
-                theme.textTheme.headline5.copyWith(
+                theme.textTheme.headline5!.copyWith(
                   color: AppColors.accentColor2,
                 ),
           ),
@@ -56,7 +56,7 @@ class ContactInfo extends StatelessWidget {
                 Text(
                   contact,
                   style: contactTextStyle ??
-                      theme.textTheme.bodyText1.copyWith(
+                      theme.textTheme.bodyText1!.copyWith(
                         fontSize: Sizes.TEXT_SIZE_18,
                         color: AppColors.black,
                       ),

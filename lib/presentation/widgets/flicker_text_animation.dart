@@ -5,11 +5,11 @@ import 'package:aerium/values/values.dart';
 
 class FlickerTextAnimation extends StatefulWidget {
   FlickerTextAnimation({
-    Key key,
-    this.controller,
+    Key? key,
+    required this.controller,
     this.textColor,
     this.fadeInColor,
-    this.text,
+    required this.text,
     this.textStyle,
     this.start,
     this.end,
@@ -44,16 +44,16 @@ class FlickerTextAnimation extends StatefulWidget {
         super(key: key);
 
   final Animation<double> controller;
-  final Animation<Color> color;
+  final Animation<Color?> color;
   final Animation<int> title;
-  final Color textColor;
-  final Color fadeInColor;
+  final Color? textColor;
+  final Color? fadeInColor;
   final String text;
   final double fontSize;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
-  final double start;
-  final double end;
+  final double? start;
+  final double? end;
   final WrapAlignment wrapAlignment;
 
   @override
@@ -67,14 +67,14 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
   void initState() {
     widget.controller.addStatusListener((status) {
       if (status == AnimationStatus.forward) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           setState(() {
             isAnimating = true;
           });
         });
       }
       if (status == AnimationStatus.completed) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           setState(() {
             isAnimating = false;
           });
@@ -85,7 +85,7 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
     super.initState();
   }
 
-  Widget _buildAnimation(BuildContext context, Widget child) {
+  Widget _buildAnimation(BuildContext context, Widget? child) {
     ThemeData theme = Theme.of(context);
     return Container(
       child: Wrap(
@@ -96,7 +96,7 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
           Text(
             isAnimating ? widget.title.value.toString() : widget.text,
             style: widget.textStyle ??
-                theme.textTheme.headline6.copyWith(
+                theme.textTheme.headline6!.copyWith(
                   color: widget.color.value,
                   fontSize: widget.fontSize,
                 ),

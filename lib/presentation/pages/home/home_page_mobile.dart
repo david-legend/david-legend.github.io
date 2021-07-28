@@ -55,14 +55,14 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                 children: [
                                   Text(
                                     StringConst.DEV_NAME,
-                                    style: theme.textTheme.headline4.copyWith(
+                                    style: theme.textTheme.headline4!.copyWith(
                                       color: AppColors.secondaryColor,
                                     ),
                                   ),
                                   SpaceH8(),
                                   Text(
                                     StringConst.SPECIALITY,
-                                    style: theme.textTheme.headline6.copyWith(
+                                    style: theme.textTheme.headline6!.copyWith(
                                       color: AppColors.secondaryColor,
                                     ),
                                   ),
@@ -87,7 +87,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                         StringConst.VIEW_PORTFOLIO,
                                         textAlign: TextAlign.end,
                                         style:
-                                            theme.textTheme.bodyText1.copyWith(
+                                            theme.textTheme.bodyText1!.copyWith(
                                           color: AppColors.secondaryColor,
                                           fontSize: Sizes.TEXT_SIZE_18,
                                         ),
@@ -146,10 +146,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
         children: [
           IconButton(
             onPressed: () {
-              if (_scaffoldKey.currentState.isEndDrawerOpen) {
-                _scaffoldKey.currentState.openEndDrawer();
+              if (_scaffoldKey.currentState!.isEndDrawerOpen) {
+                _scaffoldKey.currentState!.openEndDrawer();
               } else {
-                _scaffoldKey.currentState.openDrawer();
+                _scaffoldKey.currentState!.openDrawer();
               }
             },
             icon: Icon(Icons.menu),

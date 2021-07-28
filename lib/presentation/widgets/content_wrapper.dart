@@ -11,11 +11,11 @@ class ContentWrapper extends StatelessWidget {
     this.child,
   });
 
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final Color color;
-  final Gradient gradient;
-  final Widget child;
+  final Gradient? gradient;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
 
   const HomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

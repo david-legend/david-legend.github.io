@@ -12,8 +12,8 @@ class ContactForm extends StatelessWidget {
     this.controllers,
   });
 
-  final EdgeInsetsGeometry padding;
-  final List<TextEditingController> controllers;
+  final EdgeInsetsGeometry? padding;
+  final List<TextEditingController>? controllers;
   final int maxLines;
 
   @override
@@ -26,7 +26,7 @@ class ContactForm extends StatelessWidget {
             filled: true,
             fillColor: AppColors.grey100,
             hintText: StringConst.NAME_HINT_TEXT,
-            controller: controllers[0],
+            controller: controllers![0],
           ),
           SpaceH16(),
           CustomTextFormField(
@@ -34,7 +34,7 @@ class ContactForm extends StatelessWidget {
             fillColor: AppColors.grey100,
             hintText: StringConst.PHONE_HINT_TEXT,
             textInputType: TextInputType.phone,
-            controller: controllers[1],
+            controller: controllers![1],
           ),
           SpaceH16(),
           CustomTextFormField(
@@ -42,7 +42,7 @@ class ContactForm extends StatelessWidget {
             fillColor: AppColors.grey100,
             hintText: StringConst.EMAIL_HINT_TEXT,
             textInputType: TextInputType.emailAddress,
-            controller: controllers[2],
+            controller: controllers![2],
           ),
           SpaceH16(),
           CustomTextFormField(
@@ -50,7 +50,7 @@ class ContactForm extends StatelessWidget {
             fillColor: AppColors.grey100,
             hintText: StringConst.MESSAGE_HINT_TEXT,
             maxLines: maxLines,
-            controller: controllers[3],
+            controller: controllers![3],
           ),
         ],
       ),
@@ -65,7 +65,7 @@ class SendMessageButton extends StatelessWidget {
   });
 
   final String message;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class SendMessageButton extends StatelessWidget {
         children: [
           Text(
             message,
-            style: theme.textTheme.headline6.copyWith(color: AppColors.grey100),
+            style: theme.textTheme.headline6!.copyWith(color: AppColors.grey100),
           ),
           SpaceW12(),
           CircularContainer(

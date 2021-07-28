@@ -95,7 +95,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                           children: [
                             Text(
                               StringConst.SEND_ME_A_MESSAGE,
-                              style: theme.textTheme.bodyText1.copyWith(
+                              style: theme.textTheme.bodyText1!.copyWith(
                                 color: AppColors.primaryColor,
                               ),
                             ),
@@ -123,7 +123,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                           children: [
                             Text(
                               StringConst.VIEW_PORTFOLIO,
-                              style: theme.textTheme.bodyText1.copyWith(
+                              style: theme.textTheme.bodyText1!.copyWith(
                                 color: AppColors.primaryColor,
                               ),
                             ),
@@ -152,7 +152,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                   builder:
                       (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
                     if (snapshot.hasData) {
-                      ui.Image image = snapshot.data;
+                      ui.Image image = snapshot.data!;
                       return Positioned(
                         top: assignHeight(context: context, fraction: 0.0),
                         left: assignWidth(context: context, fraction: 0.5) -

@@ -12,15 +12,15 @@ class ProjectCover2 extends StatelessWidget {
       this.alignment = Alignment.topLeft,
       this.origin = const Offset(0, 0)});
 
-  final double width;
-  final double height;
-  final double offset;
+  final double? width;
+  final double? height;
+  final double? offset;
   final double backgroundScale;
   final double projectCoverScale;
   final Offset origin;
   final AlignmentGeometry alignment;
-  final String projectCoverUrl;
-  final Color projectCoverBackgroundColor;
+  final String? projectCoverUrl;
+  final Color? projectCoverBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,8 @@ class ProjectCover2 extends StatelessWidget {
               origin: origin,
               alignment: alignment,
               child: Container(
-                width: width - offset,
-                height: height - offset,
+                width: width! - offset!,
+                height: height! - offset!,
                 color: projectCoverBackgroundColor,
               ),
             ),
@@ -51,9 +51,9 @@ class ProjectCover2 extends StatelessWidget {
               origin: Offset(0, 0),
               alignment: alignment,
               child: Image.asset(
-                projectCoverUrl,
-                width: width - offset,
-                height: height - offset,
+                projectCoverUrl!,
+                width: width! - offset!,
+                height: height! - offset!,
                 fit: BoxFit.cover,
               ),
             ),

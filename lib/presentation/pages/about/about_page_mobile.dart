@@ -17,10 +17,10 @@ class AboutPageMobile extends StatefulWidget {
 class _AboutPageMobileState extends State<AboutPageMobile>
     with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  AnimationController _controller;
-  AnimationController _flickerAnimationController;
-  AnimationController _flickerAnimationController2;
-  Animation<double> opacityAnimation;
+  late AnimationController _controller;
+  late AnimationController _flickerAnimationController;
+  late AnimationController _flickerAnimationController2;
+  late Animation<double> opacityAnimation;
   bool _isPunchLineVisible = false;
   bool _isContentVisible = false;
 
@@ -38,7 +38,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _playFlickerAnimation();
     });
     initializeTweens();
@@ -47,7 +47,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
         setState(() {
           _isPunchLineVisible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playFlickerAnimation2();
         });
       }
@@ -58,7 +58,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
         setState(() {
           _isContentVisible = true;
         });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
           _playAnimation();
         });
       }
@@ -128,10 +128,10 @@ class _AboutPageMobileState extends State<AboutPageMobile>
         child: CustomAppBar(
           title: StringConst.ABOUT_ME,
           onLeadingPressed: () {
-            if (_scaffoldKey.currentState.isEndDrawerOpen) {
-              _scaffoldKey.currentState.openEndDrawer();
+            if (_scaffoldKey.currentState!.isEndDrawerOpen) {
+              _scaffoldKey.currentState!.openEndDrawer();
             } else {
-              _scaffoldKey.currentState.openDrawer();
+              _scaffoldKey.currentState!.openDrawer();
             }
           },
         ),
@@ -154,7 +154,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
                   textColor: AppColors.primaryColor,
                   fadeInColor: AppColors.primaryColor,
                   controller: _flickerAnimationController.view,
-                  textStyle: theme.textTheme.bodyText1.copyWith(
+                  textStyle: theme.textTheme.bodyText1!.copyWith(
                     fontSize: Sizes.TEXT_SIZE_16,
                     fontWeight: FontWeight.w400,
                     color: AppColors.accentColor2,
@@ -173,7 +173,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
                         textColor: AppColors.primaryColor,
                         fadeInColor: AppColors.primaryColor,
                         controller: _flickerAnimationController2.view,
-                        textStyle: theme.textTheme.subtitle1.copyWith(
+                        textStyle: theme.textTheme.subtitle1!.copyWith(
                           fontSize: Sizes.TEXT_SIZE_24,
                           color: AppColors.primaryColor,
                         ),
@@ -199,7 +199,7 @@ class _AboutPageMobileState extends State<AboutPageMobile>
         height: heightOfScreen(context),
         fit: BoxFit.cover,
       ),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Positioned(
           right: widthOfScreen(context) > 450
               ? -assignWidth(context: context, fraction: 0.2)
@@ -219,9 +219,9 @@ class _AboutPageMobileState extends State<AboutPageMobile>
       animation: _controller,
       child: Text(
         StringConst.ABOUT_DEV_TEXT,
-        style: theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+        style: theme.textTheme.bodyText1!.copyWith(color: AppColors.bodyText1),
       ),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: opacityAnimation,
           child: Row(

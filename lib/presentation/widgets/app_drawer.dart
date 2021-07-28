@@ -11,7 +11,7 @@ import 'menu_item.dart';
 
 class AppDrawer extends StatelessWidget {
   AppDrawer({
-    @required this.menuList,
+    required this.menuList,
     this.color = AppColors.secondaryColor,
     this.width,
     this.selectedItemRouteName,
@@ -19,10 +19,10 @@ class AppDrawer extends StatelessWidget {
   });
 
   final Color color;
-  final double width;
-  final String selectedItemRouteName;
+  final double? width;
+  final String? selectedItemRouteName;
   final List<MenuData> menuList;
-  final GestureTapCallback onClose;
+  final GestureTapCallback? onClose;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class AppDrawer extends StatelessWidget {
               children: [
                 Text(
                   StringConst.DESIGNED_IN,
-                  style: theme.textTheme.bodyText1.copyWith(
+                  style: theme.textTheme.bodyText1!.copyWith(
                     color: AppColors.accentColor2,
                     fontSize: Sizes.TEXT_SIZE_10,
                   ),
@@ -101,7 +101,7 @@ class AppDrawer extends StatelessWidget {
               children: [
                 Text(
                   StringConst.BUILT_BY + ", " + StringConst.DESIGNED_BY,
-                  style: theme.textTheme.bodyText1.copyWith(
+                  style: theme.textTheme.bodyText1!.copyWith(
                     color: AppColors.accentColor2,
                     fontSize: Sizes.TEXT_SIZE_10,
                   ),
@@ -116,8 +116,8 @@ class AppDrawer extends StatelessWidget {
   }
 
   List<Widget> _buildMenuList({
-    @required BuildContext context,
-    @required List<MenuData> menuList,
+    required BuildContext context,
+    required List<MenuData> menuList,
   }) {
     List<Widget> menuItems = [];
     for (var i = 0; i < menuList.length; i++) {
