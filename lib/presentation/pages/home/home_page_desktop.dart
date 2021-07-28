@@ -15,6 +15,8 @@ import 'package:aerium/presentation/widgets/trailing_info.dart';
 import 'package:aerium/values/values.dart';
 
 class HomePageDesktop extends StatefulWidget {
+  // bool isLoadingDone = false;
+
   @override
   _HomePageDesktopState createState() => _HomePageDesktopState();
 }
@@ -38,7 +40,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
     ThemeData theme = Theme.of(context);
     double widthOfImage = assignWidth(context, 0.4);
 
-              print("LOADING up:: $isLoadingDone");
+    print("LOADING up:: ${isLoadingDone}");
     return Container(
       child: isLoadingDone
           ? Stack(
@@ -172,8 +174,13 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
               ],
             )
           : LoadingPage(
-            loadingDone: isLoadingDone
-          ),
+              // loadingDone: widget.isLoadingDone
+              onLoadingDone: () {
+                setState(() {
+                  isLoadingDone = true;
+                });
+              },
+            ),
     );
   }
 }

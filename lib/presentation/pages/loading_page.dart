@@ -8,11 +8,12 @@ const double containerWidth = 180;
 
 class LoadingPage extends StatefulWidget {
   static const String loadingPageRoute = StringConst.LOADING_PAGE;
-  bool loadingDone;
-
+  // bool loadingDone;
+  final VoidCallback onLoadingDone;
   LoadingPage({
     Key? key,
-    this.loadingDone = false,
+    required this.onLoadingDone,
+    // this.loadingDone = false,
   }) : super(key: key);
 
   @override
@@ -132,10 +133,7 @@ class _LoadingPageState extends State<LoadingPage>
             duration: _scaleDuration,
             color: AppColors.black,
             onEnd: (){
-              setState(() {
-                widget.loadingDone = true;
-              });
-              print("LOADING DONE:: ${widget.loadingDone}");
+               widget.onLoadingDone();
             },
           ),
           Positioned(

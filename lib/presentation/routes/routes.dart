@@ -66,10 +66,10 @@ class RouteConfiguration {
       r'^' + HomePage.homePageRoute,
       (context, matches) => const HomePage(),
     ),
-     Path(
-      r'^' + LoadingPage.loadingPageRoute,
-      (context, matches) =>  LoadingPage(),
-    ),
+    //  Path(
+    //   r'^' + LoadingPage.loadingPageRoute,
+    //   (context, matches) =>  LoadingPage(),
+    // ),
   ];
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
