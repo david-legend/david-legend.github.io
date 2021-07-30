@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href=" https://david-legend.github.io" target="_blank"> david-legend.github.io</a>
+  <a href=" https://david-legend.github.io" target="_blank">david-legend.github.io</a>
 </h1>
 
 <p align="center">
