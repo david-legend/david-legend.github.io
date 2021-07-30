@@ -261,8 +261,7 @@ class StringConst {
   static const String LEARN_UPP_GITHUB_URL =
       "https://github.com/david-legend/learnUpp";
 
-  static const String CIRCE = "Circe";
-  static const String PROXIMA_NOVA = "ProximaNova";
+  static const String VISUELT_PRO = "VisueltPro";
 
   //API
   static const String BASE_URL =

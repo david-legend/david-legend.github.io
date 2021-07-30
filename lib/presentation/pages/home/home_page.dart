@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
-import 'home_page_desktop.dart';
-import 'home_page_mobile.dart';
 
 class HomePage extends StatelessWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
-  const HomePage({
+  HomePage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: ScreenTypeLayout(
-        mobile: HomePageMobile(),
-        tablet: HomePageDesktop(),
-        desktop: HomePageDesktop(),
-      ),
+      key: _scaffoldKey,
+      body: Container(),
     );
   }
 }

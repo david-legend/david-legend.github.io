@@ -131,27 +131,7 @@ class SubMenuData {
 }
 
 class Data {
-  static List<MenuData> menuList = [
-    MenuData(title: StringConst.HOME, routeName: HomePage.homePageRoute),
-    MenuData(title: StringConst.ABOUT_ME, routeName: AboutPage.aboutPageRoute),
-    MenuData(
-      title: StringConst.PORTFOLIO,
-      routeName: PortfolioPage.portfolioPageRoute,
-    ),
-//    MenuData(
-//      title: StringConst.CONTACT,
-//      routeName: ContactPage.contactPageRoute,
-//    ),
-    MenuData(
-      title: StringConst.EXPERIENCE,
-      routeName: ExperiencePage.experiencePageRoute,
-    ),
-    MenuData(title: StringConst.RESUME, routeName: StringConst.RESUME),
-    MenuData(
-      title: StringConst.CERTIFICATIONS,
-      routeName: CertificationPage.certificationPageRoute,
-    ),
-  ];
+  
 
   static List<SkillData> skillData = [
     SkillData(skillLevel: 95, skillName: StringConst.FLUTTER),

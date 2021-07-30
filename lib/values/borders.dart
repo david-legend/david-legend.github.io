@@ -4,14 +4,7 @@ class Borders {
   static const BorderSide defaultPrimaryBorder =
       BorderSide(width: Sizes.WIDTH_0, style: BorderStyle.none);
 
-  static const InputBorder defaultInputBorder  = OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(Sizes.RADIUS_0)),
-    borderSide: BorderSide(
-      color: AppColors.white,
-      width: 0.0,
-      style: BorderStyle.none,
-    ),
-  );
+  
 
   static customOutlineInputBorder({
     double borderRadius = Sizes.RADIUS_12,
