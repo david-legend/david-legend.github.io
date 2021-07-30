@@ -3,18 +3,13 @@
 </h1>
 
 <p align="center">
-    This is the version 2 Aerium, a beautifully designed portfolio website built with <strong>flutter</strong>.
-    In this v2, I will use fluuter 2 and also port it to support null safety. I will also focus on changing some parts of the design, introduce new animations and finally make it more responsiveness. Enjoy & let me know what you think !!
+    This is the second Iteration of my portfolio website (https://github.com/david-legend/aerium).
 </p>
 <p align="center">
-    It is inspired by <a href="https://www.behance.net/gallery/68081313/Portfolio-Design-Concept?tracking_source=search_projects_recommended%7Cportfolio" target="_blank">Pavel G's Designs on Behance</a>
+    It is inspired by <a href="https://www.behance.net/gallery/63574251/Personal-Portfolio-Website-Design" target="_blank">Julius Guevarra's Designs on Behance</a>
 </p>
 
 
-
-![Screenshot](assets/screenshots/portfolio_design_1.png)
-
-![Screenshot](assets/screenshots/portfolio_1.gif)
 
 ## 🚨 Forking this repo (please read!)
 
@@ -27,16 +22,30 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [da
 
 ## Enjoy
 
-![Screenshot](assets/screenshots/portfolio_2.gif)
+![Screenshot](assets/screenshots/0.jpg)
 
-![Screenshot](assets/screenshots/portfolio_3.gif)
+![Screenshot](assets/screenshots/1.jpg)
 
-![Screenshot](assets/screenshots/portfolio_mobile_1.gif)
+![Screenshot](assets/screenshots/2.jpg)
 
-## Actual Designs Used
+![Screenshot](assets/screenshots/3.gif)
 
-![Screenshot](assets/screenshots/portfolio_design_2.png)
+![Screenshot](assets/screenshots/4.jpg)
 
-![Screenshot](assets/screenshots/portfolio_design_3.png)
+![Screenshot](assets/screenshots/5.gif)
+
+![Screenshot](assets/screenshots/6.gif)
+
+![Screenshot](assets/screenshots/7.jpg)
+
+![Screenshot](assets/screenshots/8.jpg)
+
+![Screenshot](assets/screenshots/9.jpg)
+
+![Screenshot](assets/screenshots/10.jpg)
+
+![Screenshot](assets/screenshots/11.jpg)
+
+
 
 
