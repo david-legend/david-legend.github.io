@@ -26,6 +26,7 @@ class StringConst {
   static const String YOUR_EMAIL = "Your Email";
   static const String SUBJECT = "Subject";
   static const String MESSAGE = "Message";
+  static const String SEND_MESSAGE = "Send Message";
   static const String COPYRIGHT = "©  2021  $DEV_NAME";
 
 
@@ -64,8 +65,6 @@ class StringConst {
   static const String PHONE_HINT_TEXT = "Phone (Optional)";
   static const String EMAIL_HINT_TEXT = "Email";
   static const String MESSAGE_HINT_TEXT = "Message";
-
-  static const String SEND_MESSAGE = "Send Message";
 
   //Skills
   static const String FLUTTER = "Flutter";
