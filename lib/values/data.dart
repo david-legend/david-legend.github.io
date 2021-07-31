@@ -54,6 +54,9 @@ class ProjectDetails {
   final String? technologyUsed;
 }
 
+
+
+
 class PortfolioData {
   PortfolioData({
     required this.title,
@@ -131,7 +134,13 @@ class SubMenuData {
 }
 
 class Data {
-  
+  static List<SocialData> socialData = [
+    SocialData(iconData: FontAwesomeIcons.github, url: StringConst.GITHUB_URL),
+    SocialData(iconData: FontAwesomeIcons.linkedin, url: StringConst.LINKED_IN_URL),
+    SocialData(iconData: FontAwesomeIcons.twitter, url: StringConst.TWITTER_URL),
+    SocialData(iconData: FontAwesomeIcons.instagram, url: StringConst.INSTAGRAM_URL),
+    SocialData(iconData: FontAwesomeIcons.telegram, url: StringConst.TELEGRAM_URL),
+  ];
 
   static List<SkillData> skillData = [
     SkillData(skillLevel: 95, skillName: StringConst.FLUTTER),

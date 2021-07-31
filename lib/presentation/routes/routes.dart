@@ -1,5 +1,6 @@
+import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:flutter/material.dart';
-import 'package:aerium/presentation/pages/home/home_page.dart';
+import 'package:aerium/presentation/pages/home_page.dart';
 
 typedef PathWidgetBuilder = Widget Function(
     BuildContext, String? /*Map<String, String>*/);
@@ -30,7 +31,10 @@ class RouteConfiguration {
   /// will be returned. This means that the paths higher up in the list will
   /// take priority.
   static List<Path> paths = [
-   
+   Path(
+      r'^' + ContactPage.contactPageRoute,
+      (context, matches) => const ContactPage(),
+    ),
     // Path(
     //   r'^' + AboutPage.aboutPageRoute,
     //   (context, matches) => const AboutPage(),

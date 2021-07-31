@@ -69,22 +69,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Circe
-      fonts:
-        - asset: assets/fonts/circe/Circe-Thin.ttf
-          weight: 200
-        - asset: assets/fonts/circe/Circe-Light.ttf
-          weight: 300
-        - asset: assets/fonts/circe/Circe-Bold.ttf
-          weight: 600
-    - family: ProximaNova
-      fonts:
-        - asset: assets/fonts/proxima_nova/ProximaNova-Thin.otf
-          weight: 200
-        - asset: assets/fonts/proxima_nova/ProximaNova-Regular.otf
-          weight: 400
-        - asset: assets/fonts/proxima_nova/ProximaNova-Bold.otf
-          weight: 600
     - family: VisueltPro
       fonts:
         - asset: assets/fonts/visuelt/VisueltPro-Light.ttf

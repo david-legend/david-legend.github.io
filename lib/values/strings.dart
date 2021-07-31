@@ -18,8 +18,19 @@ class StringConst {
   static const String CERTIFICATIONS = "Certifications";
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
 
+
+  // Contact Page
+  static const String GET_IN_TOUCH = "Get in touch.";
+  static const String CONTACT_MSG = "Do you fancy saying hi to me or you want to get started with your project and you need my help? Feel free to contact me.";
+  static const String YOUR_NAME = "Your Name";
+  static const String YOUR_EMAIL = "Your Email";
+  static const String SUBJECT = "Subject";
+  static const String MESSAGE = "Message";
+  static const String COPYRIGHT = "©  2021  $DEV_NAME";
+
+
   static const String MESSAGE_ME = "Message me";
-  static const String GET_IN_TOUCH = "Get in touch";
+  
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
   static const String BUILT_WITH = "Built with ";
