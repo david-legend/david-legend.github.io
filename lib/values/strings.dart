@@ -23,9 +23,13 @@ class StringConst {
   static const String GET_IN_TOUCH = "Get in touch.";
   static const String CONTACT_MSG = "Do you fancy saying hi to me or you want to get started with your project and you need my help? Feel free to contact me.";
   static const String YOUR_NAME = "Your Name";
+  static const String NAME_ERROR_MSG = "* Please enter your name";
   static const String YOUR_EMAIL = "Your Email";
+  static const String EMAIL_ERROR_MSG = "* Please enter a valid email";
   static const String SUBJECT = "Subject";
+  static const String SUBJECT_ERROR_MSG = "* Please tell me what this message is about";
   static const String MESSAGE = "Message";
+  static const String MESSAGE_ERROR_MSG = "* Please enter something to send this form";
   static const String SEND_MESSAGE = "Send Message";
   static const String COPYRIGHT = "©  2021  $DEV_NAME";
 

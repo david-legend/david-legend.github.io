@@ -1,10 +1,14 @@
+import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AeriumTextFormField extends StatelessWidget {
-  const AeriumTextFormField({
+  AeriumTextFormField({
     Key? key,
+    this.title = '',
+    this.titleStyle,
+    this.hasTitle = true,
     this.textStyle,
     this.hintTextStyle,
     this.labelStyle,
@@ -21,11 +25,14 @@ class AeriumTextFormField extends StatelessWidget {
     this.inputFormatters,
     this.fillColor = AppColors.lightGreen,
     this.filled = false,
+    this.controller,
   }) : super(key: key);
 
   final TextStyle? textStyle;
   final TextStyle? hintTextStyle;
   final TextStyle? labelStyle;
+  final TextStyle? titleStyle;
+  final String title;
   final String? hintText;
   final String? labelText;
   final bool obscured;
@@ -39,37 +46,45 @@ class AeriumTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final Color fillColor;
   final bool filled;
+  final bool hasTitle;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
 
-    return TextFormField(
-      style: textStyle ??
-          textTheme.bodyText1?.copyWith(
-            color: AppColors.black,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        hasTitle ? Text(title, style: titleStyle) : Empty(),
+        TextFormField(
+          style: textStyle ??
+              textTheme.bodyText1?.copyWith(
+                color: AppColors.black,
+              ),
+          controller: controller,
+          keyboardType: textInputType,
+          onChanged: onChanged,
+          validator: validator,
+          inputFormatters: inputFormatters,
+          decoration: InputDecoration(
+            fillColor: fillColor,
+            filled: filled,
+            contentPadding: contentPadding,
+            labelText: labelText,
+            labelStyle: labelStyle,
+            border: border,
+            enabledBorder: enabledBorder,
+            focusedBorder: focusedBorder,
+            hintText: hintText,
+            hintStyle: hintTextStyle ??
+                textTheme.bodyText1?.copyWith(
+                  color: AppColors.grey600,
+                ),
           ),
-          
-      keyboardType: textInputType,
-      onChanged: onChanged,
-      validator: validator,
-      inputFormatters: inputFormatters,
-      decoration: InputDecoration(
-        fillColor: fillColor,
-        filled: filled,
-        contentPadding: contentPadding,
-        labelText: labelText,
-        labelStyle: labelStyle,
-        border: border,
-        enabledBorder: enabledBorder,
-        focusedBorder: focusedBorder,
-        hintText: hintText,
-        hintStyle: hintTextStyle ??
-            textTheme.bodyText1?.copyWith(
-              color: AppColors.grey600,
-            ),
-      ),
-      obscureText: obscured,
+          obscureText: obscured,
+        ),
+      ],
     );
   }
 }
