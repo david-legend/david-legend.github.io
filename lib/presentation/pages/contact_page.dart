@@ -8,6 +8,7 @@ import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+
 class ContactPage extends StatefulWidget {
   static const String contactPageRoute = StringConst.CONTACT_PAGE;
   const ContactPage({Key? key}) : super(key: key);
@@ -47,6 +48,9 @@ class _ContactPageState extends State<ContactPage> {
     double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
     double contentAreaWidth = assignWidth(context, 0.6); //takes 60% of screen
+
+    double buttonWidth = responsiveSize(
+        context, contentAreaWidth * 0.5, contentAreaWidth * 0.25);
     EdgeInsetsGeometry paddingLg = EdgeInsets.only(
       left: assignWidth(context, 0.15),
       right: assignWidth(context, 0.25),
@@ -67,6 +71,7 @@ class _ContactPageState extends State<ContactPage> {
                     StringConst.GET_IN_TOUCH,
                     style: textTheme.headline2?.copyWith(
                       color: AppColors.black,
+                      fontSize: responsiveSize(context, 40, 60),
                     ),
                   ),
                   CustomSpacer(heightFactor: 0.05),
@@ -75,7 +80,11 @@ class _ContactPageState extends State<ContactPage> {
                     style: textTheme.bodyText1?.copyWith(
                       color: AppColors.grey700,
                       height: 2.0,
-                      fontSize: 18,
+                      fontSize: responsiveSize(
+                        context,
+                        Sizes.TEXT_SIZE_16,
+                        Sizes.TEXT_SIZE_18,
+                      ),
                     ),
                   ),
                   CustomSpacer(heightFactor: 0.05),
@@ -124,6 +133,8 @@ class _ContactPageState extends State<ContactPage> {
                     hintText: StringConst.MESSAGE,
                     controller: _messageController,
                     filled: _messageFilled,
+                    textInputType: TextInputType.multiline,
+                    maxLines: 10,
                     onChanged: (value) {
                       isMessageValid(value);
                     },
@@ -133,7 +144,7 @@ class _ContactPageState extends State<ContactPage> {
                     alignment: Alignment.topRight,
                     child: AeriumButton(
                       height: Sizes.HEIGHT_50,
-                      width: contentAreaWidth * 0.25,
+                      width: buttonWidth,
                       title: StringConst.SEND_MESSAGE.toUpperCase(),
                       onPressed: () {},
                     ),

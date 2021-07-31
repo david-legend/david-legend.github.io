@@ -25,6 +25,7 @@ class AeriumTextFormField extends StatelessWidget {
     this.inputFormatters,
     this.fillColor = AppColors.lightGreen,
     this.filled = false,
+    this.maxLines = 1,
     this.controller,
   }) : super(key: key);
 
@@ -47,6 +48,7 @@ class AeriumTextFormField extends StatelessWidget {
   final Color fillColor;
   final bool filled;
   final bool hasTitle;
+  int? maxLines;
   final TextEditingController? controller;
 
   @override
@@ -61,10 +63,13 @@ class AeriumTextFormField extends StatelessWidget {
           style: textStyle ??
               textTheme.bodyText1?.copyWith(
                 color: AppColors.black,
+                fontWeight: FontWeight.w400,
               ),
+
           controller: controller,
           keyboardType: textInputType,
           onChanged: onChanged,
+          maxLines:maxLines ,
           validator: validator,
           inputFormatters: inputFormatters,
           decoration: InputDecoration(
