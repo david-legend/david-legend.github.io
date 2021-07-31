@@ -41,27 +41,35 @@ class _ContactPageState extends State<ContactPage> {
     TextStyle? errorStyle = textTheme.bodyText1?.copyWith(
       color: AppColors.errorRed,
       fontWeight: FontWeight.w400,
-      fontSize:  Sizes.TEXT_SIZE_12,
+      fontSize: Sizes.TEXT_SIZE_12,
       letterSpacing: 1,
     );
 
     double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
-    double contentAreaWidth = assignWidth(context, 0.6); //takes 60% of screen
+    double contentAreaWidth = responsiveSize(
+      context,
+      assignWidth(context, 0.8),
+      assignWidth(context, 0.6),
+    ); //takes 60% of screen
 
     double buttonWidth = responsiveSize(
-        context, contentAreaWidth * 0.5, contentAreaWidth * 0.25);
-    EdgeInsetsGeometry paddingLg = EdgeInsets.only(
-      left: assignWidth(context, 0.15),
-      right: assignWidth(context, 0.25),
-      top: assignHeight(context, 0.3),
+      context,
+      contentAreaWidth * 0.6,
+      contentAreaWidth * 0.25,
     );
+    EdgeInsetsGeometry padding = EdgeInsets.only(
+      left: responsiveSize(context, assignWidth(context, 0.10), assignWidth(context, 0.15)),
+      right: responsiveSize(context, assignWidth(context, 0.10), assignWidth(context, 0.25)) ,
+      top: responsiveSize(context, assignHeight(context, 0.25), assignHeight(context, 0.3)) ,
+    );
+
     return Scaffold(
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
           Padding(
-            padding: paddingLg,
+            padding: padding,
             child: ContentArea(
               width: contentAreaWidth,
               child: Column(
