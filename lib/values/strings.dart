@@ -7,7 +7,7 @@ class StringConst {
   static const String SITE_URL = "https://davidcobbina.com";
 
   static const String HOME = "Home";
-  static const String ABOUT_ME = "About Me";
+  static const String ABOUT = "About";
   static const String PORTFOLIO = "Portfolio";
   static const String EXPERIENCE = "Experience";
   static const String WORK = "Where I've Worked";

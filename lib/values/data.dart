@@ -1,15 +1,5 @@
 part of 'values.dart';
 
-class MenuData {
-  MenuData({
-    required this.title,
-    required this.routeName,
-  });
-
-  final String title;
-  final String routeName;
-}
-
 class CertificationData {
   CertificationData({
     required this.title,
@@ -53,9 +43,6 @@ class ProjectDetails {
   final String? webUrl;
   final String? technologyUsed;
 }
-
-
-
 
 class PortfolioData {
   PortfolioData({
@@ -134,12 +121,31 @@ class SubMenuData {
 }
 
 class Data {
+  static List<NavItemData> menuItems = [
+    NavItemData(name: StringConst.HOME, route: StringConst.HOME_PAGE),
+    NavItemData(name: StringConst.ABOUT, route: StringConst.ABOUT_PAGE),
+    NavItemData(name: StringConst.PORTFOLIO, route: StringConst.PORTFOLIO_PAGE),
+    NavItemData(name: StringConst.CONTACT, route: StringConst.CONTACT_PAGE),
+    NavItemData(
+      name: StringConst.EXPERIENCE,
+      route: StringConst.EXPERIENCE_PAGE,
+    ),
+    NavItemData(
+      name: StringConst.CERTIFICATIONS,
+      route: StringConst.CERTIFICATION_PAGE,
+    ),
+  ];
+
   static List<SocialData> socialData = [
     SocialData(iconData: FontAwesomeIcons.github, url: StringConst.GITHUB_URL),
-    SocialData(iconData: FontAwesomeIcons.linkedin, url: StringConst.LINKED_IN_URL),
-    SocialData(iconData: FontAwesomeIcons.twitter, url: StringConst.TWITTER_URL),
-    SocialData(iconData: FontAwesomeIcons.instagram, url: StringConst.INSTAGRAM_URL),
-    SocialData(iconData: FontAwesomeIcons.telegram, url: StringConst.TELEGRAM_URL),
+    SocialData(
+        iconData: FontAwesomeIcons.linkedin, url: StringConst.LINKED_IN_URL),
+    SocialData(
+        iconData: FontAwesomeIcons.twitter, url: StringConst.TWITTER_URL),
+    SocialData(
+        iconData: FontAwesomeIcons.instagram, url: StringConst.INSTAGRAM_URL),
+    SocialData(
+        iconData: FontAwesomeIcons.telegram, url: StringConst.TELEGRAM_URL),
   ];
 
   static List<SkillData> skillData = [

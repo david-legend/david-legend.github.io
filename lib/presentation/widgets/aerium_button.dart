@@ -9,11 +9,13 @@ class AeriumButton extends StatefulWidget {
     required this.title,
     this.titleStyle,
     this.width = Sizes.WIDTH_120,
+    this.borderWidth = Sizes.WIDTH_1,
     this.height = Sizes.HEIGHT_44,
     this.onPressed,
     this.hasIcon = true,
     this.iconColor = AppColors.white,
     this.buttonColor = AppColors.black,
+    this.borderColor = AppColors.black,
     this.onHoverColor = AppColors.white,
     this.iconData = FontAwesomeIcons.telegramPlane,
     this.iconSize = Sizes.ICON_SIZE_14,
@@ -28,10 +30,12 @@ class AeriumButton extends StatefulWidget {
   final double iconSize;
   final Color iconColor;
   final Color buttonColor;
+  final Color borderColor;
 
   /// this is the color that shows when hovered
   final Color onHoverColor;
   final double width;
+  final double borderWidth;
   final double height;
   final ButtonStyle? buttonStyle;
   final VoidCallback? onPressed;
@@ -96,7 +100,7 @@ class _AeriumButtonState extends State<AeriumButton>
         borderRadius: BorderRadius.all(Radius.circular(0)),
         side: BorderSide(
           width: 1,
-          color: widget.buttonColor,
+          color: widget.borderColor,
         ),
       ),
     );
