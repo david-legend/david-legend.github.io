@@ -36,12 +36,12 @@ class _ContactPageState extends State<ContactPage> {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? initialErrorStyle = textTheme.bodyText1?.copyWith(
       color: AppColors.white,
-      fontSize: 12,
+      fontSize: Sizes.TEXT_SIZE_12,
     );
     TextStyle? errorStyle = textTheme.bodyText1?.copyWith(
       color: AppColors.errorRed,
       fontWeight: FontWeight.w400,
-      fontSize: 12,
+      fontSize:  Sizes.TEXT_SIZE_12,
       letterSpacing: 1,
     );
 
