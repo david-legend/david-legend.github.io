@@ -8,6 +8,22 @@ import 'package:aerium/presentation/routes/routes.dart';
 import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
+// Priority
+// TODO:: Complete animatedSlideBox animation
+// TODO:: Animation for nav item on hover for web
+// TODO:: Animation for nav item on hover for mobile
+
+
+// After
+// Resume
+// Certifications
+// About
+// Experience
+// Works
+// Home
+
+// Later
+// TODO:: Animation for app drawer for mobile view when it opens
 
 void main() async {
   // GoogleFonts.config.allowRuntimeFetching = false;
