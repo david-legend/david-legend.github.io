@@ -1,4 +1,5 @@
 import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class Socials extends StatelessWidget {
     this.color = AppColors.white,
     this.spacing = Sizes.SIZE_40,
     this.runSpacing = Sizes.SIZE_16,
+    this.isHorizontal = true,
   })  : assert(socialData.length > 0),
         super(key: key);
 
@@ -30,13 +32,16 @@ class Socials extends StatelessWidget {
   final Color color;
   final double spacing;
   final double runSpacing;
+  final bool isHorizontal;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Wrap(
+      child: isHorizontal ? Wrap(
         spacing: spacing,
         runSpacing: runSpacing,
+        children: _buildSocialIcons(socialData),
+      ) : Column(
         children: _buildSocialIcons(socialData),
       ),
     );
@@ -56,6 +61,11 @@ class Socials extends StatelessWidget {
           ),
         ),
       );
+
+      // if it is vertical, add spaces
+      if(!isHorizontal) {
+        items.add(SpaceH30());
+      }
     }
 
     return items;
