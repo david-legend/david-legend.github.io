@@ -72,18 +72,20 @@ flutter:
   fonts:
     - family: VisueltPro
       fonts:
-        - asset: assets/fonts/visuelt/VisueltPro-Light.ttf
-          weight: 100
         - asset: assets/fonts/visuelt/VisueltPro-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/visuelt/VisueltPro-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/visuelt/VisueltPro-Medium.ttf
+        - asset: assets/fonts/visuelt/VisueltPro-Light.ttf
           weight: 300
         - asset: assets/fonts/visuelt/VisueltPro-Regular.ttf
           weight: 400
-        - asset: assets/fonts/visuelt/VisueltPro-Black.ttf
+        - asset: assets/fonts/visuelt/VisueltPro-Medium.ttf
           weight: 500
+        - asset: assets/fonts/visuelt/VisueltPro-Black.ttf
+          weight: 700
         - asset: assets/fonts/visuelt/VisueltPro-Bold.ttf
-          weight: 600
+          weight: 800
     #
     # For details regarding fonts from package dependencies,
     # see https://flutter.dev/custom-fonts/#from-packages

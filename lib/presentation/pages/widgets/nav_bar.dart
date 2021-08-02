@@ -28,7 +28,7 @@ class NavBar extends StatelessWidget {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       double screenWidth = sizingInformation.screenSize.width;
 
-      if (screenWidth < RefinedBreakpoints().tabletNormal) {
+      if (screenWidth <= RefinedBreakpoints().tabletNormal) {
         return mobileNavBar(context);
       } else {
         return webNavBar(context);

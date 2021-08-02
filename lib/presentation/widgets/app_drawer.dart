@@ -86,7 +86,6 @@ class AppDrawer extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 child: Container(
-                  color: Colors.red,
                   margin: EdgeInsets.only(
                     left: Sizes.MARGIN_24,
                     bottom: assignHeight(context, 0.1),

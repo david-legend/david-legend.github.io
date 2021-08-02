@@ -32,10 +32,26 @@ class StringConst {
   static const String MESSAGE_ERROR_MSG = "* Please enter something to send this form";
   static const String SEND_MESSAGE = "Send Message";
   static const String COPYRIGHT = "©  2021  $DEV_NAME";
-
-
   static const String MESSAGE_ME = "Message me";
   
+
+  // About Page
+  static const String ABOUT_DEV_CATCH_LINE = "I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
+  static const String ABOUT_DEV_STORY = "Story";
+  static const String ABOUT_DEV_STORY_TITLE = "A story of hardwork and persevearance";
+  static const String ABOUT_DEV_STORY_CONTENT = "Hi! I'm David Cobbina. I have a strong passion for design and technology. I specialize in Front End Development and UI/UX Design and my passion is all about building elegant and professional user interfaces and websites. I also do branding and identity design such as logo design, letterhead and business card, along with photo editing, image cropping and other graphic design services.";
+  static const String ABOUT_DEV_TECHNOLOGY = "View";
+  static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use";
+  static const String ABOUT_DEV_TECHNOLOGY_CONTENT = "I use a number of tools that make design and development much easier. I usually use Adobe XD or Figma interchangeably for doing all the process that includes wireframing, prototyping and visual design. For wireframing alone, any graphic design tool can make the job done either it is low fidelity or high fidelity wireframe. For development/coding, I use different tools specific to the development of the application or website. Listed below are the tools and technologies that I use and I'm knowledgeable with.";
+  static const String ABOUT_DEV_CONTACT = "Contact";
+  static const String ABOUT_DEV_CONTACT_TITLE = "Social.";
+  static const String ABOUT_DEV_CONTACT_TITLE_2 = "Email.";
+  static const String FAMOUS_QUOTE = "Email.";
+  static const String WORK_TOGETHER = "Let's work together.";
+  static const String AVAILABLE_FOR_FREELANCE = "I'm available for freelance work.";
+  static const String SAY_HELLO = "Say Hello";
+
+
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
   static const String BUILT_WITH = "Built with ";
