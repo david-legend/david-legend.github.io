@@ -22,7 +22,7 @@ class ContactPage extends StatefulWidget {
 
 class _ContactPageState extends State<ContactPage>
     with SingleTickerProviderStateMixin {
-  // late AnimationController _animationController;
+  late AnimationController _animationController;
   final Duration duration = Duration(milliseconds: 2000);
   bool _nameFilled = false;
   bool _emailFilled = false;
@@ -39,8 +39,8 @@ class _ContactPageState extends State<ContactPage>
 
   @override
   void initState() {
-    // _animationController = AnimationController(vsync: this, duration: duration);
-    // _animationController.forward();
+    _animationController = AnimationController(vsync: this, duration: duration);
+    _animationController.forward();
     super.initState();
   }
 
@@ -103,10 +103,11 @@ class _ContactPageState extends State<ContactPage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // AnimatedSlideBox(
-                  //   width: 200,
-                  //   height: 80,
+                  //   width: 500.0,
+                  //   height: 80.0,
                   //   controller: _animationController,
                   //   duration: duration,
+                  //   child: Text("GET IN TOUCH"),
                   // ),
                   Text(
                     StringConst.GET_IN_TOUCH,
