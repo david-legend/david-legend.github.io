@@ -72,7 +72,7 @@ class AppDrawer extends StatelessWidget {
                       children: [
                         Spacer(flex: 2),
                         ..._buildMenuList(menuList: menuList, context: context),
-                         Spacer(flex: 2),
+                        Spacer(flex: 2),
                       ],
                     ),
                   ),
@@ -86,9 +86,11 @@ class AppDrawer extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 child: Container(
+                  color: Colors.red,
                   margin: EdgeInsets.only(
-                      left: Sizes.MARGIN_24,
-                      bottom: assignHeight(context, 0.1)),
+                    left: Sizes.MARGIN_24,
+                    bottom: assignHeight(context, 0.1),
+                  ),
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Socials(
@@ -115,7 +117,7 @@ class AppDrawer extends StatelessWidget {
       menuItems.add(
         NavItem(
           onTap: () {
-            Navigator.of(context).pushNamed(menuList[index].name);
+            Navigator.of(context).pushNamed(menuList[index].route);
           },
           index: index + 1,
           route: menuList[index].route,

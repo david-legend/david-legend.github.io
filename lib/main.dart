@@ -16,7 +16,6 @@ import 'package:layout/layout.dart';
 
 // After
 // Resume
-// Certifications
 // About
 // Experience
 // Works
