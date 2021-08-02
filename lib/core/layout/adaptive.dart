@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 enum DisplayType {
   desktop,
@@ -30,6 +31,12 @@ DisplayType displayTypeOf(BuildContext context) {
 /// build adaptive and responsive layouts.
 bool isDisplayDesktop(BuildContext context) {
   return displayTypeOf(context) == DisplayType.desktop;
+}
+
+/// Returns a boolean if we are in a display of [DisplayType.desktop]. Used to
+/// build adaptive and responsive layouts.
+bool isDisplayMobile(BuildContext context) {
+  return MediaQuery.of(context).size.width <= RefinedBreakpoints().tabletSmall;
 }
 
 /// Returns a boolean if we are in a display of [DisplayType.desktop] but less
@@ -71,7 +78,6 @@ double assignWidth(
 }) {
   return (widthOfScreen(context) - (subs) + (additions)) * fraction;
 }
-
 
 double responsiveSize(
   BuildContext context,
