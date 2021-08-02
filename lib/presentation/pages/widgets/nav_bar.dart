@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
 import 'package:aerium/presentation/widgets/app_logo.dart';
 import 'package:aerium/presentation/widgets/nav_item.dart';
@@ -84,7 +85,9 @@ class NavBar extends StatelessWidget {
                 borderColor: AppColors.black,
                 onHoverColor: AppColors.black,
                 title: StringConst.RESUME.toUpperCase(),
-                onPressed: () {},
+                onPressed: () {
+                  Functions.launchUrl(DocumentPath.CV);
+                },
               ),
             ],
           ),
