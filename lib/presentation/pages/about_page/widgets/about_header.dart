@@ -31,7 +31,7 @@ class AboutHeader extends StatelessWidget {
     );
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       double screenWidth = sizingInformation.screenSize.width;
-      if (screenWidth <= RefinedBreakpoints().mobileExtraLarge) {
+      if (screenWidth <= RefinedBreakpoints().tabletSmall) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

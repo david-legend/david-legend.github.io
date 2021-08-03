@@ -3,6 +3,8 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/nav_bar.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
+import 'package:aerium/presentation/widgets/animated_slide_box_transition.dart';
+import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/aerium_text_form_field.dart';
 import 'package:aerium/presentation/widgets/animated_slide_box.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
@@ -101,13 +103,20 @@ class _ContactPageState extends State<ContactPage>
               width: contentAreaWidth,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  // AnimatedSlideBox(
+                  
+                  // AnimatedSlideBoxTransition(
                   //   width: 500.0,
                   //   height: 80.0,
                   //   controller: _animationController,
-                  //   duration: duration,
-                  //   child: Text("GET IN TOUCH"),
+                  //   child: Text(
+                  //     "GET IN TOUCH",
+                  //     style: textTheme.headline2?.copyWith(
+                  //       color: AppColors.black,
+                  //       fontSize: responsiveSize(context, 40, 60),
+                  //     ),
+                  //   ),
                   // ),
                   Text(
                     StringConst.GET_IN_TOUCH,
@@ -200,8 +209,6 @@ class _ContactPageState extends State<ContactPage>
         ],
       ),
     );
-
-   
   }
 
   bool isTextValid(String value) {

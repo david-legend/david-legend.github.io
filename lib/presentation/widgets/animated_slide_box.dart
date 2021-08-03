@@ -1,21 +1,41 @@
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
+// class JoJo extends AnimatedWidget {
+//   late Animation<double>? width;
+//   late AnimationController controller;
+//   late Curve curve;
+//    JoJo({  Animation<double>? width, controller, curve}) :  width = Tween<double>(begin: 0, end: width.value).animate(
+//         CurvedAnimation(
+//           parent: controller,
+//           curve: Interval(0.35, 0.70, curve: curve),
+//         ),
+//       ), super(listenable: width!);
+  //      {
+  //   this.width = width ?? Tween<double>(begin: 0, end: width).animate(
+  //       CurvedAnimation(
+  //         parent: controller,
+  //         curve: Interval(0.35, 0.70, curve: curve),
+  //       ),
+  //     );
+  // }
+
+  
+// }
+
 class AnimatedSlideBox extends AnimatedWidget {
   const AnimatedSlideBox({
     Key? key,
     required this.controller,
     required this.height,
-    required this.child,
     required this.width,
-    visibleBoxAnimation,
-    invisibleBoxAnimation,
-    slideAnimation,
-    this.duration = const Duration(milliseconds: 3000),
+    this.visibleBoxAnimation,
+    this.invisibleBoxAnimation,
     this.boxColor = AppColors.black,
     this.coverColor = AppColors.primaryColor,
-    this.curve = Curves.fastOutSlowIn,
-  }) : super(key: key, listenable: visibleBoxAnimation);
+    this.visibleBoxCurve = Curves.fastOutSlowIn,
+    this.invisibleBoxCurve = Curves.fastOutSlowIn,
+  }) : super(key: key, listenable: controller);
 
   // final double width;
   final AnimationController controller;
@@ -23,43 +43,38 @@ class AnimatedSlideBox extends AnimatedWidget {
   final double width;
   final Color boxColor;
   final Color coverColor;
-  final Duration duration;
-  final Curve curve;
-  final Widget child;
+  final Curve visibleBoxCurve;
+  final Curve invisibleBoxCurve;
+  final Animation<double>? visibleBoxAnimation;
+  final Animation<double>? invisibleBoxAnimation;
 
-  Animation<double> get visibleBoxAnimation =>
+  Animation<double> get visibleAnimation => visibleBoxAnimation ??
       Tween<double>(begin: 0, end: width).animate(
         CurvedAnimation(
           parent: controller,
-          curve: Interval(0, 0.35, curve: curve),
+          curve: Interval(0, 0.5, curve: visibleBoxCurve),
         ),
       );
-  Animation<double> get invisibleBoxAnimation =>
+  Animation<double> get invisibleAnimation =>
       Tween<double>(begin: 0, end: width).animate(
         CurvedAnimation(
           parent: controller,
-          curve: Interval(0.35, 0.70, curve: curve),
+          curve: Interval(0.5, 1.0, curve: invisibleBoxCurve),
         ),
       );
-  Animation<Offset> get slideAnimation => Tween<Offset>(
-        begin: Offset(0, 2),
-        end: Offset(0, 0),
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(0.60, 1.0, curve: curve),
-        ),
-      );
+ 
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
+      height: height,
       child: Stack(
         children: [
           Positioned(
             top: 2,
             child: Container(
-              width: visibleBoxAnimation.value,
+              width: visibleAnimation.value,
               height: height - 4,
               color: boxColor,
             ),
@@ -67,96 +82,15 @@ class AnimatedSlideBox extends AnimatedWidget {
           Positioned(
             top: 0,
             child: Container(
-              width: invisibleBoxAnimation.value,
+              width: invisibleAnimation.value,
               height: height + 4,
               color: AppColors.primaryColor,
             ),
           ),
-          SlideTransition(
-            position: slideAnimation,
-            child: child,
-          ),
+        
         ],
       ),
     );
   }
 }
 
-// class _AnimatedSlideBoxState extends State<AnimatedSlideBox> {
-//   late Animation<double>? visibleBoxAnimation;
-//   late Animation<double>? invisibleBoxAnimation;
-//   late Animation<Offset>? slideAnimation;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     visibleBoxAnimation = widget.visibleBoxAnimation ??
-//         Tween<double>(begin: 0, end: widget.width).animate(
-//           CurvedAnimation(
-//             parent: widget.controller,
-//             curve: Interval(0, 0.35, curve: widget.curve),
-//           ),
-//         );
-//     invisibleBoxAnimation = widget.invisibleBoxAnimation ??
-        // Tween<double>(begin: 0, end: widget.width).animate(
-        //   CurvedAnimation(
-        //     parent: widget.controller,
-        //     curve: Interval(0.35, 0.70, curve: widget.curve),
-        //   ),
-        // );
-//     slideAnimation = widget.slideAnimation ??
-        // Tween<Offset>(
-        //   begin: Offset(0, 2),
-        //   end: Offset(0, 0),
-        // ).animate(
-        //   CurvedAnimation(
-        //     parent: widget.controller,
-        //     curve: Interval(0.60, 1.0, curve: widget.curve),
-        //   ),
-        // );
-//   }
-
-//   Widget _buildAnimation(BuildContext context, Widget? child) {
-//     TextTheme textTheme = Theme.of(context).textTheme;
-//     return Container(
-//       child: Stack(
-//         children: [
-//           Positioned(
-//             top: 2,
-//             child: Container(
-//               width: visibleBoxAnimation!.value,
-//               height: widget.height - 4,
-//               color: widget.boxColor,
-//             ),
-//           ),
-//           Positioned(
-//             top: 0,
-//             child: Container(
-//               width: invisibleBoxAnimation!.value,
-//               height: widget.height + 4,
-//               color: AppColors.primaryColor,
-//             ),
-//           ),
-//           SlideTransition(
-//             position: slideAnimation!,
-//             child: Text(
-//               "GET IN TOUCH",
-//               style: textTheme.headline2?.copyWith(
-//                 color: AppColors.black,
-//                 fontSize: 60,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return AnimatedBuilder(
-//       builder: _buildAnimation,
-//       animation: widget.controller,
-//     );
-//   }
-// }
