@@ -5,27 +5,29 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class AboutContentBuilder extends StatelessWidget {
-  const AboutContentBuilder({
+class ContentBuilder extends StatelessWidget {
+  const ContentBuilder({
     Key? key,
     required this.width,
     required this.number,
     required this.section,
-    required this.title,
     required this.body,
+    this.title = '',
     this.numberStyle,
     this.sectionStyle,
     this.titleStyle,
+    this.heading,
     this.footer,
   }) : super(key: key);
 
   final double width;
   final String number;
   final String section;
-  final String title;
+  final String? title;
   final TextStyle? numberStyle;
   final TextStyle? sectionStyle;
   final TextStyle? titleStyle;
+  final Widget? heading;
   final Widget body;
   final Widget? footer;
 
@@ -36,6 +38,7 @@ class AboutContentBuilder extends StatelessWidget {
       fontSize: Sizes.TEXT_SIZE_10,
       color: AppColors.black,
       fontWeight: FontWeight.w400,
+      height: 2.0,
       letterSpacing: 2,
     );
     TextStyle? defaultSectionStyle = defaultNumberStyle?.copyWith(
@@ -75,8 +78,8 @@ class AboutContentBuilder extends StatelessWidget {
                     ],
                   ),
                   SpaceH16(),
-                  Text(
-                    title,
+                  heading ?? Text(
+                    title!,
                     style: titleStyle ?? defaultTitleStyle,
                   ),
                   SpaceH30(),
@@ -90,30 +93,35 @@ class AboutContentBuilder extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      number,
-                      style: numberStyle ?? defaultNumberStyle,
-                    ),
-                    SpaceW16(),
-                    Text(
-                      section,
-                      style: sectionStyle ?? defaultSectionStyle,
-                    ),
-                  ],
+                Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        number,
+                        style: numberStyle ?? defaultNumberStyle,
+                      ),
+                      SpaceW16(),
+                      Expanded(
+                        child: Text(
+                          section,
+                          style: sectionStyle ?? defaultSectionStyle,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Spacer(),
+                SpaceW40(),
                 Container(
                   width: width * 0.75,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title,
-                        style: titleStyle ?? defaultTitleStyle,
-                      ),
+                      heading ??
+                          Text(
+                            title!,
+                            style: titleStyle ?? defaultTitleStyle,
+                          ),
                       SpaceH20(),
                       body,
                       footer ?? Empty(),

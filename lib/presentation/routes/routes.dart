@@ -1,6 +1,7 @@
 import 'package:aerium/presentation/pages/about_page/about_page.dart';
 import 'package:aerium/presentation/pages/certification_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
+import 'package:aerium/presentation/pages/experience_page.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/presentation/pages/home_page.dart';
 
@@ -49,10 +50,10 @@ class RouteConfiguration {
     //   r'^' + ProjectDetailPage.projectDetailPageRoute,
     //   (context, matches) => const ProjectDetailPage(),
     // ),
-    // Path(
-    //   r'^' + ExperiencePage.experiencePageRoute,
-    //   (context, matches) => const ExperiencePage(),
-    // ),
+    Path(
+      r'^' + ExperiencePage.experiencePageRoute,
+      (context, matches) => const ExperiencePage(),
+    ),
     Path(
       r'^' + CertificationPage.certificationPageRoute,
       (context, matches) => const CertificationPage(),

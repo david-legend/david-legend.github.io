@@ -1,5 +1,6 @@
 import 'package:aerium/presentation/pages/about_page/about_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
+import 'package:aerium/presentation/pages/experience_page.dart';
 import 'package:aerium/presentation/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,7 +40,7 @@ class Aerium extends StatelessWidget {
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
         // initialRoute: LoadingPage.loadingPageRoute,
-        initialRoute: AboutPage.aboutPageRoute, 
+        initialRoute: ExperiencePage.experiencePageRoute, 
         // initialRoute: ContactPage.contactPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),

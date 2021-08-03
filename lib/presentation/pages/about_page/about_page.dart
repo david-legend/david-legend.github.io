@@ -13,7 +13,7 @@ import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/about_content_builder.dart';
+import '../../widgets/content_builder.dart';
 
 class AboutPage extends StatefulWidget {
   static const String aboutPageRoute = StringConst.ABOUT_PAGE;
@@ -77,7 +77,8 @@ class _AboutPageState extends State<AboutPage> {
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics()),
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
         children: [
           Padding(
             padding: padding,
@@ -89,7 +90,7 @@ class _AboutPageState extends State<AboutPage> {
                     width: contentAreaWidth,
                   ),
                   CustomSpacer(heightFactor: 0.1),
-                  AboutContentBuilder(
+                  ContentBuilder(
                     number: "/01 ",
                     width: contentAreaWidth,
                     section: StringConst.ABOUT_DEV_STORY.toUpperCase(),
@@ -109,7 +110,7 @@ class _AboutPageState extends State<AboutPage> {
                     ),
                   ),
                   CustomSpacer(heightFactor: 0.1),
-                  AboutContentBuilder(
+                  ContentBuilder(
                     number: "/02 ",
                     width: contentAreaWidth,
                     section: StringConst.ABOUT_DEV_TECHNOLOGY.toUpperCase(),
@@ -135,7 +136,7 @@ class _AboutPageState extends State<AboutPage> {
                     ),
                   ),
                   CustomSpacer(heightFactor: 0.1),
-                  AboutContentBuilder(
+                  ContentBuilder(
                     number: "/03 ",
                     width: contentAreaWidth,
                     section: StringConst.ABOUT_DEV_CONTACT.toUpperCase(),
@@ -206,7 +207,6 @@ class _AboutPageState extends State<AboutPage> {
               ),
             ),
           ),
-          // SimpleFooter(),
           AnimatedFooter()
         ],
       ),
