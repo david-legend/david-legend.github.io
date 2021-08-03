@@ -1,28 +1,6 @@
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-// class JoJo extends AnimatedWidget {
-//   late Animation<double>? width;
-//   late AnimationController controller;
-//   late Curve curve;
-//    JoJo({  Animation<double>? width, controller, curve}) :  width = Tween<double>(begin: 0, end: width.value).animate(
-//         CurvedAnimation(
-//           parent: controller,
-//           curve: Interval(0.35, 0.70, curve: curve),
-//         ),
-//       ), super(listenable: width!);
-  //      {
-  //   this.width = width ?? Tween<double>(begin: 0, end: width).animate(
-  //       CurvedAnimation(
-  //         parent: controller,
-  //         curve: Interval(0.35, 0.70, curve: curve),
-  //       ),
-  //     );
-  // }
-
-  
-// }
-
 class AnimatedSlideBox extends AnimatedWidget {
   const AnimatedSlideBox({
     Key? key,
@@ -48,7 +26,8 @@ class AnimatedSlideBox extends AnimatedWidget {
   final Animation<double>? visibleBoxAnimation;
   final Animation<double>? invisibleBoxAnimation;
 
-  Animation<double> get visibleAnimation => visibleBoxAnimation ??
+  Animation<double> get visibleAnimation =>
+      visibleBoxAnimation ??
       Tween<double>(begin: 0, end: width).animate(
         CurvedAnimation(
           parent: controller,
@@ -62,7 +41,6 @@ class AnimatedSlideBox extends AnimatedWidget {
           curve: Interval(0.5, 1.0, curve: invisibleBoxCurve),
         ),
       );
- 
 
   @override
   Widget build(BuildContext context) {
@@ -87,10 +65,8 @@ class AnimatedSlideBox extends AnimatedWidget {
               color: AppColors.primaryColor,
             ),
           ),
-        
         ],
       ),
     );
   }
 }
-

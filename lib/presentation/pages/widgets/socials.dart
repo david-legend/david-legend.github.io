@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 class SocialData {
   final IconData iconData;
   final String url;
+  final String name;
   final Color? color;
 
   SocialData({
+    required this.name,
     required this.iconData,
     required this.url,
     this.color = AppColors.white,

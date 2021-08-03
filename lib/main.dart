@@ -1,3 +1,4 @@
+import 'package:aerium/presentation/pages/about_page/about_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/loading_page.dart';
 import 'package:flutter/material.dart';
@@ -38,8 +39,8 @@ class Aerium extends StatelessWidget {
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
         // initialRoute: LoadingPage.loadingPageRoute,
-        // initialRoute: HomePage.homePageRoute, 
-        initialRoute: ContactPage.contactPageRoute,
+        initialRoute: AboutPage.aboutPageRoute, 
+        // initialRoute: ContactPage.contactPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

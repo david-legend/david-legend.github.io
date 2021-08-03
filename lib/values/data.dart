@@ -137,15 +137,54 @@ class Data {
   ];
 
   static List<SocialData> socialData = [
-    SocialData(iconData: FontAwesomeIcons.github, url: StringConst.GITHUB_URL),
     SocialData(
-        iconData: FontAwesomeIcons.linkedin, url: StringConst.LINKED_IN_URL),
+      name: StringConst.GITHUB,
+      iconData: FontAwesomeIcons.github,
+      url: StringConst.GITHUB_URL,
+    ),
     SocialData(
-        iconData: FontAwesomeIcons.twitter, url: StringConst.TWITTER_URL),
+      name: StringConst.LINKED_IN,
+      iconData: FontAwesomeIcons.linkedin,
+      url: StringConst.LINKED_IN_URL,
+    ),
     SocialData(
-        iconData: FontAwesomeIcons.instagram, url: StringConst.INSTAGRAM_URL),
+      name: StringConst.TWITTER,
+      iconData: FontAwesomeIcons.twitter,
+      url: StringConst.TWITTER_URL,
+    ),
     SocialData(
-        iconData: FontAwesomeIcons.telegram, url: StringConst.TELEGRAM_URL),
+      name: StringConst.INSTAGRAM,
+      iconData: FontAwesomeIcons.instagram,
+      url: StringConst.INSTAGRAM_URL,
+    ),
+    SocialData(
+      name: StringConst.TELEGRAM,
+      iconData: FontAwesomeIcons.telegram,
+      url: StringConst.TELEGRAM_URL,
+    ),
+  ];
+
+  static List<SocialData> socialData2 = [
+    SocialData(
+      name: StringConst.LINKED_IN,
+      iconData: FontAwesomeIcons.linkedin,
+      url: StringConst.LINKED_IN_URL,
+    ),
+    SocialData(
+      name: StringConst.TWITTER,
+      iconData: FontAwesomeIcons.twitter,
+      url: StringConst.TWITTER_URL,
+    ),
+    SocialData(
+      name: StringConst.INSTAGRAM,
+      iconData: FontAwesomeIcons.instagram,
+      url: StringConst.INSTAGRAM_URL,
+    ),
+    SocialData(
+      name: StringConst.TELEGRAM,
+      iconData: FontAwesomeIcons.telegram,
+      url: StringConst.TELEGRAM_URL,
+    ),
   ];
 
   static List<SkillData> skillData = [

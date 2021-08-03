@@ -40,12 +40,12 @@ class StringConst {
   static const String ABOUT_DEV_STORY = "Story";
   static const String ABOUT_DEV_STORY_TITLE = "A story of hardwork and persevearance";
   static const String ABOUT_DEV_STORY_CONTENT = "Hi! I'm David Cobbina. I have a strong passion for design and technology. I specialize in Front End Development and UI/UX Design and my passion is all about building elegant and professional user interfaces and websites. I also do branding and identity design such as logo design, letterhead and business card, along with photo editing, image cropping and other graphic design services.";
-  static const String ABOUT_DEV_TECHNOLOGY = "View";
+  static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use";
   static const String ABOUT_DEV_TECHNOLOGY_CONTENT = "I use a number of tools that make design and development much easier. I usually use Adobe XD or Figma interchangeably for doing all the process that includes wireframing, prototyping and visual design. For wireframing alone, any graphic design tool can make the job done either it is low fidelity or high fidelity wireframe. For development/coding, I use different tools specific to the development of the application or website. Listed below are the tools and technologies that I use and I'm knowledgeable with.";
   static const String ABOUT_DEV_CONTACT = "Contact";
-  static const String ABOUT_DEV_CONTACT_TITLE = "Social.";
-  static const String ABOUT_DEV_CONTACT_TITLE_2 = "Email.";
+  static const String ABOUT_DEV_CONTACT_SOCIAL = "Social.";
+  static const String ABOUT_DEV_CONTACT_EMAIL = "Email.";
   static const String FAMOUS_QUOTE = "Email.";
   static const String WORK_TOGETHER = "Let's work together.";
   static const String AVAILABLE_FOR_FREELANCE = "I'm available for freelance work.";
@@ -114,6 +114,7 @@ class StringConst {
   static const String CERTIFICATION_PAGE = "/certifications";
 
   //Socials
+  
   static const String GITHUB_URL = "https://github.com/david-legend";
   static const String LINKED_IN_URL =
       "https://www.linkedin.com/in/david-cobbina-7b0226119";
@@ -125,10 +126,11 @@ class StringConst {
   //Contacts
   static const String CONNECT = "Connect with me";
   static const String EMAIL = "Email";
-  static const String LINKED_IN = "LINKEDIN";
-  static const String TWITTER = "TWITTER";
-  static const String INSTAGRAM = "INSTAGRAM";
-  static const String TELEGRAM = "TELEGRAM";
+  static const String LINKED_IN = "LinkedIn";
+  static const String TWITTER = "Twiter";
+  static const String INSTAGRAM = "Instagram";
+  static const String TELEGRAM = "Telegram";
+  static const String GITHUB = "Github";
 
   //Certificate Urls
   static const String ASSOCIATE_ANDROID_DEV_URL =
