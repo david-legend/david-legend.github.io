@@ -158,11 +158,24 @@ class _AboutPageState extends State<AboutPage> {
                       ],
                     ),
                   ),
-                   CustomSpacer(heightFactor: 0.1),
+                  CustomSpacer(heightFactor: 0.1),
                   SelectableText(
                     StringConst.FAMOUS_QUOTE,
                     textAlign: TextAlign.center,
-                    style: titleStyle?.copyWith(fontSize: Sizes.TEXT_SIZE_36, height: 2.0),
+                    style: titleStyle?.copyWith(
+                        fontSize: Sizes.TEXT_SIZE_36, height: 2.0),
+                  ),
+                  SpaceH40(),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: SelectableText(
+                      "— ${StringConst.FAMOUS_QUOTE_AUTHOR}",
+                      style: textTheme.bodyText1?.copyWith(
+                        fontSize: Sizes.TEXT_SIZE_18,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.grey600,
+                      ),
+                    ),
                   ),
                   CustomSpacer(heightFactor: 0.2),
                 ],
