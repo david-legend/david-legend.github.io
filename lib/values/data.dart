@@ -164,6 +164,29 @@ class Data {
     ),
   ];
 
+  static List<String> mobileTechnologies = [
+    "Android",
+    "Flutter",
+    "Java Android",
+    "Kotlin",
+    "Dart"
+  ];
+
+  static List<String> otherTechnologies = [
+    "HTML 5",
+    "CSS 3",
+    "JavaScript",
+    "Wordpress",
+    "React JS",
+    "Node JS",
+    "Git",
+    "Laravel",
+    "PHP",
+    "Dart",
+    "SQL",
+    "C++",
+    "Firebase",
+  ];
   static List<SocialData> socialData2 = [
     SocialData(
       name: StringConst.LINKED_IN,

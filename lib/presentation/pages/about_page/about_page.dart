@@ -1,6 +1,8 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/about_page/widgets/about_header.dart';
+import 'package:aerium/presentation/pages/about_page/widgets/technology_section.dart';
+import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/animated_underline_text.dart';
@@ -74,6 +76,8 @@ class _AboutPageState extends State<AboutPage> {
       selectedPageName: StringConst.ABOUT,
       child: ListView(
         padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
         children: [
           Padding(
             padding: padding,
@@ -123,6 +127,12 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                       ],
                     ),
+                    footer: Column(
+                      children: [
+                        SpaceH40(),
+                        TechnologySection(width: contentAreaWidth),
+                      ],
+                    ),
                   ),
                   CustomSpacer(heightFactor: 0.1),
                   AboutContentBuilder(
@@ -134,7 +144,9 @@ class _AboutPageState extends State<AboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SpaceH20(),
-                        Row(
+                        Wrap(
+                          spacing: 20,
+                          runSpacing: 20,
                           children: _buildSocials(Data.socialData2),
                         ),
                       ],
@@ -163,7 +175,14 @@ class _AboutPageState extends State<AboutPage> {
                     StringConst.FAMOUS_QUOTE,
                     textAlign: TextAlign.center,
                     style: titleStyle?.copyWith(
-                        fontSize: Sizes.TEXT_SIZE_36, height: 2.0),
+                      fontSize: responsiveSize(
+                        context,
+                        Sizes.TEXT_SIZE_24,
+                        Sizes.TEXT_SIZE_36,
+                        md: Sizes.TEXT_SIZE_28,
+                      ),
+                      height: 2.0,
+                    ),
                   ),
                   SpaceH40(),
                   Align(
@@ -171,7 +190,12 @@ class _AboutPageState extends State<AboutPage> {
                     child: SelectableText(
                       "— ${StringConst.FAMOUS_QUOTE_AUTHOR}",
                       style: textTheme.bodyText1?.copyWith(
-                        fontSize: Sizes.TEXT_SIZE_18,
+                        fontSize: responsiveSize(
+                          context,
+                          Sizes.TEXT_SIZE_16,
+                          Sizes.TEXT_SIZE_18,
+                          md: Sizes.TEXT_SIZE_16,
+                        ),
                         fontWeight: FontWeight.w400,
                         color: AppColors.grey600,
                       ),
@@ -182,7 +206,8 @@ class _AboutPageState extends State<AboutPage> {
               ),
             ),
           ),
-          SimpleFooter()
+          // SimpleFooter(),
+          AnimatedFooter()
         ],
       ),
     );
@@ -210,11 +235,11 @@ class _AboutPageState extends State<AboutPage> {
       );
 
       if (index < data.length - 1) {
-        items.add(SpaceW20());
+        // items.add(SpaceW20());
         items.add(
           Text('/', style: slashStyle),
         );
-        items.add(SpaceW20());
+        // items.add(SpaceW20());
       }
     }
 

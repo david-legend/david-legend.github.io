@@ -3,6 +3,7 @@ import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class AboutContentBuilder extends StatelessWidget {
   const AboutContentBuilder({
@@ -49,42 +50,81 @@ class AboutContentBuilder extends StatelessWidget {
       ),
     );
     return Container(
-        width: width,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  number,
-                  style: numberStyle ?? defaultNumberStyle,
-                ),
-                SpaceW16(),
-                Text(
-                  section,
-                  style: sectionStyle ?? defaultSectionStyle,
-                ),
-              ],
-            ),
-            Spacer(),
-            Container(
-              width: width * 0.75,
+      width: width,
+      child: ResponsiveBuilder(
+        builder: (context, sizingInformation) {
+          double screenWidth = sizingInformation.screenSize.width;
+
+          if (screenWidth <= RefinedBreakpoints().tabletNormal) {
+            return Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        number,
+                        style: numberStyle ?? defaultNumberStyle,
+                      ),
+                      SpaceW8(),
+                      Text(
+                        section,
+                        style: sectionStyle ?? defaultSectionStyle,
+                      ),
+                    ],
+                  ),
+                  SpaceH16(),
                   Text(
                     title,
                     style: titleStyle ?? defaultTitleStyle,
                   ),
-                  SpaceH20(),
+                  SpaceH30(),
                   body,
                   footer ?? Empty(),
                 ],
               ),
-            )
-          ],
-        ));
+            );
+          } else {
+            return Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      number,
+                      style: numberStyle ?? defaultNumberStyle,
+                    ),
+                    SpaceW16(),
+                    Text(
+                      section,
+                      style: sectionStyle ?? defaultSectionStyle,
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Container(
+                  width: width * 0.75,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: titleStyle ?? defaultTitleStyle,
+                      ),
+                      SpaceH20(),
+                      body,
+                      footer ?? Empty(),
+                    ],
+                  ),
+                )
+              ],
+            );
+          }
+        },
+      ),
+    );
   }
 }

@@ -38,10 +38,12 @@ class StringConst {
   // About Page
   static const String ABOUT_DEV_CATCH_LINE = "I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
   static const String ABOUT_DEV_STORY = "Story";
-  static const String ABOUT_DEV_STORY_TITLE = "A story of hardwork and persevearance";
+  static const String ABOUT_DEV_STORY_TITLE = "A story of hardwork and persevearance.";
   static const String ABOUT_DEV_STORY_CONTENT = "Hi! I'm David Cobbina. I have a strong passion for design and technology. I specialize in Front End Development and UI/UX Design and my passion is all about building elegant and professional user interfaces and websites. I also do branding and identity design such as logo design, letterhead and business card, along with photo editing, image cropping and other graphic design services.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
-  static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use";
+  static const String MOBILE_TECH = "Mobile Technologies";
+  static const String OTHER_TECH = "Other Technologies";
+  static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use.";
   static const String ABOUT_DEV_TECHNOLOGY_CONTENT = "I use a number of tools that make design and development much easier. I usually use Adobe XD or Figma interchangeably for doing all the process that includes wireframing, prototyping and visual design. For wireframing alone, any graphic design tool can make the job done either it is low fidelity or high fidelity wireframe. For development/coding, I use different tools specific to the development of the application or website. Listed below are the tools and technologies that I use and I'm knowledgeable with.";
   static const String ABOUT_DEV_CONTACT = "Contact";
   static const String ABOUT_DEV_CONTACT_SOCIAL = "Social.";
