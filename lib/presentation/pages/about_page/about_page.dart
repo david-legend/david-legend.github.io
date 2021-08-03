@@ -61,6 +61,7 @@ class _AboutPageState extends State<AboutPage> {
     TextStyle? bodyText2Style =
         textTheme.bodyText1?.copyWith(color: AppColors.grey750);
     TextStyle? titleStyle = textTheme.subtitle1?.copyWith(
+      color: AppColors.black,
       fontSize: responsiveSize(
         context,
         Sizes.TEXT_SIZE_16,
@@ -156,6 +157,12 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                       ],
                     ),
+                  ),
+                   CustomSpacer(heightFactor: 0.1),
+                  SelectableText(
+                    StringConst.FAMOUS_QUOTE,
+                    textAlign: TextAlign.center,
+                    style: titleStyle?.copyWith(fontSize: Sizes.TEXT_SIZE_36, height: 2.0),
                   ),
                   CustomSpacer(heightFactor: 0.2),
                 ],

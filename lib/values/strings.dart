@@ -46,10 +46,12 @@ class StringConst {
   static const String ABOUT_DEV_CONTACT = "Contact";
   static const String ABOUT_DEV_CONTACT_SOCIAL = "Social.";
   static const String ABOUT_DEV_CONTACT_EMAIL = "Email.";
-  static const String FAMOUS_QUOTE = "Email.";
+  static const String FAMOUS_QUOTE = "“Choose a job you love and you will never have to work a day in your life.”";
+  static const String FAMOUS_QUOTE_AUTHOR = "Confucius";
   static const String WORK_TOGETHER = "Let's work together.";
   static const String AVAILABLE_FOR_FREELANCE = "I'm available for freelance work.";
   static const String SAY_HELLO = "Say Hello";
+  
 
 
   static const String VIEW = "View";

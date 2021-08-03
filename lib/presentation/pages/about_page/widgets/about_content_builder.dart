@@ -41,6 +41,7 @@ class AboutContentBuilder extends StatelessWidget {
       color: AppColors.grey600,
     );
     TextStyle? defaultTitleStyle = textTheme.subtitle1?.copyWith(
+      color: AppColors.black,
       fontSize: responsiveSize(
         context,
         Sizes.TEXT_SIZE_16,
