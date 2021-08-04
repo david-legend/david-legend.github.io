@@ -65,6 +65,9 @@ class _ExperiencePageState extends State<ExperiencePage> {
       selectedPageName: StringConst.EXPERIENCE,
       child: ListView(
         padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
         children: [
           Padding(
             padding: padding,

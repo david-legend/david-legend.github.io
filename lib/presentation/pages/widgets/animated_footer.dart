@@ -1,8 +1,10 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
+import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class AnimatedFooter extends StatelessWidget {
@@ -60,10 +62,27 @@ class AnimatedFooter extends StatelessWidget {
             style: subtitleStyle,
           ),
           SpaceH40(),
-          Text(
-            StringConst.SAY_HELLO.toUpperCase(),
-            textAlign: TextAlign.center,
-            style: buttonStyle,
+          AnimatedBubbleButton(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  StringConst.SAY_HELLO.toUpperCase(),
+                  textAlign: TextAlign.center,
+                  style: buttonStyle,
+                ),
+                SpaceW8(),
+                Image.asset(
+                  ImagePath.ARROW_RIGHT,
+                  color: AppColors.accentColor,
+                  width: 20,
+                ),
+                // Icon(
+                //   Icons.arrow_forward_outlined,
+                //   color: AppColors.accentColor,
+                // ),
+              ],
+            ),
           ),
           Spacer(flex: 3),
           ResponsiveBuilder(

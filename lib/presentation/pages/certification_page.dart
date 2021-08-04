@@ -63,6 +63,9 @@ class _CertificationPageState extends State<CertificationPage>
       selectedPageName: StringConst.CERTIFICATIONS,
       child: ListView(
         padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
         children: [
           Padding(
             padding: padding,

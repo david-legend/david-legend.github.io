@@ -96,6 +96,9 @@ class _ContactPageState extends State<ContactPage>
       selectedPageName: StringConst.CONTACT,
       child: ListView(
         padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
         children: [
           Padding(
             padding: padding,
