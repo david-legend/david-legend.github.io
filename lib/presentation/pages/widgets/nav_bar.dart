@@ -16,12 +16,16 @@ class NavBar extends StatelessWidget {
     required this.selectedRouteName,
     this.selectedRouteTitleStyle,
     this.onMenuTap,
+    this.onNavItemWebTap,
   }) : super(key: key);
 
   final String selectedRouteTitle;
   final String selectedRouteName;
   final TextStyle? selectedRouteTitleStyle;
   final GestureTapCallback? onMenuTap;
+
+  /// this handles navigation when on desktops
+  final Function(String)? onNavItemWebTap;
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +127,9 @@ class NavBar extends StatelessWidget {
           index: index + 1,
           isSelected: menuList[index].route == selectedRouteName ? true : false,
           onTap: () {
-            Navigator.of(context).pushNamed(menuList[index].route);
+            if (onNavItemWebTap != null) {
+              onNavItemWebTap!(menuList[index].route);
+            }
           },
         ),
       );

@@ -15,7 +15,6 @@ class AnimatedSlideBox extends AnimatedWidget {
     this.invisibleBoxCurve = Curves.fastOutSlowIn,
   }) : super(key: key, listenable: controller);
 
-  // final double width;
   final AnimationController controller;
   final double height;
   final double width;

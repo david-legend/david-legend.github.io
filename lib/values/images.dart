@@ -23,7 +23,8 @@ class ImagePath {
 
   static const String PLAYSTORE = "$imageDir/playstore.png";
   static const String ARROW_RIGHT = "$imageDir/right-arrow.png";
-//  static const String FLUTTER_CATALOG = "$imageDir/onboarding_app.png";
+  static const String ARROW_DOWN = "$imageDir/down-arrow.png";
+  static const String ARROW_UP = "$imageDir/up-arrow.png";
 
   //Certifications
   static const String ANDROID_BASICS_CERT = "$imageDir/android_basics_cert.png";

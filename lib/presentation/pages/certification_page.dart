@@ -26,7 +26,7 @@ class _CertificationPageState extends State<CertificationPage>
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    _controller.forward();
+    
     super.initState();
   }
 
@@ -61,6 +61,9 @@ class _CertificationPageState extends State<CertificationPage>
     return PageWrapper(
       selectedRoute: CertificationPage.certificationPageRoute,
       selectedPageName: StringConst.CERTIFICATIONS,
+      onLoadingAnimationDone: () {
+_controller.forward();
+      },
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

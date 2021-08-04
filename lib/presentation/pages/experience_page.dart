@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
+import 'package:aerium/presentation/widgets/animated_slide_box.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/content_builder.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
@@ -16,7 +17,20 @@ class ExperiencePage extends StatefulWidget {
   _ExperiencePageState createState() => _ExperiencePageState();
 }
 
-class _ExperiencePageState extends State<ExperiencePage> {
+class _ExperiencePageState extends State<ExperiencePage>
+    with SingleTickerProviderStateMixin {
+  // late AnimationController controller;
+
+  @override
+  void initState() {
+    // controller = AnimationController(
+    //   vsync: this,
+    //   duration: Duration(milliseconds: 200),
+    // );
+    // controller.forward();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double contentAreaWidth = responsiveSize(
@@ -60,6 +74,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
         Sizes.TEXT_SIZE_20,
       ),
     );
+
     return PageWrapper(
       selectedRoute: ExperiencePage.experiencePageRoute,
       selectedPageName: StringConst.EXPERIENCE,
