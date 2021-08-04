@@ -2,6 +2,8 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
+import 'animated_line_through_text.dart';
+
 const double indicatorWidth = Sizes.WIDTH_60;
 
 class NavItemData {
@@ -52,11 +54,8 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
       onExit: (e) => _mouseEnter(false),
       child: InkWell(
         onTap: widget.onTap,
-        child: Stack(
-          children: [
-            _buildNavItem(),
-          ],
-        ),
+        hoverColor: Colors.transparent,
+        child: _buildNavItem(),
       ),
     );
   }
@@ -146,29 +145,38 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
 
   Widget desktopText() {
     TextTheme textTheme = Theme.of(context).textTheme;
+
     double textSize = responsiveSize(
       context,
       Sizes.TEXT_SIZE_14,
       Sizes.TEXT_SIZE_16,
       md: Sizes.TEXT_SIZE_15,
     );
+    TextStyle? defaultSelectedItemStyle = textTheme.bodyText1?.copyWith(
+      fontSize: textSize,
+      color: widget.selectedColor,
+      fontWeight: FontWeight.w400,
+    );
+    TextStyle? defaultUnselectedItemStyle = textTheme.bodyText1?.copyWith(
+      fontSize: textSize,
+      color: widget.titleColor,
+    );
     return widget.isSelected
-        ? Text(
-            widget.title,
-            style: widget.titleStyle ??
-                textTheme.bodyText1?.copyWith(
-                  fontSize: textSize,
-                  color: widget.selectedColor,
-                  fontWeight: FontWeight.w400,
-                ),
+        ? AnimatedLineThroughText(
+            text: widget.title,
+            isUnderlined: false,
+            hasOffsetAnimation: true,
+            textStyle: widget.titleStyle ?? defaultSelectedItemStyle,
           )
-        : Text(
-            widget.title,
-            style: widget.titleStyle ??
-                textTheme.bodyText1?.copyWith(
-                  fontSize: textSize,
-                  color: widget.titleColor,
-                ),
+        : AnimatedLineThroughText(
+            text: widget.title,
+            isUnderlined: false,
+            hasOffsetAnimation: true,
+            textStyle: widget.titleStyle ?? defaultUnselectedItemStyle,
+            onHoverTextStyle: defaultUnselectedItemStyle?.copyWith(
+              color: widget.selectedColor,
+              fontWeight: FontWeight.w400,
+            ),
           );
   }
 

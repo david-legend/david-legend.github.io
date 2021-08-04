@@ -5,7 +5,7 @@ import 'package:aerium/presentation/pages/about_page/widgets/technology_section.
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
-import 'package:aerium/presentation/widgets/animated_underline_text.dart';
+import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
@@ -161,7 +161,7 @@ class _AboutPageState extends State<AboutPage> {
                           style: titleStyle,
                         ),
                         SpaceH40(),
-                        AnimatedUnderlineText(
+                        AnimatedLineThroughText(
                           text: StringConst.DEV_EMAIL,
                           onTap: () {
                             Functions.launchUrl(StringConst.EMAIL_URL);
@@ -225,7 +225,7 @@ class _AboutPageState extends State<AboutPage> {
 
     for (int index = 0; index < data.length; index++) {
       items.add(
-        AnimatedUnderlineText(
+        AnimatedLineThroughText(
           text: data[index].name,
           onTap: () {
             Functions.launchUrl(data[index].url);

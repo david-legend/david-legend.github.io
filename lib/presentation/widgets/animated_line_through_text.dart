@@ -1,16 +1,21 @@
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-class AnimatedUnderlineText extends StatefulWidget {
-  const AnimatedUnderlineText({
+class AnimatedLineThroughText extends StatefulWidget {
+  const AnimatedLineThroughText({
     Key? key,
     required this.text,
     required this.textStyle,
+    this.onHoverTextStyle,
     this.lineThickness = 2,
     this.hoverColor = AppColors.black,
     this.coverColor = AppColors.primaryColor,
     this.onTap,
+    this.isUnderlined = true,
+    this.hasOffsetAnimation = false,
     this.duration = const Duration(milliseconds: 300),
+    this.beginOffset = const Offset(0, 0),
+    this.endOffset = const Offset(0.15, 0),
   }) : super(key: key);
 
   final String text;
@@ -19,21 +24,29 @@ class AnimatedUnderlineText extends StatefulWidget {
   final Color coverColor;
   final double lineThickness;
   final TextStyle? textStyle;
+  final TextStyle? onHoverTextStyle;
+  final bool isUnderlined;
+  final bool hasOffsetAnimation;
+  final Offset beginOffset;
+  final Offset endOffset;
   final GestureTapCallback? onTap;
 
   @override
-  _AnimatedUnderlineTextState createState() => _AnimatedUnderlineTextState();
+  _AnimatedLineThroughTextState createState() =>
+      _AnimatedLineThroughTextState();
 }
 
-class _AnimatedUnderlineTextState extends State<AnimatedUnderlineText>
+class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
     with TickerProviderStateMixin {
   late AnimationController _forwardController;
   late AnimationController _backwardsController;
+  late AnimationController _slideTransitionController;
   late Animation<double> forwardAnimation;
   late Animation<double> backwardsAnimation;
-  bool _isHovering = false;
+  late Animation<Offset> _offsetAnimation;
   late double textWidth;
   late double textHeight;
+  bool _isHovering = false;
 
   @override
   void initState() {
@@ -46,6 +59,13 @@ class _AnimatedUnderlineTextState extends State<AnimatedUnderlineText>
         setState(() {});
       });
     _backwardsController = AnimationController(
+      vsync: this,
+      duration: widget.duration,
+    )..addListener(() {
+        setState(() {});
+      });
+
+    _slideTransitionController = AnimationController(
       vsync: this,
       duration: widget.duration,
     )..addListener(() {
@@ -64,6 +84,17 @@ class _AnimatedUnderlineTextState extends State<AnimatedUnderlineText>
       ),
     );
 
+    _offsetAnimation = 
+        Tween<Offset>(
+          begin: widget.beginOffset,
+          end: widget.hasOffsetAnimation ? widget.endOffset : widget.beginOffset,
+        ).animate(
+          CurvedAnimation(
+            parent: _slideTransitionController,
+            curve: Curves.fastOutSlowIn,
+          ),
+        );
+
     _backwardsController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _backwardsController.reset();
@@ -75,39 +106,46 @@ class _AnimatedUnderlineTextState extends State<AnimatedUnderlineText>
 
   @override
   Widget build(BuildContext context) {
+
+    TextStyle? hoverTextStyle =  widget.onHoverTextStyle ?? widget.textStyle;
     return InkWell(
       onTap: widget.onTap,
       hoverColor: Colors.transparent,
       child: MouseRegion(
         onEnter: (e) => _mouseEnter(true),
         onExit: (e) => _mouseEnter(false),
-        child: Stack(
-          children: [
-            Positioned(
-              top: (textHeight / 2) - widget.lineThickness,
-              child: Container(
-                height: widget.lineThickness,
-                color: widget.hoverColor,
-                width: forwardAnimation.value,
+        child: SlideTransition(
+          position: _offsetAnimation,
+          child: Stack(
+            children: [
+              Positioned(
+                top: (textHeight / 2) - widget.lineThickness,
+                child: Container(
+                  height: widget.lineThickness,
+                  color: widget.hoverColor,
+                  width: forwardAnimation.value,
+                ),
               ),
-            ),
-            Positioned(
-              top: (textHeight / 2) - widget.lineThickness,
-              child: Container(
-                height: widget.lineThickness,
-                color: widget.coverColor,
-                width: backwardsAnimation.value,
+              Positioned(
+                top: (textHeight / 2) - widget.lineThickness,
+                child: Container(
+                  height: widget.lineThickness,
+                  color: widget.coverColor,
+                  width: backwardsAnimation.value,
+                ),
               ),
-            ),
-            Text(
-              widget.text,
-              style: widget.textStyle?.copyWith(
-                decoration: _isHovering
-                    ? TextDecoration.none
-                    : TextDecoration.underline,
+              Text(
+                widget.text,
+                style: _isHovering
+                    ? hoverTextStyle?.copyWith(
+                        decoration: widget.isUnderlined
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                      )
+                    : widget.textStyle,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -125,11 +163,13 @@ class _AnimatedUnderlineTextState extends State<AnimatedUnderlineText>
   void _mouseEnter(bool hovering) {
     if (hovering) {
       setState(() {
+        _slideTransitionController.forward();
         _forwardController.forward();
         _isHovering = hovering;
       });
     } else {
       setState(() {
+        _slideTransitionController.reverse();
         _backwardsController.forward();
         _isHovering = hovering;
       });
