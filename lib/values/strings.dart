@@ -8,7 +8,7 @@ class StringConst {
 
   static const String HOME = "Home";
   static const String ABOUT = "About";
-  static const String PORTFOLIO = "Portfolio";
+  static const String WORKS = "Works";
   static const String EXPERIENCE = "Experience";
   static const String WORK = "Where I've Worked";
   static const String SERVICES = "Services";
@@ -107,7 +107,7 @@ class StringConst {
   static const String LOADING_PAGE = "/";
   static const String HOME_PAGE = "/home";
   static const String ABOUT_PAGE = "/about";
-  static const String PORTFOLIO_PAGE = "/portfolio";
+  static const String WORKS_PAGE = "/works";
   static const String CONTACT_PAGE = "/contact";
   static const String PROJECT_PAGE = "/project";
   static const String PROJECT_DETAIL_PAGE = "/project-detail";

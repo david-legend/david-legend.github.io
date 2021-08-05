@@ -4,6 +4,7 @@ import 'package:aerium/presentation/pages/about_page/widgets/about_header.dart';
 import 'package:aerium/presentation/pages/about_page/widgets/technology_section.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
+import 'package:aerium/presentation/pages/widgets/sliding_banner.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
@@ -207,6 +208,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
             ),
           ),
+          SlidingBanner(),
           AnimatedFooter()
         ],
       ),
@@ -235,11 +237,9 @@ class _AboutPageState extends State<AboutPage> {
       );
 
       if (index < data.length - 1) {
-        // items.add(SpaceW20());
         items.add(
           Text('/', style: slashStyle),
         );
-        // items.add(SpaceW20());
       }
     }
 
