@@ -208,7 +208,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
             ),
           ),
-          SlidingBanner(),
+          // SlidingBanner(),
           AnimatedFooter()
         ],
       ),
