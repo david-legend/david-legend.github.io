@@ -55,7 +55,11 @@ class StringConst {
   static const String SAY_HELLO = "Say Hello";
   
 
+  // Works Page
+  static const String VIEW_PROJECT = "View Project";
+  static const String MY_WORKS = "My Works.";
 
+  
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
   static const String BUILT_WITH = "Built with ";

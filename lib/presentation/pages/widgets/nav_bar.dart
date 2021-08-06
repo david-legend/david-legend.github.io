@@ -2,6 +2,7 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
 import 'package:aerium/presentation/widgets/app_logo.dart';
+import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/nav_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
@@ -10,19 +11,21 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavBar extends StatelessWidget {
-  NavBar({
-    Key? key,
-    required this.selectedRouteTitle,
-    required this.selectedRouteName,
-    this.selectedRouteTitleStyle,
-    this.onMenuTap,
-    this.onNavItemWebTap,
-  }) : super(key: key);
+  NavBar(
+      {Key? key,
+      required this.selectedRouteTitle,
+      required this.selectedRouteName,
+      this.selectedRouteTitleStyle,
+      this.onMenuTap,
+      this.onNavItemWebTap,
+      this.hasSideTitle = true})
+      : super(key: key);
 
   final String selectedRouteTitle;
   final String selectedRouteName;
   final TextStyle? selectedRouteTitleStyle;
   final GestureTapCallback? onMenuTap;
+  final bool hasSideTitle;
 
   /// this handles navigation when on desktops
   final Function(String)? onNavItemWebTap;
@@ -96,18 +99,20 @@ class NavBar extends StatelessWidget {
             ],
           ),
           Spacer(),
-          RotatedBox(
-            quarterTurns: 3,
-            child: Text(
-              selectedRouteTitle.toUpperCase(),
-              style: selectedRouteTitleStyle ??
-                  textTheme.bodyText1?.copyWith(
-                    color: AppColors.black,
-                    fontWeight: FontWeight.w400,
-                    fontSize: Sizes.TEXT_SIZE_12,
+          hasSideTitle
+              ? RotatedBox(
+                  quarterTurns: 3,
+                  child: Text(
+                    selectedRouteTitle.toUpperCase(),
+                    style: selectedRouteTitleStyle ??
+                        textTheme.bodyText1?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: Sizes.TEXT_SIZE_12,
+                        ),
                   ),
-            ),
-          ),
+                )
+              : Empty(),
           Spacer(),
         ],
       ),

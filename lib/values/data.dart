@@ -44,37 +44,7 @@ class ProjectDetails {
   final String? technologyUsed;
 }
 
-class PortfolioData {
-  PortfolioData({
-    required this.title,
-    required this.image,
-    required this.imageSize,
-    required this.subtitle,
-    required this.portfolioDescription,
-    this.technologyUsed,
-    this.isPublic = false,
-    this.isOnPlayStore = false,
-    this.isLive = false,
-    this.gitHubUrl = "",
-    this.hasBeenReleased = true,
-    this.playStoreUrl = "",
-    this.webUrl = "",
-  });
 
-  final String image;
-  final String portfolioDescription;
-  final double imageSize;
-  final String title;
-  final String subtitle;
-  final bool isPublic;
-  final bool hasBeenReleased;
-  final String gitHubUrl;
-  final bool isOnPlayStore;
-  final String playStoreUrl;
-  final bool isLive;
-  final String webUrl;
-  final String? technologyUsed;
-}
 
 class ExperienceData {
   ExperienceData({
@@ -237,8 +207,8 @@ class Data {
       content: StringConst.EDUCATION_TEXT,
     ),
   ];
-  static List<PortfolioData> portfolioData = [
-    PortfolioData(
+  static List<ProjectItemData> projectItemData = [
+    ProjectItemData(
       title: StringConst.ONBOARDING_APP,
       subtitle: StringConst.ONBOARDING_APP_SUBTITLE,
       image: ImagePath.ONBOARDING_APP,
@@ -248,7 +218,7 @@ class Data {
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.OTP_TEXT_FIELD,
       subtitle: StringConst.OTP_TEXT_FIELD_SUBTITLE,
       image: ImagePath.OTP_TEXT_FIELD,
@@ -260,7 +230,7 @@ class Data {
       gitHubUrl: StringConst.OTP_TEXT_FIELD_GITHUB_URL,
       webUrl: StringConst.OTP_TEXT_FIELD_WEB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.LOGIN_CATALOG,
       subtitle: StringConst.LOGIN_CATALOG_SUBTITLE,
       image: ImagePath.LOGIN_CATALOG,
@@ -270,7 +240,7 @@ class Data {
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.LOGIN_CATALOG_GITHUB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.FOODY_BITE,
       subtitle: StringConst.FOODY_BITE_SUBTITLE,
       image: ImagePath.FOODY_BITE,
@@ -280,7 +250,7 @@ class Data {
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.FINOPP,
       subtitle: StringConst.FINOPP_SUBTITLE,
       image: ImagePath.FINOPP,
@@ -290,7 +260,7 @@ class Data {
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FINOPP_GITHUB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.BEQUIP_LOGISTICS,
       subtitle: StringConst.BEQUIP_LOGISTICS_SUBTITLE,
       image: ImagePath.BEQUIP_LOGISTICS,
@@ -300,7 +270,7 @@ class Data {
       technologyUsed: StringConst.WORDPRESS,
       webUrl: StringConst.BEQUIP_LOGISTICS_WEB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.AERIUM,
       subtitle: StringConst.AERIUM_SUBTITLE,
       image: ImagePath.AERIUM,
@@ -312,7 +282,7 @@ class Data {
       gitHubUrl: StringConst.AERIUM_GITHUB_URL,
       webUrl: StringConst.AERIUM_WEB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.LEARN_UPP,
       subtitle: StringConst.LEARN_UPP_SUBTITLE,
       image: ImagePath.LEARN_UPP,
@@ -322,7 +292,7 @@ class Data {
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.LEARN_UPP_GITHUB_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.VYBZ,
       subtitle: StringConst.VYBZ_SUBTITLE,
       image: ImagePath.VYBZ,
@@ -333,7 +303,7 @@ class Data {
       technologyUsed: StringConst.FLUTTER,
       playStoreUrl: StringConst.VYBZ_PLAYSTORE_URL,
     ),
-    PortfolioData(
+    ProjectItemData(
       title: StringConst.COLOSSAL_TOONS,
       subtitle: StringConst.COLOSSAL_TOONS_SUBTITLE,
       image: ImagePath.COLOSSAL_TOONS,

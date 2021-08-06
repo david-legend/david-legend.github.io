@@ -13,12 +13,14 @@ class PageWrapper extends StatefulWidget {
     required this.selectedPageName,
     required this.child,
     this.onLoadingAnimationDone,
+    this.hasSideTitle = true,
   }) : super(key: key);
 
   final String selectedRoute;
   final String selectedPageName;
   final VoidCallback? onLoadingAnimationDone;
   final Widget child;
+  final bool hasSideTitle;
 
   @override
   _PageWrapperState createState() => _PageWrapperState();
@@ -65,6 +67,7 @@ class _PageWrapperState extends State<PageWrapper>
           NavBar(
             selectedRouteTitle: widget.selectedPageName,
             selectedRouteName: widget.selectedRoute,
+            hasSideTitle: widget.hasSideTitle,
             onNavItemWebTap: (String route) {
               forwardSlideController.forward();
               forwardSlideController.addStatusListener((status) {

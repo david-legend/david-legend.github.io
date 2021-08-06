@@ -63,26 +63,8 @@ class AnimatedFooter extends StatelessWidget {
           ),
           SpaceH40(),
           AnimatedBubbleButton(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  StringConst.SAY_HELLO.toUpperCase(),
-                  textAlign: TextAlign.center,
-                  style: buttonStyle,
-                ),
-                SpaceW8(),
-                Image.asset(
-                  ImagePath.ARROW_RIGHT,
-                  color: AppColors.accentColor,
-                  width: 20,
-                ),
-                // Icon(
-                //   Icons.arrow_forward_outlined,
-                //   color: AppColors.accentColor,
-                // ),
-              ],
-            ),
+            title: StringConst.SAY_HELLO.toUpperCase(),
+            onTap: (){},
           ),
           Spacer(flex: 3),
           ResponsiveBuilder(

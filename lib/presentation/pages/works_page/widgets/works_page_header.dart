@@ -65,17 +65,21 @@ class _WorksPageHeaderState extends State<WorksPageHeader>
           Align(
             alignment: Alignment.center,
             child: Text(
-              StringConst.WORKS,
+              StringConst.MY_WORKS,
               style: textTheme.headline2?.copyWith(
                 color: AppColors.black,
-                fontSize: responsiveSize(context, 40, 60),
+                fontSize: responsiveSize(
+                  context,
+                  Sizes.TEXT_SIZE_40,
+                  Sizes.TEXT_SIZE_60,
+                ),
               ),
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              margin: EdgeInsets.only(bottom: 40),
+              margin: EdgeInsets.only(bottom: Sizes.MARGIN_40),
               child: AnimatedSlideTranstion(
                 controller: controller,
                 position: animation,
