@@ -58,6 +58,8 @@ class StringConst {
   // Works Page
   static const String VIEW_PROJECT = "View Project";
   static const String MY_WORKS = "My Works.";
+  static const String NOTE_WORTHY_PROJECTS = "Other Noteworthy Projects.";
+  static const String NOTE_WORTHY_PROJECTS_DESC = "Here are some projects worth mentioning. They are also available on my github repository";
 
   
   static const String VIEW = "View";

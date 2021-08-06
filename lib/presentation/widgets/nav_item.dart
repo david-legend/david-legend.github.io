@@ -164,13 +164,13 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
     return widget.isSelected
         ? AnimatedLineThroughText(
             text: widget.title,
-            isUnderlined: false,
+            isUnderlinedOnHover: false,
             hasOffsetAnimation: true,
             textStyle: widget.titleStyle ?? defaultSelectedItemStyle,
           )
         : AnimatedLineThroughText(
             text: widget.title,
-            isUnderlined: false,
+            isUnderlinedOnHover: false,
             hasOffsetAnimation: true,
             textStyle: widget.titleStyle ?? defaultUnselectedItemStyle,
             onHoverTextStyle: defaultUnselectedItemStyle?.copyWith(

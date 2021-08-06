@@ -147,7 +147,7 @@ class _ProjectItemLgState extends State<ProjectItemLg>
     TextStyle? defaultTitleStyle = widget.titleStyle ??
         textTheme.subtitle1?.copyWith(
           color: AppColors.black,
-          fontSize: 48,
+          fontSize: 40,
         );
     TextStyle? defaultSubtitleStyle = widget.subtitleStyle ??
         textTheme.bodyText1?.copyWith(

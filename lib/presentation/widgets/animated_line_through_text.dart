@@ -11,7 +11,8 @@ class AnimatedLineThroughText extends StatefulWidget {
     this.hoverColor = AppColors.black,
     this.coverColor = AppColors.primaryColor,
     this.onTap,
-    this.isUnderlined = true,
+    this.isUnderlinedOnHover = true,
+    this.isUnderlinedByDefault = false,
     this.hasOffsetAnimation = false,
     this.duration = const Duration(milliseconds: 300),
     this.beginOffset = const Offset(0, 0),
@@ -25,7 +26,8 @@ class AnimatedLineThroughText extends StatefulWidget {
   final double lineThickness;
   final TextStyle? textStyle;
   final TextStyle? onHoverTextStyle;
-  final bool isUnderlined;
+  final bool isUnderlinedOnHover;
+  final bool isUnderlinedByDefault;
   final bool hasOffsetAnimation;
   final Offset beginOffset;
   final Offset endOffset;
@@ -84,16 +86,15 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
       ),
     );
 
-    _offsetAnimation = 
-        Tween<Offset>(
-          begin: widget.beginOffset,
-          end: widget.hasOffsetAnimation ? widget.endOffset : widget.beginOffset,
-        ).animate(
-          CurvedAnimation(
-            parent: _slideTransitionController,
-            curve: Curves.fastOutSlowIn,
-          ),
-        );
+    _offsetAnimation = Tween<Offset>(
+      begin: widget.beginOffset,
+      end: widget.hasOffsetAnimation ? widget.endOffset : widget.beginOffset,
+    ).animate(
+      CurvedAnimation(
+        parent: _slideTransitionController,
+        curve: Curves.fastOutSlowIn,
+      ),
+    );
 
     _backwardsController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -106,8 +107,7 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
 
   @override
   Widget build(BuildContext context) {
-
-    TextStyle? hoverTextStyle =  widget.onHoverTextStyle ?? widget.textStyle;
+    TextStyle? hoverTextStyle = widget.onHoverTextStyle ?? widget.textStyle;
     return InkWell(
       onTap: widget.onTap,
       hoverColor: Colors.transparent,
@@ -138,11 +138,15 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
                 widget.text,
                 style: _isHovering
                     ? hoverTextStyle?.copyWith(
-                        decoration: widget.isUnderlined
+                        decoration: widget.isUnderlinedOnHover
                             ? TextDecoration.underline
                             : TextDecoration.none,
                       )
-                    : widget.textStyle,
+                    : widget.textStyle?.copyWith(
+                        decoration: widget.isUnderlinedByDefault
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                      ),
               ),
             ],
           ),
