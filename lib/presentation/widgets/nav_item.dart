@@ -93,14 +93,24 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
                     top: (indexTextSize - selectedTextSize) / 3),
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    widget.title.toLowerCase(),
-                    style: widget.titleStyle ??
+                  child: AnimatedLineThroughText(
+                    text: widget.title.toLowerCase(),
+                    isUnderlinedOnHover: false,
+                    textStyle: widget.titleStyle ??
+                        widget.titleStyle ??
                         textTheme.headline6?.copyWith(
                           fontSize: selectedTextSize,
                           color: AppColors.accentColor,
                           fontWeight: FontWeight.w400,
                         ),
+                    hoverColor: AppColors.accentColor,
+                    coverColor: AppColors.black,
+                    lineThickness: 4,
+                    onHoverTextStyle: textTheme.headline6?.copyWith(
+                      fontSize: selectedTextSize,
+                      color: AppColors.accentColor,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               ),
@@ -125,16 +135,22 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
                       top: (indexTextSize - selectedTextSize) / 3),
                   child: Align(
                     alignment: Alignment.center,
-                    child: Text(
-                      widget.title.toLowerCase(),
-                      style: widget.titleStyle ??
+                    child: AnimatedLineThroughText(
+                      text: widget.title.toLowerCase(),
+                      isUnderlinedOnHover: false,
+                      textStyle: widget.titleStyle ??
                           textTheme.bodyText1?.copyWith(
                             fontSize: unselectedTextSize,
-                            color: _hoveringUnselectedNavItemMobile
-                                ? AppColors.accentColor
-                                : AppColors.grey800,
                             fontWeight: FontWeight.w400,
                           ),
+                      hoverColor: AppColors.accentColor,
+                      coverColor: AppColors.black,
+                      lineThickness: 4,
+                      onHoverTextStyle: textTheme.bodyText1?.copyWith(
+                        fontSize: unselectedTextSize,
+                        color: AppColors.accentColor,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
