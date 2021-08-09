@@ -140,7 +140,7 @@ class NoteWorthyProjectItem extends StatelessWidget {
             ),
           ),
           SpaceW20(),
-          Expanded(
+          Flexible(
             child: AnimatedLineThroughText(
               text: projectName,
               onTap: onProjectNameTap,

@@ -11,12 +11,18 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Make project Item responsive on mobile
 // TODO:: Make project Item responsive on tablets
+// TODO:: Add proper images for projects
+// TODO:: Add animations for loading noteworthy projects 
+// TODO:: Add navigations to buttons on homepage
+// TODO:: Show link destination in bottom left corner
+// TODO:: Add animation to draw X on homepage
+// TODO:: Add animation to show project only when it is visible
 // TODO:: Animation for nav item on hover for mobile (add strike through)
 
 // Later
 // TODO:: Animation for app drawer for mobile view when it opens
+// TODO:: Add proper text all over the site
 
 // Issues::
 // Onhover of project item button, project image leaves
