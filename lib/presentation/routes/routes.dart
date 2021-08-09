@@ -1,10 +1,10 @@
-import 'package:aerium/presentation/pages/about_page/about_page.dart';
+import 'package:aerium/presentation/pages/about/about_page.dart';
 import 'package:aerium/presentation/pages/certification_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/experience_page.dart';
-import 'package:aerium/presentation/pages/works_page/works_page.dart';
+import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:flutter/material.dart';
-import 'package:aerium/presentation/pages/home_page.dart';
+import 'package:aerium/presentation/pages/home/home_page.dart';
 
 typedef PathWidgetBuilder = Widget Function(
     BuildContext, String? /*Map<String, String>*/);

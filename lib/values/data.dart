@@ -44,8 +44,6 @@ class ProjectDetails {
   final String? technologyUsed;
 }
 
-
-
 class ExperienceData {
   ExperienceData({
     required this.position,
@@ -157,6 +155,24 @@ class Data {
     "C++",
     "Firebase",
   ];
+  static List<SocialData> socialData1 = [
+    SocialData(
+      name: StringConst.GITHUB,
+      iconData: FontAwesomeIcons.github,
+      url: StringConst.GITHUB_URL,
+    ),
+    SocialData(
+      name: StringConst.LINKED_IN,
+      iconData: FontAwesomeIcons.linkedin,
+      url: StringConst.LINKED_IN_URL,
+    ),
+    SocialData(
+      name: StringConst.TWITTER,
+      iconData: FontAwesomeIcons.twitter,
+      url: StringConst.TWITTER_URL,
+    ),
+  ];
+  
   static List<SocialData> socialData2 = [
     SocialData(
       name: StringConst.LINKED_IN,
@@ -341,7 +357,7 @@ class Data {
   ];
 
   static List<ExperienceData> experienceData = [
-     ExperienceData(
+    ExperienceData(
       company: StringConst.COMPANY_5,
       position: StringConst.POSITION_5,
       companyUrl: StringConst.COMPANY_5_URL,

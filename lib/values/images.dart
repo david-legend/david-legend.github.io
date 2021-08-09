@@ -28,6 +28,7 @@ class ImagePath {
   static const String ARROW_DOWN = "$imageDir/down-arrow.png";
   static const String ARROW_UP = "$imageDir/up-arrow.png";
   static const String ARROW_DOWN_IOS = "$imageDir/ios-down-arrow.png";
+  static const String CAESAR = "$imageDir/ceasar-bust.png";
 
   //Certifications
   static const String ANDROID_BASICS_CERT = "$imageDir/android_basics_cert.png";

@@ -1,7 +1,7 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/about_page/widgets/about_header.dart';
-import 'package:aerium/presentation/pages/about_page/widgets/technology_section.dart';
+import 'package:aerium/presentation/pages/about/widgets/about_header.dart';
+import 'package:aerium/presentation/pages/about/widgets/technology_section.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/pages/widgets/sliding_banner.dart';
@@ -229,6 +229,8 @@ class _AboutPageState extends State<AboutPage> {
       items.add(
         AnimatedLineThroughText(
           text: data[index].name,
+          isUnderlinedByDefault: true,
+          isUnderlinedOnHover: false,
           onTap: () {
             Functions.launchUrl(data[index].url);
           },

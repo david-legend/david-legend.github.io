@@ -1,7 +1,7 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
-import 'package:aerium/presentation/pages/works_page/widgets/noteworthy_projects.dart';
-import 'package:aerium/presentation/pages/works_page/widgets/works_page_header.dart';
+import 'package:aerium/presentation/pages/works/widgets/noteworthy_projects.dart';
+import 'package:aerium/presentation/pages/works/widgets/works_page_header.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';

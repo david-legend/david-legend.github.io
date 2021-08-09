@@ -20,6 +20,8 @@ class AnimatedBubbleButton extends StatefulWidget {
     this.duration = const Duration(milliseconds: 200),
     this.onTap,
     this.hovering,
+    this.startOffset = const Offset(0, 0),
+    this.targetOffset = const Offset(0.1, 0),
     this.controller,
   }) : super(key: key);
 
@@ -35,6 +37,8 @@ class AnimatedBubbleButton extends StatefulWidget {
   final Widget? child;
   final BorderRadiusGeometry startBorderRadius;
   final Animation<Offset>? offsetAnimation;
+  final Offset startOffset;
+  final Offset targetOffset;
   final GestureTapCallback? onTap;
   final BorderRadiusGeometry? endBorderRadius;
   bool? hovering;
@@ -60,8 +64,8 @@ class _AnimatedBubbleButtonState extends State<AnimatedBubbleButton>
 
     _offsetAnimation = widget.offsetAnimation ??
         Tween<Offset>(
-          begin: Offset(0, 0),
-          end: Offset(0.1, 0),
+          begin: widget.startOffset,
+          end: widget.targetOffset,
         ).animate(_controller)
       ..addListener(() {
         setState(() {});

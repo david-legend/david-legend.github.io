@@ -18,7 +18,10 @@ class StringConst {
   static const String CERTIFICATIONS = "Certifications";
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
 
-
+  // Home Page
+  static const String DEV_TITLE = "Software Engineer";
+  static const String DEV_DESC = "Hi I'm David Cobbina, a passionate Mobile Engineer & Web Developer based in the Ghana.";
+  static const String SEE_MY_WORKS = "See my works";
   // Contact Page
   static const String GET_IN_TOUCH = "Get in touch.";
   static const String CONTACT_MSG = "Do you fancy saying hi to me or you want to get started with your project and you need my help? Feel free to contact me.";
