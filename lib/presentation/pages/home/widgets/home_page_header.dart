@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/presentation/pages/home/widgets/scroll_down.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
@@ -7,6 +8,7 @@ import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomePageHeader extends StatefulWidget {
   const HomePageHeader({Key? key}) : super(key: key);
@@ -16,12 +18,18 @@ class HomePageHeader extends StatefulWidget {
 }
 
 class _HomePageHeaderState extends State<HomePageHeader>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
+  late AnimationController scrollDownController;
   late AnimationController controller;
   late Animation<Offset> animation;
+  late Animation<Offset> scrollDownBtnAnimation;
 
   @override
   void initState() {
+    scrollDownController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 300),
+    );
     controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 1500),
@@ -57,18 +65,42 @@ class _HomePageHeaderState extends State<HomePageHeader>
     final double screenWidth = widthOfScreen(context);
     final double screenHeight = heightOfScreen(context);
     final EdgeInsets textMargin = EdgeInsets.only(
-      left: responsiveSize(context, 20, screenWidth * 0.15),
-      top: responsiveSize(context, 60, screenHeight * 0.35),
+      left: responsiveSize(
+        context,
+        20,
+        screenWidth * 0.15,
+        sm: screenWidth * 0.15,
+      ),
+      top: responsiveSize(
+        context,
+        60,
+        screenHeight * 0.35,
+        sm: screenHeight * 0.35,
+      ),
       bottom: responsiveSize(context, 20, 40),
     );
+    final EdgeInsets padding = EdgeInsets.symmetric(
+      horizontal: screenWidth * 0.1,
+      vertical: screenHeight * 0.1,
+    );
     final EdgeInsets imageMargin = EdgeInsets.only(
-      right: responsiveSize(context, 20, screenWidth * 0.10),
-      top: responsiveSize(context, 30, screenHeight * 0.25),
+      right: responsiveSize(
+        context,
+        20,
+        screenWidth * 0.10,
+        sm: screenWidth * 0.10,
+      ),
+      top: responsiveSize(
+        context,
+        30,
+        screenHeight * 0.25,
+        sm: screenHeight * 0.25,
+      ),
       bottom: responsiveSize(context, 20, 40),
     );
     return Container(
       width: screenWidth,
-      height: screenHeight,
+      // height: screenHeight,
       color: AppColors.accentColor2.withOpacity(0.35),
       child: Stack(
         children: [
@@ -81,29 +113,83 @@ class _HomePageHeaderState extends State<HomePageHeader>
               child: WhiteCircle(),
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: textMargin,
-                child: Container(
-                  width: screenWidth * 0.35,
-                  child: AboutDev(),
-                ),
-              ),
-              SizedBox(width: screenWidth * 0.05),
-              Container(
-                margin: imageMargin,
-                child: AnimatedSlideTranstion(
-                  controller: controller,
-                  position: animation,
-                  child: Image.asset(
-                    ImagePath.CAESAR,
-                    width: screenWidth * 0.35,
+          ResponsiveBuilder(builder: (context, sizingInformation) {
+            double screenWidth = sizingInformation.screenSize.width;
+            if (screenWidth < RefinedBreakpoints().tabletNormal) {
+              return Column(
+                children: [
+                  Container(
+                    padding: padding,
+                    child: AnimatedSlideTranstion(
+                      controller: controller,
+                      position: animation,
+                      child: Image.asset(
+                        ImagePath.DEV_MEDITATE_2,
+                        width: screenWidth,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
+                  Container(
+                    padding: padding.copyWith(top: 0),
+                    child: Container(
+                      width: screenWidth,
+                      child: AboutDev(),
+                    ),
+                  ),
+                ],
+              );
+            } else {
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: textMargin,
+                    child: Container(
+                      width: screenWidth * 0.35,
+                      child: AboutDev(),
+                    ),
+                  ),
+                  SizedBox(width: screenWidth * 0.05),
+                  Container(
+                    margin: imageMargin,
+                    child: AnimatedSlideTranstion(
+                      controller: controller,
+                      position: animation,
+                      child: Image.asset(
+                        ImagePath.DEV_MEDITATE_2,
+                        width: screenWidth * 0.35,
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }
+          }),
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: ResponsiveBuilder(
+              builder: (context, sizingInformation) {
+                double screenWidth = sizingInformation.screenSize.width;
+                if (screenWidth < RefinedBreakpoints().tabletNormal) {
+                  return Container();
+                } else {
+                  return Container(
+                    margin: EdgeInsets.only(right: 24, bottom: 40),
+                    child: MouseRegion(
+                      onEnter: (e) => scrollDownController.forward(),
+                      onExit: (e) => scrollDownController.reverse(),
+                      child: AnimatedSlideTranstion(
+                        controller: scrollDownController,
+                        beginOffset: Offset(0, 0),
+                        targetOffset: Offset(0, 0.1),
+                        child: ScrollDownButton(),
+                      ),
+                    ),
+                  );
+                }
+              },
+            ),
           ),
         ],
       ),
@@ -116,7 +202,11 @@ class WhiteCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthOfCircle = widthOfScreen(context) / 3.5;
+    final widthOfCircle = responsiveSize(
+      context,
+      widthOfScreen(context) / 2.5,
+      widthOfScreen(context) / 3.5,
+    );
     return Container(
       width: widthOfCircle,
       height: widthOfCircle,
@@ -144,7 +234,7 @@ class AboutDev extends StatelessWidget {
           StringConst.DEV_TITLE,
           style: textTheme.headline2?.copyWith(
             color: AppColors.black,
-            fontSize: 48,
+            fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
           ),
         ),
         SpaceH30(),
@@ -173,7 +263,12 @@ class AboutDev extends StatelessWidget {
           title: StringConst.SEE_MY_WORKS.toUpperCase(),
           titleStyle: textTheme.bodyText1?.copyWith(
             color: AppColors.black,
-            fontSize: Sizes.TEXT_SIZE_16,
+            fontSize: responsiveSize(
+              context,
+              Sizes.TEXT_SIZE_14,
+              Sizes.TEXT_SIZE_16,
+              sm: Sizes.TEXT_SIZE_15,
+            ),
             fontWeight: FontWeight.w500,
           ),
         ),

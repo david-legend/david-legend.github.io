@@ -43,7 +43,7 @@ class AboutHeader extends StatelessWidget {
             Container(
               color: AppColors.black,
               child: Image.asset(
-                ImagePath.DEV,
+                ImagePath.ABOUT_PORTRAIT_1,
                 width: widthOfScreen(context),
                 height: assignHeight(context, 0.45),
               ),
@@ -72,7 +72,7 @@ class AboutHeader extends StatelessWidget {
                   minWidth: imageWidthLg,
                   maxHeight: assignHeight(context, 0.55),
                 ),
-                child: Image.asset(ImagePath.DEV),
+                child: Image.asset(ImagePath.ABOUT_PORTRAIT_1),
               ),
             ),
           ],

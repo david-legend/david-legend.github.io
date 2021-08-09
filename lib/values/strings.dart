@@ -20,8 +20,13 @@ class StringConst {
 
   // Home Page
   static const String DEV_TITLE = "Software Engineer";
-  static const String DEV_DESC = "Hi I'm David Cobbina, a passionate Mobile Engineer & Web Developer based in the Ghana.";
+  static const String DEV_DESC = "Hi I'm David Cobbina, a passionate Mobile Engineer & Web Developer based in Ghana.";
   static const String SEE_MY_WORKS = "See my works";
+  static const String SCROLL_DOWN = "Scroll Down";
+  static const String CRAFTED_WITH_LOVE = "Crafted with love.";
+  static const String SELECTION = "Here are selection of my recent works.";
+  static const String THERES_MORE = "There's more";
+  static const String VIEW_ALL_PROJECTS = "view all projects";
   // Contact Page
   static const String GET_IN_TOUCH = "Get in touch.";
   static const String CONTACT_MSG = "Do you fancy saying hi to me or you want to get started with your project and you need my help? Feel free to contact me.";
