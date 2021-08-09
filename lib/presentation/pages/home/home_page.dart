@@ -9,6 +9,7 @@ import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class HomePageArguments {
   bool showUnVeilPageAnimation;
@@ -121,14 +122,30 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           CustomSpacer(heightFactor: 0.1),
-          Stack(
-            children: [
-              ..._buildRecentProjects(
-                data: Data.projectItemData,
-                projectHeight: projectItemHeight.toInt(),
-                subHeight: subHeightHeight.toInt(),
-              ),
-            ],
+           ResponsiveBuilder(
+            builder: (context, sizingInformation) {
+              double screenWidth = sizingInformation.screenSize.width;
+
+              if (screenWidth < RefinedBreakpoints().tabletNormal) {
+                return Column(
+                  children: _buildProjectsForMobile(
+                    data: Data.projectItemData,
+                    projectHeight: projectItemHeight.toInt(),
+                    subHeight: subHeightHeight.toInt(),
+                  ),
+                );
+              } else {
+                return Stack(
+                  children: [
+                    ..._buildRecentProjects(
+                      data: Data.projectItemData,
+                      projectHeight: projectItemHeight.toInt(),
+                      subHeight: subHeightHeight.toInt(),
+                    ),
+                  ],
+                );
+              }
+            },
           ),
           CustomSpacer(heightFactor: 0.05),
           Container(
@@ -213,6 +230,31 @@ class _HomePageState extends State<HomePage>
         ),
       );
       margin -= subHeight;
+    }
+    return items;
+  }
+
+  List<Widget> _buildProjectsForMobile({
+    required List<ProjectItemData> data,
+    required int projectHeight,
+    required int subHeight,
+  }) {
+    List<Widget> items = [];
+    // int margin = subHeight * (data.length - 1);
+    // for (int index = data.length-1; index >= 0; index--) {
+    for (int index = 0; index < data.length - 5; index++) {
+      items.add(
+        Container(
+          child: ProjectItemSm(
+            projectNumber: "0$index",
+            imageUrl: data[index].image,
+            title: data[index].title,
+            subtitle: "UI / UX", //data[index].subtitle,
+            containerColor: Colors.amber,
+          ),
+        ),
+      );
+      items.add(SpaceH40());
     }
     return items;
   }

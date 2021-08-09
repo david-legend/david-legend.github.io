@@ -113,7 +113,12 @@ class NoteWorthyProjectItem extends StatelessWidget {
       decoration: TextDecoration.underline,
     );
     TextStyle? defaultProjectNameStyle = textTheme.subtitle1?.copyWith(
-      fontSize: Sizes.TEXT_SIZE_20,
+      fontSize: responsiveSize(
+        context,
+        Sizes.TEXT_SIZE_16,
+        Sizes.TEXT_SIZE_20,
+        sm: Sizes.TEXT_SIZE_18,
+      ),
       color: AppColors.black,
       fontWeight: FontWeight.w500,
     );
@@ -135,12 +140,14 @@ class NoteWorthyProjectItem extends StatelessWidget {
             ),
           ),
           SpaceW20(),
-          AnimatedLineThroughText(
-            text: projectName,
-            onTap: onProjectNameTap,
-            textStyle: projectNameStyle ?? defaultProjectNameStyle,
-            isUnderlinedOnHover: false,
-            isUnderlinedByDefault: true,
+          Expanded(
+            child: AnimatedLineThroughText(
+              text: projectName,
+              onTap: onProjectNameTap,
+              textStyle: projectNameStyle ?? defaultProjectNameStyle,
+              isUnderlinedOnHover: false,
+              isUnderlinedByDefault: true,
+            ),
           ),
         ],
       ),

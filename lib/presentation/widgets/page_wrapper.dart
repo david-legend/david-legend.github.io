@@ -82,6 +82,7 @@ class _PageWrapperState extends State<PageWrapper>
               forwardSlideController.forward();
               forwardSlideController.addStatusListener((status) {
                 if (status == AnimationStatus.completed) {
+                  // final bool? result;
                   if (route == HomePage.homePageRoute) {
                     Navigator.of(context).pushNamed(
                       route,
@@ -92,6 +93,8 @@ class _PageWrapperState extends State<PageWrapper>
                   } else {
                     Navigator.of(context).pushNamed(route);
                   }
+
+                  print("RESULT:::: result");
                 }
               });
             },
@@ -120,7 +123,6 @@ class _PageWrapperState extends State<PageWrapper>
                   ),
                 )
               : widget.customLoadingAnimation,
-          
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/experience_page.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
+import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:aerium/app_theme.dart';
@@ -10,16 +11,9 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Complete animatedSlideBox animation
-// TODO:: Animation for nav item on hover for web
-// TODO:: Animation for nav item on hover for mobile
-
-// After
-// About
-// Resume
-// Experience
-// Works
-// Home
+// TODO:: Make project Item responsive on mobile
+// TODO:: Make project Item responsive on tablets
+// TODO:: Animation for nav item on hover for mobile (add strike through)
 
 // Later
 // TODO:: Animation for app drawer for mobile view when it opens
@@ -41,8 +35,8 @@ class Aerium extends StatelessWidget {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        initialRoute: HomePage.homePageRoute,
-        // initialRoute: ExperiencePage.experiencePageRoute,
+        // initialRoute: HomePage.homePageRoute,
+        initialRoute: WorksPage.worksPageRoute,
         // initialRoute: ContactPage.contactPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
