@@ -11,15 +11,15 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavBar extends StatelessWidget {
-  NavBar(
-      {Key? key,
-      required this.selectedRouteTitle,
-      required this.selectedRouteName,
-      this.selectedRouteTitleStyle,
-      this.onMenuTap,
-      this.onNavItemWebTap,
-      this.hasSideTitle = true})
-      : super(key: key);
+  NavBar({
+    Key? key,
+    required this.selectedRouteTitle,
+    required this.selectedRouteName,
+    this.selectedRouteTitleStyle,
+    this.onMenuTap,
+    this.onNavItemWebTap,
+    this.hasSideTitle = true,
+  }) : super(key: key);
 
   final String selectedRouteTitle;
   final String selectedRouteName;

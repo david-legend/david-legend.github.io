@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
+import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
@@ -8,6 +9,14 @@ import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
+
+class HomePageArguments {
+  bool showUnVeilPageAnimation;
+
+  HomePageArguments({
+    this.showUnVeilPageAnimation = true,
+  });
+}
 
 class HomePage extends StatefulWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
@@ -23,9 +32,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late HomePageArguments _arguments;
 
   @override
   void initState() {
+    _arguments = HomePageArguments();
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 300),
@@ -33,8 +44,21 @@ class _HomePageState extends State<HomePage>
     super.initState();
   }
 
+  void getArguments() {
+    final Object? args = ModalRoute.of(context)!.settings.arguments;
+    // if page is being loaded for the first time, args will be null.
+    // if args is null, I set boolean values to run the appropriate animation
+    // In this case, if null run loading animation, if not null run the unveil animation
+    if (args == null) {
+      _arguments.showUnVeilPageAnimation = false;
+    } else {
+      _arguments = args as HomePageArguments;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    getArguments();
     double projectItemHeight = assignHeight(context, 0.4);
     double subHeightHeight = (3 / 4) * projectItemHeight;
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -55,6 +79,10 @@ class _HomePageState extends State<HomePage>
       selectedRoute: HomePage.homePageRoute,
       selectedPageName: StringConst.HOME,
       hasSideTitle: false,
+      hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation, 
+      customLoadingAnimation: LoadingHomePageAnimation(
+        onLoadingDone: (){},
+      ),//_arguments.showUnVeilPageAnimation,
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

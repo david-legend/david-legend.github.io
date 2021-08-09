@@ -100,7 +100,6 @@ class _HomePageHeaderState extends State<HomePageHeader>
     );
     return Container(
       width: screenWidth,
-      // height: screenHeight,
       color: AppColors.accentColor2.withOpacity(0.35),
       child: Stack(
         children: [

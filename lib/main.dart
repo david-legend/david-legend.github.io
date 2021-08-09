@@ -1,6 +1,6 @@
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/experience_page.dart';
-import 'package:aerium/presentation/pages/loading_page.dart';
+import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:aerium/app_theme.dart';
