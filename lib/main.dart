@@ -22,7 +22,6 @@ import 'package:layout/layout.dart';
 // Later
 // TODO:: Animation for app drawer for mobile view when it opens
 // TODO:: Add proper text all over the site
-// TODO:: Holla at Julius in footer
 
 // Issues::
 // Onhover of project item button, project image leaves

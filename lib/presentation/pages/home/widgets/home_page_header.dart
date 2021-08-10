@@ -27,6 +27,7 @@ class HomePageHeader extends StatefulWidget {
 class _HomePageHeaderState extends State<HomePageHeader>
     with TickerProviderStateMixin {
   late AnimationController controller;
+  late AnimationController rotationController;
   late AnimationController scrollDownButtonController;
   late Animation<Offset> animation;
   late Animation<Offset> scrollDownBtnAnimation;
@@ -37,6 +38,10 @@ class _HomePageHeaderState extends State<HomePageHeader>
       vsync: this,
       duration: Duration(milliseconds: 300),
     );
+    rotationController = AnimationController(
+      duration: const Duration(seconds: 20),
+      vsync: this,
+    )..repeat();
     controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 1500),
@@ -57,7 +62,15 @@ class _HomePageHeaderState extends State<HomePageHeader>
         controller.forward();
       }
     });
+    rotationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        rotationController.reset();
+        rotationController.forward();
+        // rotationController.reverse();
+      }
+    });
     controller.forward();
+    rotationController.forward();
     super.initState();
   }
 
@@ -129,9 +142,20 @@ class _HomePageHeaderState extends State<HomePageHeader>
                     child: AnimatedSlideTranstion(
                       controller: controller,
                       position: animation,
-                      child: Image.asset(
-                        ImagePath.DEV_MEDITATE_2,
-                        width: screenWidth,
+                      child: Stack(
+                        children: [
+                          RotationTransition(
+                            turns: rotationController,
+                            child: Image.asset(
+                              ImagePath.DEV_SKILLS,
+                              width: screenWidth,
+                            ),
+                          ),
+                          Image.asset(
+                            ImagePath.DEV_MEDITATE_2,
+                            width: screenWidth,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -161,9 +185,20 @@ class _HomePageHeaderState extends State<HomePageHeader>
                     child: AnimatedSlideTranstion(
                       controller: controller,
                       position: animation,
-                      child: Image.asset(
-                        ImagePath.DEV_MEDITATE_2,
-                        width: screenWidth * 0.35,
+                      child: Stack(
+                        children: [
+                          RotationTransition(
+                            turns: rotationController,
+                            child: Image.asset(
+                              ImagePath.DEV_SKILLS,
+                              width: screenWidth * 0.35,
+                            ),
+                          ),
+                          Image.asset(
+                            ImagePath.DEV_MEDITATE_2,
+                            width: screenWidth * 0.35,
+                          ),
+                        ],
                       ),
                     ),
                   ),

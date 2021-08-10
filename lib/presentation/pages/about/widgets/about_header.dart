@@ -41,9 +41,9 @@ class AboutHeader extends StatelessWidget {
             ),
             SpaceH30(),
             Container(
-              color: AppColors.black,
+              // color: AppColors.black,
               child: Image.asset(
-                ImagePath.ABOUT_PORTRAIT_1,
+                ImagePath.DEV_ABOUT,
                 width: widthOfScreen(context),
                 height: assignHeight(context, 0.45),
               ),

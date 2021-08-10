@@ -33,9 +33,11 @@ class ImagePath {
   static const String MEDITATION = "$imageDir/meditation.png";
   static const String ABOUT_PORTRAIT_1 = "$imageDir/about_portrait_1.png";
   static const String ABOUT_PORTRAIT_2 = "$imageDir/about_portrait_2.png";
+  static const String DEV_ABOUT = "$imageDir/dev-about.jpg";
   static const String DEV_MEDITATE_1 = "$imageDir/dev_meditate_1.png";
   static const String DEV_MEDITATE_2 = "$imageDir/dev_meditate_2.png";
   static const String DEV_MEDITATE_3 = "$imageDir/dev_meditate_3.png";
+  static const String DEV_SKILLS = "$imageDir/skills.png";
 
   // Certifications
   static const String ANDROID_BASICS_CERT = "$imageDir/android_basics_cert.png";
