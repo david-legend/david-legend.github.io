@@ -70,7 +70,8 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     getArguments();
     double projectItemHeight = assignHeight(context, 0.4);
-    double subHeightHeight = (3 / 4) * projectItemHeight;
+    double subHeight = (3 / 4) * projectItemHeight;
+    double extra = projectItemHeight - subHeight;
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? textButtonStyle = textTheme.headline4?.copyWith(
       color: AppColors.black,
@@ -144,17 +145,17 @@ class _HomePageState extends State<HomePage>
                   children: _buildProjectsForMobile(
                     data: Data.recentWorks,
                     projectHeight: projectItemHeight.toInt(),
-                    subHeight: subHeightHeight.toInt(),
+                    subHeight: subHeight.toInt(),
                   ),
                 );
               } else {
                 return Container(
-                  height: projectItemHeight * (Data.recentWorks.length - 1),
+                  height: (projectItemHeight * (Data.recentWorks.length - 1)) + extra,
                   child: Stack(
                     children: _buildRecentProjects(
                       data: Data.recentWorks,
                       projectHeight: projectItemHeight.toInt(),
-                      subHeight: subHeightHeight.toInt(),
+                      subHeight: subHeight.toInt(),
                     ),
                   ),
                 );

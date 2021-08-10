@@ -287,7 +287,12 @@ class _ProjectItemLgState extends State<ProjectItemLg>
       sm: projectItemWidth / 2.8,
     );
     Animation<double> _animation = Tween<double>(
-      begin: -imageWidth * 2.2,
+      begin: responsiveSize(
+        context,
+        -imageWidth * 2.2,
+        -imageWidth * 1.8,
+        md: -imageWidth * 2.2,
+      ),
       end: 0.0,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn))
       ..addListener(() {
@@ -415,7 +420,7 @@ class _ProjectItemLgState extends State<ProjectItemLg>
             ),
             Positioned(
               top: positionOfButton, //places button
-              right: assignWidth(context, 0.2),
+              right: assignWidth(context, 0.1),
               child: AnimatedBubbleButton(
                 startWidth: buttonWidth,
                 hovering: _isHovering,

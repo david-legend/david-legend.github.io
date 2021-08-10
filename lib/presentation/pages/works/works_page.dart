@@ -17,7 +17,8 @@ class WorksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double projectItemHeight = assignHeight(context, 0.4);
-    double subHeightHeight = (3 / 4) * projectItemHeight;
+    double subHeight = (3 / 4) * projectItemHeight;
+     double extra = projectItemHeight - subHeight;
     
     EdgeInsetsGeometry padding = EdgeInsets.only(
       left: responsiveSize(
@@ -51,17 +52,17 @@ class WorksPage extends StatelessWidget {
                   children: _buildProjectsForMobile(
                     data: Data.projects,
                     projectHeight: projectItemHeight.toInt(),
-                    subHeight: subHeightHeight.toInt(),
+                    subHeight: subHeight.toInt(),
                   ),
                 );
               } else {
                 return Container(
-                  height: projectItemHeight * (Data.recentWorks.length - 1),
+                  height: (projectItemHeight * (Data.recentWorks.length - 1)) + extra,
                   child: Stack(
                     children: _buildProjects(
                       data: Data.projects,
                       projectHeight: projectItemHeight.toInt(),
-                      subHeight: subHeightHeight.toInt(),
+                      subHeight: subHeight.toInt(),
                     ),
                   ),
                 );
