@@ -55,6 +55,16 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/projects/
+    - assets/images/projects/aerium-v1/
+    - assets/images/projects/aerium-v2/
+    - assets/images/projects/drop/
+    - assets/images/projects/flutter_catalog/
+    - assets/images/projects/foodybite/
+    - assets/images/projects/login_catalog/
+    - assets/images/projects/nimbus/
+    - assets/images/projects/otp_package/
+    - assets/images/projects/roam/
     - assets/screenshots/
   #    - assets/screenshots/
 

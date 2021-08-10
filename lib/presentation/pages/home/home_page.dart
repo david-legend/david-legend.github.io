@@ -61,6 +61,12 @@ class _HomePageState extends State<HomePage>
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     getArguments();
     double projectItemHeight = assignHeight(context, 0.4);
@@ -133,23 +139,24 @@ class _HomePageState extends State<HomePage>
             builder: (context, sizingInformation) {
               double screenWidth = sizingInformation.screenSize.width;
 
-              if (screenWidth < RefinedBreakpoints().tabletNormal) {
+              if (screenWidth <= RefinedBreakpoints().tabletSmall) {
                 return Column(
                   children: _buildProjectsForMobile(
-                    data: Data.projectItemData,
+                    data: Data.recentWorks,
                     projectHeight: projectItemHeight.toInt(),
                     subHeight: subHeightHeight.toInt(),
                   ),
                 );
               } else {
-                return Stack(
-                  children: [
-                    ..._buildRecentProjects(
-                      data: Data.projectItemData,
+                return Container(
+                  height: projectItemHeight * (Data.recentWorks.length - 1),
+                  child: Stack(
+                    children: _buildRecentProjects(
+                      data: Data.recentWorks,
                       projectHeight: projectItemHeight.toInt(),
                       subHeight: subHeightHeight.toInt(),
                     ),
-                  ],
+                  ),
                 );
               }
             },
@@ -219,22 +226,20 @@ class _HomePageState extends State<HomePage>
     required int subHeight,
   }) {
     List<Widget> items = [];
-    int margin = subHeight * (data.length - 7);
-    // int margin = subHeight * (data.length - 1);
-    // for (int index = data.length-1; index >= 0; index--) {
-    for (int index = data.length - 7; index >= 0; index--) {
+    int margin = subHeight * (data.length - 1);
+    for (int index = data.length-1; index >= 0; index--) {
       items.add(
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
           child: ProjectItemLg(
-            projectNumber: "0$index",
+            projectNumber: "0${index+1}",
             imageUrl: data[index].image,
             projectItemheight: projectHeight.toDouble(),
             subheight: subHeight.toDouble(),
             backgroundColor: AppColors.accentColor2.withOpacity(0.35),
-            title: data[index].title,
-            subtitle: "UI / UX", //data[index].subtitle,
-            containerColor: Colors.amber,
+            title: data[index].title.toLowerCase(),
+             subtitle: data[index].platform,
+            containerColor: data[index].primaryColor,
           ),
         ),
       );
@@ -249,17 +254,16 @@ class _HomePageState extends State<HomePage>
     required int subHeight,
   }) {
     List<Widget> items = [];
-    // int margin = subHeight * (data.length - 1);
-    // for (int index = data.length-1; index >= 0; index--) {
-    for (int index = 0; index < data.length - 5; index++) {
+
+    for (int index = 0; index < data.length; index++) {
       items.add(
         Container(
           child: ProjectItemSm(
-            projectNumber: "0$index",
+            projectNumber: "0${index + 1}",
             imageUrl: data[index].image,
-            title: data[index].title,
-            subtitle: "UI / UX", //data[index].subtitle,
-            containerColor: Colors.amber,
+            title: data[index].title.toLowerCase(),
+            subtitle: data[index].platform,
+            containerColor: data[index].primaryColor,
           ),
         ),
       );

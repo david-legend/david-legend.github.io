@@ -13,11 +13,11 @@ class AnimatedBubbleButton extends StatefulWidget {
     this.targetWidth = 150,
     this.startBorderRadius = const BorderRadius.all(Radius.circular(80.0)),
     this.endBorderRadius,
-    this.curve = Curves.fastOutSlowIn,
+    this.curve = Curves.easeIn,
     this.color = AppColors.black100,
     this.imageColor = AppColors.accentColor,
     this.offsetAnimation,
-    this.duration = const Duration(milliseconds: 200),
+    this.duration = const Duration(milliseconds: 300),
     this.onTap,
     this.hovering,
     this.startOffset = const Offset(0, 0),
@@ -60,13 +60,14 @@ class _AnimatedBubbleButtonState extends State<AnimatedBubbleButton>
         AnimationController(
           vsync: this,
           duration: widget.duration,
+          
         );
 
     _offsetAnimation = widget.offsetAnimation ??
         Tween<Offset>(
           begin: widget.startOffset,
           end: widget.targetOffset,
-        ).animate(_controller)
+        ).animate(CurvedAnimation(parent: _controller, curve: widget.curve))
       ..addListener(() {
         setState(() {});
       });

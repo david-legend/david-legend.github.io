@@ -47,7 +47,7 @@ class NoteWorthyProjects extends StatelessWidget {
             style: bodyText1Style,
           ),
           SpaceH40(),
-          ..._buildNoteworthyProjects(Data.projectItemData),
+          ..._buildNoteworthyProjects(Data.projects),
         ],
       ),
     );

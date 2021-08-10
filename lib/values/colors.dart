@@ -29,5 +29,17 @@ class AppColors {
   // Red
   static const Color errorRed = Color(0xFFFF2019);
 
+
+  // Project Primary Colors
+  static const Color nimbus = Color(0xFFF6C350);
+  static const Color foodybite = Color(0xFF6B79F6);
+  static const Color flutter_catalog = Color(0xFFB779F6);
+  static const Color login_catalog = Color(0xFFC95089);
+  static const Color roam = Color(0xFF2762CB);
+  static const Color drop = Color(0xFF6A53A1);
+  static const Color aerium_v1 = Color(0xFF0E1319);
+  static const Color aerium_v2 = primaryColor;
+  static const Color otp_package = drop;
+
   
 }

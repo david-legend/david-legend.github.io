@@ -77,6 +77,8 @@ class _HomePageHeaderState extends State<HomePageHeader>
   @override
   void dispose() {
     controller.dispose();
+    scrollDownButtonController.dispose();
+    rotationController.dispose();
     super.dispose();
   }
 
@@ -147,7 +149,7 @@ class _HomePageHeaderState extends State<HomePageHeader>
                           RotationTransition(
                             turns: rotationController,
                             child: Image.asset(
-                              ImagePath.DEV_SKILLS_4,
+                              ImagePath.DEV_SKILLS_7,
                               width: screenWidth,
                             ),
                           ),
@@ -190,7 +192,7 @@ class _HomePageHeaderState extends State<HomePageHeader>
                           RotationTransition(
                             turns: rotationController,
                             child: Image.asset(
-                              ImagePath.DEV_SKILLS_4,
+                              ImagePath.DEV_SKILLS_7,
                               width: screenWidth * 0.35,
                             ),
                           ),
@@ -356,6 +358,7 @@ class AboutDev extends StatelessWidget {
         AnimatedLineThroughText(
           text: data[index].name,
           isUnderlinedByDefault: true,
+          hasOffsetAnimation: true,
           isUnderlinedOnHover: false,
           onTap: () {
             Functions.launchUrl(data[index].url);

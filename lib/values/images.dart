@@ -3,6 +3,7 @@ part of values;
 class ImagePath {
   //images route
   static const String imageDir = "assets/images";
+  static const String projectsDir = "assets/images/projects";
   static const String screenshotsDir = "assets/screenshots";
 
   //Images
@@ -37,14 +38,62 @@ class ImagePath {
   static const String DEV_MEDITATE_1 = "$imageDir/dev_meditate_1.png";
   static const String DEV_MEDITATE_2 = "$imageDir/dev_meditate_2.png";
   static const String DEV_MEDITATE_3 = "$imageDir/dev_meditate_3.png";
+  static const String DEV_MEDITATE_4 = "$imageDir/dev_meditate_4.png";
   static const String DEV_SKILLS = "$imageDir/skills.png";
   static const String DEV_SKILLS_2 = "$imageDir/skills_2.png";
   static const String DEV_SKILLS_3 = "$imageDir/skills_3.png";
   static const String DEV_SKILLS_4 = "$imageDir/skills_4.png";
+  static const String DEV_SKILLS_5 = "$imageDir/skills_5.png";
+  static const String DEV_SKILLS_6 = "$imageDir/skills_6.png";
+  static const String DEV_SKILLS_7 = "$imageDir/skills_7.png";
 
   // Certifications
   static const String ANDROID_BASICS_CERT = "$imageDir/android_basics_cert.png";
   static const String ASSOCIATE_ANDROID_DEV =
       "$imageDir/associate_android_dev.png";
   static const String DATA_SCIENCE_CERT = "$imageDir/data_science_cert.png";
+
+
+  // Projects 
+
+  // Nimbus 
+  static const String NIMBUS_COVER = "$projectsDir/nimbus/nimbus_cover.jpg";
+
+  // Foodybite 
+  static const String FOODY_BITE_COVER = "$projectsDir/foodybite/foodybite_cover.png";
+
+  // Portfolio Site V2 
+  static const String PORTFOLIO_SITE_COVER = "$projectsDir/aerium-v2/aerium-v2.jpg";
+
+  // Drop 
+  static const String DROP_COVER = "$projectsDir/drop/drop_cover.png";
+
+  // Roam 
+  static const String ROAM_COVER = "$projectsDir/roam/roam_cover.jpeg";
+
+  // Flutter Catalog 
+  static const String FLUTTER_CATALOG_COVER = "$projectsDir/flutter_catalog/foodybite_cover.png";
+
+  // Login Catalog 
+  static const String LOGIN_CATALOG_COVER = "$projectsDir/login_catalog/foodybite_cover.png";
+
+  // OTP Textfield Package 
+  static const String OTP_TEXTFIELD_COVER = "$projectsDir/login_catalog/foodybite_cover.png";
+
+  // Aerium 
+  static const String AERIUM_COVER = "$projectsDir/aerium-v1/portfolio_cover.png";
+
+  // Amor 
+  static const String AMOR_COVER = "$projectsDir/login_catalog/foodybite_cover.png";
+
+  
+
+
+  // Other projects
+  // Python Algorithms
+  // Programming For Data Science
+  // Finopp
+  // Onboarding app
+  // Amor 
+
 }
