@@ -147,7 +147,7 @@ class _HomePageHeaderState extends State<HomePageHeader>
                           RotationTransition(
                             turns: rotationController,
                             child: Image.asset(
-                              ImagePath.DEV_SKILLS_2,
+                              ImagePath.DEV_SKILLS_4,
                               width: screenWidth,
                             ),
                           ),
