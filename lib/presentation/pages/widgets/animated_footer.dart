@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
@@ -77,24 +78,15 @@ class AnimatedFooter extends StatelessWidget {
               if (screenWidth <= RefinedBreakpoints().tabletNormal) {
                 return Column(
                   children: [
-                    Socials(socialData: Data.socialData),
-                    SpaceH40(),
-                    Text(
-                      StringConst.COPYRIGHT,
-                      style: style,
-                    ),
+                    SimpleFooterSm(),
+                    SpaceH8(),
                   ],
                 );
               } else {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                return Column(
                   children: [
-                    Text(
-                      StringConst.COPYRIGHT,
-                      style: style,
-                    ),
-                    SpaceW20(),
-                    Socials(socialData: Data.socialData),
+                    SimpleFooterLg(),
+                    SpaceH8(),
                   ],
                 );
               }

@@ -39,7 +39,9 @@ class StringConst {
   static const String MESSAGE = "Message";
   static const String MESSAGE_ERROR_MSG = "* Please enter something to send this form";
   static const String SEND_MESSAGE = "Send Message";
-  static const String COPYRIGHT = "©  2021  $DEV_NAME";
+  static const String COPYRIGHT = "©  2021  Built by  $DEV_NAME,";
+  static const String DESIGNED_BY = "Designed by Julius G.";
+  static const String DESIGN_LINK = "https://www.behance.net/gallery/63574251/Personal-Portfolio-Website-Design";
   static const String MESSAGE_ME = "Message me";
   
 
@@ -90,7 +92,6 @@ class StringConst {
   static const String PUNCH_LINE = "I build things with flutter";
   static const String SPECIALITY = "FLUTTER DEV";
   static const String DESIGNED_IN = "Made in Ghana with ";
-  static const String DESIGNED_BY = "Designed by Pavel G. ";
   static const String BUILT_BY = "Built by David Cobbina ";
 
   static const String ABOUT_DEV_TEXT =

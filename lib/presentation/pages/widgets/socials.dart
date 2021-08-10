@@ -21,7 +21,7 @@ class Socials extends StatelessWidget {
   Socials({
     Key? key,
     required this.socialData,
-    this.size = Sizes.ICON_SIZE_14,
+    this.size = Sizes.ICON_SIZE_18,
     this.color = AppColors.white,
     this.spacing = Sizes.SIZE_40,
     this.runSpacing = Sizes.SIZE_16,
