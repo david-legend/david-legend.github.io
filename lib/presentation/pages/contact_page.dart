@@ -108,19 +108,6 @@ class _ContactPageState extends State<ContactPage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  
-                  // AnimatedSlideBoxTransition(
-                  //   width: 500.0,
-                  //   height: 80.0,
-                  //   controller: _animationController,
-                  //   child: Text(
-                  //     "GET IN TOUCH",
-                  //     style: textTheme.headline2?.copyWith(
-                  //       color: AppColors.black,
-                  //       fontSize: responsiveSize(context, 40, 60),
-                  //     ),
-                  //   ),
-                  // ),
                   Text(
                     StringConst.GET_IN_TOUCH,
                     style: textTheme.headline2?.copyWith(
@@ -200,7 +187,9 @@ class _ContactPageState extends State<ContactPage>
                       height: Sizes.HEIGHT_50,
                       width: buttonWidth,
                       title: StringConst.SEND_MESSAGE.toUpperCase(),
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                     ),
                   ),
                 ],

@@ -11,17 +11,18 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Add proper images for projects
-// TODO:: Make project Item responsive on tablets
 // TODO:: Add animations for loading noteworthy projects 
-// TODO:: Add navigations to buttons on homepage
 // TODO:: Add animation to draw X on homepage
 // TODO:: Add animation to show project only when it is visible
+// TODO:: Get curves right for animations
+// TODO:: Add proper images for projects
+// TODO:: Make project Item responsive on tablets
 // TODO:: Show link destination in bottom left corner
 
 // Later
 // TODO:: Animation for app drawer for mobile view when it opens
 // TODO:: Add proper text all over the site
+// TODO:: Holla at Julius in footer
 
 // Issues::
 // Onhover of project item button, project image leaves
@@ -40,8 +41,8 @@ class Aerium extends StatelessWidget {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        // initialRoute: HomePage.homePageRoute,
-        initialRoute: WorksPage.worksPageRoute,
+        initialRoute: HomePage.homePageRoute,
+        // initialRoute: WorksPage.worksPageRoute,
         // initialRoute: ContactPage.contactPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),

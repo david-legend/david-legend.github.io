@@ -47,31 +47,31 @@ class WorksPage extends StatelessWidget {
         ),
         children: [
           WorksPageHeader(),
-          ResponsiveBuilder(
-            builder: (context, sizingInformation) {
-              double screenWidth = sizingInformation.screenSize.width;
+          // ResponsiveBuilder(
+          //   builder: (context, sizingInformation) {
+          //     double screenWidth = sizingInformation.screenSize.width;
 
-              if (screenWidth < RefinedBreakpoints().tabletNormal) {
-                return Column(
-                  children: _buildProjectsForMobile(
-                    data: Data.projectItemData,
-                    projectHeight: projectItemHeight.toInt(),
-                    subHeight: subHeightHeight.toInt(),
-                  ),
-                );
-              } else {
-                return Stack(
-                  children: [
-                    ..._buildProjects(
-                      data: Data.projectItemData,
-                      projectHeight: projectItemHeight.toInt(),
-                      subHeight: subHeightHeight.toInt(),
-                    ),
-                  ],
-                );
-              }
-            },
-          ),
+          //     if (screenWidth < RefinedBreakpoints().tabletNormal) {
+          //       return Column(
+          //         children: _buildProjectsForMobile(
+          //           data: Data.projectItemData,
+          //           projectHeight: projectItemHeight.toInt(),
+          //           subHeight: subHeightHeight.toInt(),
+          //         ),
+          //       );
+          //     } else {
+          //       return Stack(
+          //         children: [
+          //           ..._buildProjects(
+          //             data: Data.projectItemData,
+          //             projectHeight: projectItemHeight.toInt(),
+          //             subHeight: subHeightHeight.toInt(),
+          //           ),
+          //         ],
+          //       );
+          //     }
+          //   },
+          // ),
           CustomSpacer(heightFactor: 0.1),
           Padding(
             padding: padding,

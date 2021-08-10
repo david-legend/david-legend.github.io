@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../contact_page.dart';
+
 class AnimatedFooter extends StatelessWidget {
   const AnimatedFooter({
     Key? key,
@@ -64,7 +66,9 @@ class AnimatedFooter extends StatelessWidget {
           SpaceH40(),
           AnimatedBubbleButton(
             title: StringConst.SAY_HELLO.toUpperCase(),
-            onTap: (){},
+            onTap: (){
+              Navigator.pushNamed(context, ContactPage.contactPageRoute);
+            },
           ),
           Spacer(flex: 3),
           ResponsiveBuilder(

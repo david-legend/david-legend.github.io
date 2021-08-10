@@ -2,6 +2,7 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/home/widgets/scroll_down.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
+import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
@@ -10,23 +11,29 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class HomePageHeader extends StatefulWidget {
-  const HomePageHeader({Key? key}) : super(key: key);
+const kDuration = Duration(milliseconds: 600);
 
+class HomePageHeader extends StatefulWidget {
+  const HomePageHeader({
+    Key? key,
+    required this.scrollToWorksKey,
+  }) : super(key: key);
+
+  final GlobalKey scrollToWorksKey;
   @override
   _HomePageHeaderState createState() => _HomePageHeaderState();
 }
 
 class _HomePageHeaderState extends State<HomePageHeader>
     with TickerProviderStateMixin {
-  late AnimationController scrollDownController;
   late AnimationController controller;
+  late AnimationController scrollDownButtonController;
   late Animation<Offset> animation;
   late Animation<Offset> scrollDownBtnAnimation;
 
   @override
   void initState() {
-    scrollDownController = AnimationController(
+    scrollDownButtonController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 300),
     );
@@ -173,16 +180,25 @@ class _HomePageHeaderState extends State<HomePageHeader>
                 if (screenWidth < RefinedBreakpoints().tabletNormal) {
                   return Container();
                 } else {
-                  return Container(
-                    margin: EdgeInsets.only(right: 24, bottom: 40),
-                    child: MouseRegion(
-                      onEnter: (e) => scrollDownController.forward(),
-                      onExit: (e) => scrollDownController.reverse(),
-                      child: AnimatedSlideTranstion(
-                        controller: scrollDownController,
-                        beginOffset: Offset(0, 0),
-                        targetOffset: Offset(0, 0.1),
-                        child: ScrollDownButton(),
+                  return InkWell(
+                    hoverColor: Colors.transparent,
+                    onTap: () {
+                      Scrollable.ensureVisible(
+                        widget.scrollToWorksKey.currentContext!,
+                        duration: kDuration,
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(right: 24, bottom: 40),
+                      child: MouseRegion(
+                        onEnter: (e) => scrollDownButtonController.forward(),
+                        onExit: (e) => scrollDownButtonController.reverse(),
+                        child: AnimatedSlideTranstion(
+                          controller: scrollDownButtonController,
+                          beginOffset: Offset(0, 0),
+                          targetOffset: Offset(0, 0.1),
+                          child: ScrollDownButton(),
+                        ),
                       ),
                     ),
                   );
@@ -270,6 +286,9 @@ class AboutDev extends StatelessWidget {
             ),
             fontWeight: FontWeight.w500,
           ),
+          onTap: () {
+            Navigator.pushNamed(context, WorksPage.worksPageRoute);
+          },
         ),
         SpaceH40(),
         Wrap(

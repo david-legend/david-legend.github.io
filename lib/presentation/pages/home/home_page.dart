@@ -2,6 +2,7 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
+import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
@@ -32,6 +33,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
+  GlobalKey key = GlobalKey();
+  ScrollController _scrollController = ScrollController();
   late AnimationController _controller;
   late HomePageArguments _arguments;
 
@@ -80,19 +83,23 @@ class _HomePageState extends State<HomePage>
       selectedRoute: HomePage.homePageRoute,
       selectedPageName: StringConst.HOME,
       hasSideTitle: false,
-      hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation, 
+      hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation,
       customLoadingAnimation: LoadingHomePageAnimation(
-        onLoadingDone: (){},
-      ),//_arguments.showUnVeilPageAnimation,
+        onLoadingDone: () {},
+      ), //_arguments.showUnVeilPageAnimation,
       child: ListView(
         padding: EdgeInsets.zero,
+        controller: _scrollController,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
-          HomePageHeader(),
+          HomePageHeader(
+            scrollToWorksKey: key,
+          ),
           CustomSpacer(heightFactor: 0.1),
           Container(
+            key: key,
             margin: margin,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +129,7 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           CustomSpacer(heightFactor: 0.1),
-           ResponsiveBuilder(
+          ResponsiveBuilder(
             builder: (context, sizingInformation) {
               double screenWidth = sizingInformation.screenSize.width;
 
@@ -170,7 +177,9 @@ class _HomePageState extends State<HomePage>
                     beginOffset: Offset(0, 0),
                     targetOffset: Offset(0.05, 0),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, WorksPage.worksPageRoute);
+                      },
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
