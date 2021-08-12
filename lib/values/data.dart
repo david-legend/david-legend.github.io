@@ -16,27 +16,27 @@ class CertificationData {
   final String awardedBy;
 }
 
-class ProjectDetails {
-  ProjectDetails({
-    required this.projectImage,
+class NoteWorthyProjectDetails {
+  NoteWorthyProjectDetails({
     required this.projectName,
-    required this.projectDescription,
-    this.technologyUsed,
-    required this.isPublic,
-    this.isLive,
     required this.isOnPlayStore,
+    required this.isPublic,
+    required this.technologyUsed,
+    required this.isWeb,
+    required this.isLive,
+    this.projectDescription,
     this.playStoreUrl,
     this.webUrl,
     this.hasBeenReleased,
     this.gitHubUrl,
   });
 
-  final String projectImage;
   final String projectName;
-  final String projectDescription;
   final bool isPublic;
   final bool isOnPlayStore;
-  final bool? isLive;
+  final bool isWeb;
+  final String? projectDescription;
+  final bool isLive;
   final bool? hasBeenReleased;
   final String? playStoreUrl;
   final String? gitHubUrl;
@@ -224,20 +224,20 @@ class Data {
     ),
   ];
   static List<ProjectItemData> recentWorks = [
-    // ProjectItemData(
-    //   title: StringConst.FLUTTER_CATALOG,
-    //   subtitle: StringConst.FLUTTER_CATALOG,
-    //   platform: StringConst.FLUTTER_CATALOG_PLATFORM,
-    //   primaryColor: AppColors.flutter_catalog,
-    //   image: ImagePath.FLUTTER_CATALOG_COVER,
-    //   portfolioDescription: StringConst.FLUTTER_CATALOG_DETAIL,
-    //   imageSize: 0.15,
-    //   isPublic: true,
-    //   isOnPlayStore: true,
-    //   technologyUsed: StringConst.FLUTTER,
-    //   gitHubUrl: StringConst.FLUTTER_CATALOG_GITHUB_URL,
-    //   playStoreUrl: StringConst.FLUTTER_CATALOG_PLAYSTORE_URL,
-    // ),
+    ProjectItemData(
+      title: StringConst.FLUTTER_CATALOG,
+      subtitle: StringConst.FLUTTER_CATALOG,
+      platform: StringConst.FLUTTER_CATALOG_PLATFORM,
+      primaryColor: AppColors.flutter_catalog,
+      image: ImagePath.FLUTTER_CATALOG_COVER,
+      portfolioDescription: StringConst.FLUTTER_CATALOG_DETAIL,
+      
+      isPublic: true,
+      isOnPlayStore: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.FLUTTER_CATALOG_GITHUB_URL,
+      playStoreUrl: StringConst.FLUTTER_CATALOG_PLAYSTORE_URL,
+    ),
     ProjectItemData(
       title: StringConst.DROP,
       subtitle: StringConst.DROP,
@@ -245,7 +245,7 @@ class Data {
       primaryColor: AppColors.drop,
       image: ImagePath.DROP_COVER,
       portfolioDescription: StringConst.DROP_DETAIL,
-      imageSize: 0.15,
+      
       isPublic: true,
       isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
@@ -259,27 +259,27 @@ class Data {
       platform: StringConst.ROAM_PLATFORM,
       image: ImagePath.ROAM_COVER,
       portfolioDescription: StringConst.ROAM_DETAIL,
-      imageSize: 0.15,
+      
       isPublic: true,
       isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.ROAM_GITHUB_URL,
       playStoreUrl: StringConst.ROAM_PLAYSTORE_URL,
     ),
-    //  ProjectItemData(
-    //   title: StringConst.LOGIN_CATALOG,
-    //   primaryColor: AppColors.login_catalog,
-    //   subtitle: StringConst.LOGIN_CATALOG,
-    //    platform: StringConst.LOGIN_CATALOG_PLATFORM,
-    //   image: ImagePath.LOGIN_CATALOG_COVER,
-    //   portfolioDescription: StringConst.LOGIN_CATALOG_DETAIL,
-    //   imageSize: 0.15,
-    //   isPublic: true,
-    //   isOnPlayStore: true,
-    //   technologyUsed: StringConst.FLUTTER,
-    //   gitHubUrl: StringConst.LOGIN_CATALOG_GITHUB_URL,
-    //   playStoreUrl: StringConst.LOGIN_CATALOG_PLAYSTORE_URL,
-    // ),
+    ProjectItemData(
+      title: StringConst.LOGIN_CATALOG,
+      primaryColor: AppColors.login_catalog,
+      subtitle: StringConst.LOGIN_CATALOG,
+      platform: StringConst.LOGIN_CATALOG_PLATFORM,
+      image: ImagePath.LOGIN_CATALOG_COVER,
+      portfolioDescription: StringConst.LOGIN_CATALOG_DETAIL,
+      
+      isPublic: true,
+      isOnPlayStore: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.LOGIN_CATALOG_GITHUB_URL,
+      playStoreUrl: StringConst.LOGIN_CATALOG_PLAYSTORE_URL,
+    ),
     ProjectItemData(
       title: StringConst.FOODY_BITE,
       subtitle: StringConst.FOODY_BITE_SUBTITLE,
@@ -287,7 +287,7 @@ class Data {
       platform: StringConst.FOODY_BITE_PLATFORM,
       image: ImagePath.FOODY_BITE_COVER,
       portfolioDescription: StringConst.FOODY_BITE_DETAIL,
-      imageSize: 0.15,
+      
       isPublic: true,
       isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
@@ -301,7 +301,7 @@ class Data {
       platform: StringConst.NIMBUS_PLATFORM,
       image: ImagePath.NIMBUS_COVER,
       portfolioDescription: StringConst.NIMBUS_DETAIL,
-      imageSize: 0.15,
+      
       isPublic: true,
       isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
@@ -312,42 +312,102 @@ class Data {
 
   static List<ProjectItemData> projects = [
     ProjectItemData(
-      title: StringConst.OTP_TEXT_FIELD,
-      subtitle: StringConst.OTP_TEXT_FIELD_SUBTITLE,
-      primaryColor: AppColors.otp_package,
-      platform: StringConst.OTP_TEXT_FIELD_PLATFORM,
-      image: ImagePath.OTP_TEXT_FIELD,
-      portfolioDescription: StringConst.OTP_TEXT_FIELD_DETAIL,
-      imageSize: 0.15,
+      title: StringConst.FLUTTER_CATALOG,
+      subtitle: StringConst.FLUTTER_CATALOG,
+      platform: StringConst.FLUTTER_CATALOG_PLATFORM,
+      primaryColor: AppColors.flutter_catalog,
+      image: ImagePath.FLUTTER_CATALOG_COVER,
+      portfolioDescription: StringConst.FLUTTER_CATALOG_DETAIL,
+      
       isPublic: true,
-      isLive: true,
+      isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
-      gitHubUrl: StringConst.OTP_TEXT_FIELD_GITHUB_URL,
-      webUrl: StringConst.OTP_TEXT_FIELD_WEB_URL,
+      gitHubUrl: StringConst.FLUTTER_CATALOG_GITHUB_URL,
+      playStoreUrl: StringConst.FLUTTER_CATALOG_PLAYSTORE_URL,
+    ),
+    ProjectItemData(
+      title: StringConst.DROP,
+      subtitle: StringConst.DROP,
+      platform: StringConst.DROP_PLATFORM,
+      primaryColor: AppColors.drop,
+      image: ImagePath.DROP_COVER,
+      portfolioDescription: StringConst.DROP_DETAIL,
+      
+      isPublic: true,
+      isOnPlayStore: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.DROP_GITHUB_URL,
+      playStoreUrl: StringConst.DROP_PLAYSTORE_URL,
+    ),
+    ProjectItemData(
+      title: StringConst.ROAM,
+      subtitle: StringConst.ROAM,
+      primaryColor: AppColors.roam,
+      platform: StringConst.ROAM_PLATFORM,
+      image: ImagePath.ROAM_COVER,
+      portfolioDescription: StringConst.ROAM_DETAIL,
+      
+      isPublic: true,
+      isOnPlayStore: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.ROAM_GITHUB_URL,
+      playStoreUrl: StringConst.ROAM_PLAYSTORE_URL,
     ),
     ProjectItemData(
       title: StringConst.LOGIN_CATALOG,
-      subtitle: StringConst.LOGIN_CATALOG_SUBTITLE,
       primaryColor: AppColors.login_catalog,
+      subtitle: StringConst.LOGIN_CATALOG,
       platform: StringConst.LOGIN_CATALOG_PLATFORM,
-      image: ImagePath.LOGIN_CATALOG,
+      image: ImagePath.LOGIN_CATALOG_COVER,
       portfolioDescription: StringConst.LOGIN_CATALOG_DETAIL,
-      imageSize: 0.3,
+      
       isPublic: true,
+      isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.LOGIN_CATALOG_GITHUB_URL,
+      playStoreUrl: StringConst.LOGIN_CATALOG_PLAYSTORE_URL,
     ),
     ProjectItemData(
       title: StringConst.FOODY_BITE,
       subtitle: StringConst.FOODY_BITE_SUBTITLE,
       primaryColor: AppColors.foodybite,
       platform: StringConst.FOODY_BITE_PLATFORM,
-      image: ImagePath.FOODY_BITE,
+      image: ImagePath.FOODY_BITE_COVER,
       portfolioDescription: StringConst.FOODY_BITE_DETAIL,
-      imageSize: 0.45,
+      
       isPublic: true,
+      isOnPlayStore: true,
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
+      playStoreUrl: StringConst.FOODY_BITE_PLAYSTORE_URL,
+    ),
+    ProjectItemData(
+      title: StringConst.NIMBUS,
+      subtitle: StringConst.NIMBUS,
+      primaryColor: AppColors.nimbus,
+      platform: StringConst.NIMBUS_PLATFORM,
+      image: ImagePath.NIMBUS_COVER,
+      portfolioDescription: StringConst.NIMBUS_DETAIL,
+      
+      isPublic: true,
+      isOnPlayStore: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.NIMBUS_GITHUB_URL,
+      webUrl: StringConst.NIMBUS_WEB_URL,
+    ),
+    ProjectItemData(
+      title: StringConst.OTP_TEXT_FIELD,
+      subtitle: StringConst.OTP_TEXT_FIELD_SUBTITLE,
+      primaryColor: AppColors.otp_package,
+      platform: StringConst.OTP_TEXT_FIELD_PLATFORM,
+      image: ImagePath.OTP_TEXTFIELD_COVER,
+      portfolioDescription: StringConst.OTP_TEXT_FIELD_DETAIL,
+      
+      isPublic: true,
+      isLive: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.OTP_TEXT_FIELD_GITHUB_URL,
+      webUrl: StringConst.OTP_TEXT_FIELD_WEB_URL,
     ),
     ProjectItemData(
       title: StringConst.AERIUM,
@@ -356,12 +416,94 @@ class Data {
       platform: StringConst.AERIUM_PLATFORM,
       image: ImagePath.AERIUM,
       portfolioDescription: StringConst.AERIUM_DETAIL,
-      imageSize: 0.3,
+      
       isPublic: true,
       isLive: true,
       technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.AERIUM_GITHUB_URL,
       webUrl: StringConst.AERIUM_WEB_URL,
+    ),
+    ProjectItemData(
+      title: StringConst.AERIUM_V2,
+      subtitle: StringConst.AERIUM_V2_SUBTITLE,
+      primaryColor: AppColors.aerium_v1,
+      platform: StringConst.AERIUM_V2_PLATFORM,
+      image: ImagePath.PORTFOLIO_SITE_COVER,
+      portfolioDescription: StringConst.AERIUM_V2_DETAIL,
+      
+      isPublic: true,
+      isLive: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.AERIUM_V2_GITHUB_URL,
+      webUrl: StringConst.AERIUM_V2_WEB_URL,
+    ),
+     ProjectItemData(
+      title: StringConst.OUTFITR,
+      subtitle: StringConst.OUTFITR_SUBTITLE,
+      primaryColor: AppColors.outfitr,
+      platform: StringConst.OUTFITR_PLATFORM,
+      image: ImagePath.OUTFITR_COVER,
+      portfolioDescription: StringConst.OUTFITR_DETAIL,
+      
+      isPublic: true,
+      isLive: true,
+      technologyUsed: StringConst.FLUTTER,
+      gitHubUrl: StringConst.OUTFITR_GITHUB_URL,
+      webUrl: StringConst.OUTFITR_WEB_URL,
+    ),
+  ];
+
+  static List<NoteWorthyProjectDetails> noteworthyProjects = [
+    NoteWorthyProjectDetails(
+      projectName: StringConst.AMOR_APP,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: true,
+      technologyUsed: StringConst.FLUTTER,
+      projectDescription: StringConst.AMOR_APP_DETAIL,
+      gitHubUrl: StringConst.AMOR_APP_GITHUB_URL,
+      webUrl: StringConst.AMOR_APP_WEB_URL,
+      isLive: true,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.PROGRAMMING_FOR_DATA_SCIENCE,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: false,
+      technologyUsed: StringConst.PYTHON,
+      projectDescription: StringConst.PROGRAMMING_FOR_DATA_SCIENCE_DETAIL,
+      gitHubUrl: StringConst.PROGRAMMING_FOR_DATA_SCIENCE_GITHUB_URL,
+      isLive: false,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.PYTHON_ALGORITHMS,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: false,
+      technologyUsed: StringConst.PYTHON,
+      projectDescription: StringConst.PYTHON_ALGORITHMS_DETAIL,
+      gitHubUrl: StringConst.PYTHON_ALGORITHMS_GITHUB_URL,
+      isLive: false,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.ONBOARDING_APP,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: false,
+      technologyUsed: StringConst.FLUTTER,
+      projectDescription: StringConst.ONBOARDING_APP_DETAIL,
+      gitHubUrl: StringConst.ONBOARDING_APP_GITHUB_URL,
+      isLive: false,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.FINOPP,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: false,
+      technologyUsed: StringConst.FLUTTER,
+      projectDescription: StringConst.FINOPP_DETAIL,
+      gitHubUrl: StringConst.FINOPP_GITHUB_URL,
+      isLive: false,
     ),
   ];
 

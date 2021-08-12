@@ -43,7 +43,7 @@ class NavItem extends StatefulWidget {
   _NavItemState createState() => _NavItemState();
 }
 
-class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
+class _NavItemState extends State<NavItem> {
   bool _hovering = false;
   bool _hoveringUnselectedNavItemMobile = false;
 

@@ -26,8 +26,14 @@ class _CertificationPageState extends State<CertificationPage>
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -62,7 +68,7 @@ class _CertificationPageState extends State<CertificationPage>
       selectedRoute: CertificationPage.certificationPageRoute,
       selectedPageName: StringConst.CERTIFICATIONS,
       onLoadingAnimationDone: () {
-_controller.forward();
+        _controller.forward();
       },
       child: ListView(
         padding: EdgeInsets.zero,

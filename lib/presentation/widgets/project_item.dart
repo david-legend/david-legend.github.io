@@ -8,11 +8,11 @@ class ProjectItemData {
   ProjectItemData({
     required this.title,
     required this.image,
-    required this.imageSize,
     required this.subtitle,
     required this.portfolioDescription,
     required this.platform,
     required this.primaryColor,
+    this.imageSize,
     this.technologyUsed,
     this.isPublic = false,
     this.isOnPlayStore = false,
@@ -26,7 +26,7 @@ class ProjectItemData {
   final Color primaryColor;
   final String image;
   final String portfolioDescription;
-  final double imageSize;
+  final double? imageSize;
   final String title;
   final String subtitle;
   final String platform;
@@ -215,25 +215,16 @@ class _ProjectItemLgState extends State<ProjectItemLg>
       duration: widget.duration,
     );
 
-    // _animation = Tween<double>(
-    //   begin: -widthOfScreen(context)/3,
-    //   end:  0.0,
-    // ).animate(CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn))
-    //   ..addListener(() {
-    //     setState(() {});
-    //   });
+  
     super.initState();
   }
 
-  // void initTween(double width) {
-  //   _animation = Tween<double>(
-  //     begin: -width,
-  //     end: 0.0,
-  //   ).animate(CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn))
-  //     ..addListener(() {
-  //       setState(() {});
-  //     });
-  // }
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+
+  }
 
   void _mouseEnter(bool hovering) {
     if (hovering) {

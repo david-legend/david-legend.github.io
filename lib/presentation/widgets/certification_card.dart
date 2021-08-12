@@ -42,7 +42,7 @@ class CertificationCard extends StatefulWidget {
 }
 
 class _CertificationCardState extends State<CertificationCard>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late AnimationController _portfolioCoverController;
   late Animation<double> _opacityAnimation;
   final int duration = 400;

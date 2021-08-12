@@ -11,13 +11,13 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Add proper images for projects
-// TODO:: Make project Item responsive on tablets
-// TODO:: Get curves right for animations
 // TODO:: Start experimenting with animated slidebox animations
 // TODO:: Show link destination in bottom left corner
 // TODO:: Add animations for loading noteworthy projects 
 // TODO:: Add animation to show project only when it is visible
+// TODO:: Work on sending email from website
+// TODO:: Complete Adding proper images for project detail Page
+// TODO:: Get curves right for animations
 
 // Later
 // TODO:: Animation for app drawer for mobile view when it opens

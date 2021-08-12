@@ -118,6 +118,7 @@ class StringConst {
   static const String FLUTTER = "Flutter";
   static const String JAVA = "Java";
   static const String ANDROID = "Android";
+  static const String PYTHON = "Python";
   static const String KOTLIN = "Kotlin";
   static const String JAVASCRIPT = "Javascript";
   static const String PHP = "PHP";
@@ -326,6 +327,79 @@ class StringConst {
       "https://github.com/david-legend/aerium";
   static const String AERIUM_WEB_URL = "http://david-legend.github.io/aerium";
 
+  static const String AERIUM_V2 = "Aerium V2 ";
+  static const String AERIUM_V2_PLATFORM = "Flutter Web.";
+  static const String AERIUM_V2_SUBTITLE =
+      "A progressive web app for showcasing your portfolio.";
+  static const String AERIUM_V2_DETAIL =
+      "As you can tell, you're currently on aerium v2 right now. It is an elegant progressive web app built to help developers tell their story by showcasing their works and skills.";
+  static const String AERIUM_V2_GITHUB_URL =
+      "https://github.com/david-legend/david-legend.github.io";
+  static const String AERIUM_V2_WEB_URL = "https://davidcobbina.com/#/";
+
+  static const String OUTFITR = "Outfitr";
+  static const String OUTFITR_PLATFORM = "Mobile App.";
+  static const String OUTFITR_SUBTITLE =
+      "Design your fashion app faster and easier with Outfitr Fashion UI Kit.";
+  static const String OUTFITR_DETAIL =
+      "With over 30 unique screens, Outfitr UI Kit is a valuable resource for any developer or enterpreneur that wants to standout from the crowd";
+  static const String OUTFITR_GITHUB_URL =
+      "https://github.com/david-legend/david-legend.github.io";
+  static const String OUTFITR_WEB_URL = "https://davidcobbina.com/#/";
+
+  //Noteworthy Projects
+  static const String PROGRAMMING_FOR_DATA_SCIENCE =
+      "Programming For Data Science";
+  static const String PROGRAMMING_FOR_DATA_SCIENCE_PLATFORM = "Python.";
+  static const String PROGRAMMING_FOR_DATA_SCIENCE_SUBTITLE =
+      "Udacity Programming For Data Science Course";
+  static const String PROGRAMMING_FOR_DATA_SCIENCE_DETAIL =
+      "Udacity Programming For Data Science Course.";
+  static const String PROGRAMMING_FOR_DATA_SCIENCE_GITHUB_URL =
+      "https://github.com/david-legend/programming-for-data-science-nanodegree";
+  static const String PROGRAMMING_FOR_DATA_SCIENCE_DETAIL_WEB_URL = "";
+
+  static const String FINOPP = "Finopp";
+  static const String FINOPP_PLATFORM = "Flutter.";
+  static const String FINOPP_SUBTITLE =
+      "Finopp - Financial Opportunities - Its an app that connects startups to Investors. I built this UI as a prototype to compete in the African app launchpad(http://techleaders.eg/aal/competition/).";
+  static const String FINOPP_DETAIL =
+      "Finopp - Financial Opportunities - Its an app that connects startups to Investors. I built this UI as a prototype to compete in the African app launchpad(http://techleaders.eg/aal/competition/).";
+  static const String FINOPP_GITHUB_URL =
+      "https://github.com/david-legend/finopp";
+  static const String FINOPP_DETAIL_WEB_URL = "";
+
+  static const String PYTHON_ALGORITHMS = "Python Algorithms";
+  static const String PYTHON_ALGORITHMS_PLATFORM = "Python.";
+  static const String PYTHON_ALGORITHMS_SUBTITLE =
+      "Data structures and interview questions implemented in JavaScript with explanations and links to further readings.";
+  static const String PYTHON_ALGORITHMS_DETAIL =
+      "Data structures and interview questions implemented in JavaScript with explanations and links to further readings.";
+  static const String PYTHON_ALGORITHMS_GITHUB_URL =
+      "https://github.com/david-legend/python-algorithms";
+  static const String PYTHON_ALGORITHMS_DETAIL_WEB_URL = "";
+
+  static const String AMOR_APP = "Amor";
+  static const String AMOR_APP_PLATFORM = "Flutter.";
+  static const String AMOR_APP_SUBTITLE =
+      "beautifully designed portfolio website built with flutter.";
+  static const String AMOR_APP_DETAIL =
+      "beautifully designed portfolio website built with flutter.";
+  static const String AMOR_APP_GITHUB_URL =
+      "https://github.com/david-legend/amor";
+  static const String AMOR_APP_WEB_URL = "https://david-legend.github.io/amor/";
+
+  static const String ONBOARDING_APP = "Onboarding App.";
+  static const String ONBOARDING_APP_PLATFORM = "Flutter.";
+  static const String ONBOARDING_APP_SUBTITLE =
+      "A beautifully crafted app that takes you through an onboarding experience.";
+  static const String ONBOARDING_APP_DETAIL =
+      "A beautifully crafted app that takes you through an onboarding experience.";
+  static const String ONBOARDING_APP_GITHUB_URL =
+      "https://github.com/david-legend/onboarding-app";
+  static const String ONBOARDING_APP_PLAYSTORE_URL = "";
+
+  // Font Family
   static const String VISUELT_PRO = "VisueltPro";
 
   //API

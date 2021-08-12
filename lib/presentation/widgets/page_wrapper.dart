@@ -63,6 +63,13 @@ class _PageWrapperState extends State<PageWrapper>
     super.initState();
   }
 
+@override
+  void dispose() {
+    forwardSlideController.dispose();
+    unveilPageSlideController.dispose();
+    super.dispose();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

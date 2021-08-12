@@ -63,7 +63,7 @@ class ImagePath {
   static const String FOODY_BITE_COVER = "$projectsDir/foodybite/foodybite_cover.png";
 
   // Portfolio Site V2 
-  static const String PORTFOLIO_SITE_COVER = "$projectsDir/aerium-v2/aerium-v2.jpg";
+  static const String PORTFOLIO_SITE_COVER = "$projectsDir/aerium-v2/aerium_v2_cover.jpg";
 
   // Drop 
   static const String DROP_COVER = "$projectsDir/drop/drop_cover.png";
@@ -72,19 +72,22 @@ class ImagePath {
   static const String ROAM_COVER = "$projectsDir/roam/roam_cover.jpeg";
 
   // Flutter Catalog 
-  static const String FLUTTER_CATALOG_COVER = "$projectsDir/flutter_catalog/foodybite_cover.png";
+  static const String FLUTTER_CATALOG_COVER = "$projectsDir/flutter_catalog/flutter_catalog_cover.png";
 
   // Login Catalog 
-  static const String LOGIN_CATALOG_COVER = "$projectsDir/login_catalog/foodybite_cover.png";
+  static const String LOGIN_CATALOG_COVER = "$projectsDir/login_catalog/login_catalog_cover.jpg";
 
   // OTP Textfield Package 
-  static const String OTP_TEXTFIELD_COVER = "$projectsDir/login_catalog/foodybite_cover.png";
+  static const String OTP_TEXTFIELD_COVER = "$projectsDir/otp_package/otp_cover.png";
 
   // Aerium 
   static const String AERIUM_COVER = "$projectsDir/aerium-v1/portfolio_cover.png";
 
   // Amor 
   static const String AMOR_COVER = "$projectsDir/login_catalog/foodybite_cover.png";
+
+  // Outfitr 
+  static const String OUTFITR_COVER = "$projectsDir/outfitr/outfitr_cover.jpg";
 
   
 

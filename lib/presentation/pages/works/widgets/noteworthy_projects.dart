@@ -47,26 +47,32 @@ class NoteWorthyProjects extends StatelessWidget {
             style: bodyText1Style,
           ),
           SpaceH40(),
-          ..._buildNoteworthyProjects(Data.projects),
+          ..._buildNoteworthyProjects(Data.noteworthyProjects),
         ],
       ),
     );
   }
 
-  List<Widget> _buildNoteworthyProjects(List<ProjectItemData> data) {
+  List<Widget> _buildNoteworthyProjects(List<NoteWorthyProjectDetails> data) {
     List<Widget> items = [];
 
     for (int index = 0; index < data.length; index++) {
       items.add(
         NoteWorthyProjectItem(
           number: index + 1 > 9 ? "/${index + 1}" : "/0${index + 1}",
-          projectName: data[index].title,
-          onSourceTap: () {
-            Functions.launchUrl(data[index].gitHubUrl);
-          },
-          onProjectNameTap: () {
-            // Functions.launchUrl(data[index].gitHubUrl);
-          },
+          projectName: data[index].projectName,
+          onSourceTap: data[index].isPublic
+              ? () {
+                  Functions.launchUrl(data[index].gitHubUrl!);
+                }
+              : null,
+          onProjectNameTap: data[index].isLive
+              ? () {
+                  data[index].isWeb
+                      ? Functions.launchUrl(data[index].webUrl!)
+                      : Functions.launchUrl(data[index].playStoreUrl!);
+                }
+              : null,
         ),
       );
       items.add(SpaceH40());

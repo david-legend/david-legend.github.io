@@ -18,7 +18,7 @@ class ExperiencePage extends StatefulWidget {
 }
 
 class _ExperiencePageState extends State<ExperiencePage>
-    with SingleTickerProviderStateMixin {
+     {
   // late AnimationController controller;
 
   @override

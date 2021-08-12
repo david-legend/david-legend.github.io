@@ -105,6 +105,13 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
     super.initState();
   }
 
+ @override
+  void dispose() {
+    _forwardController.dispose();
+    _backwardsController.dispose();
+    _slideTransitionController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     TextStyle? hoverTextStyle = widget.onHoverTextStyle ?? widget.textStyle;

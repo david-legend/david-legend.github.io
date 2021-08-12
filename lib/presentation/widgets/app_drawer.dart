@@ -28,7 +28,7 @@ class AppDrawer extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? style = textTheme.bodyText1?.copyWith(
       color: AppColors.grey500,
-      fontSize: Sizes.TEXT_SIZE_14,
+      fontSize: Sizes.TEXT_SIZE_10,
     );
     return Container(
       width: width ?? widthOfScreen(context),

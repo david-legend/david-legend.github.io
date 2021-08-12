@@ -40,6 +40,7 @@ class AppColors {
   static const Color aerium_v1 = Color(0xFF0E1319);
   static const Color aerium_v2 = primaryColor;
   static const Color otp_package = drop;
+  static const Color outfitr = Color(0xFF2DB8AF);
 
   
 }

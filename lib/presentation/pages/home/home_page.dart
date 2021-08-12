@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage>
                 );
               } else {
                 return Container(
-                  height: (projectItemHeight * (Data.recentWorks.length - 1)) + extra,
+                  height: (subHeight * (Data.recentWorks.length)) + extra ,
                   child: Stack(
                     children: _buildRecentProjects(
                       data: Data.recentWorks,
@@ -214,7 +214,7 @@ class _HomePageState extends State<HomePage>
               ],
             ),
           ),
-          CustomSpacer(heightFactor: 0.1),
+          CustomSpacer(heightFactor: 0.15),
           AnimatedFooter(),
         ],
       ),
@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage>
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
           child: ProjectItemLg(
-            projectNumber: "0${index+1}",
+            projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
             projectItemheight: projectHeight.toDouble(),
             subheight: subHeight.toDouble(),
@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage>
       items.add(
         Container(
           child: ProjectItemSm(
-            projectNumber: "0${index + 1}",
+            projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,

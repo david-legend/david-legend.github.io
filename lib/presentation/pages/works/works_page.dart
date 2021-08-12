@@ -18,8 +18,8 @@ class WorksPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double projectItemHeight = assignHeight(context, 0.4);
     double subHeight = (3 / 4) * projectItemHeight;
-     double extra = projectItemHeight - subHeight;
-    
+    double extra = projectItemHeight - subHeight;
+
     EdgeInsetsGeometry padding = EdgeInsets.only(
       left: responsiveSize(
         context,
@@ -57,7 +57,7 @@ class WorksPage extends StatelessWidget {
                 );
               } else {
                 return Container(
-                  height: (projectItemHeight * (Data.recentWorks.length - 1)) + extra,
+                  height: (subHeight * (Data.projects.length)) + extra,
                   child: Stack(
                     children: _buildProjects(
                       data: Data.projects,
@@ -70,11 +70,13 @@ class WorksPage extends StatelessWidget {
             },
           ),
           CustomSpacer(heightFactor: 0.1),
-          Padding(
-            padding: padding,
-            child: NoteWorthyProjects(),
+          Container(
+            child: Padding(
+              padding: padding,
+              child: NoteWorthyProjects(),
+            ),
           ),
-          CustomSpacer(heightFactor: 0.1),
+          CustomSpacer(heightFactor: 0.15),
           AnimatedFooter(),
         ],
       ),
@@ -88,18 +90,18 @@ class WorksPage extends StatelessWidget {
   }) {
     List<Widget> items = [];
     int margin = subHeight * (data.length - 1);
-    for (int index = data.length-1; index >= 0; index--) {
+    for (int index = data.length - 1; index >= 0; index--) {
       items.add(
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
           child: ProjectItemLg(
-            projectNumber: "0${index+1}",
+            projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
             projectItemheight: projectHeight.toDouble(),
             subheight: subHeight.toDouble(),
             backgroundColor: AppColors.accentColor2.withOpacity(0.35),
             title: data[index].title.toLowerCase(),
-             subtitle: data[index].platform,
+            subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
           ),
         ),
@@ -114,13 +116,13 @@ class WorksPage extends StatelessWidget {
     required int projectHeight,
     required int subHeight,
   }) {
-   List<Widget> items = [];
+    List<Widget> items = [];
 
     for (int index = 0; index < data.length; index++) {
       items.add(
         Container(
           child: ProjectItemSm(
-            projectNumber: "0${index + 1}",
+            projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
