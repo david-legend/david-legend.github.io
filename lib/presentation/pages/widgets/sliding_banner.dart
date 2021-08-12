@@ -1,5 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_slide_box_transition.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
