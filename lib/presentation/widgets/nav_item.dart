@@ -3,6 +3,7 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
 import 'animated_line_through_text.dart';
+import 'animated_text_slide_box_transition.dart';
 
 const double indicatorWidth = Sizes.WIDTH_60;
 
@@ -21,6 +22,7 @@ class NavItem extends StatefulWidget {
     required this.title,
     required this.route,
     required this.index,
+     
     this.titleColor = AppColors.grey600,
     this.selectedColor = AppColors.black,
     this.isSelected = false,
@@ -30,6 +32,7 @@ class NavItem extends StatefulWidget {
   });
 
   final String title;
+  // final AnimationController controller;
   final int index;
   final String route;
   final TextStyle? titleStyle;
@@ -177,6 +180,7 @@ class _NavItemState extends State<NavItem> {
       fontSize: textSize,
       color: widget.titleColor,
     );
+    
     return widget.isSelected
         ? AnimatedLineThroughText(
             text: widget.title,

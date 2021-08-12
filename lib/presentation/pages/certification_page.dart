@@ -67,6 +67,7 @@ class _CertificationPageState extends State<CertificationPage>
     return PageWrapper(
       selectedRoute: CertificationPage.certificationPageRoute,
       selectedPageName: StringConst.CERTIFICATIONS,
+      navBarAnimationController: _controller,
       onLoadingAnimationDone: () {
         _controller.forward();
       },

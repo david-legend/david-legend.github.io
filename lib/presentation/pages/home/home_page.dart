@@ -32,16 +32,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   GlobalKey key = GlobalKey();
   ScrollController _scrollController = ScrollController();
   late AnimationController _controller;
+  late AnimationController _slideTextController;
   late HomePageArguments _arguments;
 
   @override
   void initState() {
     _arguments = HomePageArguments();
     _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 300),
+    );
+     _slideTextController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 300),
     );
@@ -62,6 +67,8 @@ class _HomePageState extends State<HomePage>
 
   @override
   void dispose() {
+    _controller.dispose();
+    _slideTextController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -89,6 +96,7 @@ class _HomePageState extends State<HomePage>
     return PageWrapper(
       selectedRoute: HomePage.homePageRoute,
       selectedPageName: StringConst.HOME,
+      navBarAnimationController: _slideTextController,
       hasSideTitle: false,
       hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation,
       customLoadingAnimation: LoadingHomePageAnimation(

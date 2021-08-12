@@ -1,6 +1,7 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/app_logo.dart';
 import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/nav_item.dart';
@@ -10,11 +11,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class NavBar extends StatelessWidget {
+class NavBar extends StatefulWidget {
   NavBar({
     Key? key,
     required this.selectedRouteTitle,
     required this.selectedRouteName,
+    required this.controller,
     this.selectedRouteTitleStyle,
     this.onMenuTap,
     this.onNavItemWebTap,
@@ -23,6 +25,7 @@ class NavBar extends StatelessWidget {
 
   final String selectedRouteTitle;
   final String selectedRouteName;
+  final AnimationController controller;
   final TextStyle? selectedRouteTitleStyle;
   final GestureTapCallback? onMenuTap;
   final bool hasSideTitle;
@@ -30,6 +33,11 @@ class NavBar extends StatelessWidget {
   /// this handles navigation when on desktops
   final Function(String)? onNavItemWebTap;
 
+  @override
+  _NavBarState createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
@@ -55,7 +63,7 @@ class NavBar extends StatelessWidget {
           AppLogo(fontSize: Sizes.TEXT_SIZE_40),
           Spacer(),
           InkWell(
-            onTap: onMenuTap,
+            onTap: widget.onMenuTap,
             child: Icon(
               FeatherIcons.menu,
               size: Sizes.TEXT_SIZE_30,
@@ -69,6 +77,12 @@ class NavBar extends StatelessWidget {
 
   Widget webNavBar(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? style = widget.selectedRouteTitleStyle ??
+        textTheme.bodyText1?.copyWith(
+          color: AppColors.black,
+          fontWeight: FontWeight.w400,
+          fontSize: Sizes.TEXT_SIZE_12,
+        );
     return Container(
       width: widthOfScreen(context),
       height: heightOfScreen(context),
@@ -99,17 +113,13 @@ class NavBar extends StatelessWidget {
             ],
           ),
           Spacer(),
-          hasSideTitle
+          widget.hasSideTitle
               ? RotatedBox(
                   quarterTurns: 3,
-                  child: Text(
-                    selectedRouteTitle.toUpperCase(),
-                    style: selectedRouteTitleStyle ??
-                        textTheme.bodyText1?.copyWith(
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: Sizes.TEXT_SIZE_12,
-                        ),
+                  child: AnimatedTextSlideBoxTransition(
+                    controller: widget.controller,
+                    text: widget.selectedRouteTitle.toUpperCase(),
+                    textStyle: style,
                   ),
                 )
               : Empty(),
@@ -130,10 +140,11 @@ class NavBar extends StatelessWidget {
           title: menuList[index].name,
           route: menuList[index].route,
           index: index + 1,
-          isSelected: menuList[index].route == selectedRouteName ? true : false,
+          isSelected:
+              menuList[index].route == widget.selectedRouteName ? true : false,
           onTap: () {
-            if (onNavItemWebTap != null) {
-              onNavItemWebTap!(menuList[index].route);
+            if (widget.onNavItemWebTap != null) {
+              widget.onNavItemWebTap!(menuList[index].route);
             }
           },
         ),

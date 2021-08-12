@@ -13,6 +13,7 @@ class PageWrapper extends StatefulWidget {
     Key? key,
     required this.selectedRoute,
     required this.selectedPageName,
+    required this.navBarAnimationController,
     required this.child,
     this.customLoadingAnimation = const Empty(),
     this.onLoadingAnimationDone,
@@ -22,6 +23,7 @@ class PageWrapper extends StatefulWidget {
 
   final String selectedRoute;
   final String selectedPageName;
+  final AnimationController navBarAnimationController;
   final VoidCallback? onLoadingAnimationDone;
   final Widget child;
   final Widget customLoadingAnimation;
@@ -83,6 +85,7 @@ class _PageWrapperState extends State<PageWrapper>
           widget.child,
           NavBar(
             selectedRouteTitle: widget.selectedPageName,
+            controller: widget.navBarAnimationController,
             selectedRouteName: widget.selectedRoute,
             hasSideTitle: widget.hasSideTitle,
             onNavItemWebTap: (String route) {

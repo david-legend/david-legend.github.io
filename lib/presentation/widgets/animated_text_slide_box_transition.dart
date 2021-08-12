@@ -93,7 +93,7 @@ class _AnimatedTextSlideBoxTransitionState
   void setTextWidthAndHeight() {
     size = _textSize(widget.text, widget.textStyle);
     textWidth = size.width;
-    textHeight = size.height;
+    textHeight = size.height * 1.2;
   }
 
   @override
@@ -101,7 +101,7 @@ class _AnimatedTextSlideBoxTransitionState
     setTextWidthAndHeight();
 
     return Container(
-      height: textHeight,
+      height: textHeight ,
       child: Stack(
         children: [
           AnimatedSlideBox(

@@ -24,7 +24,7 @@ class ContactPage extends StatefulWidget {
 
 class _ContactPageState extends State<ContactPage>
     with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
+  late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
   bool isBodyVisible = false;
   final Duration duration = Duration(milliseconds: 2000);
@@ -41,18 +41,23 @@ class _ContactPageState extends State<ContactPage>
   TextEditingController _subjectController = TextEditingController();
   TextEditingController _messageController = TextEditingController();
 
-
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this, duration: duration);
+    _controller = AnimationController(vsync: this, duration: duration);
     _slideAnimation =
         Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(
       CurvedAnimation(
-        parent: _animationController,
+        parent: _controller,
         curve: Interval(0.6, 1.0, curve: Curves.ease),
       ),
     );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -68,9 +73,6 @@ class _ContactPageState extends State<ContactPage>
       fontSize: Sizes.TEXT_SIZE_12,
       letterSpacing: 1,
     );
-
-    double screenWidth = widthOfScreen(context);
-    double screenHeight = heightOfScreen(context);
     double contentAreaWidth = responsiveSize(
       context,
       assignWidth(context, 0.8),
@@ -106,8 +108,9 @@ class _ContactPageState extends State<ContactPage>
     return PageWrapper(
       selectedRoute: ContactPage.contactPageRoute,
       selectedPageName: StringConst.CONTACT,
-      onLoadingAnimationDone: (){
-        _animationController.forward();
+      navBarAnimationController: _controller,
+      onLoadingAnimationDone: () {
+        _controller.forward();
       },
       child: ListView(
         padding: EdgeInsets.zero,
@@ -124,7 +127,7 @@ class _ContactPageState extends State<ContactPage>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AnimatedTextSlideBoxTransition(
-                    controller: _animationController,
+                    controller: _controller,
                     text: StringConst.GET_IN_TOUCH,
                     textStyle: headingStyle,
                   ),

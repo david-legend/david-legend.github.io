@@ -10,9 +10,32 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class WorksPage extends StatelessWidget {
+class WorksPage extends StatefulWidget {
   static const String worksPageRoute = StringConst.WORKS_PAGE;
   const WorksPage({Key? key}) : super(key: key);
+
+  @override
+  _WorksPageState createState() => _WorksPageState();
+}
+
+class _WorksPageState extends State<WorksPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +58,7 @@ class WorksPage extends StatelessWidget {
     return PageWrapper(
       selectedRoute: WorksPage.worksPageRoute,
       selectedPageName: StringConst.WORKS,
+      navBarAnimationController: _controller,
       hasSideTitle: false,
       child: ListView(
         padding: EdgeInsets.zero,

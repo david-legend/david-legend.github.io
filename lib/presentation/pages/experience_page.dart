@@ -18,15 +18,15 @@ class ExperiencePage extends StatefulWidget {
 }
 
 class _ExperiencePageState extends State<ExperiencePage>
-     {
-  // late AnimationController controller;
+      with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
 
   @override
   void initState() {
-    // controller = AnimationController(
-    //   vsync: this,
-    //   duration: Duration(milliseconds: 200),
-    // );
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
     // controller.forward();
     super.initState();
   }
@@ -78,6 +78,7 @@ class _ExperiencePageState extends State<ExperiencePage>
     return PageWrapper(
       selectedRoute: ExperiencePage.experiencePageRoute,
       selectedPageName: StringConst.EXPERIENCE,
+      navBarAnimationController: _controller,
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

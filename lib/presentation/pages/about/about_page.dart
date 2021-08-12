@@ -24,7 +24,26 @@ class AboutPage extends StatefulWidget {
   _AboutPageState createState() => _AboutPageState();
 }
 
-class _AboutPageState extends State<AboutPage> {
+class _AboutPageState extends State<AboutPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double contentAreaWidth = responsiveSize(
@@ -75,6 +94,7 @@ class _AboutPageState extends State<AboutPage> {
     return PageWrapper(
       selectedRoute: AboutPage.aboutPageRoute,
       selectedPageName: StringConst.ABOUT,
+      navBarAnimationController: _controller,
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(
