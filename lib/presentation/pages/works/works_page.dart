@@ -64,7 +64,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
     return PageWrapper(
       selectedRoute: WorksPage.worksPageRoute,
       selectedPageName: StringConst.WORKS,
-      navBarAnimationController: _controller,
+      navBarAnimationController: _headingTextController,
       hasSideTitle: false,
       onLoadingAnimationDone: () {
         _headingTextController.forward();

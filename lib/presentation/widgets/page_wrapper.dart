@@ -77,6 +77,7 @@ class _PageWrapperState extends State<PageWrapper>
     return Scaffold(
       key: _scaffoldKey,
       drawer: AppDrawer(
+        controller: widget.navBarAnimationController,
         menuList: Data.menuItems,
         selectedItemRouteName: widget.selectedRoute,
       ),

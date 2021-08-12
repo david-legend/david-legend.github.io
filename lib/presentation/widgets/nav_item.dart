@@ -22,6 +22,7 @@ class NavItem extends StatefulWidget {
     required this.title,
     required this.route,
     required this.index,
+    required this.controller,
      
     this.titleColor = AppColors.grey600,
     this.selectedColor = AppColors.black,
@@ -40,6 +41,7 @@ class NavItem extends StatefulWidget {
   final Color selectedColor;
   final bool isSelected;
   final bool isMobile;
+  final AnimationController controller;
   final GestureTapCallback? onTap;
 
   @override
@@ -186,6 +188,8 @@ class _NavItemState extends State<NavItem> {
             text: widget.title,
             isUnderlinedOnHover: false,
             hasOffsetAnimation: true,
+            hasSlideBoxAnimation: true,
+            controller: widget.controller,
             textStyle: widget.titleStyle ?? defaultSelectedItemStyle,
           )
         : AnimatedLineThroughText(

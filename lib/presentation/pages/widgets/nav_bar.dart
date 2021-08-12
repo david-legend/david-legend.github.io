@@ -133,6 +133,7 @@ class NavBar extends StatelessWidget {
     for (int index = 0; index < menuList.length; index++) {
       items.add(
         NavItem(
+          controller: controller,
           title: menuList[index].name,
           route: menuList[index].route,
           index: index + 1,

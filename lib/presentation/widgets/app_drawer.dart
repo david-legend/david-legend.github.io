@@ -12,6 +12,7 @@ class AppDrawer extends StatelessWidget {
   AppDrawer({
     required this.menuList,
     required this.selectedItemRouteName,
+    required this.controller,
     this.color = AppColors.black,
     this.width,
     this.onClose,
@@ -20,6 +21,7 @@ class AppDrawer extends StatelessWidget {
   final String selectedItemRouteName;
   final List<NavItemData> menuList;
   final Color color;
+  final AnimationController controller;
   final double? width;
   final GestureTapCallback? onClose;
 
@@ -115,6 +117,7 @@ class AppDrawer extends StatelessWidget {
     for (var index = 0; index < menuList.length; index++) {
       menuItems.add(
         NavItem(
+          controller: controller,
           onTap: () {
             Navigator.of(context).pushNamed(menuList[index].route);
           },
