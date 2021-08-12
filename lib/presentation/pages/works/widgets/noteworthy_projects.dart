@@ -1,13 +1,58 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
-class NoteWorthyProjects extends StatelessWidget {
+class NoteWorthyProjects extends StatefulWidget {
   const NoteWorthyProjects({Key? key}) : super(key: key);
+
+  @override
+  _NoteWorthyProjectsState createState() => _NoteWorthyProjectsState();
+}
+
+class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  // late Animation<Offset> _slideAnimation;
+  bool isSlideIn = false;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 1500),
+    );
+    // _slideAnimation =
+    //     Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(
+    //   CurvedAnimation(
+    //     parent: _controller,
+    //     curve: Interval(0.6, 1.0, curve: Curves.ease),
+    //   ),
+    // );
+    // _controller.addListener(() {
+    //   if (_controller.lastElapsedDuration?.inMilliseconds != null) {
+    //     if ((_controller.lastElapsedDuration!.inMilliseconds >=
+    //         _controller.duration!.inMilliseconds * 0.5)) {
+    //       setState(() {
+    //         isSlideIn = true;
+    //       });
+    //     }
+    //   }
+    // print("M ${_controller.lastElapsedDuration?.inMilliseconds}");
+    // });
+    super.initState();
+  }
+
+  // @override
+  // void dispose() {
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +78,33 @@ class NoteWorthyProjects extends StatelessWidget {
       height: 2.0,
       // letterSpacing: 2,
     );
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            StringConst.NOTE_WORTHY_PROJECTS,
-            style: titleStyle,
-          ),
-          SpaceH16(),
-          Text(
-            StringConst.NOTE_WORTHY_PROJECTS_DESC,
-            style: bodyText1Style,
-          ),
-          SpaceH40(),
-          ..._buildNoteworthyProjects(Data.noteworthyProjects),
-        ],
+    return VisibilityDetector(
+      key: Key('noteworthy-projects'),
+      onVisibilityChanged: (visibilityInfo) {
+        double visiblePercentage = visibilityInfo.visibleFraction * 100;
+        if (visiblePercentage > 25) {
+          _controller.forward();
+        }
+      },
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AnimatedTextSlideBoxTransition(
+              factor: 1.5,
+              controller: _controller,
+              text: StringConst.NOTE_WORTHY_PROJECTS,
+              textStyle: titleStyle,
+            ),
+            SpaceH16(),
+            Text(
+              StringConst.NOTE_WORTHY_PROJECTS_DESC,
+              style: bodyText1Style,
+            ),
+            SpaceH40(),
+            ..._buildNoteworthyProjects(Data.noteworthyProjects),
+          ],
+        ),
       ),
     );
   }
@@ -59,6 +115,7 @@ class NoteWorthyProjects extends StatelessWidget {
     for (int index = 0; index < data.length; index++) {
       items.add(
         NoteWorthyProjectItem(
+          controller: _controller,
           number: index + 1 > 9 ? "/${index + 1}" : "/0${index + 1}",
           projectName: data[index].projectName,
           onSourceTap: data[index].isPublic
@@ -87,6 +144,7 @@ class NoteWorthyProjectItem extends StatelessWidget {
     Key? key,
     required this.number,
     required this.projectName,
+    required this.controller,
     this.source = "<src/>",
     this.numberStyle,
     this.projectNameStyle,
@@ -98,6 +156,7 @@ class NoteWorthyProjectItem extends StatelessWidget {
   final String number;
   final String source;
   final String projectName;
+  final AnimationController controller;
   final TextStyle? numberStyle;
   final TextStyle? sourceStyle;
   final TextStyle? projectNameStyle;
@@ -132,22 +191,29 @@ class NoteWorthyProjectItem extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            number,
-            style: numberStyle ?? defaultNumberStyle,
+          AnimatedTextSlideBoxTransition(
+            factor: 1.5,
+            controller: controller,
+            text: number,
+            textStyle: numberStyle ?? defaultNumberStyle,
           ),
           SpaceW20(),
           InkWell(
             onTap: onSourceTap,
             hoverColor: Colors.transparent,
-            child: Text(
-              source,
-              style: sourceStyle ?? defaultSourceStyle,
+            child: AnimatedTextSlideBoxTransition(
+              factor: 1.5,
+              controller: controller,
+              text: source,
+              textStyle: sourceStyle ?? defaultSourceStyle,
             ),
           ),
           SpaceW20(),
           Flexible(
             child: AnimatedLineThroughText(
+              factor: 1.5,
+              hasSlideBoxAnimation: true,
+              controller: controller,
               text: projectName,
               onTap: onProjectNameTap,
               textStyle: projectNameStyle ?? defaultProjectNameStyle,

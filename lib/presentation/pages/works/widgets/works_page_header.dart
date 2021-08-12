@@ -1,10 +1,16 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
 class WorksPageHeader extends StatefulWidget {
-  const WorksPageHeader({Key? key}) : super(key: key);
+  const WorksPageHeader({
+    Key? key,
+    required this.headingTextController,
+  }) : super(key: key);
+
+  final AnimationController headingTextController;
 
   @override
   _WorksPageHeaderState createState() => _WorksPageHeaderState();
@@ -21,6 +27,7 @@ class _WorksPageHeaderState extends State<WorksPageHeader>
       vsync: this,
       duration: Duration(milliseconds: 1500),
     )..repeat();
+   
     animation = Tween<Offset>(
       begin: Offset(0, 0.5),
       end: Offset(0, -0.5),
@@ -50,6 +57,14 @@ class _WorksPageHeaderState extends State<WorksPageHeader>
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? headingStyle = textTheme.headline2?.copyWith(
+      color: AppColors.black,
+      fontSize: responsiveSize(
+        context,
+        Sizes.TEXT_SIZE_40,
+        Sizes.TEXT_SIZE_60,
+      ),
+    );
     return Container(
       width: widthOfScreen(context),
       height: heightOfScreen(context),
@@ -64,16 +79,10 @@ class _WorksPageHeaderState extends State<WorksPageHeader>
           ),
           Align(
             alignment: Alignment.center,
-            child: Text(
-              StringConst.MY_WORKS,
-              style: textTheme.headline2?.copyWith(
-                color: AppColors.black,
-                fontSize: responsiveSize(
-                  context,
-                  Sizes.TEXT_SIZE_40,
-                  Sizes.TEXT_SIZE_60,
-                ),
-              ),
+            child: AnimatedTextSlideBoxTransition(
+              controller: widget.headingTextController,
+              text: StringConst.MY_WORKS,
+              textStyle: headingStyle,
             ),
           ),
           Align(

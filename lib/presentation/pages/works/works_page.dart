@@ -18,9 +18,9 @@ class WorksPage extends StatefulWidget {
   _WorksPageState createState() => _WorksPageState();
 }
 
-class _WorksPageState extends State<WorksPage>
-    with SingleTickerProviderStateMixin {
+class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
   late AnimationController _controller;
+  late AnimationController _headingTextController;
 
   @override
   void initState() {
@@ -28,12 +28,18 @@ class _WorksPageState extends State<WorksPage>
       vsync: this,
       duration: Duration(milliseconds: 200),
     );
+    _headingTextController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 1200),
+    );
+    
     super.initState();
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _headingTextController.dispose();
     super.dispose();
   }
 
@@ -60,13 +66,18 @@ class _WorksPageState extends State<WorksPage>
       selectedPageName: StringConst.WORKS,
       navBarAnimationController: _controller,
       hasSideTitle: false,
+      onLoadingAnimationDone: () {
+        _headingTextController.forward();
+      },
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
-          WorksPageHeader(),
+          WorksPageHeader(
+            headingTextController: _headingTextController,
+          ),
           ResponsiveBuilder(
             builder: (context, sizingInformation) {
               double screenWidth = sizingInformation.screenSize.width;

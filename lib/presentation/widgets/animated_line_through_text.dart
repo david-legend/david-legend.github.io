@@ -1,3 +1,5 @@
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
+import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
@@ -6,29 +8,38 @@ class AnimatedLineThroughText extends StatefulWidget {
     Key? key,
     required this.text,
     required this.textStyle,
+    this.controller,
     this.onHoverTextStyle,
     this.lineThickness = 2,
     this.hoverColor = AppColors.black,
     this.coverColor = AppColors.primaryColor,
     this.onTap,
+    this.factor = 1.2,
     this.isUnderlinedOnHover = true,
     this.isUnderlinedByDefault = false,
     this.hasOffsetAnimation = false,
     this.duration = const Duration(milliseconds: 300),
     this.beginOffset = const Offset(0, 0),
     this.endOffset = const Offset(0.15, 0),
-  }) : super(key: key);
+    this.hasSlideBoxAnimation = false,
+  })  : assert(hasSlideBoxAnimation == true
+            ? controller != null
+            : controller == null),
+        super(key: key);
 
   final String text;
   final Duration duration;
   final Color hoverColor;
   final Color coverColor;
   final double lineThickness;
+  final double factor;
   final TextStyle? textStyle;
   final TextStyle? onHoverTextStyle;
   final bool isUnderlinedOnHover;
   final bool isUnderlinedByDefault;
   final bool hasOffsetAnimation;
+  final bool hasSlideBoxAnimation;
+  final AnimationController? controller;
   final Offset beginOffset;
   final Offset endOffset;
   final GestureTapCallback? onTap;
@@ -105,13 +116,14 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
     super.initState();
   }
 
- @override
+  @override
   void dispose() {
     _forwardController.dispose();
     _backwardsController.dispose();
     _slideTransitionController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     TextStyle? hoverTextStyle = widget.onHoverTextStyle ?? widget.textStyle;
@@ -125,6 +137,24 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
           position: _offsetAnimation,
           child: Stack(
             children: [
+              widget.hasSlideBoxAnimation
+                  ? AnimatedTextSlideBoxTransition(
+                      controller: widget.controller!,
+                      factor: widget.factor,
+                      text: widget.text,
+                      textStyle: _isHovering
+                          ? hoverTextStyle?.copyWith(
+                              decoration: widget.isUnderlinedOnHover
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                            )
+                          : widget.textStyle?.copyWith(
+                              decoration: widget.isUnderlinedByDefault
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                            ),
+                    )
+                  : Empty(),
               Positioned(
                 top: (textHeight / 2) - widget.lineThickness,
                 child: Container(
@@ -141,20 +171,22 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
                   width: backwardsAnimation.value,
                 ),
               ),
-              Text(
-                widget.text,
-                style: _isHovering
-                    ? hoverTextStyle?.copyWith(
-                        decoration: widget.isUnderlinedOnHover
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      )
-                    : widget.textStyle?.copyWith(
-                        decoration: widget.isUnderlinedByDefault
-                            ? TextDecoration.underline
-                            : TextDecoration.none,
-                      ),
-              ),
+              widget.hasSlideBoxAnimation
+                  ? Empty()
+                  : Text(
+                      widget.text,
+                      style: _isHovering
+                          ? hoverTextStyle?.copyWith(
+                              decoration: widget.isUnderlinedOnHover
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                            )
+                          : widget.textStyle?.copyWith(
+                              decoration: widget.isUnderlinedByDefault
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                            ),
+                    ),
             ],
           ),
         ),

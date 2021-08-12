@@ -8,10 +8,9 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
   const AnimatedTextSlideBoxTransition({
     Key? key,
     required this.controller,
-    // required this.height,
-    // required this.width,
     required this.text,
     required this.textStyle,
+    this.factor = 1.2,
     this.visibleBoxAnimation,
     this.invisibleBoxAnimation,
     this.position,
@@ -23,8 +22,7 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
   }) : super(key: key);
 
   final AnimationController controller;
-  // final double height;
-  // final double width;
+  final double factor;
   final Color boxColor;
   final Color coverColor;
   final Animation<double>? visibleBoxAnimation;
@@ -51,6 +49,8 @@ class _AnimatedTextSlideBoxTransitionState
   late Size size;
   late double textWidth;
   late double textHeight;
+
+  
   @override
   void initState() {
     setTextWidthAndHeight();
@@ -93,7 +93,7 @@ class _AnimatedTextSlideBoxTransitionState
   void setTextWidthAndHeight() {
     size = _textSize(widget.text, widget.textStyle);
     textWidth = size.width;
-    textHeight = size.height * 1.2;
+    textHeight = size.height * widget.factor;
   }
 
   @override
@@ -101,7 +101,7 @@ class _AnimatedTextSlideBoxTransitionState
     setTextWidthAndHeight();
 
     return Container(
-      height: textHeight ,
+      height: textHeight,
       child: Stack(
         children: [
           AnimatedSlideBox(

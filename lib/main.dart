@@ -12,6 +12,7 @@ import 'package:layout/layout.dart';
 
 // Priority
 // TODO:: Start experimenting with animated slidebox animations
+// TODO:: Compute height of box
 // TODO:: Show link destination in bottom left corner
 // TODO:: Add animations for loading noteworthy projects 
 // TODO:: Add animation to show project only when it is visible
@@ -41,7 +42,7 @@ class Aerium extends StatelessWidget {
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
         // initialRoute: HomePage.homePageRoute,
-        initialRoute: ContactPage.contactPageRoute,
+        initialRoute: WorksPage.worksPageRoute,
         // initialRoute: ContactPage.contactPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),

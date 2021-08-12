@@ -219,12 +219,6 @@ class _ProjectItemLgState extends State<ProjectItemLg>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-
-  }
 
   void _mouseEnter(bool hovering) {
     if (hovering) {

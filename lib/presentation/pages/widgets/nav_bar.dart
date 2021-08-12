@@ -11,12 +11,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class NavBar extends StatefulWidget {
+class NavBar extends StatelessWidget {
   NavBar({
     Key? key,
     required this.selectedRouteTitle,
     required this.selectedRouteName,
-    required this.controller,
+   required this.controller,
     this.selectedRouteTitleStyle,
     this.onMenuTap,
     this.onNavItemWebTap,
@@ -33,11 +33,6 @@ class NavBar extends StatefulWidget {
   /// this handles navigation when on desktops
   final Function(String)? onNavItemWebTap;
 
-  @override
-  _NavBarState createState() => _NavBarState();
-}
-
-class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
@@ -63,7 +58,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           AppLogo(fontSize: Sizes.TEXT_SIZE_40),
           Spacer(),
           InkWell(
-            onTap: widget.onMenuTap,
+            onTap: onMenuTap,
             child: Icon(
               FeatherIcons.menu,
               size: Sizes.TEXT_SIZE_30,
@@ -77,12 +72,12 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
 
   Widget webNavBar(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = widget.selectedRouteTitleStyle ??
-        textTheme.bodyText1?.copyWith(
-          color: AppColors.black,
-          fontWeight: FontWeight.w400,
-          fontSize: Sizes.TEXT_SIZE_12,
-        );
+    TextStyle? style = selectedRouteTitleStyle ??
+                        textTheme.bodyText1?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: Sizes.TEXT_SIZE_12,
+                        );
     return Container(
       width: widthOfScreen(context),
       height: heightOfScreen(context),
@@ -113,12 +108,13 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             ],
           ),
           Spacer(),
-          widget.hasSideTitle
+          hasSideTitle
               ? RotatedBox(
                   quarterTurns: 3,
-                  child: AnimatedTextSlideBoxTransition(
-                    controller: widget.controller,
-                    text: widget.selectedRouteTitle.toUpperCase(),
+                  child: 
+                  AnimatedTextSlideBoxTransition(
+                    controller: controller,
+                    text: selectedRouteTitle.toUpperCase(),
                     textStyle: style,
                   ),
                 )
@@ -140,11 +136,10 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           title: menuList[index].name,
           route: menuList[index].route,
           index: index + 1,
-          isSelected:
-              menuList[index].route == widget.selectedRouteName ? true : false,
+          isSelected: menuList[index].route == selectedRouteName ? true : false,
           onTap: () {
-            if (widget.onNavItemWebTap != null) {
-              widget.onNavItemWebTap!(menuList[index].route);
+            if (onNavItemWebTap != null) {
+              onNavItemWebTap!(menuList[index].route);
             }
           },
         ),
