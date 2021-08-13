@@ -5,7 +5,9 @@ import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +19,11 @@ class HomePageHeader extends StatefulWidget {
   const HomePageHeader({
     Key? key,
     required this.scrollToWorksKey,
+    required this.controller,
   }) : super(key: key);
 
   final GlobalKey scrollToWorksKey;
+  final AnimationController controller;
   @override
   _HomePageHeaderState createState() => _HomePageHeaderState();
 }
@@ -165,7 +169,7 @@ class _HomePageHeaderState extends State<HomePageHeader>
                     padding: padding.copyWith(top: 0),
                     child: Container(
                       width: screenWidth,
-                      child: AboutDev(),
+                      child: AboutDev(controller: widget.controller),
                     ),
                   ),
                 ],
@@ -178,7 +182,7 @@ class _HomePageHeaderState extends State<HomePageHeader>
                     margin: textMargin,
                     child: Container(
                       width: screenWidth * 0.35,
-                      child: AboutDev(),
+                      child: AboutDev(controller: widget.controller),
                     ),
                   ),
                   SizedBox(width: screenWidth * 0.05),
@@ -272,9 +276,19 @@ class WhiteCircle extends StatelessWidget {
   }
 }
 
-class AboutDev extends StatelessWidget {
-  const AboutDev({Key? key}) : super(key: key);
+class AboutDev extends StatefulWidget {
+  const AboutDev({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
 
+  final AnimationController controller;
+
+  @override
+  _AboutDevState createState() => _AboutDevState();
+}
+
+class _AboutDevState extends State<AboutDev> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -282,17 +296,24 @@ class AboutDev extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          StringConst.DEV_TITLE,
-          style: textTheme.headline2?.copyWith(
+        AnimatedTextSlideBoxTransition(
+          controller: widget.controller,
+          text: StringConst.DEV_TITLE,
+          coverColor: AppColors.accentColor2.withOpacity(0.35),
+          textStyle: textTheme.headline2?.copyWith(
             color: AppColors.black,
             fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
           ),
         ),
+        
         SpaceH30(),
-        Text(
-          StringConst.DEV_DESC,
-          style: textTheme.bodyText1?.copyWith(
+        AnimatedPositionedText(
+          controller: CurvedAnimation(
+            parent: widget.controller,
+            curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+          ),
+          text: StringConst.DEV_DESC,
+          textStyle: textTheme.bodyText1?.copyWith(
             fontSize: responsiveSize(
               context,
               Sizes.TEXT_SIZE_16,
@@ -302,6 +323,7 @@ class AboutDev extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
         ),
+        
         SpaceH40(),
         AnimatedBubbleButton(
           color: AppColors.grey100,
@@ -358,6 +380,8 @@ class AboutDev extends StatelessWidget {
         AnimatedLineThroughText(
           text: data[index].name,
           isUnderlinedByDefault: true,
+          controller: widget.controller,
+          hasSlideBoxAnimation: true,
           hasOffsetAnimation: true,
           isUnderlinedOnHover: false,
           onTap: () {

@@ -95,6 +95,9 @@ class _AboutPageState extends State<AboutPage>
       selectedRoute: AboutPage.aboutPageRoute,
       selectedPageName: StringConst.ABOUT,
       navBarAnimationController: _controller,
+       onLoadingAnimationDone: () {
+        _controller.forward();
+      },
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

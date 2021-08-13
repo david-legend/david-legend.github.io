@@ -25,9 +25,8 @@ class _ExperiencePageState extends State<ExperiencePage>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 1200),
     );
-    // controller.forward();
     super.initState();
   }
 
@@ -79,6 +78,9 @@ class _ExperiencePageState extends State<ExperiencePage>
       selectedRoute: ExperiencePage.experiencePageRoute,
       selectedPageName: StringConst.EXPERIENCE,
       navBarAnimationController: _controller,
+      onLoadingAnimationDone: () {
+        _controller.forward();
+      },
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

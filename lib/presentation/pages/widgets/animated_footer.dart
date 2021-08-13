@@ -72,7 +72,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
       height: widget.height ?? assignHeight(context, 0.8),
       color: widget.backgroundColor,
       child: VisibilityDetector(
-        key: Key('noteworthy-projects'),
+        key: Key('animated-footer'),
         onVisibilityChanged: (visibilityInfo) {
           double visiblePercentage = visibilityInfo.visibleFraction * 100;
           if (visiblePercentage > 25) {

@@ -108,6 +108,8 @@ class _AnimatedTextSlideBoxTransitionState
             controller: widget.controller,
             height: textHeight,
             width: textWidth,
+            coverColor: widget.coverColor,
+            boxColor: widget.boxColor,
             visibleBoxAnimation: visibleAnimation,
             invisibleBoxAnimation: invisibleAnimation,
           ),
