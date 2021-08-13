@@ -1,8 +1,8 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +18,6 @@ class NoteWorthyProjects extends StatefulWidget {
 class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  // late Animation<Offset> _slideAnimation;
-  bool isSlideIn = false;
 
   @override
   void initState() {
@@ -27,37 +25,18 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
       vsync: this,
       duration: Duration(milliseconds: 1500),
     );
-    // _slideAnimation =
-    //     Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(
-    //   CurvedAnimation(
-    //     parent: _controller,
-    //     curve: Interval(0.6, 1.0, curve: Curves.ease),
-    //   ),
-    // );
-    // _controller.addListener(() {
-    //   if (_controller.lastElapsedDuration?.inMilliseconds != null) {
-    //     if ((_controller.lastElapsedDuration!.inMilliseconds >=
-    //         _controller.duration!.inMilliseconds * 0.5)) {
-    //       setState(() {
-    //         isSlideIn = true;
-    //       });
-    //     }
-    //   }
-    // print("M ${_controller.lastElapsedDuration?.inMilliseconds}");
-    // });
     super.initState();
   }
 
-  // @override
-  // void dispose() {
-  //   _controller.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-
     TextStyle? titleStyle = textTheme.subtitle1?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
@@ -66,7 +45,6 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
         Sizes.TEXT_SIZE_30,
       ),
     );
-
     TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
       fontSize: responsiveSize(
         context,
@@ -78,6 +56,7 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
       height: 2.0,
       // letterSpacing: 2,
     );
+
     return VisibilityDetector(
       key: Key('noteworthy-projects'),
       onVisibilityChanged: (visibilityInfo) {
@@ -97,9 +76,13 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
               textStyle: titleStyle,
             ),
             SpaceH16(),
-            Text(
-              StringConst.NOTE_WORTHY_PROJECTS_DESC,
-              style: bodyText1Style,
+            AnimatedPositionedText(
+              controller: CurvedAnimation(
+                parent: _controller,
+                curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+              ),
+              text: StringConst.NOTE_WORTHY_PROJECTS_DESC,
+              textStyle: bodyText1Style,
             ),
             SpaceH40(),
             ..._buildNoteworthyProjects(Data.noteworthyProjects),
