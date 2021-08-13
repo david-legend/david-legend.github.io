@@ -6,6 +6,7 @@ import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
@@ -292,70 +293,83 @@ class _AboutDevState extends State<AboutDev> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    EdgeInsetsGeometry margin = const EdgeInsets.only(left: 16);
+    final CurvedAnimation curvedAnimation = CurvedAnimation(
+      parent: widget.controller,
+      curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AnimatedTextSlideBoxTransition(
-          controller: widget.controller,
-          text: StringConst.DEV_TITLE,
-          coverColor: AppColors.accentColor2.withOpacity(0.35),
-          textStyle: textTheme.headline2?.copyWith(
-            color: AppColors.black,
-            fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+        Container(
+          margin: margin,
+          child: AnimatedTextSlideBoxTransition(
+            controller: widget.controller,
+            text: StringConst.DEV_TITLE,
+            textStyle: textTheme.headline2?.copyWith(
+              color: AppColors.black,
+              fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+            ),
           ),
         ),
-        
         SpaceH30(),
-        AnimatedPositionedText(
-          controller: CurvedAnimation(
-            parent: widget.controller,
-            curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
-          ),
-          text: StringConst.DEV_DESC,
-          textStyle: textTheme.bodyText1?.copyWith(
-            fontSize: responsiveSize(
-              context,
-              Sizes.TEXT_SIZE_16,
-              Sizes.TEXT_SIZE_18,
+        Container(
+           margin: margin,
+          child: AnimatedPositionedText(
+            controller: curvedAnimation,
+            text: StringConst.DEV_DESC,
+            textStyle: textTheme.bodyText1?.copyWith(
+              fontSize: responsiveSize(
+                context,
+                Sizes.TEXT_SIZE_16,
+                Sizes.TEXT_SIZE_18,
+              ),
+              height: 2,
+              fontWeight: FontWeight.w400,
             ),
-            height: 2,
-            fontWeight: FontWeight.w400,
           ),
         ),
-        
         SpaceH40(),
-        AnimatedBubbleButton(
-          color: AppColors.grey100,
-          imageColor: AppColors.black,
-          startOffset: Offset(-0.1, 0),
-          targetOffset: Offset(0, 0),
-          targetWidth: 200,
-          startBorderRadius: const BorderRadius.all(
-            Radius.circular(100.0),
-          ),
-          title: StringConst.SEE_MY_WORKS.toUpperCase(),
-          titleStyle: textTheme.bodyText1?.copyWith(
-            color: AppColors.black,
-            fontSize: responsiveSize(
-              context,
-              Sizes.TEXT_SIZE_14,
-              Sizes.TEXT_SIZE_16,
-              sm: Sizes.TEXT_SIZE_15,
+        AnimatedPositionedWidget(
+          controller: curvedAnimation,
+          width: 200,
+          height: 60,
+          child: AnimatedBubbleButton(
+            color: AppColors.grey100,
+            imageColor: AppColors.black,
+            startOffset: Offset(0, 0),
+            targetOffset: Offset(0.1, 0),
+            targetWidth: 200,
+            startBorderRadius: const BorderRadius.all(
+              Radius.circular(100.0),
             ),
-            fontWeight: FontWeight.w500,
+            title: StringConst.SEE_MY_WORKS.toUpperCase(),
+            titleStyle: textTheme.bodyText1?.copyWith(
+              color: AppColors.black,
+              fontSize: responsiveSize(
+                context,
+                Sizes.TEXT_SIZE_14,
+                Sizes.TEXT_SIZE_16,
+                sm: Sizes.TEXT_SIZE_15,
+              ),
+              fontWeight: FontWeight.w500,
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, WorksPage.worksPageRoute);
+            },
           ),
-          onTap: () {
-            Navigator.pushNamed(context, WorksPage.worksPageRoute);
-          },
         ),
         SpaceH40(),
-        Wrap(
-          spacing: 20,
-          runSpacing: 20,
-          children: _buildSocials(
-            context: context,
-            data: Data.socialData1,
+        Container(
+          margin: margin,
+          child: Wrap(
+            spacing: 20,
+            runSpacing: 20,
+            children: _buildSocials(
+              context: context,
+              data: Data.socialData1,
+            ),
           ),
         )
       ],

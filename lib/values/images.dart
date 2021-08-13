@@ -24,6 +24,7 @@ class ImagePath {
   static const String LEARN_UPP = "$imageDir/learn_upp.jpg";
   static const String WORKS = "$imageDir/works.png";
 
+  static const String CIRCLE = "$imageDir/circle.png";
   static const String PLAYSTORE = "$imageDir/playstore.png";
   static const String ARROW_RIGHT = "$imageDir/right-arrow.png";
   static const String ARROW_DOWN = "$imageDir/down-arrow.png";

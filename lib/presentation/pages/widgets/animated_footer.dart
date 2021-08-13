@@ -2,6 +2,7 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 500),
     );
     super.initState();
   }
@@ -47,6 +48,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
 
   @override
   Widget build(BuildContext context) {
+    double circleImageSize = responsiveSize(context, 100, 150);
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? style = textTheme.bodyText1?.copyWith(
       color: AppColors.accentColor,
@@ -83,13 +85,42 @@ class _AnimatedFooterState extends State<AnimatedFooter>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Spacer(flex: 2),
-            AnimatedPositionedText(
-              text: StringConst.WORK_TOGETHER,
-              textAlign: TextAlign.center,
-              textStyle: titleStyle,
-              controller: CurvedAnimation(
-                parent: controller,
-                curve: Curves.fastOutSlowIn,
+            Container(
+              height: circleImageSize,
+              child: Stack(
+                children: [
+                  Positioned(
+                    right: responsiveSize(
+                      context,
+                      assignWidth(context, 0.2),
+                      assignWidth(context, 0.3),
+                      md: assignWidth(context, 0.2),
+                    ),
+                    child: AnimatedPositionedWidget(
+                      controller: CurvedAnimation(
+                        parent: controller,
+                        curve: Curves.fastOutSlowIn,
+                      ),
+                      width: circleImageSize,
+                      height: circleImageSize,
+                      child: Image.asset(
+                        ImagePath.CIRCLE,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: AnimatedPositionedText(
+                      text: StringConst.WORK_TOGETHER,
+                      textAlign: TextAlign.center,
+                      textStyle: titleStyle,
+                      controller: CurvedAnimation(
+                        parent: controller,
+                        curve: Curves.fastOutSlowIn,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Spacer(),
@@ -100,7 +131,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
               factor: 1.6,
               controller: CurvedAnimation(
                 parent: controller,
-                curve: Curves.ease,
+                curve: Curves.fastOutSlowIn,
               ),
             ),
             SpaceH40(),

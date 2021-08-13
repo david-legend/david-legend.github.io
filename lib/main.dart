@@ -11,7 +11,6 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Start experimenting with animated slidebox animations
 // TODO:: Compute height of box
 // TODO:: Show link destination in bottom left corner
 // TODO:: Add animations for loading noteworthy projects 

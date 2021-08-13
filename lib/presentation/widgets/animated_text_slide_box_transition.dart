@@ -50,7 +50,6 @@ class _AnimatedTextSlideBoxTransitionState
   late double textWidth;
   late double textHeight;
 
-  
   @override
   void initState() {
     setTextWidthAndHeight();
@@ -59,7 +58,11 @@ class _AnimatedTextSlideBoxTransitionState
         Tween<double>(begin: 0, end: textWidth).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0, 0.35, curve: widget.visibleAnimationcurve),
+            curve: Interval(
+              0,
+              0.35,
+              curve: widget.visibleAnimationcurve,
+            ),
           ),
         );
 
@@ -67,7 +70,11 @@ class _AnimatedTextSlideBoxTransitionState
         Tween<double>(begin: 0, end: textWidth).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0.35, 0.7, curve: widget.invisibleAnimationcurve),
+            curve: Interval(
+              0.35,
+              0.7,
+              curve: widget.invisibleAnimationcurve,
+            ),
           ),
         );
 

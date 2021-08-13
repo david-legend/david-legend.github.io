@@ -33,6 +33,7 @@ class AnimatedSlideBox extends AnimatedWidget {
           curve: Interval(0, 0.5, curve: visibleBoxCurve),
         ),
       );
+      
   Animation<double> get invisibleAnimation =>
       Tween<double>(begin: 0, end: width).animate(
         CurvedAnimation(
@@ -50,18 +51,19 @@ class AnimatedSlideBox extends AnimatedWidget {
         children: [
           Positioned(
             top: 2,
+            left: 2,
             child: Container(
               width: visibleAnimation.value,
-              height: height - 4,
+              height: height,
               color: boxColor,
             ),
           ),
           Positioned(
             top: 0,
             child: Container(
-              width: invisibleAnimation.value,
-              height: height + 4,
-              color: AppColors.primaryColor,
+              width: invisibleAnimation.value + 2,
+              height: height + 2,
+              color: coverColor,
             ),
           ),
         ],

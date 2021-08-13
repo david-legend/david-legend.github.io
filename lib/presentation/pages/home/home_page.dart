@@ -71,7 +71,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       _arguments = args as HomePageArguments;
     }
 
-    print("HEY:: ${_arguments.showUnVeilPageAnimation}");
   }
 
   @override
@@ -132,7 +131,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             key: Key('recent-projects'),
             onVisibilityChanged: (visibilityInfo) {
               double visiblePercentage = visibilityInfo.visibleFraction * 100;
-              if (visiblePercentage > 35) {
+              if (visiblePercentage > 45) {
                 _recentWorksController.forward();
               }
             },
