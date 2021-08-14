@@ -22,7 +22,6 @@ import 'package:layout/layout.dart';
 // TODO:: Add proper text all over the site
 
 // Issues::
-// Onhover of project item button, project image leaves
 // when you navigate the black cover is still there
 
 void main() async {

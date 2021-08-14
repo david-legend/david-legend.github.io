@@ -15,13 +15,13 @@ import 'package:aerium/values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class HomePageArguments {
-  bool showUnVeilPageAnimation;
+// class HomePageArguments {
+//   bool showUnVeilPageAnimation;
 
-  HomePageArguments({
-    this.showUnVeilPageAnimation = true,
-  });
-}
+//   HomePageArguments({
+//     this.showUnVeilPageAnimation = true,
+//   });
+// }
 
 class HomePage extends StatefulWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
@@ -40,11 +40,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late AnimationController _recentWorksController;
   late AnimationController _slideTextController;
-  late HomePageArguments _arguments;
+  late NavigationArguments _arguments;
 
   @override
   void initState() {
-    _arguments = HomePageArguments();
+    _arguments = NavigationArguments();
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 300),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     if (args == null) {
       _arguments.showUnVeilPageAnimation = false;
     } else {
-      _arguments = args as HomePageArguments;
+      _arguments = args as NavigationArguments;
     }
 
   }

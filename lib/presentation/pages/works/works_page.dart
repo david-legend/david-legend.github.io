@@ -43,6 +43,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     double projectItemHeight = assignHeight(context, 0.4);
@@ -81,7 +82,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
           ResponsiveBuilder(
             builder: (context, sizingInformation) {
               double screenWidth = sizingInformation.screenSize.width;
-
+    
               if (screenWidth <= RefinedBreakpoints().tabletSmall) {
                 return Column(
                   children: _buildProjectsForMobile(

@@ -8,6 +8,16 @@ import 'package:flutter/material.dart';
 
 import 'loading_slider.dart';
 
+class NavigationArguments {
+  bool showUnVeilPageAnimation;
+  bool reverseAnimationOnPop;
+
+  NavigationArguments({
+    this.showUnVeilPageAnimation = true,
+    this.reverseAnimationOnPop = true,
+  });
+}
+
 class PageWrapper extends StatefulWidget {
   PageWrapper({
     Key? key,
@@ -19,6 +29,7 @@ class PageWrapper extends StatefulWidget {
     this.onLoadingAnimationDone,
     this.hasSideTitle = true,
     this.hasUnveilPageAnimation = true,
+    this.reverseAnimationOnPop = true,
   }) : super(key: key);
 
   final String selectedRoute;
@@ -29,6 +40,7 @@ class PageWrapper extends StatefulWidget {
   final Widget customLoadingAnimation;
   final bool hasSideTitle;
   final bool hasUnveilPageAnimation;
+  final bool reverseAnimationOnPop;
 
   @override
   _PageWrapperState createState() => _PageWrapperState();
@@ -40,6 +52,7 @@ class _PageWrapperState extends State<PageWrapper>
   late AnimationController unveilPageSlideController;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   Duration duration = Duration(milliseconds: 1250);
+
   @override
   void initState() {
     forwardSlideController = AnimationController(
@@ -65,15 +78,23 @@ class _PageWrapperState extends State<PageWrapper>
     super.initState();
   }
 
-@override
+  @override
   void dispose() {
     forwardSlideController.dispose();
     unveilPageSlideController.dispose();
     super.dispose();
-
   }
+
+
   @override
   Widget build(BuildContext context) {
+    // simple hack to reverse animation when navigation is popped
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      if (forwardSlideController.isCompleted && widget.reverseAnimationOnPop) {
+        forwardSlideController.reverse();
+      }
+    });
+
     return Scaffold(
       key: _scaffoldKey,
       drawer: AppDrawer(
@@ -93,19 +114,16 @@ class _PageWrapperState extends State<PageWrapper>
               forwardSlideController.forward();
               forwardSlideController.addStatusListener((status) {
                 if (status == AnimationStatus.completed) {
-                  // final bool? result;
                   if (route == HomePage.homePageRoute) {
                     Navigator.of(context).pushNamed(
                       route,
-                      arguments: HomePageArguments(
+                      arguments: NavigationArguments(
                         showUnVeilPageAnimation: true,
                       ),
                     );
                   } else {
                     Navigator.of(context).pushNamed(route);
                   }
-
-                  print("RESULT:::: result");
                 }
               });
             },
