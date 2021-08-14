@@ -411,6 +411,7 @@ class _ProjectItemLgState extends State<ProjectItemLg>
                 hovering: _isHovering,
                 controller: _controller,
                 duration: widget.duration,
+                controlsOwnAnimation: false,
                 height: buttonWidth,
                 targetWidth: buttonTargetWidth,
                 startBorderRadius:
@@ -604,6 +605,7 @@ class _ProjectItemSmState extends State<ProjectItemSm>
                     top: defaultNumberStyle.fontSize! / 2.5,
                     right: Sizes.MARGIN_8,
                   ),
+                  
                   title: widget.title,
                   subtitle: widget.subtitle,
                   subtitleStyle: defaultSubtitleStyle,
@@ -624,6 +626,7 @@ class _ProjectItemSmState extends State<ProjectItemSm>
                   duration: widget.duration,
                   height: startWidthOfButtonSm,
                   targetWidth: targetWidthSm,
+                   controlsOwnAnimation: false,
                   startBorderRadius:
                       const BorderRadius.all(Radius.circular(100.0)),
                   title: StringConst.VIEW_PROJECT.toUpperCase(),

@@ -18,16 +18,46 @@ class ExperiencePage extends StatefulWidget {
 }
 
 class _ExperiencePageState extends State<ExperiencePage>
-      with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController _controller;
+  late AnimationController _experience1Controller;
+  late AnimationController _experience2Controller;
+  late AnimationController _experience3Controller;
+  late AnimationController _experience4Controller;
 
   @override
   void initState() {
     _controller = AnimationController(
+      duration: const Duration(milliseconds: 1200),
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+    );
+    _experience1Controller = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    _experience2Controller = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    _experience3Controller = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+     _experience4Controller = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
     );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _experience1Controller.dispose();
+    _experience2Controller.dispose();
+    _experience3Controller.dispose();
+    _experience4Controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -132,6 +162,7 @@ class _ExperiencePageState extends State<ExperiencePage>
     for (int index = 0; index < data.length; index++) {
       items.add(
         ContentBuilder(
+          controller: _experience1Controller,
           number: "/0${index + 1}",
           width: width,
           section: data[index].duration.toUpperCase(),

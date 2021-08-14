@@ -1,3 +1,4 @@
+import 'package:aerium/presentation/pages/about/about_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/experience_page.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
@@ -11,13 +12,10 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Compute height of box
+// TODO:: Compute height of box  --> for animation on about & experience page
 // TODO:: Show link destination in bottom left corner
-// TODO:: Add animations for loading noteworthy projects 
-// TODO:: Add animation to show project only when it is visible
 // TODO:: Work on sending email from website
 // TODO:: Complete Adding proper images for project detail Page
-// TODO:: Get curves right for animations
 
 // Later
 // TODO:: Animation for app drawer for mobile view when it opens
@@ -40,9 +38,9 @@ class Aerium extends StatelessWidget {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        initialRoute: HomePage.homePageRoute,
-        // initialRoute: WorksPage.worksPageRoute,
-        // initialRoute: ContactPage.contactPageRoute,
+        // initialRoute: HomePage.homePageRoute,
+        initialRoute: WorksPage.worksPageRoute,
+        // initialRoute: AboutPage.aboutPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

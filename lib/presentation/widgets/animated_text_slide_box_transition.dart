@@ -14,6 +14,7 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
     this.visibleBoxAnimation,
     this.invisibleBoxAnimation,
     this.position,
+    this.textAlign,
     this.boxColor = AppColors.black,
     this.coverColor = AppColors.primaryColor,
     this.visibleAnimationcurve = Curves.fastOutSlowIn,
@@ -33,6 +34,7 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
   final Curve slideAnimationcurve;
   final String text;
   final TextStyle? textStyle;
+  final TextAlign? textAlign;
 
   @override
   _AnimatedTextSlideBoxTransitionState createState() =>
@@ -125,6 +127,7 @@ class _AnimatedTextSlideBoxTransitionState
             child: Text(
               widget.text,
               style: widget.textStyle,
+              textAlign: widget.textAlign,
             ),
           ),
         ],
@@ -135,7 +138,7 @@ class _AnimatedTextSlideBoxTransitionState
   Size _textSize(String text, TextStyle? style) {
     final TextPainter textPainter = TextPainter(
         text: TextSpan(text: text, style: style),
-        maxLines: 1,
+        // maxLines: 1,
         textDirection: TextDirection.ltr)
       ..layout(minWidth: 0, maxWidth: double.infinity);
     return textPainter.size;

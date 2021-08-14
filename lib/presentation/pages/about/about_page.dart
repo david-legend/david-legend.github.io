@@ -7,12 +7,16 @@ import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/pages/widgets/sliding_banner.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../widgets/content_builder.dart';
 
@@ -24,23 +28,75 @@ class AboutPage extends StatefulWidget {
   _AboutPageState createState() => _AboutPageState();
 }
 
-class _AboutPageState extends State<AboutPage>
-    with SingleTickerProviderStateMixin {
+class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
   late AnimationController _controller;
+  late AnimationController _storyController;
+  late AnimationController _technologyController;
+  late AnimationController _contactController;
+  late AnimationController _quoteController;
+  late Animation<AlignmentGeometry> align;
+  GlobalKey storySectionKey = GlobalKey();
+  GlobalKey technologySectionKey = GlobalKey();
+  GlobalKey contactSectionKey = GlobalKey();
+  late double storySectionHeight = 50;
+  late double technologySectionHeight = 50;
+  late double contactSectionHeight = 50;
 
   @override
   void initState() {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _getHeightOfRoleLeaf();
+    });
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
-
+    _storyController = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    _technologyController = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    _contactController = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    _quoteController = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    align = Tween<AlignmentGeometry>(
+            begin: Alignment(-1, 1), end: Alignment(1,-1))
+        .animate(_storyController);
     super.initState();
+  }
+
+  _getHeightOfRoleLeaf() {
+    final RenderBox storyRenderBox =
+        storySectionKey.currentContext!.findRenderObject() as RenderBox;
+    final RenderBox technologyRenderBox =
+        technologySectionKey.currentContext!.findRenderObject() as RenderBox;
+    final RenderBox contactRenderBox =
+        contactSectionKey.currentContext!.findRenderObject() as RenderBox;
+
+    setState(() {
+      storySectionHeight = storyRenderBox.size.height;
+      technologySectionHeight = technologyRenderBox.size.height;
+      contactSectionHeight = contactRenderBox.size.height;
+      // print(
+      //     "$storySectionHeight $technologySectionHeight $contactSectionHeight");
+    });
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _storyController.dispose();
+    _technologyController.dispose();
+    _contactController.dispose();
+    _quoteController.dispose();
     super.dispose();
   }
 
@@ -95,7 +151,7 @@ class _AboutPageState extends State<AboutPage>
       selectedRoute: AboutPage.aboutPageRoute,
       selectedPageName: StringConst.ABOUT,
       navBarAnimationController: _controller,
-       onLoadingAnimationDone: () {
+      onLoadingAnimationDone: () {
         _controller.forward();
       },
       child: ListView(
@@ -112,118 +168,198 @@ class _AboutPageState extends State<AboutPage>
                 children: [
                   AboutHeader(
                     width: contentAreaWidth,
+                    controller: _controller,
                   ),
                   CustomSpacer(heightFactor: 0.1),
-                  ContentBuilder(
-                    number: "/01 ",
-                    width: contentAreaWidth,
-                    section: StringConst.ABOUT_DEV_STORY.toUpperCase(),
-                    title: StringConst.ABOUT_DEV_STORY_TITLE,
-                    body: Column(
-                      children: [
-                        Text(
-                          StringConst.ABOUT_DEV_STORY_CONTENT,
-                          style: bodyText1Style,
-                        ),
-                        SpaceH30(),
-                        Text(
-                          StringConst.ABOUT_DEV_STORY_CONTENT,
-                          style: bodyText1Style,
-                        ),
-                      ],
-                    ),
-                  ),
-                  CustomSpacer(heightFactor: 0.1),
-                  ContentBuilder(
-                    number: "/02 ",
-                    width: contentAreaWidth,
-                    section: StringConst.ABOUT_DEV_TECHNOLOGY.toUpperCase(),
-                    title: StringConst.ABOUT_DEV_TECHNOLOGY_TITLE,
-                    body: Column(
-                      children: [
-                        SelectableText(
-                          StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
-                          style: bodyText1Style,
-                        ),
-                        SpaceH30(),
-                        SelectableText(
-                          StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
-                          style: bodyText1Style,
-                        ),
-                      ],
-                    ),
-                    footer: Column(
-                      children: [
-                        SpaceH40(),
-                        TechnologySection(width: contentAreaWidth),
-                      ],
-                    ),
-                  ),
-                  CustomSpacer(heightFactor: 0.1),
-                  ContentBuilder(
-                    number: "/03 ",
-                    width: contentAreaWidth,
-                    section: StringConst.ABOUT_DEV_CONTACT.toUpperCase(),
-                    title: StringConst.ABOUT_DEV_CONTACT_SOCIAL,
-                    body: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SpaceH20(),
-                        Wrap(
-                          spacing: 20,
-                          runSpacing: 20,
-                          children: _buildSocials(Data.socialData2),
-                        ),
-                      ],
-                    ),
-                    footer: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SpaceH40(),
-                        Text(
-                          StringConst.ABOUT_DEV_CONTACT_EMAIL,
-                          style: titleStyle,
-                        ),
-                        SpaceH40(),
-                        AnimatedLineThroughText(
-                          text: StringConst.DEV_EMAIL,
-                          onTap: () {
-                            Functions.launchUrl(StringConst.EMAIL_URL);
-                          },
-                          textStyle: bodyText2Style,
-                        ),
-                      ],
-                    ),
-                  ),
-                  CustomSpacer(heightFactor: 0.1),
-                  SelectableText(
-                    StringConst.FAMOUS_QUOTE,
-                    textAlign: TextAlign.center,
-                    style: titleStyle?.copyWith(
-                      fontSize: responsiveSize(
-                        context,
-                        Sizes.TEXT_SIZE_24,
-                        Sizes.TEXT_SIZE_36,
-                        md: Sizes.TEXT_SIZE_28,
+                  VisibilityDetector(
+                    key: Key('story-section'),
+                    onVisibilityChanged: (visibilityInfo) {
+                      double visiblePercentage =
+                          visibilityInfo.visibleFraction * 100;
+                      if (visiblePercentage > 50) {
+                        _storyController.forward();
+                      }
+                    },
+                    child: ContentBuilder(
+                      controller: _storyController,
+                      number: "/01 ",
+                      width: contentAreaWidth,
+                      section: StringConst.ABOUT_DEV_STORY.toUpperCase(),
+                      title: StringConst.ABOUT_DEV_STORY_TITLE,
+                      body: Column(
+                        key: storySectionKey,
+                        children: [
+                          SelectableText(
+                            StringConst.ABOUT_DEV_STORY_CONTENT,
+                            style: bodyText1Style,
+                          ),
+                          SpaceH30(),
+                          SelectableText(
+                            StringConst.ABOUT_DEV_STORY_CONTENT,
+                            style: bodyText1Style,
+                          ),
+                          AlignTransition(
+                              alignment: align,
+                              child: SelectableText(
+                                StringConst.ABOUT_DEV_STORY_CONTENT,
+                                style: bodyText1Style,
+                              )),
+                          // AnimatedPositionedWidget(
+                          //   height: storySectionHeight,
+                          //   width: contentAreaWidth,
+                          //   child: SelectableText(
+                          //     StringConst.ABOUT_DEV_STORY_CONTENT,
+                          //     style: bodyText1Style,
+                          //   ),
+                          //   controller: CurvedAnimation(
+                          //     parent: _storyController,
+                          //     curve: Curves.fastOutSlowIn,
+                          //   ),
+                          // ),
+                          // SpaceH30(),
+                          // AnimatedPositionedText(
+                          //   text: StringConst.ABOUT_DEV_STORY_CONTENT,
+                          //   textStyle: bodyText1Style,
+                          //   controller: CurvedAnimation(
+                          //     parent: _storyController,
+                          //     curve: Curves.fastOutSlowIn,
+                          //   ),
+                          // ),
+                        ],
                       ),
-                      height: 2.0,
                     ),
                   ),
-                  SpaceH40(),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: SelectableText(
-                      "— ${StringConst.FAMOUS_QUOTE_AUTHOR}",
-                      style: textTheme.bodyText1?.copyWith(
-                        fontSize: responsiveSize(
-                          context,
-                          Sizes.TEXT_SIZE_16,
-                          Sizes.TEXT_SIZE_18,
-                          md: Sizes.TEXT_SIZE_16,
-                        ),
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.grey600,
+                  CustomSpacer(heightFactor: 0.1),
+                  VisibilityDetector(
+                    key: Key('technology-section'),
+                    onVisibilityChanged: (visibilityInfo) {
+                      double visiblePercentage =
+                          visibilityInfo.visibleFraction * 100;
+                      if (visiblePercentage > 50) {
+                        _technologyController.forward();
+                      }
+                    },
+                    child: ContentBuilder(
+                      controller: _technologyController,
+                      number: "/02 ",
+                      width: contentAreaWidth,
+                      section: StringConst.ABOUT_DEV_TECHNOLOGY.toUpperCase(),
+                      title: StringConst.ABOUT_DEV_TECHNOLOGY_TITLE,
+                      body: Column(
+                        key: technologySectionKey,
+                        children: [
+                          SelectableText(
+                            StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
+                            style: bodyText1Style,
+                          ),
+                          SpaceH30(),
+                          SelectableText(
+                            StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
+                            style: bodyText1Style,
+                          ),
+                        ],
                       ),
+                      footer: Column(
+                        children: [
+                          SpaceH40(),
+                          TechnologySection(width: contentAreaWidth),
+                        ],
+                      ),
+                    ),
+                  ),
+                  CustomSpacer(heightFactor: 0.1),
+                  VisibilityDetector(
+                    key: Key('contact-section'),
+                    onVisibilityChanged: (visibilityInfo) {
+                      double visiblePercentage =
+                          visibilityInfo.visibleFraction * 100;
+                      if (visiblePercentage > 50) {
+                        _contactController.forward();
+                      }
+                    },
+                    child: ContentBuilder(
+                      controller: _contactController,
+                      number: "/03 ",
+                      width: contentAreaWidth,
+                      section: StringConst.ABOUT_DEV_CONTACT.toUpperCase(),
+                      title: StringConst.ABOUT_DEV_CONTACT_SOCIAL,
+                      body: Column(
+                        key: contactSectionKey,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SpaceH20(),
+                          Wrap(
+                            spacing: 20,
+                            runSpacing: 20,
+                            children: _buildSocials(Data.socialData2),
+                          ),
+                        ],
+                      ),
+                      footer: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SpaceH40(),
+                          Text(
+                            StringConst.ABOUT_DEV_CONTACT_EMAIL,
+                            style: titleStyle,
+                          ),
+                          SpaceH40(),
+                          AnimatedLineThroughText(
+                            text: StringConst.DEV_EMAIL,
+                            onTap: () {
+                              Functions.launchUrl(StringConst.EMAIL_URL);
+                            },
+                            textStyle: bodyText2Style,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  CustomSpacer(heightFactor: 0.1),
+                  VisibilityDetector(
+                    key: Key('quote-section'),
+                    onVisibilityChanged: (visibilityInfo) {
+                      double visiblePercentage =
+                          visibilityInfo.visibleFraction * 100;
+                      if (visiblePercentage > 50) {
+                        _quoteController.forward();
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        AnimatedTextSlideBoxTransition(
+                          controller: _quoteController,
+                          text: StringConst.FAMOUS_QUOTE,
+                          textAlign: TextAlign.center,
+                          textStyle: titleStyle?.copyWith(
+                            fontSize: responsiveSize(
+                              context,
+                              Sizes.TEXT_SIZE_24,
+                              Sizes.TEXT_SIZE_36,
+                              md: Sizes.TEXT_SIZE_28,
+                            ),
+                            height: 2.0,
+                          ),
+                        ),
+                        SpaceH40(),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: AnimatedTextSlideBoxTransition(
+                            controller: _quoteController,
+                            text: "— ${StringConst.FAMOUS_QUOTE_AUTHOR}",
+                            textStyle: textTheme.bodyText1?.copyWith(
+                              fontSize: responsiveSize(
+                                context,
+                                Sizes.TEXT_SIZE_16,
+                                Sizes.TEXT_SIZE_18,
+                                md: Sizes.TEXT_SIZE_16,
+                              ),
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.grey600,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   CustomSpacer(heightFactor: 0.2),

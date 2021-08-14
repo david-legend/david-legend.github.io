@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
@@ -12,6 +13,7 @@ class ContentBuilder extends StatelessWidget {
     required this.number,
     required this.section,
     required this.body,
+    required this.controller,
     this.title = '',
     this.numberStyle,
     this.sectionStyle,
@@ -21,6 +23,7 @@ class ContentBuilder extends StatelessWidget {
   }) : super(key: key);
 
   final double width;
+  final AnimationController controller;
   final String number;
   final String section;
   final String? title;
@@ -66,22 +69,38 @@ class ContentBuilder extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        number,
-                        style: numberStyle ?? defaultNumberStyle,
+                      AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        text: number,
+                        textStyle: numberStyle ?? defaultNumberStyle,
                       ),
+                      // Text(
+                      //   number,
+                      //   style: numberStyle ?? defaultNumberStyle,
+                      // ),
                       SpaceW8(),
-                      Text(
-                        section,
-                        style: sectionStyle ?? defaultSectionStyle,
+                      AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        text: section,
+                        textStyle: sectionStyle ?? defaultSectionStyle,
                       ),
+                      // Text(
+                      //   section,
+                      //   style: sectionStyle ?? defaultSectionStyle,
+                      // ),
                     ],
                   ),
                   SpaceH16(),
-                  heading ?? Text(
-                    title!,
-                    style: titleStyle ?? defaultTitleStyle,
-                  ),
+                  heading ??
+                      AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        text: title!,
+                        textStyle: titleStyle ?? defaultTitleStyle,
+                      ),
+                  // Text(
+                  //   title!,
+                  //   style: titleStyle ?? defaultTitleStyle,
+                  // ),
                   SpaceH30(),
                   body,
                   footer ?? Empty(),
@@ -97,16 +116,18 @@ class ContentBuilder extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        number,
-                        style: numberStyle ?? defaultNumberStyle,
+                      AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        text: number,
+                        textStyle: numberStyle ?? defaultNumberStyle,
                       ),
                       SpaceW16(),
                       Expanded(
-                        child: Text(
-                          section,
-                          style: sectionStyle ?? defaultSectionStyle,
-                        ),
+                        child:  AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        text: section,
+                        textStyle: sectionStyle ?? defaultSectionStyle,
+                      ),
                       ),
                     ],
                   ),
@@ -118,10 +139,11 @@ class ContentBuilder extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       heading ??
-                          Text(
-                            title!,
-                            style: titleStyle ?? defaultTitleStyle,
-                          ),
+                          AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        text: title!,
+                        textStyle: titleStyle ?? defaultTitleStyle,
+                      ),
                       SpaceH20(),
                       body,
                       footer ?? Empty(),

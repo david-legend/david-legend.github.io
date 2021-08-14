@@ -23,6 +23,7 @@ class AnimatedBubbleButton extends StatefulWidget {
     this.startOffset = const Offset(0, 0),
     this.targetOffset = const Offset(0.1, 0),
     this.controller,
+    this.controlsOwnAnimation = true,
   }) : super(key: key);
 
   final String title;
@@ -42,6 +43,8 @@ class AnimatedBubbleButton extends StatefulWidget {
   final GestureTapCallback? onTap;
   final BorderRadiusGeometry? endBorderRadius;
   bool? hovering;
+  // prevents button from animating on mouse enter and exit
+  bool controlsOwnAnimation;
   final AnimationController? controller;
 
   @override
@@ -89,8 +92,8 @@ class _AnimatedBubbleButtonState extends State<AnimatedBubbleButton>
       fontWeight: FontWeight.w500,
     );
     return MouseRegion(
-      onEnter: (e) => _mouseEnter(true),
-      onExit: (e) => _mouseEnter(false),
+      onEnter: widget.controlsOwnAnimation ? (e) => _mouseEnter(true) : null,
+      onExit: widget.controlsOwnAnimation ? (e) => _mouseEnter(false) : null,
       child: SlideTransition(
         position: _offsetAnimation,
         child: InkWell(

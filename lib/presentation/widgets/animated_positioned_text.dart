@@ -79,7 +79,7 @@ class _AnimatedPositionedTextState extends State<AnimatedPositionedText> {
   Size _textSize(String text, TextStyle? style) {
     final TextPainter textPainter = TextPainter(
         text: TextSpan(text: text, style: style),
-        // maxLines: 1,
+        maxLines: 10,
         textDirection: TextDirection.ltr)
       ..layout(minWidth: 0, maxWidth: double.infinity);
     return textPainter.size;
