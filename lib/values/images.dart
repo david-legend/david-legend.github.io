@@ -47,6 +47,7 @@ class ImagePath {
   static const String DEV_SKILLS_5 = "$imageDir/skills_5.png";
   static const String DEV_SKILLS_6 = "$imageDir/skills_6.png";
   static const String DEV_SKILLS_7 = "$imageDir/skills_7.png";
+  static const String GOOGLE_PLAY = "$imageDir/google_play.png";
 
   // Certifications
   static const String ANDROID_BASICS_CERT = "$imageDir/android_basics_cert.png";
@@ -68,6 +69,13 @@ class ImagePath {
 
   // Drop 
   static const String DROP_COVER = "$projectsDir/drop/drop_cover.png";
+  static const String DROP_DESC = "$projectsDir/drop/drop_description.gif";
+  static const String DROP_EASY_ACCESS = "$projectsDir/drop/drop_easy_access.gif";
+  static const String DROP_FLOW_CHART = "$projectsDir/drop/drop_flowchart.png";
+  static const String DROP_MINIMAL_DESIGN = "$projectsDir/drop/drop_minimal_design.png";
+  static const String DROP_SIMPLE = "$projectsDir/drop/drop_simple.png";
+  static const String DROP_THANKS = "$projectsDir/drop/drop_thanks.gif";
+  static const String DROP_WIREFRAMES = "$projectsDir/drop/drop_wireframes.gif";
 
   // Roam 
   static const String ROAM_COVER = "$projectsDir/roam/roam_cover.jpeg";

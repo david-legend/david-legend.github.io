@@ -18,7 +18,6 @@ import 'package:layout/layout.dart';
 // TODO:: Complete Adding proper images for project detail Page
 
 // Later
-// TODO:: Animation for app drawer for mobile view when it opens
 // TODO:: Add proper text all over the site
 
 void main() async {

@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/works/widgets/noteworthy_projects.dart';
 import 'package:aerium/presentation/pages/works/widgets/works_page_header.dart';
@@ -32,7 +33,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(milliseconds: 1200),
     );
-    
+
     super.initState();
   }
 
@@ -42,7 +43,6 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
     _headingTextController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
           ResponsiveBuilder(
             builder: (context, sizingInformation) {
               double screenWidth = sizingInformation.screenSize.width;
-    
+
               if (screenWidth <= RefinedBreakpoints().tabletSmall) {
                 return Column(
                   children: _buildProjectsForMobile(
@@ -139,6 +139,9 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
+            onTap: () {
+              navigateToProject(data[index]);
+            },
           ),
         ),
       );
@@ -163,11 +166,23 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
+            onTap: () {
+              navigateToProject(data[index]);
+            },
           ),
         ),
       );
       items.add(SpaceH40());
     }
     return items;
+  }
+
+  void navigateToProject(ProjectItemData data) {
+    Navigator.of(context).pushNamed(
+      ProjectDetailPage.projectDetailPageRoute,
+      arguments: ProjectDetailArguments(
+        data: data,
+      ),
+    );
   }
 }

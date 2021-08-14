@@ -8,10 +8,14 @@ class ProjectItemData {
   ProjectItemData({
     required this.title,
     required this.image,
+    required this.coverUrl,
     required this.subtitle,
     required this.portfolioDescription,
     required this.platform,
     required this.primaryColor,
+    required this.category,
+    this.designer,
+    this.projectAssets = const [],
     this.imageSize,
     this.technologyUsed,
     this.isPublic = false,
@@ -25,11 +29,15 @@ class ProjectItemData {
 
   final Color primaryColor;
   final String image;
+  final String coverUrl;
+  final String category;
+  final List<String> projectAssets;
   final String portfolioDescription;
   final double? imageSize;
   final String title;
   final String subtitle;
   final String platform;
+  final String? designer;
   final bool isPublic;
   final bool hasBeenReleased;
   final String gitHubUrl;
@@ -147,6 +155,7 @@ class ProjectItemLg extends StatefulWidget {
     this.titleStyle,
     this.duration = const Duration(milliseconds: 300),
     this.padding,
+    this.onTap,
   }) : super(key: key);
 
   /// signifies the position of the project in the list
@@ -198,6 +207,9 @@ class ProjectItemLg extends StatefulWidget {
   /// padding for the title & subtitle section of the project item
   final EdgeInsetsGeometry? padding;
 
+  /// callback for when view project is tapped
+  final GestureTapCallback? onTap;
+
   @override
   _ProjectItemLgState createState() => _ProjectItemLgState();
 }
@@ -215,10 +227,8 @@ class _ProjectItemLgState extends State<ProjectItemLg>
       duration: widget.duration,
     );
 
-  
     super.initState();
   }
-
 
   void _mouseEnter(bool hovering) {
     if (hovering) {
@@ -420,7 +430,7 @@ class _ProjectItemLgState extends State<ProjectItemLg>
                 color: AppColors.grey100,
                 titleStyle: buttonStyle,
                 imageColor: AppColors.black,
-                onTap: () {},
+                onTap: widget.onTap,
               ),
             ),
           ],
@@ -447,6 +457,7 @@ class ProjectItemSm extends StatefulWidget {
     this.imageWidth,
     this.imageHeight,
     this.duration = const Duration(milliseconds: 350),
+    this.onTap,
   }) : super(key: key);
 
   final String projectNumber;
@@ -463,6 +474,9 @@ class ProjectItemSm extends StatefulWidget {
   final double? imageHeight;
   final double? coloredContainerWidth;
   final double? coloredContainerHeight;
+
+  /// callback for when view project is tapped
+  final GestureTapCallback? onTap;
 
   @override
   _ProjectItemSmState createState() => _ProjectItemSmState();
@@ -605,7 +619,6 @@ class _ProjectItemSmState extends State<ProjectItemSm>
                     top: defaultNumberStyle.fontSize! / 2.5,
                     right: Sizes.MARGIN_8,
                   ),
-                  
                   title: widget.title,
                   subtitle: widget.subtitle,
                   subtitleStyle: defaultSubtitleStyle,
@@ -626,14 +639,14 @@ class _ProjectItemSmState extends State<ProjectItemSm>
                   duration: widget.duration,
                   height: startWidthOfButtonSm,
                   targetWidth: targetWidthSm,
-                   controlsOwnAnimation: false,
+                  controlsOwnAnimation: false,
                   startBorderRadius:
                       const BorderRadius.all(Radius.circular(100.0)),
                   title: StringConst.VIEW_PROJECT.toUpperCase(),
                   color: AppColors.grey100,
                   titleStyle: buttonStyle,
                   imageColor: AppColors.black,
-                  onTap: () {},
+                  onTap: widget.onTap,
                 ),
               ),
             ),

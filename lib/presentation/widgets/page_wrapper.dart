@@ -30,6 +30,7 @@ class PageWrapper extends StatefulWidget {
     this.hasSideTitle = true,
     this.hasUnveilPageAnimation = true,
     this.reverseAnimationOnPop = true,
+    this.backgroundColor,
   }) : super(key: key);
 
   final String selectedRoute;
@@ -41,6 +42,7 @@ class PageWrapper extends StatefulWidget {
   final bool hasSideTitle;
   final bool hasUnveilPageAnimation;
   final bool reverseAnimationOnPop;
+  final Color? backgroundColor;
 
   @override
   _PageWrapperState createState() => _PageWrapperState();
@@ -98,6 +100,7 @@ class _PageWrapperState extends State<PageWrapper>
 
     return Scaffold(
       key: _scaffoldKey,
+      backgroundColor: widget.backgroundColor,
       drawer: AppDrawer(
         controller: widget.navBarAnimationController,
         menuList: Data.menuItems,

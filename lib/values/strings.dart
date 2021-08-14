@@ -10,6 +10,7 @@ class StringConst {
   static const String ABOUT = "About";
   static const String WORKS = "Works";
   static const String EXPERIENCE = "Experience";
+  static const String PROJECT = "Project";
   static const String WORK = "Where I've Worked";
   static const String SERVICES = "Services";
   static const String CONTACT = "Contact";
@@ -28,6 +29,7 @@ class StringConst {
   static const String SELECTION = "Here are selection of my recent works.";
   static const String THERES_MORE = "There's more";
   static const String VIEW_ALL_PROJECTS = "view all projects";
+
   // Contact Page
   static const String GET_IN_TOUCH = "Get in touch.";
   static const String CONTACT_MSG =
@@ -82,6 +84,18 @@ class StringConst {
   static const String NOTE_WORTHY_PROJECTS = "Other Noteworthy Projects.";
   static const String NOTE_WORTHY_PROJECTS_DESC =
       "Here are some projects worth mentioning. They are also available on my github repository";
+
+
+  // Project Detail
+  static const String ABOUT_PROJECT = "About Project";
+  static const String PLATFORM = "Platform";
+  static const String CATEGORY = "Category";
+  static const String AUTHOR = "Author";
+  static const String DESIGNER = "Designer";
+  static const String TECHNOLOGY_USED = "Technology Used";
+  static const String LAUNCH_APP = "Launch App";
+  static const String SOURCE_CODE = "Source Code";
+
 
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
@@ -238,6 +252,8 @@ class StringConst {
   //Portfolio, Projects
   static const String PORTFOLIO_SITE_V2 = "Aerium V2";
   static const String PORTFOLIO_SITE_V2_PLATFORM = "Web";
+  static const String PORTFOLIO_SITE_V2_CATEGORY = "Portfolio / CV.";
+  static const String PORTFOLIO_SITE_V2_DESIGNER = "Julius Guevarra.";
   static const String PORTFOLIO_SITE_V2_SUBTITLE =
       "A beautiful portfolio website built with flutter web.";
   static const String PORTFOLIO_SITE_V2_DETAIL =
@@ -248,6 +264,8 @@ class StringConst {
 
   static const String DROP = "Drop";
   static const String DROP_PLATFORM = "Mobile App.";
+  static const String DROP_CATEGORY = "Ecommerce.";
+  static const String DROP_DESIGNER = "Stepan Slobodiansky.";
   static const String DROP_SUBTITLE =
       "A beautiful ecommerce mobile application.";
   static const String DROP_DETAIL =
@@ -258,6 +276,8 @@ class StringConst {
 
   static const String NIMBUS = "Nimbus";
   static const String NIMBUS_PLATFORM = "Progressive Web App.";
+  static const String NIMBUS_CATEGORY = "Portfolio / CV.";
+  static const String NIMBUS_DESIGNER = "Web Genius Labs.";
   static const String NIMBUS_SUBTITLE =
       "Nimbus (Portfolio & CV), a beautifully designed portfolio website.";
   static const String NIMBUS_DETAIL =
@@ -268,6 +288,8 @@ class StringConst {
 
   static const String ROAM = "Roam";
   static const String ROAM_PLATFORM = "Mobile App.";
+  static const String ROAM_CATEGORY = "Travel.";
+  static const String ROAM_DESIGNER = "Georgina Sekyi.";
   static const String ROAM_SUBTITLE =
       "UI / UX Case study for a travel advisory app.";
   static const String ROAM_DETAIL =
@@ -278,6 +300,7 @@ class StringConst {
 
   static const String LOGIN_CATALOG = "Login Catalog";
   static const String LOGIN_CATALOG_PLATFORM = "Mobile App.";
+  static const String LOGIN_CATALOG_CATEGORY = "UI Kit.";
   static const String LOGIN_CATALOG_SUBTITLE =
       "A beautiful catalog of login designs";
   static const String LOGIN_CATALOG_DETAIL =
@@ -289,6 +312,8 @@ class StringConst {
 
   static const String FOODY_BITE = "FoodyBite";
   static const String FOODY_BITE_PLATFORM = "Mobile App.";
+  static const String FOODY_BITE_CATEGORY = "Food / Restaurant.";
+  static const String FOODY_BITE_DESIGNER = "Yagnesh P.";
   static const String FOODY_BITE_SUBTITLE =
       "A useful free ui kit design for food related apps";
   static const String FOODY_BITE_DETAIL =
@@ -299,6 +324,7 @@ class StringConst {
 
   static const String OTP_TEXT_FIELD = "Otp Textfield";
   static const String OTP_TEXT_FIELD_PLATFORM = "Flutter Package/Library.";
+  static const String OTP_TEXT_FIELD_CATEGORY = "Package.";
   static const String OTP_TEXT_FIELD_SUBTITLE =
       "A useful flutter package for helping with otp";
   static const String OTP_TEXT_FIELD_DETAIL =
@@ -310,6 +336,7 @@ class StringConst {
 
   static const String FLUTTER_CATALOG = "Flutter Catalog";
   static const String FLUTTER_CATALOG_PLATFORM = "Mobile App.";
+  static const String FLUTTER_CATALOG_CATEGORY = "UI Kit.";
   static const String FLUTTER_CATALOG_SUBTITLE =
       "A beautiful cataalog of login designs";
   static const String FLUTTER_CATALOG_DETAIL =
@@ -321,6 +348,8 @@ class StringConst {
 
   static const String AERIUM = "Aerium";
   static const String AERIUM_PLATFORM = "Flutter Web.";
+  static const String AERIUM_CATEGORY = "Portfolio / CV.";
+  static const String AERIUM_DESIGNER = "Pavel G.";
   static const String AERIUM_SUBTITLE =
       "A progressive web app for showcasing your portfolio.";
   static const String AERIUM_DETAIL =
@@ -331,6 +360,8 @@ class StringConst {
 
   static const String AERIUM_V2 = "Aerium V2 ";
   static const String AERIUM_V2_PLATFORM = "Flutter Web.";
+  static const String AERIUM_V2_CATEGORY = "Portfolio / CV.";
+  static const String AERIUM_V2_DESIGNER = "Julius G.";
   static const String AERIUM_V2_SUBTITLE =
       "A progressive web app for showcasing your portfolio.";
   static const String AERIUM_V2_DETAIL =
@@ -341,6 +372,7 @@ class StringConst {
 
   static const String OUTFITR = "Outfitr";
   static const String OUTFITR_PLATFORM = "Mobile App.";
+  static const String OUTFITR_CATEGORY = "Ecommerce.";
   static const String OUTFITR_SUBTITLE =
       "Design your fashion app faster and easier with Outfitr Fashion UI Kit.";
   static const String OUTFITR_DETAIL =
