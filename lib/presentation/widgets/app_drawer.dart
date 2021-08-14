@@ -1,14 +1,13 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/app_logo.dart';
-import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/nav_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawer extends StatefulWidget {
   AppDrawer({
     required this.menuList,
     required this.selectedItemRouteName,
@@ -26,6 +25,56 @@ class AppDrawer extends StatelessWidget {
   final GestureTapCallback? onClose;
 
   @override
+  _AppDrawerState createState() => _AppDrawerState();
+}
+
+class _AppDrawerState extends State<AppDrawer>
+    with SingleTickerProviderStateMixin {
+  static const Duration _initialDelayTime = Duration(milliseconds: 50);
+  static const Duration _itemSlideTime = Duration(milliseconds: 500);
+  static const Duration _staggerTime = Duration(milliseconds: 50);
+  static const Duration _buttonDelayTime = Duration(milliseconds: 100);
+  static const Duration _buttonTime = Duration(milliseconds: 500);
+  late Duration _animationDuration;
+
+  late AnimationController _staggeredController;
+  final List<Interval> _itemSlideIntervals = [];
+
+  @override
+  void initState() {
+    _animationDuration = _initialDelayTime +
+        (_staggerTime * widget.menuList.length) +
+        _buttonDelayTime +
+        _buttonTime;
+    _createAnimationIntervals();
+
+    _staggeredController = AnimationController(
+      vsync: this,
+      duration: _animationDuration,
+    )..forward();
+    super.initState();
+  }
+
+  void _createAnimationIntervals() {
+    for (var i = 0; i < widget.menuList.length; ++i) {
+      final startTime = _initialDelayTime + (_staggerTime * i);
+      final endTime = startTime + _itemSlideTime;
+      _itemSlideIntervals.add(
+        Interval(
+          startTime.inMilliseconds / _animationDuration.inMilliseconds,
+          endTime.inMilliseconds / _animationDuration.inMilliseconds,
+        ),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _staggeredController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? style = textTheme.bodyText1?.copyWith(
@@ -33,12 +82,12 @@ class AppDrawer extends StatelessWidget {
       fontSize: Sizes.TEXT_SIZE_10,
     );
     return Container(
-      width: width ?? widthOfScreen(context),
+      width: widget.width ?? widthOfScreen(context),
       height: heightOfScreen(context),
       child: Drawer(
         child: Container(
-          color: color,
-          width: width ?? widthOfScreen(context),
+          color: widget.color,
+          width: widget.width ?? widthOfScreen(context),
           height: heightOfScreen(context),
           child: Stack(
             children: [
@@ -55,7 +104,7 @@ class AppDrawer extends StatelessWidget {
                         ),
                         Spacer(),
                         InkWell(
-                          onTap: onClose ??
+                          onTap: widget.onClose ??
                               () {
                                 Navigator.pop(context);
                               },
@@ -73,7 +122,8 @@ class AppDrawer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Spacer(flex: 2),
-                        ..._buildMenuList(menuList: menuList, context: context),
+                        ..._buildMenuList(
+                            menuList: widget.menuList, context: context),
                         Spacer(flex: 2),
                       ],
                     ),
@@ -116,20 +166,38 @@ class AppDrawer extends StatelessWidget {
     List<Widget> menuItems = [];
     for (var index = 0; index < menuList.length; index++) {
       menuItems.add(
-        NavItem(
-          controller: controller,
-          onTap: () {
-            Navigator.of(context).pushNamed(menuList[index].route);
+        AnimatedBuilder(
+          animation: _staggeredController,
+          builder: (context, child) {
+            final animationPercent = Curves.easeOut.transform(
+              _itemSlideIntervals[index].transform(_staggeredController.value),
+            );
+            final opacity = animationPercent;
+            final slideDistance = (1.0 - animationPercent) * 150;
+
+            return Opacity(
+              opacity: opacity,
+              child: Transform.translate(
+                offset: Offset(slideDistance, 0),
+                child: child,
+              ),
+            );
           },
-          index: index + 1,
-          route: menuList[index].route,
-          title: menuList[index].name,
-          isMobile: true,
-          isSelected:
-              selectedItemRouteName == menuList[index].route ? true : false,
+          child: NavItem(
+            controller: widget.controller,
+            onTap: () {
+              Navigator.of(context).pushNamed(menuList[index].route);
+            },
+            index: index + 1,
+            route: menuList[index].route,
+            title: menuList[index].name,
+            isMobile: true,
+            isSelected: widget.selectedItemRouteName == menuList[index].route
+                ? true
+                : false,
+          ),
         ),
       );
-      // menuItems.add(Spacer());
     }
     return menuItems;
   }

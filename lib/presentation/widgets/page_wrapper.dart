@@ -63,7 +63,7 @@ class _PageWrapperState extends State<PageWrapper>
       vsync: this,
       duration: duration,
     );
-
+   
     if (widget.hasUnveilPageAnimation) {
       unveilPageSlideController.forward();
       unveilPageSlideController.addStatusListener((status) {
@@ -85,6 +85,7 @@ class _PageWrapperState extends State<PageWrapper>
     super.dispose();
   }
 
+ 
 
   @override
   Widget build(BuildContext context) {

@@ -21,9 +21,6 @@ import 'package:layout/layout.dart';
 // TODO:: Animation for app drawer for mobile view when it opens
 // TODO:: Add proper text all over the site
 
-// Issues::
-// when you navigate the black cover is still there
-
 void main() async {
   // GoogleFonts.config.allowRuntimeFetching = false;
   runApp(Aerium());
@@ -45,3 +42,5 @@ class Aerium extends StatelessWidget {
     );
   }
 }
+
+
