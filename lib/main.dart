@@ -12,13 +12,13 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
+// TODO:: Work on sending email from website
 // TODO:: Compute height of box  --> for animation on about & experience page
 // TODO:: Show link destination in bottom left corner
-// TODO:: Work on sending email from website
-// TODO:: Complete Adding proper images for project detail Page
 
 // Later
 // TODO:: Add proper text all over the site
+// TODO:: Make images smaller (reduce quality) and also drop some images to decrease download size
 
 void main() async {
   // GoogleFonts.config.allowRuntimeFetching = false;

@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/about_project.dart';
+import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
@@ -153,8 +154,38 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             ),
           ),
           CustomSpacer(heightFactor: 0.15),
+          // ListView.builder(
+          //   physics: NeverScrollableScrollPhysics(),
+          //   shrinkWrap: true,
+          //   itemCount: projectDetails.data.projectAssets.length,
+          //   itemBuilder: (context, index) {
+          //     return Image.asset(
+          //       projectDetails.data.projectAssets[index],
+          //       width: widthOfScreen(context),
+          //       fit: BoxFit.cover,
+          //     );
+          //   },
+          // ),
+          ..._buildProjectAlbum(projectDetails.data.projectAssets),
+          SimpleFooter(),
         ],
       ),
     );
+  }
+
+  List<Widget> _buildProjectAlbum(List<String> data) {
+    List<Widget> items = [];
+
+    for (int index = 0; index < data.length; index++) {
+      items.add(
+        Image.asset(
+          data[index],
+          width: widthOfScreen(context),
+          fit: BoxFit.cover,
+        ),
+      );
+    }
+
+    return items;
   }
 }
