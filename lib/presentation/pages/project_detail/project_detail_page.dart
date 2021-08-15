@@ -180,8 +180,8 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       items.add(
         Image.asset(
           data[index],
-          width: widthOfScreen(context),
-          fit: BoxFit.cover,
+          width: widthOfScreen(context) * 0.3,
+          // fit: BoxFit.cover,
         ),
       );
     }

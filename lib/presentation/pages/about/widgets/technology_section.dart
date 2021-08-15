@@ -1,3 +1,5 @@
+import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,11 @@ const double spacing = 20;
 class TechnologySection extends StatelessWidget {
   const TechnologySection({
     Key? key,
+    required this.controller,
     required this.width,
   }) : super(key: key);
+
+  final AnimationController controller;
 
   final double width;
 
@@ -30,9 +35,11 @@ class TechnologySection extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  StringConst.MOBILE_TECH,
-                  style: titleStyle,
+                AnimatedTextSlideBoxTransition(
+                  controller: controller,
+                  width: screenWidth,
+                  text: StringConst.MOBILE_TECH,
+                  textStyle: titleStyle,
                 ),
                 SpaceH20(),
                 Wrap(
@@ -41,13 +48,16 @@ class TechnologySection extends StatelessWidget {
                   children: _buildTechnologies(
                     context,
                     data: Data.mobileTechnologies,
-                    // width: width * 0.1,
+                    controller: controller,
+                    width: screenWidth,
                   ),
                 ),
                 SpaceH40(),
-                Text(
-                  StringConst.OTHER_TECH,
-                  style: titleStyle,
+                AnimatedTextSlideBoxTransition(
+                  controller: controller,
+                  width: screenWidth,
+                  text: StringConst.OTHER_TECH,
+                  textStyle: titleStyle,
                 ),
                 SpaceH20(),
                 Wrap(
@@ -55,6 +65,7 @@ class TechnologySection extends StatelessWidget {
                   runSpacing: 20,
                   children: _buildTechnologies(
                     context,
+                    controller: controller,
                     data: Data.otherTechnologies,
                     width: width * 0.3,
                   ),
@@ -71,9 +82,11 @@ class TechnologySection extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        StringConst.MOBILE_TECH,
-                        style: titleStyle,
+                      AnimatedTextSlideBoxTransition(
+                        controller: controller,
+                        width: width * 0.25,
+                        text: StringConst.MOBILE_TECH,
+                        textStyle: titleStyle,
                       ),
                       SpaceH20(),
                       Wrap(
@@ -81,22 +94,25 @@ class TechnologySection extends StatelessWidget {
                         spacing: spacing,
                         children: _buildTechnologies(
                           context,
+                          controller: controller,
                           data: Data.mobileTechnologies,
+                          width: width * 0.25,
                         ),
                       ),
                     ],
                   ),
                 ),
-                // SizedBox(width: width * 0.1),
                 Expanded(
                   child: Container(
                     width: (width * 0.75),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          StringConst.OTHER_TECH,
-                          style: titleStyle,
+                        AnimatedTextSlideBoxTransition(
+                          controller: controller,
+                          width: (width * 0.75),
+                          text: StringConst.OTHER_TECH,
+                          textStyle: titleStyle,
                         ),
                         SpaceH20(),
                         Wrap(
@@ -104,6 +120,7 @@ class TechnologySection extends StatelessWidget {
                           runSpacing: spacing,
                           children: _buildTechnologies(
                             context,
+                            controller: controller,
                             data: Data.otherTechnologies,
                             width: ((width * 0.75) - (spacing * 3)) / 5,
                           ),
@@ -120,8 +137,12 @@ class TechnologySection extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildTechnologies(BuildContext context,
-      {required List<String> data, double? width}) {
+  List<Widget> _buildTechnologies(
+    BuildContext context, {
+    required List<String> data,
+    required AnimationController controller,
+    double? width,
+  }) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
       fontSize: Sizes.TEXT_SIZE_15,
@@ -133,9 +154,17 @@ class TechnologySection extends StatelessWidget {
       items.add(
         SizedBox(
           width: width,
-          child: Text(
-            item,
-            style: bodyText1Style,
+          child: AnimatedPositionedText(
+            controller: CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                0.6,
+                1.0,
+                curve: Curves.ease,
+              ),
+            ),
+            text: item,
+            textStyle: bodyText1Style,
           ),
         ),
       );

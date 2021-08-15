@@ -109,7 +109,7 @@ class Aboutproject extends StatelessWidget {
                       title: StringConst.LAUNCH_APP,
                       color: AppColors.grey100,
                       imageColor: AppColors.black,
-                      targetWidth: 200,
+                      // targetWidth: 200,
                       startBorderRadius: borderRadius,
                       titleStyle: buttonStyle,
                       onTap: () {
@@ -123,7 +123,7 @@ class Aboutproject extends StatelessWidget {
                       title: StringConst.SOURCE_CODE,
                       color: AppColors.grey100,
                       imageColor: AppColors.black,
-                      targetWidth: 200,
+                     
                       startBorderRadius: borderRadius,
                       titleStyle: buttonStyle,
                       onTap: () {

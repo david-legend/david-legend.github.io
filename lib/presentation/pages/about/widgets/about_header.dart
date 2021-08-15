@@ -44,7 +44,10 @@ class AboutHeader extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AboutDescription(controller: controller),
+              AboutDescription(
+                controller: controller,
+                width: widthOfScreen(context),
+              ),
               SpaceH30(),
               Container(
                 child: Image.asset(
@@ -61,7 +64,10 @@ class AboutHeader extends StatelessWidget {
             children: [
               ContentArea(
                 width: width * 0.5,
-                child: AboutDescription(controller: controller),
+                child: AboutDescription(
+                  controller: controller,
+                  width: width * 0.5,
+                ),
               ),
               SizedBox(
                 width: spacing,
@@ -89,9 +95,11 @@ class AboutDescription extends StatelessWidget {
   const AboutDescription({
     Key? key,
     required this.controller,
+    required this.width,
   }) : super(key: key);
 
   final AnimationController controller;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +129,13 @@ class AboutDescription extends StatelessWidget {
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_3,
+          factor: 1.0,
+          textStyle: style,
+        ),
+         SpaceH8(),
+        AnimatedTextSlideBoxTransition(
+          controller: controller,
+          text: StringConst.ABOUT_DEV_CATCH_LINE_4,
           factor: 1.0,
           textStyle: style,
         ),

@@ -528,10 +528,7 @@ class Projects {
     image: ImagePath.OTP_TEXTFIELD_COVER,
     coverUrl: ImagePath.OTP_TEXTFIELD_COVER,
     portfolioDescription: StringConst.OTP_TEXT_FIELD_DETAIL,
-    projectAssets: [
-      ImagePath.OTP_TEXTFIELD_1,
-      ImagePath.OTP_TEXTFIELD_2,
-    ],
+   
     isPublic: true,
     isLive: true,
     technologyUsed: StringConst.FLUTTER,

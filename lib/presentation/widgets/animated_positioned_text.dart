@@ -7,6 +7,8 @@ class AnimatedPositionedText extends StatefulWidget {
     required this.text,
     required this.textStyle,
     this.factor = 1.25,
+    this.maxLines = 1,
+    this.width = double.infinity,
     this.textAlign,
     this.relativeRect,
     this.slideAnimationcurve = Curves.fastOutSlowIn,
@@ -19,6 +21,8 @@ class AnimatedPositionedText extends StatefulWidget {
   final TextAlign? textAlign;
   final Animation<RelativeRect>? relativeRect;
   final Curve slideAnimationcurve;
+  final double width;
+  final int maxLines;
 
   @override
   _AnimatedPositionedTextState createState() => _AnimatedPositionedTextState();
@@ -79,9 +83,9 @@ class _AnimatedPositionedTextState extends State<AnimatedPositionedText> {
   Size _textSize(String text, TextStyle? style) {
     final TextPainter textPainter = TextPainter(
         text: TextSpan(text: text, style: style),
-        maxLines: 10,
+        maxLines: widget.maxLines,
         textDirection: TextDirection.ltr)
-      ..layout(minWidth: 0, maxWidth: double.infinity);
+      ..layout(minWidth: 0, maxWidth: widget.width);
     return textPainter.size;
   }
 }

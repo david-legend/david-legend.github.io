@@ -52,10 +52,12 @@ class StringConst {
   static const String MESSAGE_ME = "Message me";
 
   // About Page
+  static const String ABOUT_DEV_CATCH_LINE = " I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
   static const String ABOUT_DEV_CATCH_LINE_1 =
-      "I am a passionate front-end developer";
-  static const String ABOUT_DEV_CATCH_LINE_2 = "and ui/ux designer";
-  static const String ABOUT_DEV_CATCH_LINE_3 = "with a keen eye for details.";
+      "I am a passionate front-end";
+  static const String ABOUT_DEV_CATCH_LINE_2 = "developer and ui/ux";
+  static const String ABOUT_DEV_CATCH_LINE_3 = "designer with a keen eye";
+  static const String ABOUT_DEV_CATCH_LINE_4 = " for details.";
   static const String ABOUT_DEV_STORY = "Story";
   static const String ABOUT_DEV_STORY_TITLE =
       "A story of hardwork and persevearance.";

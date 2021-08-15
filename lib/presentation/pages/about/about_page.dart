@@ -3,12 +3,9 @@ import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/about/widgets/about_header.dart';
 import 'package:aerium/presentation/pages/about/widgets/technology_section.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
-import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
-import 'package:aerium/presentation/pages/widgets/sliding_banner.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
@@ -33,8 +30,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
   late AnimationController _storyController;
   late AnimationController _technologyController;
   late AnimationController _contactController;
+  late AnimationController _technologyListController;
   late AnimationController _quoteController;
-  late Animation<AlignmentGeometry> align;
   GlobalKey storySectionKey = GlobalKey();
   GlobalKey technologySectionKey = GlobalKey();
   GlobalKey contactSectionKey = GlobalKey();
@@ -59,6 +56,10 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
+    _technologyListController = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
     _contactController = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
@@ -67,9 +68,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
-    align = Tween<AlignmentGeometry>(
-            begin: Alignment(-1, 1), end: Alignment(1,-1))
-        .animate(_storyController);
+
     super.initState();
   }
 
@@ -85,8 +84,6 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       storySectionHeight = storyRenderBox.size.height;
       technologySectionHeight = technologyRenderBox.size.height;
       contactSectionHeight = contactRenderBox.size.height;
-      // print(
-      //     "$storySectionHeight $technologySectionHeight $contactSectionHeight");
     });
   }
 
@@ -95,6 +92,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     _controller.dispose();
     _storyController.dispose();
     _technologyController.dispose();
+    _technologyListController.dispose();
     _contactController.dispose();
     _quoteController.dispose();
     super.dispose();
@@ -146,7 +144,19 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
         Sizes.TEXT_SIZE_20,
       ),
     );
-
+    CurvedAnimation _storySectionAnimation = CurvedAnimation(
+      parent: _storyController,
+      curve: Interval(0.6, 1.0, curve: Curves.ease),
+    );
+    CurvedAnimation _technologySectionAnimation = CurvedAnimation(
+      parent: _technologyController,
+      curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+    );
+    double widthOfBody = responsiveSize(
+      context,
+      widthOfScreen(context),
+      assignWidth(context, 0.5),
+    );
     return PageWrapper(
       selectedRoute: AboutPage.aboutPageRoute,
       selectedPageName: StringConst.ABOUT,
@@ -176,7 +186,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                     onVisibilityChanged: (visibilityInfo) {
                       double visiblePercentage =
                           visibilityInfo.visibleFraction * 100;
-                      if (visiblePercentage > 50) {
+                      if (visiblePercentage >
+                          responsiveSize(context, 40, 70, md: 50)) {
                         _storyController.forward();
                       }
                     },
@@ -189,42 +200,20 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                       body: Column(
                         key: storySectionKey,
                         children: [
-                          SelectableText(
-                            StringConst.ABOUT_DEV_STORY_CONTENT,
-                            style: bodyText1Style,
+                          AnimatedPositionedText(
+                            controller: _storySectionAnimation,
+                            width: widthOfBody,
+                            maxLines: 5,
+                            text: StringConst.ABOUT_DEV_STORY_CONTENT,
+                            textStyle: bodyText1Style,
                           ),
-                          SpaceH30(),
-                          SelectableText(
-                            StringConst.ABOUT_DEV_STORY_CONTENT,
-                            style: bodyText1Style,
+                          AnimatedPositionedText(
+                            controller: _storySectionAnimation,
+                            width: widthOfBody,
+                            maxLines: 5,
+                            text: StringConst.ABOUT_DEV_STORY_CONTENT,
+                            textStyle: bodyText1Style,
                           ),
-                          AlignTransition(
-                              alignment: align,
-                              child: SelectableText(
-                                StringConst.ABOUT_DEV_STORY_CONTENT,
-                                style: bodyText1Style,
-                              )),
-                          // AnimatedPositionedWidget(
-                          //   height: storySectionHeight,
-                          //   width: contentAreaWidth,
-                          //   child: SelectableText(
-                          //     StringConst.ABOUT_DEV_STORY_CONTENT,
-                          //     style: bodyText1Style,
-                          //   ),
-                          //   controller: CurvedAnimation(
-                          //     parent: _storyController,
-                          //     curve: Curves.fastOutSlowIn,
-                          //   ),
-                          // ),
-                          // SpaceH30(),
-                          // AnimatedPositionedText(
-                          //   text: StringConst.ABOUT_DEV_STORY_CONTENT,
-                          //   textStyle: bodyText1Style,
-                          //   controller: CurvedAnimation(
-                          //     parent: _storyController,
-                          //     curve: Curves.fastOutSlowIn,
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
@@ -248,22 +237,33 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                       body: Column(
                         key: technologySectionKey,
                         children: [
-                          SelectableText(
-                            StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
-                            style: bodyText1Style,
-                          ),
-                          SpaceH30(),
-                          SelectableText(
-                            StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
-                            style: bodyText1Style,
+                          AnimatedPositionedText(
+                            controller: _technologySectionAnimation,
+                            width: widthOfBody,
+                            maxLines: 5,
+                            text: StringConst.ABOUT_DEV_TECHNOLOGY_CONTENT,
+                            textStyle: bodyText1Style,
                           ),
                         ],
                       ),
-                      footer: Column(
-                        children: [
-                          SpaceH40(),
-                          TechnologySection(width: contentAreaWidth),
-                        ],
+                      footer: VisibilityDetector(
+                        key: Key('technology-list'),
+                        onVisibilityChanged: (visibilityInfo) {
+                          double visiblePercentage =
+                              visibilityInfo.visibleFraction * 100;
+                          if (visiblePercentage > 60) {
+                            _technologyListController.forward();
+                          }
+                        },
+                        child: Column(
+                          children: [
+                            SpaceH40(),
+                            TechnologySection(
+                              width: contentAreaWidth,
+                              controller: _technologyListController,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -299,13 +299,16 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SpaceH40(),
-                          Text(
-                            StringConst.ABOUT_DEV_CONTACT_EMAIL,
-                            style: titleStyle,
+                          AnimatedTextSlideBoxTransition(
+                            controller: _contactController,
+                            text: StringConst.ABOUT_DEV_CONTACT_EMAIL,
+                            textStyle: titleStyle,
                           ),
                           SpaceH40(),
                           AnimatedLineThroughText(
                             text: StringConst.DEV_EMAIL,
+                            hasSlideBoxAnimation: true,
+                            controller: _contactController,
                             onTap: () {
                               Functions.launchUrl(StringConst.EMAIL_URL);
                             },
@@ -330,6 +333,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                         AnimatedTextSlideBoxTransition(
                           controller: _quoteController,
                           text: StringConst.FAMOUS_QUOTE,
+                          maxLines: 3,
+                          width: contentAreaWidth,
                           textAlign: TextAlign.center,
                           textStyle: titleStyle?.copyWith(
                             fontSize: responsiveSize(
@@ -341,7 +346,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                             height: 2.0,
                           ),
                         ),
-                        SpaceH40(),
+                        SpaceH20(),
                         Align(
                           alignment: Alignment.centerRight,
                           child: AnimatedTextSlideBoxTransition(
@@ -389,6 +394,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
         AnimatedLineThroughText(
           text: data[index].name,
           isUnderlinedByDefault: true,
+          controller: _contactController,
+          hasSlideBoxAnimation: true,
           isUnderlinedOnHover: false,
           onTap: () {
             Functions.launchUrl(data[index].url);

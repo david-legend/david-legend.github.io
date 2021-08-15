@@ -170,7 +170,10 @@ class _HomePageHeaderState extends State<HomePageHeader>
                     padding: padding.copyWith(top: 0),
                     child: Container(
                       width: screenWidth,
-                      child: AboutDev(controller: widget.controller),
+                      child: AboutDev(
+                        controller: widget.controller,
+                        width: screenWidth,
+                      ),
                     ),
                   ),
                 ],
@@ -183,7 +186,10 @@ class _HomePageHeaderState extends State<HomePageHeader>
                     margin: textMargin,
                     child: Container(
                       width: screenWidth * 0.35,
-                      child: AboutDev(controller: widget.controller),
+                      child: AboutDev(
+                        controller: widget.controller,
+                        width: screenWidth * 0.35,
+                      ),
                     ),
                   ),
                   SizedBox(width: screenWidth * 0.05),
@@ -281,9 +287,11 @@ class AboutDev extends StatefulWidget {
   const AboutDev({
     Key? key,
     required this.controller,
+    required this.width,
   }) : super(key: key);
 
   final AnimationController controller;
+  final double width;
 
   @override
   _AboutDevState createState() => _AboutDevState();
@@ -315,9 +323,11 @@ class _AboutDevState extends State<AboutDev> {
         ),
         SpaceH30(),
         Container(
-           margin: margin,
+          margin: margin,
           child: AnimatedPositionedText(
             controller: curvedAnimation,
+            width: widget.width,
+            maxLines: 2,
             text: StringConst.DEV_DESC,
             textStyle: textTheme.bodyText1?.copyWith(
               fontSize: responsiveSize(
@@ -330,7 +340,7 @@ class _AboutDevState extends State<AboutDev> {
             ),
           ),
         ),
-        SpaceH40(),
+        SpaceH30(),
         AnimatedPositionedWidget(
           controller: curvedAnimation,
           width: 200,

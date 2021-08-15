@@ -10,6 +10,8 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
     required this.controller,
     required this.text,
     required this.textStyle,
+    this.width = double.infinity,
+    this.maxLines = 1,
     this.factor = 1.2,
     this.visibleBoxAnimation,
     this.invisibleBoxAnimation,
@@ -35,6 +37,8 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
   final String text;
   final TextStyle? textStyle;
   final TextAlign? textAlign;
+  final double width;
+  final int maxLines;
 
   @override
   _AnimatedTextSlideBoxTransitionState createState() =>
@@ -138,9 +142,9 @@ class _AnimatedTextSlideBoxTransitionState
   Size _textSize(String text, TextStyle? style) {
     final TextPainter textPainter = TextPainter(
         text: TextSpan(text: text, style: style),
-        // maxLines: 1,
+        maxLines: widget.maxLines,
         textDirection: TextDirection.ltr)
-      ..layout(minWidth: 0, maxWidth: double.infinity);
+      ..layout(minWidth: 0, maxWidth: widget.width);
     return textPainter.size;
   }
 }
