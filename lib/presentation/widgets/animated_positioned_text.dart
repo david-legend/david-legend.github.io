@@ -6,7 +6,7 @@ class AnimatedPositionedText extends StatefulWidget {
     required this.controller,
     required this.text,
     required this.textStyle,
-    this.factor = 1.25,
+    this.factor = 1,
     this.maxLines = 1,
     this.width = double.infinity,
     this.textAlign,

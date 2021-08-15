@@ -13,7 +13,6 @@ import 'package:layout/layout.dart';
 
 // Priority
 // TODO:: Work on sending email from website
-// TODO:: Compute height of box  --> for animation on about & experience page
 // TODO:: Show link destination in bottom left corner
 
 // Later
@@ -35,7 +34,8 @@ class Aerium extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // initialRoute: HomePage.homePageRoute,
         // initialRoute: WorksPage.worksPageRoute,
-        initialRoute: AboutPage.aboutPageRoute,
+        // initialRoute: AboutPage.aboutPageRoute,
+        initialRoute: ExperiencePage.experiencePageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

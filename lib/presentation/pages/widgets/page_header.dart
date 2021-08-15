@@ -4,19 +4,21 @@ import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.d
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-class WorksPageHeader extends StatefulWidget {
-  const WorksPageHeader({
+class PageHeader extends StatefulWidget {
+  const PageHeader({
     Key? key,
+    required this.headingText,
     required this.headingTextController,
   }) : super(key: key);
 
+  final String headingText;
   final AnimationController headingTextController;
 
   @override
-  _WorksPageHeaderState createState() => _WorksPageHeaderState();
+  _PageHeaderState createState() => _PageHeaderState();
 }
 
-class _WorksPageHeaderState extends State<WorksPageHeader>
+class _PageHeaderState extends State<PageHeader>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<Offset> animation;
@@ -81,7 +83,7 @@ class _WorksPageHeaderState extends State<WorksPageHeader>
             alignment: Alignment.center,
             child: AnimatedTextSlideBoxTransition(
               controller: widget.headingTextController,
-              text: StringConst.MY_WORKS,
+              text: widget.headingText,
               textStyle: headingStyle,
             ),
           ),

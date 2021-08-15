@@ -1,6 +1,9 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
+import 'package:aerium/presentation/pages/widgets/page_header.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_slide_box.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/content_builder.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
@@ -8,6 +11,7 @@ import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class ExperiencePage extends StatefulWidget {
   static const String experiencePageRoute = StringConst.EXPERIENCE_PAGE;
@@ -24,6 +28,7 @@ class _ExperiencePageState extends State<ExperiencePage>
   late AnimationController _experience2Controller;
   late AnimationController _experience3Controller;
   late AnimationController _experience4Controller;
+  late List<AnimationController> _experienceControllers;
 
   @override
   void initState() {
@@ -43,10 +48,16 @@ class _ExperiencePageState extends State<ExperiencePage>
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
-     _experience4Controller = AnimationController(
+    _experience4Controller = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
+    _experienceControllers = [
+      _experience1Controller,
+      _experience2Controller,
+      _experience3Controller,
+      _experience4Controller,
+    ];
     super.initState();
   }
 
@@ -117,6 +128,10 @@ class _ExperiencePageState extends State<ExperiencePage>
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
+          PageHeader(
+            headingText: StringConst.EXPERIENCE,
+            headingTextController: _controller,
+          ),
           Padding(
             padding: padding,
             child: ContentArea(
@@ -161,35 +176,50 @@ class _ExperiencePageState extends State<ExperiencePage>
 
     for (int index = 0; index < data.length; index++) {
       items.add(
-        ContentBuilder(
-          controller: _experience1Controller,
-          number: "/0${index + 1}",
-          width: width,
-          section: data[index].duration.toUpperCase(),
-          heading: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SelectableText(
-                data[index].company,
-                style: defaultTitleStyle,
-              ),
-              SpaceH16(),
-              SelectableText(
-                data[index].position,
-                style: defaultTitleStyle?.copyWith(
-                  fontSize: responsiveSize(
-                    context,
-                    Sizes.TEXT_SIZE_16,
-                    Sizes.TEXT_SIZE_18,
-                  ),
-                  fontWeight: FontWeight.w300,
+        VisibilityDetector(
+          key: Key('experience-section-$index'),
+          onVisibilityChanged: (visibilityInfo) {
+            double visiblePercentage = visibilityInfo.visibleFraction * 100;
+            if (visiblePercentage > 40) {
+              _experienceControllers[index].forward();
+            }
+          },
+          child: ContentBuilder(
+            controller: _experienceControllers[index],
+            number: "/0${index + 1}",
+            width: width,
+            section: data[index].duration.toUpperCase(),
+            heading: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AnimatedTextSlideBoxTransition(
+                  controller: _experienceControllers[index],
+                  text: data[index].company,
+                  textStyle: defaultTitleStyle,
                 ),
-              )
-            ],
-          ),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _buildRoles(data[index].roles),
+                SpaceH16(),
+                AnimatedTextSlideBoxTransition(
+                  controller: _experienceControllers[index],
+                  text: data[index].position,
+                  textStyle: defaultTitleStyle?.copyWith(
+                    fontSize: responsiveSize(
+                      context,
+                      Sizes.TEXT_SIZE_16,
+                      Sizes.TEXT_SIZE_18,
+                    ),
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
+            ),
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: _buildRoles(
+                roles: data[index].roles,
+                controller: _experienceControllers[index],
+                width: width,
+              ),
+            ),
           ),
         ),
       );
@@ -201,7 +231,11 @@ class _ExperiencePageState extends State<ExperiencePage>
     return items;
   }
 
-  List<Widget> _buildRoles(List<String> roles) {
+  List<Widget> _buildRoles({
+    required List<String> roles,
+    required AnimationController controller,
+    required double width,
+  }) {
     final TextTheme textTheme = Theme.of(context).textTheme;
     final TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
       fontSize: responsiveSize(
@@ -228,16 +262,22 @@ class _ExperiencePageState extends State<ExperiencePage>
             ),
             SpaceW8(),
             Flexible(
-              child: Text(
-                roles[index],
-                style: bodyText1Style,
+              child: AnimatedPositionedText(
+                text: roles[index],
+                textStyle: bodyText1Style,
+                maxLines: 5,
+                width: width,
+                controller: CurvedAnimation(
+                  parent: controller,
+                  curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+                ),
               ),
             ),
           ],
         ),
       );
 
-      items.add(SpaceH20());
+      items.add(SpaceH8());
     }
 
     return items;
