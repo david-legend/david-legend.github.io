@@ -1,7 +1,9 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/presentation/pages/home/home_page.dart';
 import 'package:aerium/presentation/pages/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/app_logo.dart';
 import 'package:aerium/presentation/widgets/nav_item.dart';
+import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -186,7 +188,16 @@ class _AppDrawerState extends State<AppDrawer>
           child: NavItem(
             controller: widget.controller,
             onTap: () {
-              Navigator.of(context).pushNamed(menuList[index].route);
+              if (menuList[index].route == HomePage.homePageRoute) {
+                Navigator.of(context).pushNamed(
+                  menuList[index].route,
+                  arguments: NavigationArguments(
+                    showUnVeilPageAnimation: true,
+                  ),
+                );
+              } else {
+                Navigator.of(context).pushNamed(menuList[index].route);
+              }
             },
             index: index + 1,
             route: menuList[index].route,
