@@ -14,6 +14,7 @@ import 'package:layout/layout.dart';
 // Priority
 // TODO:: Work on sending email from website
 // TODO:: Show link destination in bottom left corner
+// TODO:: Perfect loading animation on home page
 
 // Later
 // TODO:: Add proper text all over the site

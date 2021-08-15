@@ -3,6 +3,7 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/nav_bar.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/aerium_text_form_field.dart';
@@ -132,23 +133,29 @@ class _ContactPageState extends State<ContactPage>
                     textStyle: headingStyle,
                   ),
                   CustomSpacer(heightFactor: 0.05),
+                  AnimatedPositionedText(
+                    width: contentAreaWidth,
+                    controller: CurvedAnimation(
+                      parent: _controller,
+                      curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+                    ),
+                    text: StringConst.CONTACT_MSG,
+                    maxLines: 5,
+                    textStyle: textTheme.bodyText1?.copyWith(
+                      color: AppColors.grey700,
+                      height: 2.0,
+                      fontSize: responsiveSize(
+                        context,
+                        Sizes.TEXT_SIZE_16,
+                        Sizes.TEXT_SIZE_18,
+                      ),
+                    ),
+                  ),
+                  CustomSpacer(heightFactor: 0.05),
                   SlideTransition(
                     position: _slideAnimation,
                     child: Column(
                       children: [
-                        Text(
-                          StringConst.CONTACT_MSG,
-                          style: textTheme.bodyText1?.copyWith(
-                            color: AppColors.grey700,
-                            height: 2.0,
-                            fontSize: responsiveSize(
-                              context,
-                              Sizes.TEXT_SIZE_16,
-                              Sizes.TEXT_SIZE_18,
-                            ),
-                          ),
-                        ),
-                        CustomSpacer(heightFactor: 0.05),
                         AeriumTextFormField(
                           hasTitle: _nameHasError,
                           title: StringConst.NAME_ERROR_MSG,
