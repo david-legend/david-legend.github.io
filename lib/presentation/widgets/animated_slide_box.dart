@@ -1,7 +1,7 @@
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-const double hiddenFactor = 1.0;
+const double hiddenFactor = 2.0;
 
 class AnimatedSlideBox extends AnimatedWidget {
   const AnimatedSlideBox({
