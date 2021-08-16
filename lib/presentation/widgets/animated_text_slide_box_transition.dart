@@ -13,7 +13,7 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
     this.maxLines = 1,
     this.factor = 1,
     this.visibleBoxAnimation,
-    this.invisibleBoxAnimation,
+    this.invisibleBoxAnimation, 
     this.position,
     this.textAlign,
     this.boxColor = AppColors.black,

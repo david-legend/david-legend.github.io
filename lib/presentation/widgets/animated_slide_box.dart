@@ -2,6 +2,7 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
 const double hiddenFactor = 1.0;
+
 class AnimatedSlideBox extends AnimatedWidget {
   const AnimatedSlideBox({
     Key? key,
@@ -28,13 +29,13 @@ class AnimatedSlideBox extends AnimatedWidget {
 
   Animation<double> get visibleAnimation =>
       visibleBoxAnimation ??
-      Tween<double>(begin: 0, end: width-hiddenFactor).animate(
+      Tween<double>(begin: 0, end: width - (hiddenFactor*2)).animate(
         CurvedAnimation(
           parent: controller,
           curve: Interval(0, 0.5, curve: visibleBoxCurve),
         ),
       );
-      
+
   Animation<double> get invisibleAnimation =>
       Tween<double>(begin: 0, end: width).animate(
         CurvedAnimation(
@@ -43,8 +44,15 @@ class AnimatedSlideBox extends AnimatedWidget {
         ),
       );
 
+
+  
   @override
   Widget build(BuildContext context) {
+    // in this animation, we first animation a black container and later followed by a white box.
+    // but because the height and width for both boxes are the same, 
+    // we can still see a small part of the black box after the animation
+    // to remedy this, i use the variable hidden factor to offset the black box 
+    // so that it will be totally hidden by the white box
     return Container(
       width: width,
       height: height,
@@ -53,18 +61,17 @@ class AnimatedSlideBox extends AnimatedWidget {
           Positioned(
             top: hiddenFactor,
             left: hiddenFactor,
-            
             child: Container(
               width: visibleAnimation.value,
-              height: height-(hiddenFactor * 2),
+              height: height - (hiddenFactor * 2),
               color: boxColor,
             ),
           ),
           Positioned(
             top: 0,
             child: Container(
-              width: invisibleAnimation.value + hiddenFactor,
-              height: height + hiddenFactor,
+              width: invisibleAnimation.value,
+              height: height ,
               color: coverColor,
             ),
           ),
