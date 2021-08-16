@@ -175,7 +175,7 @@ class NoteWorthyProjectItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AnimatedTextSlideBoxTransition(
-            factor: 1.5,
+            
             controller: controller,
             text: number,
             textStyle: numberStyle ?? defaultNumberStyle,
@@ -185,7 +185,7 @@ class NoteWorthyProjectItem extends StatelessWidget {
             onTap: onSourceTap,
             hoverColor: Colors.transparent,
             child: AnimatedTextSlideBoxTransition(
-              factor: 1.5,
+            
               controller: controller,
               text: source,
               textStyle: sourceStyle ?? defaultSourceStyle,
@@ -194,7 +194,8 @@ class NoteWorthyProjectItem extends StatelessWidget {
           SpaceW20(),
           Flexible(
             child: AnimatedLineThroughText(
-              factor: 1.5,
+              maxLines: 3,
+              width: assignWidth(context, 0.5),
               hasSlideBoxAnimation: true,
               controller: controller,
               text: projectName,

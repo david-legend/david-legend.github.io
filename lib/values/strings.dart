@@ -174,7 +174,7 @@ class StringConst {
   static const String CONNECT = "Connect with me";
   static const String EMAIL = "Email";
   static const String LINKED_IN = "LinkedIn";
-  static const String TWITTER = "Twiter";
+  static const String TWITTER = "Twitter";
   static const String INSTAGRAM = "Instagram";
   static const String TELEGRAM = "Telegram";
   static const String GITHUB = "Github";
