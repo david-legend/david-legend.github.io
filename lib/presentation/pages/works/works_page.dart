@@ -173,7 +173,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
           ),
         ),
       );
-      items.add(SpaceH40());
+      items.add(CustomSpacer(heightFactor: 0.10,));
     }
     return items;
   }

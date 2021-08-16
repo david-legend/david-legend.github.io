@@ -1,6 +1,7 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
+import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
@@ -279,6 +280,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
+            onTap: (){
+              navigateToProject(data[index]);
+            },
           ),
         ),
       );
@@ -303,11 +307,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
+            onTap: (){
+              navigateToProject(data[index]);
+            },
           ),
         ),
       );
-      items.add(SpaceH40());
+     items.add(CustomSpacer(heightFactor: 0.10,));
     }
     return items;
+  }
+
+
+  void navigateToProject(ProjectItemData data) {
+    Navigator.of(context).pushNamed(
+      ProjectDetailPage.projectDetailPageRoute,
+      arguments: ProjectDetailArguments(
+        data: data,
+      ),
+    );
   }
 }
