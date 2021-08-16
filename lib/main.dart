@@ -12,7 +12,7 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Work on sending email from website
+// TODO:: Work on sending email from website -> convert email events to cubits
 // TODO:: Show link destination in bottom left corner
 // TODO:: Perfect loading animation on home page
 
@@ -36,7 +36,8 @@ class Aerium extends StatelessWidget {
         // initialRoute: HomePage.homePageRoute,
         // initialRoute: WorksPage.worksPageRoute,
         // initialRoute: AboutPage.aboutPageRoute,
-        initialRoute: ExperiencePage.experiencePageRoute,
+        // initialRoute: ExperiencePage.experiencePageRoute,
+        initialRoute: ContactPage.contactPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

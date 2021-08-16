@@ -1,6 +1,7 @@
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
+const double hiddenFactor = 2;
 class AnimatedSlideBox extends AnimatedWidget {
   const AnimatedSlideBox({
     Key? key,
@@ -27,7 +28,7 @@ class AnimatedSlideBox extends AnimatedWidget {
 
   Animation<double> get visibleAnimation =>
       visibleBoxAnimation ??
-      Tween<double>(begin: 0, end: width).animate(
+      Tween<double>(begin: 0, end: width-hiddenFactor).animate(
         CurvedAnimation(
           parent: controller,
           curve: Interval(0, 0.5, curve: visibleBoxCurve),
@@ -50,19 +51,20 @@ class AnimatedSlideBox extends AnimatedWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 2,
-            left: 2,
+            top: hiddenFactor,
+            left: hiddenFactor,
+            
             child: Container(
               width: visibleAnimation.value,
-              height: height,
+              height: height-hiddenFactor,
               color: boxColor,
             ),
           ),
           Positioned(
             top: 0,
             child: Container(
-              width: invisibleAnimation.value + 2,
-              height: height + 2,
+              width: invisibleAnimation.value + hiddenFactor,
+              height: height + hiddenFactor,
               color: coverColor,
             ),
           ),

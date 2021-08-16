@@ -440,6 +440,6 @@ class StringConst {
 
   //API
   static const String BASE_URL =
-      "https://asqbx1u5bg.execute-api.us-east-1.amazonaws.com/production/";
-  static const String SEND_END_POINT = "send";
+      "portfolio-api-chi.vercel.app/api";
+  static const String GET_IN_TOUCH_POINT = "/getintouch";
 }
