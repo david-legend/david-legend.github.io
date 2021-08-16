@@ -404,6 +404,7 @@ class _AboutDevState extends State<AboutDev> {
         AnimatedLineThroughText(
           text: data[index].name,
           isUnderlinedByDefault: true,
+          
           controller: widget.controller,
           hasSlideBoxAnimation: true,
           hasOffsetAnimation: true,

@@ -33,10 +33,10 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer>
     with SingleTickerProviderStateMixin {
   static const Duration _initialDelayTime = Duration(milliseconds: 50);
-  static const Duration _itemSlideTime = Duration(milliseconds: 500);
+  static const Duration _itemSlideTime = Duration(milliseconds: 400);
   static const Duration _staggerTime = Duration(milliseconds: 50);
   static const Duration _buttonDelayTime = Duration(milliseconds: 100);
-  static const Duration _buttonTime = Duration(milliseconds: 500);
+  static const Duration _buttonTime = Duration(milliseconds: 400);
   late Duration _animationDuration;
 
   late AnimationController _staggeredController;

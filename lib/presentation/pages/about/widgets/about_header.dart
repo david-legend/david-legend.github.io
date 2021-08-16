@@ -115,28 +115,28 @@ class AboutDescription extends StatelessWidget {
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_1,
-          factor: 1.0,
+          
           textStyle: style,
         ),
         SpaceH8(),
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_2,
-          factor: 1.0,
+         
           textStyle: style,
         ),
         SpaceH8(),
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_3,
-          factor: 1.0,
+         
           textStyle: style,
         ),
          SpaceH8(),
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_4,
-          factor: 1.0,
+         
           textStyle: style,
         ),
       ],

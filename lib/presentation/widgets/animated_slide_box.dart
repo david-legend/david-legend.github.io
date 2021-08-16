@@ -1,7 +1,7 @@
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-const double hiddenFactor = 2;
+const double hiddenFactor = 1.0;
 class AnimatedSlideBox extends AnimatedWidget {
   const AnimatedSlideBox({
     Key? key,
@@ -56,7 +56,7 @@ class AnimatedSlideBox extends AnimatedWidget {
             
             child: Container(
               width: visibleAnimation.value,
-              height: height-hiddenFactor,
+              height: height-(hiddenFactor * 2),
               color: boxColor,
             ),
           ),
