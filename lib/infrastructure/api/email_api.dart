@@ -30,15 +30,15 @@ class EmailApiImpl implements EmailApi {
     final response = await client.post(
       Uri.parse(StringConst.BASE_URL + StringConst.GET_IN_TOUCH_POINT),
       headers: {
-//        "Accept": "application/json",
+       "Accept": "application/json",
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: jsonEncode({
+      body: {
         "name": name,
         "email": email,
         "subject": subject,
         "message": message,
-      }),
+      },
     );
 
     print("Status Code ${response.statusCode}");

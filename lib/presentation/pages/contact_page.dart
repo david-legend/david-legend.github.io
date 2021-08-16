@@ -1,5 +1,6 @@
 import 'package:aerium/core/utils/extensions.dart';
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/infrastructure/bloc/email_bloc.dart';
 import 'package:aerium/presentation/pages/widgets/nav_bar.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
@@ -15,6 +16,8 @@ import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
+import '../../injection_container.dart';
+
 class ContactPage extends StatefulWidget {
   static const String contactPageRoute = StringConst.CONTACT_PAGE;
   const ContactPage({Key? key}) : super(key: key);
@@ -27,8 +30,8 @@ class _ContactPageState extends State<ContactPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
+  late EmailBloc emailBloc;
   bool isBodyVisible = false;
-  final Duration duration = Duration(milliseconds: 2000);
   bool _nameFilled = false;
   bool _emailFilled = false;
   bool _subjectFilled = false;
@@ -44,7 +47,10 @@ class _ContactPageState extends State<ContactPage>
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this, duration: duration);
+    _controller = AnimationController(
+      vsync: this,
+      duration: Animations.slideAnimationDurationLong,
+    );
     _slideAnimation =
         Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(
       CurvedAnimation(
@@ -52,6 +58,7 @@ class _ContactPageState extends State<ContactPage>
         curve: Interval(0.6, 1.0, curve: Curves.ease),
       ),
     );
+    emailBloc = getIt<EmailBloc>();
     super.initState();
   }
 
@@ -59,6 +66,29 @@ class _ContactPageState extends State<ContactPage>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  bool isFormValid() {
+    return _nameFilled &&
+        _subjectFilled &&
+        _messageFilled &&
+        _emailFilled;
+  }
+
+  void sendEmail() {
+    if (isFormValid()) {
+      print("submit form");
+      emailBloc.add(
+        SendEmail(
+          name: _nameController.text,
+          email: _emailController.text,
+          subject: _subjectController.text,
+          message: _messageController.text,
+        ),
+      );
+    } else {
+      print("NOTHING");
+    }
   }
 
   @override
@@ -216,7 +246,7 @@ class _ContactPageState extends State<ContactPage>
                             height: Sizes.HEIGHT_50,
                             width: buttonWidth,
                             title: StringConst.SEND_MESSAGE.toUpperCase(),
-                            onPressed: () {},
+                            onPressed: sendEmail,
                           ),
                         ),
                       ],

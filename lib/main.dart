@@ -1,3 +1,4 @@
+import 'package:aerium/injection_container.dart';
 import 'package:aerium/presentation/pages/about/about_page.dart';
 import 'package:aerium/presentation/pages/certification_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
@@ -22,6 +23,8 @@ import 'package:layout/layout.dart';
 // TODO:: Make images smaller (reduce quality) and also drop some images to decrease download size
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   // GoogleFonts.config.allowRuntimeFetching = false;
   runApp(Aerium());
 }
