@@ -43,7 +43,7 @@ bool isDisplayMobile(BuildContext context) {
 /// Returns a boolean if we are in a display of [DisplayType.mobile] or [DisplayType.tablet]. Used to
 /// build adaptive and responsive layouts.
 bool isDisplayMobileOrTablet(BuildContext context) {
-  return MediaQuery.of(context).size.width <= RefinedBreakpoints().tabletLarge;
+  return MediaQuery.of(context).size.width <= RefinedBreakpoints().tabletNormal;
 }
 
 
