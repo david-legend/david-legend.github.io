@@ -163,7 +163,7 @@ class _CertificationPageState extends State<CertificationPage>
             title: data[i].title,
             subtitle: data[i].awardedBy,
             actionTitle: StringConst.VIEW,
-            isMobileOrTablet: isDisplayMobile(context) ? true : false,
+            isMobileOrTablet: isDisplayMobileOrTablet(context) ? true : false,
             height: isDisplayMobile(context)
                 ? assignHeight(context, 0.40)
                 : assignHeight(context, 0.45),

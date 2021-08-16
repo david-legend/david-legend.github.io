@@ -5,6 +5,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 enum DisplayType {
   desktop,
   mobile,
+  tablet,
 }
 
 const _desktopPortraitBreakpoint = 700.0;
@@ -33,11 +34,18 @@ bool isDisplayDesktop(BuildContext context) {
   return displayTypeOf(context) == DisplayType.desktop;
 }
 
-/// Returns a boolean if we are in a display of [DisplayType.desktop]. Used to
+/// Returns a boolean if we are in a display of [DisplayType.mobile]. Used to
 /// build adaptive and responsive layouts.
 bool isDisplayMobile(BuildContext context) {
   return MediaQuery.of(context).size.width <= RefinedBreakpoints().tabletSmall;
 }
+
+/// Returns a boolean if we are in a display of [DisplayType.mobile] or [DisplayType.tablet]. Used to
+/// build adaptive and responsive layouts.
+bool isDisplayMobileOrTablet(BuildContext context) {
+  return MediaQuery.of(context).size.width <= RefinedBreakpoints().tabletLarge;
+}
+
 
 /// Returns a boolean if we are in a display of [DisplayType.desktop] but less
 /// than [_desktopLandscapeBreakpoint] width. Used to build adaptive and responsive layouts.
