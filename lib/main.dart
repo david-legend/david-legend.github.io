@@ -1,4 +1,5 @@
 import 'package:aerium/presentation/pages/about/about_page.dart';
+import 'package:aerium/presentation/pages/certification_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/experience_page.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
@@ -37,7 +38,8 @@ class Aerium extends StatelessWidget {
         // initialRoute: WorksPage.worksPageRoute,
         // initialRoute: AboutPage.aboutPageRoute,
         // initialRoute: ExperiencePage.experiencePageRoute,
-        initialRoute: ContactPage.contactPageRoute,
+        // initialRoute: ContactPage.contactPageRoute,
+        initialRoute: CertificationPage.certificationPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

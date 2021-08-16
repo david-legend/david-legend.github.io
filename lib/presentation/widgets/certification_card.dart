@@ -1,3 +1,4 @@
+import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class CertificationCard extends StatefulWidget {
     this.actionTitleTextStyle,
     this.duration = 1000,
     this.onTap,
+    this.isMobileOrTablet = false,
   });
 
   final double width;
@@ -36,6 +38,7 @@ class CertificationCard extends StatefulWidget {
   final TextStyle? actionTitleTextStyle;
   final int duration;
   final GestureTapCallback? onTap;
+  final bool isMobileOrTablet;
 
   @override
   _CertificationCardState createState() => _CertificationCardState();
@@ -108,61 +111,43 @@ class _CertificationCardState extends State<CertificationCard>
                 height: widget.height,
                 fit: BoxFit.cover,
               ),
-              _hovering
+              // if it is not a tablet or mobile device, allow on hover effect
+              !widget.isMobileOrTablet && _hovering
                   ? FadeTransition(
                       opacity: _opacityAnimation,
                       child: Container(
                         width: widget.width,
                         height: widget.height,
                         color: widget.hoverColor,
-                        child: Column(
-                          children: [
-                            Spacer(flex: 1),
-                            Text(
-                              widget.title,
-                              textAlign: TextAlign.center,
-                              style: widget.titleTextStyle ??
-                                  theme.textTheme.headline4?.copyWith(
-                                    color: AppColors.black,
-                                  ),
-                            ),
-                            SpaceH4(),
-                            Text(
-                              widget.subtitle,
-                              textAlign: TextAlign.center,
-                              style: widget.subtitleTextStyle ??
-                                  theme.textTheme.bodyText1?.copyWith(
-                                    color: AppColors.black,
-                                    fontSize: Sizes.TEXT_SIZE_16,
-                                  ),
-                            ),
-                            SpaceH16(),
-                            AeriumButton(
-                              height: Sizes.HEIGHT_36,
-                              hasIcon: false,
-                              width: 80,
-                              buttonColor: AppColors.white,
-                              borderColor: AppColors.black,
-                              onHoverColor: AppColors.black,
-                              title: widget.actionTitle.toUpperCase(),
-                              onPressed: widget.onTap,
-                            ),
-                            // Text(
-                            //   widget.actionTitle,
-                            //   textAlign: TextAlign.center,
-                            //   style: widget.actionTitleTextStyle ??
-                            //       theme.textTheme.subtitle1?.copyWith(
-                            //         color: AppColors.grey800,
-                            //       ),
-                            // ),
-                            SpaceH4(),
-                            // HorizontalBar(color: AppColors.secondaryColor),
-                            Spacer(flex: 1),
-                          ],
-                        ),
+                        child: _buildCardInfo(),
                       ),
                     )
-                  : Container(),
+                  : Empty(),
+              //show info instantly if it is a mobile or tablet device
+              widget.isMobileOrTablet
+                  ? Container(
+                    width: widget.width,
+                    height: widget.height,
+                    color: widget.hoverColor.withOpacity(0.15),
+                    child: Column(
+                      children: [
+                        Spacer(flex: 3),
+                        AeriumButton(
+                          height: Sizes.HEIGHT_36,
+                          hasIcon: false,
+                          width: 80,
+                          buttonColor: AppColors.white,
+                          borderColor: AppColors.black,
+                          onHoverColor: AppColors.black,
+                          title: widget.actionTitle.toUpperCase(),
+                          onPressed: widget.onTap,
+                        ),
+                         Spacer(),
+                        // SpaceH20(),
+                      ],
+                    ),
+                  )
+                  : Empty(),
             ],
           ),
         ),
@@ -180,5 +165,45 @@ class _CertificationCardState extends State<CertificationCard>
     } else if (_hovering == false) {
       _portfolioCoverController.reverse().orCancel;
     }
+  }
+
+  Widget _buildCardInfo() {
+    ThemeData theme = Theme.of(context);
+    return Column(
+      children: [
+        Spacer(flex: 1),
+        Text(
+          widget.title,
+          textAlign: TextAlign.center,
+          style: widget.titleTextStyle ??
+              theme.textTheme.headline4?.copyWith(
+                color: AppColors.black,
+              ),
+        ),
+        SpaceH4(),
+        Text(
+          widget.subtitle,
+          textAlign: TextAlign.center,
+          style: widget.subtitleTextStyle ??
+              theme.textTheme.bodyText1?.copyWith(
+                color: AppColors.black,
+                fontSize: Sizes.TEXT_SIZE_16,
+              ),
+        ),
+        SpaceH16(),
+        AeriumButton(
+          height: Sizes.HEIGHT_36,
+          hasIcon: false,
+          width: 80,
+          buttonColor: AppColors.white,
+          borderColor: AppColors.black,
+          onHoverColor: AppColors.black,
+          title: widget.actionTitle.toUpperCase(),
+          onPressed: widget.onTap,
+        ),
+        SpaceH4(),
+        Spacer(flex: 1),
+      ],
+    );
   }
 }

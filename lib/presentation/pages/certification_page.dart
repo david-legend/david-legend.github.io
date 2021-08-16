@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/presentation/pages/widgets/page_header.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/certification_card.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
@@ -7,6 +8,7 @@ import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class CertificationPage extends StatefulWidget {
   static const String certificationPageRoute = StringConst.CERTIFICATION_PAGE;
@@ -17,14 +19,19 @@ class CertificationPage extends StatefulWidget {
 }
 
 class _CertificationPageState extends State<CertificationPage>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+    with TickerProviderStateMixin {
+  late AnimationController _certificationsController;
+  late AnimationController _headingTextController;
 
   @override
   void initState() {
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 1000),
+    _certificationsController = AnimationController(
+      duration: Animations.slideAnimationDurationShort,
       vsync: this,
+    );
+    _headingTextController = AnimationController(
+      vsync: this,
+      duration: Animations.slideAnimationDurationLong,
     );
 
     super.initState();
@@ -32,7 +39,8 @@ class _CertificationPageState extends State<CertificationPage>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _headingTextController.dispose();
+    _certificationsController.dispose();
     super.dispose();
   }
 
@@ -67,9 +75,9 @@ class _CertificationPageState extends State<CertificationPage>
     return PageWrapper(
       selectedRoute: CertificationPage.certificationPageRoute,
       selectedPageName: StringConst.CERTIFICATIONS,
-      navBarAnimationController: _controller,
+      navBarAnimationController: _headingTextController,
       onLoadingAnimationDone: () {
-        _controller.forward();
+        _headingTextController.forward();
       },
       child: ListView(
         padding: EdgeInsets.zero,
@@ -77,24 +85,37 @@ class _CertificationPageState extends State<CertificationPage>
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
-          Padding(
-            padding: padding,
-            child: ContentArea(
-              width: contentAreaWidth,
-              child: AnimatedBuilder(
-                animation: _controller,
-                builder: (context, child) {
-                  return Wrap(
-                    direction: Axis.horizontal,
-                    spacing: assignWidth(context, 0.05),
-                    runSpacing: assignHeight(context, 0.02),
-                    children: _certificateList(
-                      data: Data.certificationData,
-                      width: contentAreaWidth,
-                      spacing: spacing,
-                    ),
-                  );
-                },
+          PageHeader(
+            headingText: StringConst.CERTIFICATIONS,
+            headingTextController: _headingTextController,
+          ),
+          VisibilityDetector(
+            key: Key('certifications'),
+            onVisibilityChanged: (visibilityInfo) {
+              double visiblePercentage = visibilityInfo.visibleFraction * 100;
+              if (visiblePercentage > 40) {
+                _certificationsController.forward();
+              }
+            },
+            child: Padding(
+              padding: padding,
+              child: ContentArea(
+                width: contentAreaWidth,
+                child: AnimatedBuilder(
+                  animation: _certificationsController,
+                  builder: (context, child) {
+                    return Wrap(
+                      direction: Axis.horizontal,
+                      spacing: assignWidth(context, 0.05),
+                      runSpacing: assignHeight(context, 0.02),
+                      children: _certificateList(
+                        data: Data.certificationData,
+                        width: contentAreaWidth,
+                        spacing: spacing,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ),
@@ -105,33 +126,18 @@ class _CertificationPageState extends State<CertificationPage>
     );
   }
 
-  Widget _buildAnimation(
-      {required double contentWidth, required double spacing}) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) {
-        return Wrap(
-          direction: Axis.horizontal,
-          spacing: assignWidth(context, 0.05),
-          runSpacing: assignHeight(context, 0.02),
-          children: _certificateList(
-            data: Data.certificationData,
-            width: contentWidth,
-            spacing: spacing,
-          ),
-        );
-      },
-    );
-  }
 
-  List<Widget> _certificateList(
-      {required List<CertificationData> data,
-      required double width,
-      required double spacing}) {
+  List<Widget> _certificateList({
+    required List<CertificationData> data,
+    required double width,
+    required double spacing,
+  }) {
     List<Widget> widgets = [];
-    double duration = _controller.duration!.inMilliseconds.roundToDouble();
+    double duration =
+        _certificationsController.duration!.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
-        _controller.duration!.inMilliseconds.roundToDouble() / data.length;
+        _certificationsController.duration!.inMilliseconds.roundToDouble() /
+            data.length;
 
     for (var i = 0; i < data.length; i++) {
       double start = durationForEachPortfolio * i;
@@ -143,7 +149,7 @@ class _CertificationPageState extends State<CertificationPage>
             end: 1,
           ).animate(
             CurvedAnimation(
-              parent: _controller,
+              parent: _certificationsController,
               curve: Interval(
                 start > 0.0 ? start / duration : 0.0,
                 end > 0.0 ? end / duration : 1.0,
@@ -157,6 +163,7 @@ class _CertificationPageState extends State<CertificationPage>
             title: data[i].title,
             subtitle: data[i].awardedBy,
             actionTitle: StringConst.VIEW,
+            isMobileOrTablet: isDisplayMobile(context) ? true : false,
             height: isDisplayMobile(context)
                 ? assignHeight(context, 0.40)
                 : assignHeight(context, 0.45),
