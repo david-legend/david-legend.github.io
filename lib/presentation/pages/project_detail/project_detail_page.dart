@@ -9,6 +9,7 @@ import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class ProjectDetailArguments {
   final ProjectItemData data;
@@ -93,7 +94,6 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       navBarAnimationController: _controller,
       onLoadingAnimationDone: () {
         _controller.forward();
-        _coverTitleController.forward();
       },
       child: ListView(
         padding: EdgeInsets.zero,
@@ -119,7 +119,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                     children: [
                       AnimatedPositionedText(
                         controller: CurvedAnimation(
-                          parent: _coverTitleController,
+                          parent: _controller,
                           curve: Curves.fastOutSlowIn,
                         ),
                         text: projectDetails.data.title,
@@ -129,7 +129,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                       SpaceH20(),
                       AnimatedPositionedText(
                         controller: CurvedAnimation(
-                          parent: _coverTitleController,
+                          parent: _controller,
                           curve: Curves.fastOutSlowIn,
                         ),
                         text: projectDetails.data.subtitle,
@@ -143,13 +143,23 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             ),
           ),
           CustomSpacer(heightFactor: 0.15),
-          Padding(
-            padding: padding,
-            child: ContentArea(
-              width: aboutAreaContentWidth,
-              child: Aboutproject(
-                projectData: projectDetails.data,
+          VisibilityDetector(
+            key: Key('about-project'),
+            onVisibilityChanged: (visibilityInfo) {
+              double visiblePercentage = visibilityInfo.visibleFraction * 100;
+              if (visiblePercentage > 40) {
+                _coverTitleController.forward();
+              }
+            },
+            child: Padding(
+              padding: padding,
+              child: ContentArea(
                 width: aboutAreaContentWidth,
+                child: Aboutproject(
+                  projectData: projectDetails.data,
+                  controller: _coverTitleController,
+                  width: aboutAreaContentWidth,
+                ),
               ),
             ),
           ),
