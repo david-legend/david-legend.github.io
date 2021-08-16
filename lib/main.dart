@@ -35,11 +35,11 @@ class Aerium extends StatelessWidget {
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
         // initialRoute: HomePage.homePageRoute,
-        // initialRoute: WorksPage.worksPageRoute,
+        initialRoute: WorksPage.worksPageRoute,
         // initialRoute: AboutPage.aboutPageRoute,
         // initialRoute: ExperiencePage.experiencePageRoute,
         // initialRoute: ContactPage.contactPageRoute,
-        initialRoute: CertificationPage.certificationPageRoute,
+        // initialRoute: CertificationPage.certificationPageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
       ),
     );

@@ -120,19 +120,16 @@ class ImagePath {
       "$projectsDir/flutter_catalog/flutter_catalog_cover.png";
   static const String FLUTTER_CATALOG_SCREENS =
       "$projectsDir/flutter_catalog/screens.png";
+
   static const String FLUTTER_CATALOG_1 =
-      "$projectsDir/flutter_catalog/start.gif";
-  static const String FLUTTER_CATALOG_2 =
       "$projectsDir/flutter_catalog/typography.png";
-  static const String FLUTTER_CATALOG_3 =
-      "$projectsDir/flutter_catalog/main_app.png";
-  static const String FLUTTER_CATALOG_4 =
+  static const String FLUTTER_CATALOG_2 =
       "$projectsDir/flutter_catalog/onboarding.png";
-  static const String FLUTTER_CATALOG_5 =
+  static const String FLUTTER_CATALOG_3 =
       "$projectsDir/flutter_catalog/activities.png";
-  static const String FLUTTER_CATALOG_6 =
-      "$projectsDir/flutter_catalog/last.gif";
-  static const String FLUTTER_CATALOG_7 =
+  static const String FLUTTER_CATALOG_4 =
+      "$projectsDir/flutter_catalog/stats.png";
+  static const String FLUTTER_CATALOG_5 =
       "$projectsDir/flutter_catalog/thanks.png";
 
   // Login Catalog
