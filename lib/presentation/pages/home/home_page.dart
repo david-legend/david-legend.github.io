@@ -113,6 +113,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         _slideTextController.forward();
       },
       customLoadingAnimation: LoadingHomePageAnimation(
+        text:  StringConst.DEV_NAME,
+        style: textTheme.headline4!.copyWith(color: AppColors.white),
         onLoadingDone: () {
           _slideTextController.forward();
         },

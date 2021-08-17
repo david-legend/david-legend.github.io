@@ -1,11 +1,11 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/custom_spacer.dart';
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
-const double containerWidth = 180;
+const double lineHeight = 2;
 Color defaultLineColor = AppColors.accentColor2.withOpacity(0.35);
 
 class LoadingHomePageAnimation extends StatefulWidget {
@@ -13,9 +13,13 @@ class LoadingHomePageAnimation extends StatefulWidget {
 
   LoadingHomePageAnimation({
     Key? key,
+    required this.text,
+    required this.style,
     required this.onLoadingDone,
     this.lineColor,
   }) : super(key: key);
+  final String text;
+  final TextStyle? style;
   final VoidCallback onLoadingDone;
   final Color? lineColor;
 
@@ -40,10 +44,14 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
   bool _leftRightAnimationStarted = false;
   bool _leftRightAnimationDone = false;
   bool _isAnimationOver = false;
+  late Size size;
+  late double textWidth;
+  late double textHeight;
 
   @override
   void initState() {
     super.initState();
+    setTextWidthAndHeight();
     lineColor = widget.lineColor ?? defaultLineColor;
     _scaleOpacityController = AnimationController(
       vsync: this,
@@ -75,7 +83,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
         curve: Curves.easeIn,
       ),
     );
-    containerAnimation = Tween<double>(begin: 0, end: containerWidth).animate(
+    containerAnimation = Tween<double>(begin: 0, end: textWidth).animate(
       CurvedAnimation(
         parent: _containerController,
         curve: Curves.ease,
@@ -115,18 +123,25 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     super.dispose();
   }
 
+  void setTextWidthAndHeight() {
+    size = Functions.textSize(
+      text: widget.text,
+      style: widget.style,
+    );
+    textWidth = size.width;
+    textHeight = size.height;
+  }
+
   @override
   Widget build(BuildContext context) {
+    setTextWidthAndHeight();
     double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
     double halfHeightOfScreen = screenHeight / 2;
-    double widthFactorLg = 0.4;
-    double widthOfLeftLine = assignWidth(context, widthFactorLg);
-    double widthOfRightLine = screenWidth - (widthOfLeftLine + containerWidth);
-    double leftContainerStart = (screenWidth / 2) - (containerWidth / 2);
+    double widthOfLeftLine = assignWidth(context, 0.5) - (textWidth/2);
+    double widthOfRightLine = screenWidth - (widthOfLeftLine + textWidth);
+    double leftContainerStart = (screenWidth / 2) - (textWidth / 2);
 
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle style = textTheme.headline5!.copyWith(color: AppColors.white);
 
     return _isAnimationOver
         ? Empty()
@@ -162,27 +177,31 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
                     children: [
                       Row(
                         children: [
-                          CustomSpacer(widthFactor: widthFactorLg),
-                          FadeTransition(
-                            opacity: fadeAnimation,
-                            child: AnimatedBuilder(
-                              animation: _scaleOpacityController,
-                              child: Text(
-                                StringConst.DEV_NAME,
-                                style: style,
-                              ),
-                              builder: (context, child) => Transform.scale(
-                                scale: 2 * scaleAnimation.value,
-                                alignment: Alignment.center,
-                                child: AnimatedOpacity(
-                                  opacity: opacityAnimation.value,
-                                  child: child,
-                                  duration: _scaleDuration,
+                          Spacer(),
+                          Container(
+                            width: textWidth,
+                            child: FadeTransition(
+                              opacity: fadeAnimation,
+                              child: AnimatedBuilder(
+                                animation: _scaleOpacityController,
+                                child: Text(
+                                  widget.text,
+                                  textAlign: TextAlign.center,
+                                  style: widget.style,
+                                ),
+                                builder: (context, child) => Transform.scale(
+                                  scale: 2 * scaleAnimation.value,
+                                  alignment: Alignment.center,
+                                  child: AnimatedOpacity(
+                                    opacity: opacityAnimation.value,
+                                    child: child,
+                                    duration: _scaleDuration,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          CustomSpacer(widthFactor: widthFactorLg),
+                          Spacer(),
                         ],
                       ),
                       SpaceH20(),
@@ -195,7 +214,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
                               children: [
                                 Container(
                                   width: widthOfLeftLine,
-                                  height: 1,
+                                  height: lineHeight,
                                   color: lineColor,
                                 ),
                                 Positioned(
@@ -203,7 +222,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
                                     width: _leftRightAnimationStarted
                                         ? 0
                                         : leftContainerStart,
-                                    height: 1,
+                                    height: lineHeight,
                                     color: AppColors.black,
                                     duration: _leftRightContainerDuration,
                                     // curve: Curves.ease,
@@ -223,7 +242,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
                               children: [
                                 Container(
                                   width: widthOfRightLine,
-                                  height: 1,
+                                  height: lineHeight,
                                   color: lineColor,
                                 ),
                                 Positioned(
@@ -232,14 +251,10 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
                                     width: _leftRightAnimationStarted
                                         ? 0
                                         : widthOfRightLine,
-                                    height: 1,
+                                    height: lineHeight,
                                     color: AppColors.black,
                                     duration: _leftRightContainerDuration,
-                                    onEnd: () {
-                                      // Navigator.of(context)
-                                      //     .pushNamed(HomePage.homePageRoute);
-                                    },
-                                    // curve: Curves.ease,
+                                    onEnd: () {},
                                   ),
                                 ),
                               ],
@@ -263,7 +278,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     return AnimatedBuilder(
       animation: controller,
       builder: (context, child) => Container(
-        height: 1,
+        height: lineHeight,
         width: animation.value,
         color: color,
       ),

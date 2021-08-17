@@ -14,9 +14,9 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
+// TODO:: Perfect loading animation on home page
 // TODO:: Work on sending email from website -> convert email events to cubits
 // TODO:: Show link destination in bottom left corner
-// TODO:: Perfect loading animation on home page
 
 // Later
 // TODO:: Add proper text all over the site
@@ -37,8 +37,8 @@ class Aerium extends StatelessWidget {
         title: StringConst.APP_TITLE,
         theme: AppTheme.lightThemeData,
         debugShowCheckedModeBanner: false,
-        // initialRoute: HomePage.homePageRoute,
-        initialRoute: WorksPage.worksPageRoute,
+        initialRoute: HomePage.homePageRoute,
+        // initialRoute: WorksPage.worksPageRoute,
         // initialRoute: AboutPage.aboutPageRoute,
         // initialRoute: ExperiencePage.experiencePageRoute,
         // initialRoute: ContactPage.contactPageRoute,

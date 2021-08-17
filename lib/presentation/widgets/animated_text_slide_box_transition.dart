@@ -1,7 +1,7 @@
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/animated_slide_box.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
-
 
 class AnimatedTextSlideBoxTransition extends StatefulWidget {
   const AnimatedTextSlideBoxTransition({
@@ -14,7 +14,7 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
     this.widthFactor = 1,
     this.heightFactor = 1,
     this.visibleBoxAnimation,
-    this.invisibleBoxAnimation, 
+    this.invisibleBoxAnimation,
     this.position,
     this.textAlign,
     this.boxColor = AppColors.black,
@@ -105,8 +105,13 @@ class _AnimatedTextSlideBoxTransitionState
   }
 
   void setTextWidthAndHeight() {
-    size = _textSize(widget.text, widget.textStyle);
-    textWidth = size.width *  widget.widthFactor;
+    size = Functions.textSize(
+      text: widget.text,
+      style: widget.textStyle,
+      maxWidth: widget.width,
+      maxLines: widget.maxLines,
+    );
+    textWidth = size.width * widget.widthFactor;
     textHeight = size.height * widget.heightFactor;
   }
 
@@ -138,14 +143,5 @@ class _AnimatedTextSlideBoxTransitionState
         ],
       ),
     );
-  }
-
-  Size _textSize(String text, TextStyle? style) {
-    final TextPainter textPainter = TextPainter(
-        text: TextSpan(text: text, style: style),
-        maxLines: widget.maxLines,
-        textDirection: TextDirection.ltr)
-      ..layout(minWidth: 0, maxWidth: widget.width);
-    return textPainter.size;
   }
 }
