@@ -1,5 +1,6 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/about_project.dart';
+import 'package:aerium/presentation/pages/project_detail/widgets/next_project.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
@@ -105,7 +106,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       //   assignHeight(context, 0.3),
       // ),
     );
-    double aboutAreaContentWidth = responsiveSize(
+    double contentAreaWidth = responsiveSize(
       context,
       assignWidth(context, 0.60),
       assignWidth(context, 0.80),
@@ -189,16 +190,17 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             child: Padding(
               padding: padding,
               child: ContentArea(
-                width: aboutAreaContentWidth,
+                width: contentAreaWidth,
                 child: Aboutproject(
                   projectData: projectDetails.data,
                   controller: _aboutProjectController,
-                  width: aboutAreaContentWidth,
+                  width: contentAreaWidth,
                 ),
               ),
             ),
           ),
           CustomSpacer(heightFactor: 0.15),
+
           // ListView.builder(
           //   physics: NeverScrollableScrollPhysics(),
           //   shrinkWrap: true,
@@ -211,7 +213,19 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
           //     );
           //   },
           // ),
-          ..._buildProjectAlbum(projectDetails.data.projectAssets),
+          // ..._buildProjectAlbum(projectDetails.data.projectAssets),
+          CustomSpacer(heightFactor: 0.15),
+          Padding(
+            padding: padding,
+            child: ContentArea(
+              width: contentAreaWidth,
+              child: NextProject(
+                width: contentAreaWidth,
+                nextProject: projectDetails.data,
+              ),
+            ),
+          ),
+          CustomSpacer(heightFactor: 0.15),
           SimpleFooter(),
         ],
       ),

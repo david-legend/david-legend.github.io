@@ -97,6 +97,7 @@ class StringConst {
   static const String TECHNOLOGY_USED = "Technology Used";
   static const String LAUNCH_APP = "Launch App";
   static const String SOURCE_CODE = "Source Code";
+  static const String NEXT_PROJECT = "Next Project";
 
 
   static const String VIEW = "View";
