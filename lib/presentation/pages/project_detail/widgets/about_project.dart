@@ -117,7 +117,7 @@ class _AboutprojectState extends State<Aboutproject>
             width: projectDataWidth,
             child: Wrap(
               spacing: projectDataSpacing,
-              runSpacing: 0, // responsiveSize(context, 30, 40),
+              runSpacing: responsiveSize(context, 30, 40),
               children: [
                 ProjectData(
                   controller: projectDataController,

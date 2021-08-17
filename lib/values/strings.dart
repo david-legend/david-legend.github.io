@@ -440,6 +440,6 @@ class StringConst {
 
   //API
   static const String BASE_URL =
-      "portfolio-api-chi.vercel.app/api";
+      "https://portfolio-api-chi.vercel.app/api";
   static const String GET_IN_TOUCH_POINT = "/getintouch";
 }
