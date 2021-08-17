@@ -210,20 +210,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             ),
           ),
           CustomSpacer(heightFactor: 0.15),
-
-          // ListView.builder(
-          //   physics: NeverScrollableScrollPhysics(),
-          //   shrinkWrap: true,
-          //   itemCount: projectDetails.data.projectAssets.length,
-          //   itemBuilder: (context, index) {
-          //     return Image.asset(
-          //       projectDetails.data.projectAssets[index],
-          //       width: widthOfScreen(context),
-          //       fit: BoxFit.cover,
-          //     );
-          //   },
-          // ),
-          // ..._buildProjectAlbum(projectDetails.data.projectAssets),
+          ..._buildProjectAlbum(projectDetails.data.projectAssets),
           projectDetails.hasNextProject
               ? CustomSpacer(heightFactor: 0.15)
               : Empty(),
