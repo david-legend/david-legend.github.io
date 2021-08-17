@@ -2,6 +2,8 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/about_project.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
+import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
+import 'package:aerium/presentation/widgets/animated_wave.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
@@ -30,23 +32,43 @@ class ProjectDetailPage extends StatefulWidget {
 class _ProjectDetailPageState extends State<ProjectDetailPage>
     with TickerProviderStateMixin {
   late AnimationController _controller;
-  late AnimationController _coverTitleController;
-  final Duration duration = Duration(milliseconds: 2000);
-  final Duration coverTitleDuration = Duration(milliseconds: 1000);
+  late AnimationController _waveController;
+  late AnimationController _aboutProjectController;
   late ProjectDetailArguments projectDetails;
+  double waveLineHeight = 100;
 
   @override
   void initState() {
+    _waveController = AnimationController(
+      vsync: this,
+      duration: Animations.waveDuration,
+    )..repeat();
     _controller = AnimationController(
       vsync: this,
-      duration: duration,
+      duration: Animations.slideAnimationDurationLong,
     );
-    _coverTitleController = AnimationController(
+    _aboutProjectController = AnimationController(
       vsync: this,
-      duration: coverTitleDuration,
+      duration: Animations.slideAnimationDurationShort,
     );
 
+    _waveController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _waveController.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        _waveController.forward();
+      }
+    });
+    _waveController.forward();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _waveController.dispose();
+    _aboutProjectController.dispose();
+    _controller.dispose();
+    super.dispose();
   }
 
   ProjectDetailArguments getArguments() {
@@ -60,10 +82,12 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
     getArguments();
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? coverTitleStyle = textTheme.headline2?.copyWith(
-      color: projectDetails.data.primaryColor,
+      color: AppColors.white,
       fontSize: 40,
     );
-    TextStyle? coverSubtitleStyle = textTheme.bodyText1?.copyWith();
+    TextStyle? coverSubtitleStyle = textTheme.bodyText1?.copyWith(
+      color: AppColors.white,
+    );
     EdgeInsetsGeometry padding = EdgeInsets.only(
       left: responsiveSize(
         context,
@@ -112,33 +136,44 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                   width: widthOfScreen(context),
                   height: heightOfScreen(context),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      AnimatedPositionedText(
-                        controller: CurvedAnimation(
-                          parent: _controller,
-                          curve: Curves.fastOutSlowIn,
+                Container(
+                  margin: EdgeInsets.only(bottom: waveLineHeight + 40),
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AnimatedTextSlideBoxTransition(
+                          controller: _controller,
+                          widthFactor: 1.25,
+                          text: "${projectDetails.data.title}.",
+                          coverColor: projectDetails.data.primaryColor,
+                          textStyle: coverTitleStyle,
+                          textAlign: TextAlign.center,
                         ),
-                        text: projectDetails.data.title,
-                        textAlign: TextAlign.center,
-                        textStyle: coverTitleStyle,
-                      ),
-                      SpaceH20(),
-                      AnimatedPositionedText(
-                        controller: CurvedAnimation(
-                          parent: _controller,
-                          curve: Curves.fastOutSlowIn,
+                        SpaceH20(),
+                        AnimatedTextSlideBoxTransition(
+                          controller: _controller,
+                          widthFactor: 1.25,
+                          text: projectDetails.data.category,
+                          coverColor: projectDetails.data.primaryColor,
+                          textStyle: coverSubtitleStyle,
+                          textAlign: TextAlign.center,
                         ),
-                        text: projectDetails.data.subtitle,
-                        textAlign: TextAlign.center,
-                        textStyle: coverSubtitleStyle,
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 ),
+                Positioned(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: AnimatedWaveLine(
+                      height: waveLineHeight,
+                      controller: _waveController,
+                      color: projectDetails.data.primaryColor,
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -148,7 +183,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             onVisibilityChanged: (visibilityInfo) {
               double visiblePercentage = visibilityInfo.visibleFraction * 100;
               if (visiblePercentage > 40) {
-                _coverTitleController.forward();
+                _aboutProjectController.forward();
               }
             },
             child: Padding(
@@ -157,7 +192,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                 width: aboutAreaContentWidth,
                 child: Aboutproject(
                   projectData: projectDetails.data,
-                  controller: _coverTitleController,
+                  controller: _aboutProjectController,
                   width: aboutAreaContentWidth,
                 ),
               ),

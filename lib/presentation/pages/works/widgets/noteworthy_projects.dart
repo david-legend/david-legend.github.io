@@ -70,7 +70,7 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AnimatedTextSlideBoxTransition(
-              factor: 1.5,
+              heightFactor: 1.5,
               controller: _controller,
               text: StringConst.NOTE_WORTHY_PROJECTS,
               textStyle: titleStyle,

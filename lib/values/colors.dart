@@ -33,7 +33,7 @@ class AppColors {
   // Project Primary Colors
   static const Color nimbus = Color(0xFFF6C350);
   static const Color foodybite = Color(0xFF6B79F6);
-  static const Color flutter_catalog = Color(0xFFB779F6);
+  static const Color flutter_catalog = Color(0xFF5A458D);
   static const Color login_catalog = Color(0xFFC95089);
   static const Color roam = Color(0xFF2762CB);
   static const Color drop = Color(0xFF6A53A1);

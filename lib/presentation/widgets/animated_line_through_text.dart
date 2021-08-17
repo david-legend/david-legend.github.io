@@ -15,7 +15,8 @@ class AnimatedLineThroughText extends StatefulWidget {
     this.coverColor = AppColors.primaryColor,
     this.slideBoxColor = AppColors.black, this.slideBoxCoverColor = AppColors.primaryColor,
     this.onTap,
-    this.factor = 1,
+    this.heightFactor= 1,
+    this.widthFactor= 1,
     this.maxLines = 1,
     this.width = double.infinity,
     this.isUnderlinedOnHover = true,
@@ -37,7 +38,8 @@ class AnimatedLineThroughText extends StatefulWidget {
   final Color slideBoxColor;
   final Color slideBoxCoverColor;
   final double lineThickness;
-  final double factor;
+  final double heightFactor;
+  final double widthFactor;
   final TextStyle? textStyle;
   final TextStyle? onHoverTextStyle;
   final bool isUnderlinedOnHover;
@@ -147,7 +149,8 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
               widget.hasSlideBoxAnimation
                   ? AnimatedTextSlideBoxTransition(
                       controller: widget.controller!,
-                      factor: widget.factor,
+                      heightFactor: widget.heightFactor,
+                      widthFactor: widget.widthFactor,
                       text: widget.text,
                       maxLines: widget.maxLines,
                       width: widget.width,

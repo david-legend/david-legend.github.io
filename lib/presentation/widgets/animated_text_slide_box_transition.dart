@@ -11,7 +11,8 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
     required this.textStyle,
     this.width = double.infinity,
     this.maxLines = 1,
-    this.factor = 1,
+    this.widthFactor = 1,
+    this.heightFactor = 1,
     this.visibleBoxAnimation,
     this.invisibleBoxAnimation, 
     this.position,
@@ -24,7 +25,8 @@ class AnimatedTextSlideBoxTransition extends StatefulWidget {
   }) : super(key: key);
 
   final AnimationController controller;
-  final double factor;
+  final double heightFactor;
+  final double widthFactor;
   final Color boxColor;
   final Color coverColor;
   final Animation<double>? visibleBoxAnimation;
@@ -104,8 +106,8 @@ class _AnimatedTextSlideBoxTransitionState
 
   void setTextWidthAndHeight() {
     size = _textSize(widget.text, widget.textStyle);
-    textWidth = size.width;
-    textHeight = size.height * widget.factor;
+    textWidth = size.width *  widget.widthFactor;
+    textHeight = size.height * widget.heightFactor;
   }
 
   @override
