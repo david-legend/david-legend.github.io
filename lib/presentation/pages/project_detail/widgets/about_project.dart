@@ -2,6 +2,7 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
+import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
@@ -61,6 +62,7 @@ class _AboutprojectState extends State<Aboutproject>
 
   @override
   Widget build(BuildContext context) {
+    double googlePlayButtonWidth = 150;
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? bodyTextStyle = textTheme.bodyText1?.copyWith(
       fontSize: Sizes.TEXT_SIZE_18,
@@ -98,6 +100,7 @@ class _AboutprojectState extends State<Aboutproject>
           AnimatedTextSlideBoxTransition(
             controller: widget.controller,
             text: StringConst.ABOUT_PROJECT,
+            coverColor: AppColors.white,
             textStyle: textTheme.headline4?.copyWith(
               fontSize: Sizes.TEXT_SIZE_48,
             ),
@@ -144,7 +147,6 @@ class _AboutprojectState extends State<Aboutproject>
           widget.projectData.designer != null
               ? ProjectData(
                   controller: projectDataController,
-                  width: widthOfProjectItem,
                   title: StringConst.DESIGNER,
                   subtitle: widget.projectData.designer!,
                 )
@@ -153,7 +155,6 @@ class _AboutprojectState extends State<Aboutproject>
           widget.projectData.technologyUsed != null
               ? ProjectData(
                   controller: projectDataController,
-                  width: widthOfProjectItem,
                   title: StringConst.TECHNOLOGY_USED,
                   subtitle: widget.projectData.technologyUsed!,
                 )
@@ -162,29 +163,48 @@ class _AboutprojectState extends State<Aboutproject>
           Row(
             children: [
               widget.projectData.isLive
-                  ? AnimatedBubbleButton(
-                      title: StringConst.LAUNCH_APP,
-                      color: AppColors.grey100,
-                      imageColor: AppColors.black,
-                      // targetWidth: 200,
-                      startBorderRadius: borderRadius,
-                      titleStyle: buttonStyle,
-                      onTap: () {
-                        Functions.launchUrl(widget.projectData.webUrl);
-                      },
+                  ? AnimatedPositionedWidget(
+                      controller: CurvedAnimation(
+                        parent: projectDataController,
+                        curve: Animations.textSlideInCurve,
+                      ),
+                      width: 150,
+                      height: 50,
+                      child: AnimatedBubbleButton(
+                        title: StringConst.LAUNCH_APP,
+                        color: AppColors.grey100,
+                        imageColor: AppColors.black,
+                        startBorderRadius: borderRadius,
+                        titleStyle: buttonStyle,
+                        onTap: () {
+                          Functions.launchUrl(widget.projectData.webUrl);
+                        },
+                        startOffset: Offset(0, 0),
+                        targetOffset: Offset(0.1, 0),
+                      ),
                     )
                   : Empty(),
               widget.projectData.isLive ? Spacer() : Empty(),
               widget.projectData.isPublic
-                  ? AnimatedBubbleButton(
-                      title: StringConst.SOURCE_CODE,
-                      color: AppColors.grey100,
-                      imageColor: AppColors.black,
-                      startBorderRadius: borderRadius,
-                      titleStyle: buttonStyle,
-                      onTap: () {
-                        Functions.launchUrl(widget.projectData.gitHubUrl);
-                      },
+                  ? AnimatedPositionedWidget(
+                      controller: CurvedAnimation(
+                        parent: projectDataController,
+                        curve: Animations.textSlideInCurve,
+                      ),
+                      width: 150,
+                      height: 50,
+                      child: AnimatedBubbleButton(
+                        title: StringConst.SOURCE_CODE,
+                        color: AppColors.grey100,
+                        imageColor: AppColors.black,
+                        startBorderRadius: borderRadius,
+                        titleStyle: buttonStyle,
+                        startOffset: Offset(0, 0),
+                        targetOffset: Offset(0.1, 0),
+                        onTap: () {
+                          Functions.launchUrl(widget.projectData.gitHubUrl);
+                        },
+                      ),
                     )
                   : Empty(),
               widget.projectData.isPublic ? Spacer() : Empty(),
@@ -198,11 +218,18 @@ class _AboutprojectState extends State<Aboutproject>
                   onTap: () {
                     Functions.launchUrl(widget.projectData.playStoreUrl);
                   },
-                  child: Image.asset(
-                    ImagePath.GOOGLE_PLAY,
-                    width: responsiveSize(
-                        context, widget.width * 0.70, widget.width * 0.30),
-                    fit: BoxFit.fitHeight,
+                  child: AnimatedPositionedWidget(
+                    controller: CurvedAnimation(
+                      parent: projectDataController,
+                      curve: Animations.textSlideInCurve,
+                    ),
+                    width: googlePlayButtonWidth,
+                    height: 50,
+                    child: Image.asset(
+                      ImagePath.GOOGLE_PLAY,
+                      width: googlePlayButtonWidth,
+                      // fit: BoxFit.fitHeight,
+                    ),
                   ),
                 )
               : Empty(),
@@ -217,8 +244,8 @@ class ProjectData extends StatelessWidget {
     Key? key,
     required this.title,
     required this.subtitle,
-    required this.width,
     required this.controller,
+    this.width = double.infinity,
     this.titleStyle,
     this.subtitleStyle,
   }) : super(key: key);
@@ -250,6 +277,8 @@ class ProjectData extends StatelessWidget {
         children: [
           AnimatedTextSlideBoxTransition(
             width: width,
+            maxLines: 2,
+            coverColor: AppColors.white,
             controller: controller,
             text: title,
             textStyle: titleStyle ?? defaultTitleStyle,
@@ -257,6 +286,7 @@ class ProjectData extends StatelessWidget {
           SpaceH12(),
           AnimatedPositionedText(
             width: width,
+            maxLines: 2,
             controller: CurvedAnimation(
               parent: controller,
               curve: Animations.textSlideInCurve,

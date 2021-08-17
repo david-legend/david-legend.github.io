@@ -27,27 +27,17 @@ class EmailApiImpl implements EmailApi {
     required String subject,
     required String message,
   }) async {
-    // Map<String, dynamic> headers = {
-    //    "Content-Type": "application/json",
-    //       "Access-Control-Allow-Origin":
-    //           "*", // Required for CORS support to work
-    //       "Access-Control-Allow-Credentials":
-    //           true, // Required for cookies, authorization headers with HTTPS
-    //       "Access-Control-Allow-Headers":
-    //           "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
-    //       "Access-Control-Allow-Methods": "POST, OPTIONS"
-    // };
     try {
       final response = await client.post(
         Uri.parse(StringConst.BASE_URL + StringConst.GET_IN_TOUCH_POINT),
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin":
-              "*", // Required for CORS support to work
-          "Access-Control-Allow-Credentials":
-              "*", // Required for cookies, authorization headers with HTTPS
-          "Access-Control-Allow-Headers":
-              "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
+          // Required for CORS support to work
+          "Access-Control-Allow-Origin": "*",
+          // Required for cookies, authorization headers with HTTPS
+          "Access-Control-Allow-Credentials": "*",
+          // "Access-Control-Allow-Headers":
+          //     "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
           "Access-Control-Allow-Methods": "POST, OPTIONS"
         },
         body: jsonEncode({
