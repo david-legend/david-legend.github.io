@@ -3,7 +3,6 @@ import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/about_project.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/next_project.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/animated_wave.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';

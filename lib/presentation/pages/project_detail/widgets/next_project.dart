@@ -1,5 +1,4 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
@@ -7,7 +6,6 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../project_detail_page.dart';
 
 class NextProject extends StatefulWidget {
   const NextProject({

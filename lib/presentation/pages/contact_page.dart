@@ -1,14 +1,11 @@
 import 'package:aerium/core/utils/extensions.dart';
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/infrastructure/bloc/email_bloc.dart';
-import 'package:aerium/presentation/pages/widgets/nav_bar.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
 import 'package:aerium/presentation/widgets/aerium_button.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/aerium_text_form_field.dart';
-import 'package:aerium/presentation/widgets/animated_slide_box.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';

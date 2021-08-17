@@ -1,5 +1,4 @@
 import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
@@ -19,12 +18,7 @@ class AboutHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = textTheme.bodyText1?.copyWith(
-      fontSize: responsiveSize(context, 30, 46, md: 36),
-      height: 1.2,
-      fontWeight: FontWeight.w200,
-    );
+   
     double spacing = responsiveSize(
       context,
       width * 0.2,

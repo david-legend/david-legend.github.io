@@ -9,7 +9,6 @@ import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 List<String> titles = [
   StringConst.PLATFORM,

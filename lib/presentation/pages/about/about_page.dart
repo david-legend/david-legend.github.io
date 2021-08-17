@@ -32,18 +32,9 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
   late AnimationController _contactController;
   late AnimationController _technologyListController;
   late AnimationController _quoteController;
-  GlobalKey storySectionKey = GlobalKey();
-  GlobalKey technologySectionKey = GlobalKey();
-  GlobalKey contactSectionKey = GlobalKey();
-  late double storySectionHeight = 50;
-  late double technologySectionHeight = 50;
-  late double contactSectionHeight = 50;
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      _getHeightOfRoleLeaf();
-    });
     _controller = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
@@ -70,21 +61,6 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     );
 
     super.initState();
-  }
-
-  _getHeightOfRoleLeaf() {
-    final RenderBox storyRenderBox =
-        storySectionKey.currentContext!.findRenderObject() as RenderBox;
-    final RenderBox technologyRenderBox =
-        technologySectionKey.currentContext!.findRenderObject() as RenderBox;
-    final RenderBox contactRenderBox =
-        contactSectionKey.currentContext!.findRenderObject() as RenderBox;
-
-    setState(() {
-      storySectionHeight = storyRenderBox.size.height;
-      technologySectionHeight = technologyRenderBox.size.height;
-      contactSectionHeight = contactRenderBox.size.height;
-    });
   }
 
   @override
@@ -198,7 +174,6 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                       section: StringConst.ABOUT_DEV_STORY.toUpperCase(),
                       title: StringConst.ABOUT_DEV_STORY_TITLE,
                       body: Column(
-                        key: storySectionKey,
                         children: [
                           AnimatedPositionedText(
                             controller: _storySectionAnimation,
@@ -235,7 +210,6 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                       section: StringConst.ABOUT_DEV_TECHNOLOGY.toUpperCase(),
                       title: StringConst.ABOUT_DEV_TECHNOLOGY_TITLE,
                       body: Column(
-                        key: technologySectionKey,
                         children: [
                           AnimatedPositionedText(
                             controller: _technologySectionAnimation,
@@ -284,7 +258,6 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                       section: StringConst.ABOUT_DEV_CONTACT.toUpperCase(),
                       title: StringConst.ABOUT_DEV_CONTACT_SOCIAL,
                       body: Column(
-                        key: contactSectionKey,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SpaceH20(),

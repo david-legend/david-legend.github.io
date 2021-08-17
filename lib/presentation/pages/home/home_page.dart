@@ -39,7 +39,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   GlobalKey key = GlobalKey();
   ScrollController _scrollController = ScrollController();
-  late AnimationController _controller;
+  late AnimationController _viewProjectsController;
   late AnimationController _recentWorksController;
   late AnimationController _slideTextController;
   late NavigationArguments _arguments;
@@ -47,17 +47,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     _arguments = NavigationArguments();
-    _controller = AnimationController(
+    _viewProjectsController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 300),
     );
     _slideTextController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+      duration: Animations.slideAnimationDurationLong,
     );
     _recentWorksController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+      duration: Animations.slideAnimationDurationLong,
     );
     super.initState();
   }
@@ -72,12 +72,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     } else {
       _arguments = args as NavigationArguments;
     }
-
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _viewProjectsController.dispose();
     _slideTextController.dispose();
     _scrollController.dispose();
     super.dispose();
@@ -113,12 +112,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         _slideTextController.forward();
       },
       customLoadingAnimation: LoadingHomePageAnimation(
-        text:  StringConst.DEV_NAME,
+        text: StringConst.DEV_NAME,
         style: textTheme.headline4!.copyWith(color: AppColors.white),
         onLoadingDone: () {
           _slideTextController.forward();
         },
-      ), //_arguments.showUnVeilPageAnimation,
+      ),
       child: ListView(
         padding: EdgeInsets.zero,
         controller: _scrollController,
@@ -154,7 +153,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       height: 2.0,
                     ),
                   ),
-                 
                   SpaceH16(),
                   AnimatedPositionedText(
                     controller: CurvedAnimation(
@@ -172,7 +170,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                 
                 ],
               ),
             ),
@@ -220,10 +217,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 SpaceH16(),
                 MouseRegion(
-                  onEnter: (e) => _controller.forward(),
-                  onExit: (e) => _controller.reverse(),
+                  onEnter: (e) => _viewProjectsController.forward(),
+                  onExit: (e) => _viewProjectsController.reverse(),
                   child: AnimatedSlideTranstion(
-                    controller: _controller,
+                    controller: _viewProjectsController,
                     beginOffset: Offset(0, 0),
                     targetOffset: Offset(0.05, 0),
                     child: TextButton(
@@ -283,8 +280,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
-            onTap: (){
-               Functions.navigateToProject(
+            onTap: () {
+              Functions.navigateToProject(
                 context: context,
                 dataSource: data,
                 currentProject: data[index],
@@ -315,8 +312,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             title: data[index].title.toLowerCase(),
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
-            onTap: (){
-               Functions.navigateToProject(
+            onTap: () {
+              Functions.navigateToProject(
                 context: context,
                 dataSource: data,
                 currentProject: data[index],
@@ -326,11 +323,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ),
       );
-     items.add(CustomSpacer(heightFactor: 0.10,));
+      items.add(CustomSpacer(
+        heightFactor: 0.10,
+      ));
     }
     return items;
   }
-
-
-  
 }

@@ -1,13 +1,11 @@
 import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/works/widgets/noteworthy_projects.dart';
 import 'package:aerium/presentation/pages/widgets/page_header.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';

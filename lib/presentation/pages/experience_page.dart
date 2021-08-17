@@ -2,7 +2,6 @@ import 'package:aerium/core/layout/adaptive.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/widgets/page_header.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_slide_box.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/content_builder.dart';
@@ -96,7 +95,6 @@ class _ExperiencePageState extends State<ExperiencePage>
         assignHeight(context, 0.15),
       ),
     );
-   
 
     return PageWrapper(
       selectedRoute: ExperiencePage.experiencePageRoute,
@@ -147,14 +145,7 @@ class _ExperiencePageState extends State<ExperiencePage>
         Sizes.TEXT_SIZE_20,
       ),
     );
-    TextStyle? positionStyle = textTheme.bodyText1?.copyWith(
-      color: AppColors.grey600,
-      fontSize: responsiveSize(
-        context,
-        Sizes.TEXT_SIZE_14,
-        Sizes.TEXT_SIZE_18,
-      ),
-    );
+
     List<Widget> items = [];
 
     for (int index = 0; index < data.length; index++) {
