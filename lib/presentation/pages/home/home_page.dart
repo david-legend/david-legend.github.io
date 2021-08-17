@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
 import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
@@ -281,7 +282,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
             onTap: (){
-              navigateToProject(data[index]);
+               Functions.navigateToProject(
+                context: context,
+                dataSource: data,
+                currentProject: data[index],
+                currentProjectIndex: index,
+              );
             },
           ),
         ),
@@ -308,7 +314,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
             onTap: (){
-              navigateToProject(data[index]);
+               Functions.navigateToProject(
+                context: context,
+                dataSource: data,
+                currentProject: data[index],
+                currentProjectIndex: index,
+              );
             },
           ),
         ),
@@ -319,12 +330,5 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
 
-  void navigateToProject(ProjectItemData data) {
-    Navigator.of(context).pushNamed(
-      ProjectDetailPage.projectDetailPageRoute,
-      arguments: ProjectDetailArguments(
-        data: data,
-      ),
-    );
-  }
+  
 }

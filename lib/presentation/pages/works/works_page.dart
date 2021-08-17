@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/works/widgets/noteworthy_projects.dart';
@@ -127,7 +128,15 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
   }) {
     List<Widget> items = [];
     int margin = subHeight * (data.length - 1);
+    ProjectItemData? nextProject;
+    bool hasNextProject;
     for (int index = data.length - 1; index >= 0; index--) {
+      if ((index + 1) > (data.length - 1)) {
+        hasNextProject = false;
+      } else {
+        hasNextProject = true;
+        nextProject = data[index + 1];
+      }
       items.add(
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
@@ -141,7 +150,12 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
             onTap: () {
-              navigateToProject(data[index]);
+             Functions.navigateToProject(
+                context: context,
+                dataSource: data,
+                currentProject: data[index],
+                currentProjectIndex: index,
+              );
             },
           ),
         ),
@@ -157,7 +171,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
     required int subHeight,
   }) {
     List<Widget> items = [];
-
+   
     for (int index = 0; index < data.length; index++) {
       items.add(
         Container(
@@ -168,22 +182,23 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             subtitle: data[index].platform,
             containerColor: data[index].primaryColor,
             onTap: () {
-              navigateToProject(data[index]);
+              Functions.navigateToProject(
+                context: context,
+                dataSource: data,
+                currentProject: data[index],
+                currentProjectIndex: index,
+              );
+             
             },
           ),
         ),
       );
-      items.add(CustomSpacer(heightFactor: 0.10,));
+      items.add(CustomSpacer(
+        heightFactor: 0.10,
+      ));
     }
     return items;
   }
 
-  void navigateToProject(ProjectItemData data) {
-    Navigator.of(context).pushNamed(
-      ProjectDetailPage.projectDetailPageRoute,
-      arguments: ProjectDetailArguments(
-        data: data,
-      ),
-    );
-  }
+ 
 }

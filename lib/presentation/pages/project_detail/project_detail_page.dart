@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/about_project.dart';
 import 'package:aerium/presentation/pages/project_detail/widgets/next_project.dart';
 import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
@@ -7,6 +8,7 @@ import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.d
 import 'package:aerium/presentation/widgets/animated_wave.dart';
 import 'package:aerium/presentation/widgets/content_area.dart';
 import 'package:aerium/presentation/widgets/custom_spacer.dart';
+import 'package:aerium/presentation/widgets/empty.dart';
 import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
@@ -16,9 +18,17 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 class ProjectDetailArguments {
   final ProjectItemData data;
+  final List<ProjectItemData> dataSource;
+  final int currentIndex;
+  final ProjectItemData? nextProject;
+  final bool hasNextProject;
 
   ProjectDetailArguments({
+    required this.dataSource,
     required this.data,
+    required this.currentIndex,
+    required this.hasNextProject,
+    this.nextProject,
   });
 }
 
@@ -214,18 +224,32 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
           //   },
           // ),
           // ..._buildProjectAlbum(projectDetails.data.projectAssets),
-          CustomSpacer(heightFactor: 0.15),
-          Padding(
-            padding: padding,
-            child: ContentArea(
-              width: contentAreaWidth,
-              child: NextProject(
-                width: contentAreaWidth,
-                nextProject: projectDetails.data,
-              ),
-            ),
-          ),
-          CustomSpacer(heightFactor: 0.15),
+          projectDetails.hasNextProject
+              ? CustomSpacer(heightFactor: 0.15)
+              : Empty(),
+          projectDetails.hasNextProject
+              ? Padding(
+                  padding: padding,
+                  child: ContentArea(
+                    width: contentAreaWidth,
+                    child: NextProject(
+                      width: contentAreaWidth,
+                      nextProject: projectDetails.nextProject!,
+                      navigateToNextProject: () {
+                        Functions.navigateToProject(
+                          context: context,
+                          dataSource: projectDetails.dataSource,
+                          currentProject: projectDetails.nextProject!,
+                          currentProjectIndex: projectDetails.currentIndex + 1,
+                        );
+                      },
+                    ),
+                  ),
+                )
+              : Empty(),
+          projectDetails.hasNextProject
+              ? CustomSpacer(heightFactor: 0.15)
+              : Empty(),
           SimpleFooter(),
         ],
       ),

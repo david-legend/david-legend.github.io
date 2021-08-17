@@ -1,4 +1,5 @@
 import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
 import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
@@ -9,11 +10,16 @@ import 'package:responsive_builder/responsive_builder.dart';
 import '../project_detail_page.dart';
 
 class NextProject extends StatefulWidget {
-  const NextProject({Key? key, required this.width, required this.nextProject})
-      : super(key: key);
+  const NextProject({
+    Key? key,
+    required this.width,
+    required this.nextProject,
+    this.navigateToNextProject,
+  }) : super(key: key);
 
   final ProjectItemData nextProject;
   final double width;
+  final VoidCallback? navigateToNextProject;
 
   @override
   _NextProjectState createState() => _NextProjectState();
@@ -30,7 +36,7 @@ class _NextProjectState extends State<NextProject>
       vsync: this,
       duration: Animations.switcherDuration,
     );
-    scaleAnimation = Tween(begin: 0.85, end: 1.0).animate(
+    scaleAnimation = Tween(begin: 0.90, end: 1.0).animate(
       CurvedAnimation(
         parent: controller,
         curve: Curves.fastOutSlowIn,
@@ -126,7 +132,9 @@ class _NextProjectState extends State<NextProject>
                   startOffset: Offset(0, 0),
                   targetOffset: Offset(0.1, 0),
                   onTap: () {
-                    navigateToProject(widget.nextProject);
+                    if (widget.navigateToNextProject != null) {
+                      widget.navigateToNextProject!();
+                    }
                   },
                 ),
               ],
@@ -181,25 +189,25 @@ class _NextProjectState extends State<NextProject>
                                             style: projectTitleStyle,
                                           )
                                         : Stack(
-                                          children: [
-                                            Text(
-                                              widget.nextProject.title,
-                                              textAlign: TextAlign.center,
-                                              style: projectTitleStyle,
-                                            ),
-                                            Text(
-                                              widget.nextProject.title,
-                                              textAlign: TextAlign.center,
-                                              style: projectTitleStyle
-                                                  ?.copyWith(
-                                                color: AppColors.white,
-                                                fontSize:
-                                                    projectTitleFontSize -
-                                                        0.25,
+                                            children: [
+                                              Text(
+                                                widget.nextProject.title,
+                                                textAlign: TextAlign.center,
+                                                style: projectTitleStyle,
                                               ),
-                                            ),
-                                          ],
-                                        ),
+                                              Text(
+                                                widget.nextProject.title,
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    projectTitleStyle?.copyWith(
+                                                  color: AppColors.white,
+                                                  fontSize:
+                                                      projectTitleFontSize -
+                                                          0.25,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                   ),
                           ],
                         ),
@@ -214,7 +222,9 @@ class _NextProjectState extends State<NextProject>
                         startOffset: Offset(0, 0),
                         targetOffset: Offset(0.1, 0),
                         onTap: () {
-                          navigateToProject(widget.nextProject);
+                          if (widget.navigateToNextProject != null) {
+                            widget.navigateToNextProject!();
+                          }
                         },
                       ),
                     ],
@@ -246,12 +256,4 @@ class _NextProjectState extends State<NextProject>
     );
   }
 
-  void navigateToProject(ProjectItemData data) {
-    Navigator.of(context).pushNamed(
-      ProjectDetailPage.projectDetailPageRoute,
-      arguments: ProjectDetailArguments(
-        data: data,
-      ),
-    );
-  }
 }
