@@ -44,6 +44,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
   late AnimationController _controller;
   late AnimationController _waveController;
   late AnimationController _aboutProjectController;
+  late AnimationController _projectDataController;
   late ProjectDetailArguments projectDetails;
   double waveLineHeight = 100;
 
@@ -61,7 +62,6 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       vsync: this,
       duration: Animations.slideAnimationDurationShort,
     );
-
     _waveController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _waveController.reverse();
@@ -69,6 +69,10 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
         _waveController.forward();
       }
     });
+     _projectDataController = AnimationController(
+      vsync: this,
+      duration: Animations.slideAnimationDurationShort,
+    );
     _waveController.forward();
     super.initState();
   }
@@ -203,6 +207,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                 child: Aboutproject(
                   projectData: projectDetails.data,
                   controller: _aboutProjectController,
+                  projectDataController: _projectDataController,
                   width: contentAreaWidth,
                 ),
               ),

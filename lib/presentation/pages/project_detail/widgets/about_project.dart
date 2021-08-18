@@ -22,11 +22,13 @@ class Aboutproject extends StatefulWidget {
   const Aboutproject({
     Key? key,
     required this.controller,
+    required this.projectDataController,
     required this.projectData,
     required this.width,
   }) : super(key: key);
 
   final AnimationController controller;
+  final AnimationController projectDataController;
   final ProjectItemData projectData;
   final double width;
 
@@ -34,29 +36,16 @@ class Aboutproject extends StatefulWidget {
   _AboutprojectState createState() => _AboutprojectState();
 }
 
-class _AboutprojectState extends State<Aboutproject>
-    with SingleTickerProviderStateMixin {
-  late AnimationController projectDataController;
-
+class _AboutprojectState extends State<Aboutproject> {
   @override
   void initState() {
     super.initState();
-    projectDataController = AnimationController(
-      vsync: this,
-      duration: Animations.slideAnimationDurationShort,
-    );
 
     widget.controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        projectDataController.forward();
+        widget.projectDataController.forward();
       }
     });
-  }
-
-  @override
-  void dispose() {
-    projectDataController.dispose();
-    super.dispose();
   }
 
   @override
@@ -68,7 +57,6 @@ class _AboutprojectState extends State<Aboutproject>
       color: AppColors.grey750,
       fontWeight: FontWeight.w400,
       height: 2.0,
-      // letterSpacing: 2,
     );
     double projectDataWidth = responsiveSize(
       context,
@@ -111,6 +99,7 @@ class _AboutprojectState extends State<Aboutproject>
               curve: Animations.textSlideInCurve,
             ),
             width: widget.width,
+            maxLines: 5,
             text: widget.projectData.portfolioDescription,
             textStyle: bodyTextStyle,
           ),
@@ -122,19 +111,19 @@ class _AboutprojectState extends State<Aboutproject>
               runSpacing: responsiveSize(context, 30, 40),
               children: [
                 ProjectData(
-                  controller: projectDataController,
+                  controller: widget.projectDataController,
                   width: widthOfProjectItem,
                   title: StringConst.PLATFORM,
                   subtitle: widget.projectData.platform,
                 ),
                 ProjectData(
-                  controller: projectDataController,
+                  controller: widget.projectDataController,
                   width: widthOfProjectItem,
                   title: StringConst.CATEGORY,
                   subtitle: widget.projectData.category,
                 ),
                 ProjectData(
-                  controller: projectDataController,
+                  controller: widget.projectDataController,
                   width: widthOfProjectItem,
                   title: StringConst.AUTHOR,
                   subtitle: StringConst.DEV_NAME,
@@ -145,7 +134,7 @@ class _AboutprojectState extends State<Aboutproject>
           widget.projectData.designer != null ? SpaceH30() : Empty(),
           widget.projectData.designer != null
               ? ProjectData(
-                  controller: projectDataController,
+                  controller: widget.projectDataController,
                   title: StringConst.DESIGNER,
                   subtitle: widget.projectData.designer!,
                 )
@@ -153,7 +142,7 @@ class _AboutprojectState extends State<Aboutproject>
           widget.projectData.technologyUsed != null ? SpaceH30() : Empty(),
           widget.projectData.technologyUsed != null
               ? ProjectData(
-                  controller: projectDataController,
+                  controller: widget.projectDataController,
                   title: StringConst.TECHNOLOGY_USED,
                   subtitle: widget.projectData.technologyUsed!,
                 )
@@ -164,7 +153,7 @@ class _AboutprojectState extends State<Aboutproject>
               widget.projectData.isLive
                   ? AnimatedPositionedWidget(
                       controller: CurvedAnimation(
-                        parent: projectDataController,
+                        parent: widget.projectDataController,
                         curve: Animations.textSlideInCurve,
                       ),
                       width: 150,
@@ -187,7 +176,7 @@ class _AboutprojectState extends State<Aboutproject>
               widget.projectData.isPublic
                   ? AnimatedPositionedWidget(
                       controller: CurvedAnimation(
-                        parent: projectDataController,
+                        parent: widget.projectDataController,
                         curve: Animations.textSlideInCurve,
                       ),
                       width: 150,
@@ -219,7 +208,7 @@ class _AboutprojectState extends State<Aboutproject>
                   },
                   child: AnimatedPositionedWidget(
                     controller: CurvedAnimation(
-                      parent: projectDataController,
+                      parent: widget.projectDataController,
                       curve: Animations.textSlideInCurve,
                     ),
                     width: googlePlayButtonWidth,
