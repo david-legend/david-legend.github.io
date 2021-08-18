@@ -213,19 +213,7 @@ class Data {
     SkillData(skillLevel: 80, skillName: StringConst.HTML_CSS),
   ];
 
-  static List<SubMenuData> subMenuData = [
-    SubMenuData(
-      title: StringConst.KEY_SKILLS,
-      isSelected: true,
-      isAnimation: true,
-      skillData: skillData,
-    ),
-    SubMenuData(
-      title: StringConst.EDUCATION,
-      isSelected: false,
-      content: StringConst.EDUCATION_TEXT,
-    ),
-  ];
+
   static List<ProjectItemData> recentWorks = [
     Projects.FLUTTER_CATALOG,
     Projects.DROP,

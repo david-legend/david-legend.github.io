@@ -5,6 +5,7 @@ import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class SimpleFooter extends StatelessWidget {
@@ -96,6 +97,8 @@ class SimpleFooterSm extends StatelessWidget {
             ),
           ],
         ),
+        SpaceH8(),
+        BuiltWithFlutter(),
       ],
     );
   }
@@ -145,7 +148,42 @@ class SimpleFooterLg extends StatelessWidget {
             ),
           ],
         ),
-        
+        SpaceH8(),
+        BuiltWithFlutter(),
+      ],
+    );
+  }
+}
+
+class BuiltWithFlutter extends StatelessWidget {
+  const BuiltWithFlutter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? style = textTheme.bodyText1?.copyWith(
+      color: AppColors.accentColor,
+      fontSize: Sizes.TEXT_SIZE_14,
+    );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.baseline,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        Text(
+          StringConst.BUILT_WITH_FLUTTER,
+          style: style,
+        ),
+        FlutterLogo(size: 14),
+        Text(
+          " with ",
+          style: style,
+        ),
+        Icon(
+          FontAwesomeIcons.solidHeart,
+          size: 14,
+          color: AppColors.errorRed,
+        )
       ],
     );
   }

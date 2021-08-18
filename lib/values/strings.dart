@@ -67,9 +67,9 @@ class StringConst {
   static const String ABOUT_DEV_STORY_CONTENT_1 =
       "Hi! I'm David Cobbina, a passionate self taught software engineer 🤓  based in Ghana. I enjoy building high quality and performant applications that provides users with value and a rich experience. I love building things than live on the web and mobile.";
   static const String ABOUT_DEV_STORY_CONTENT_2 =
-      "I am currently pursuing my Masters in IT in Carnegie Mellon University (🎓 Graduating in December 2021) and also actively searching for new oppotunities.";
+      "I am currently pursuing my Masters in IT in Carnegie Mellon University (Graduating in December 2021) and also actively searching for new oppotunities.";
   static const String ABOUT_DEV_STORY_CONTENT_3 =
-      "I'm an avid reader 📖  and a problem solver 🤔  with a keen eye for details. Love travelling 🌍, FAN of poetry, music 🎶, documentaries📺  & TV Series 🎬.";
+      "I'm an avid reader and a problem solver with a keen eye for details. Love travelling, FAN of poetry, music, documentaries & TV Series.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String MOBILE_TECH = "Mobile Technologies";
   static const String OTHER_TECH = "Other Technologies";
@@ -84,7 +84,7 @@ class StringConst {
   static const String FAMOUS_QUOTE_AUTHOR = "Albert Einstein";
   static const String WORK_TOGETHER = "Let's work together.";
   static const String AVAILABLE_FOR_FREELANCE =
-      "I'm available for Consulting.";
+      "I'm available for Consultancy & Freelancing.";
   static const String SAY_HELLO = "Say Hello";
 
   // Works Page
@@ -107,7 +107,7 @@ class StringConst {
 
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
-  static const String BUILT_WITH = "Built with ";
+  static const String BUILT_WITH_FLUTTER = "Built using ";
   static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String EMAIL_URL = "mailto:<$DEV_EMAIL>?subject=&body=";
 
@@ -127,11 +127,7 @@ class StringConst {
   static const String DESIGNED_IN = "Made in Ghana with ";
   static const String BUILT_BY = "Built by David Cobbina ";
 
-  static const String ABOUT_DEV_TEXT =
-      "I'm a software engineer based in Ghana, specializing in building high quality mobile and web applications with a strong passion for opensource work. My goal is to always build pixel perfect high performant applications that provides users with a rich experience.";
-
-  static const String EDUCATION_TEXT =
-      "I am self taught programmer who graduated from Kwame Nkrumah Univeristy of Science Technology with a degree in Agricultural Engineering. I love learning and writing computer programs.";
+  
   //Form Hint Texts
   static const String NAME_HINT_TEXT = "Name";
   static const String PHONE_HINT_TEXT = "Phone (Optional)";
