@@ -20,20 +20,21 @@ class StringConst {
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
 
   // Home Page
-  static const String DEV_TITLE = "Software Engineer";
-  static const String DEV_DESC =
-      "Hi I'm David Cobbina, a passionate Mobile Engineer & Web Developer based in Ghana.";
+  static const String HI = "Hi,";
+  static const String DEV_INTRO = "I'm David.";
+  static const String DEV_TITLE = "Software Engineer.";
+  static const String DEV_DESC = "Full Stack Developer / Flutter Expert";
   static const String SEE_MY_WORKS = "See my works";
   static const String SCROLL_DOWN = "Scroll Down";
   static const String CRAFTED_WITH_LOVE = "Crafted with love.";
-  static const String SELECTION = "Here are selection of my recent works.";
+  static const String SELECTION = "Here is selection of my recent works.";
   static const String THERES_MORE = "There's more";
   static const String VIEW_ALL_PROJECTS = "view all projects";
 
   // Contact Page
   static const String GET_IN_TOUCH = "Get in touch.";
   static const String CONTACT_MSG =
-      "Do you fancy saying hi to me or you want to get started with your project and you need my help? Feel free to contact me.";
+      "Hey There ✌, Got a project, job offer or consulting work for me? Feel free to contact me ASAP.";
   static const String YOUR_NAME = "Your Name";
   static const String NAME_ERROR_MSG = "* Please enter your name";
   static const String YOUR_EMAIL = "Your Email";
@@ -52,32 +53,38 @@ class StringConst {
   static const String MESSAGE_ME = "Message me";
 
   // About Page
-  static const String ABOUT_DEV_CATCH_LINE = " I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
-  static const String ABOUT_DEV_CATCH_LINE_1 =
-      "I am a passionate front-end";
-  static const String ABOUT_DEV_CATCH_LINE_2 = "developer and ui/ux";
-  static const String ABOUT_DEV_CATCH_LINE_3 = "designer with a keen eye";
-  static const String ABOUT_DEV_CATCH_LINE_4 = " for details.";
+  static const String ABOUT_DEV_CATCH_LINE =
+      "I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
+  static const String ABOUT_DEV_CATCH_LINE_1 = "I specialize in building high";
+  static const String ABOUT_DEV_CATCH_LINE_2 =
+      "quality mobile & web applications.";
+  // static const String ABOUT_DEV_CATCH_LINE_3 = "& web applications";
+  static const String ABOUT_DEV_CATCH_LINE_4 = "I also have a strong";
+  static const String ABOUT_DEV_CATCH_LINE_5 = "passion for opensource work.";
   static const String ABOUT_DEV_STORY = "Story";
   static const String ABOUT_DEV_STORY_TITLE =
-      "A story of hardwork and persevearance.";
-  static const String ABOUT_DEV_STORY_CONTENT =
-      "Hi! I'm David Cobbina. I have a strong passion for design and technology. I specialize in Front End Development and UI/UX Design and my passion is all about building elegant and professional user interfaces and websites. I also do branding and identity design such as logo design, letterhead and business card, along with photo editing, image cropping and other graphic design services.";
+      "A little bit about myself.";
+  static const String ABOUT_DEV_STORY_CONTENT_1 =
+      "Hi! I'm David Cobbina, a passionate self taught software engineer 🤓  based in Ghana. I enjoy building high quality and performant applications that provides users with value and a rich experience. I love building things than live on the web and mobile.";
+  static const String ABOUT_DEV_STORY_CONTENT_2 =
+      "I am currently pursuing my Masters in IT in Carnegie Mellon University (🎓 Graduating in December 2021) and also actively searching for new oppotunities.";
+  static const String ABOUT_DEV_STORY_CONTENT_3 =
+      "I'm an avid reader 📖  and a problem solver 🤔  with a keen eye for details. Love travelling 🌍, FAN of poetry, music 🎶, documentaries📺  & TV Series 🎬.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String MOBILE_TECH = "Mobile Technologies";
   static const String OTHER_TECH = "Other Technologies";
   static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use.";
   static const String ABOUT_DEV_TECHNOLOGY_CONTENT =
-      "I use a number of tools that make design and development much easier. I usually use Adobe XD or Figma interchangeably for doing all the process that includes wireframing, prototyping and visual design. For wireframing alone, any graphic design tool can make the job done either it is low fidelity or high fidelity wireframe. For development/coding, I use different tools specific to the development of the application or website. Listed below are the tools and technologies that I use and I'm knowledgeable with.";
+      "I use a number of tools to aid my creative process when bringing things to life. When building designs and doing front-end work, I fiddle with Adobe XD and Figma interchangeably to get right specs and resources. For coding, I use different tools to get the job done. Listed below are the tools and technologies that I am most comfortable with.";
   static const String ABOUT_DEV_CONTACT = "Contact";
   static const String ABOUT_DEV_CONTACT_SOCIAL = "Social.";
   static const String ABOUT_DEV_CONTACT_EMAIL = "Email.";
   static const String FAMOUS_QUOTE =
-      "“Choose a job you love and you will never have to work a day in your life.”";
-  static const String FAMOUS_QUOTE_AUTHOR = "Confucius";
+      "“I have no special talents. I am only passionately curious.”";
+  static const String FAMOUS_QUOTE_AUTHOR = "Albert Einstein";
   static const String WORK_TOGETHER = "Let's work together.";
   static const String AVAILABLE_FOR_FREELANCE =
-      "I'm available for freelance work.";
+      "I'm available for Consulting.";
   static const String SAY_HELLO = "Say Hello";
 
   // Works Page
@@ -86,7 +93,6 @@ class StringConst {
   static const String NOTE_WORTHY_PROJECTS = "Other Noteworthy Projects.";
   static const String NOTE_WORTHY_PROJECTS_DESC =
       "Here are some projects worth mentioning. They are also available on my github repository";
-
 
   // Project Detail
   static const String ABOUT_PROJECT = "About Project";
@@ -98,7 +104,6 @@ class StringConst {
   static const String LAUNCH_APP = "Launch App";
   static const String SOURCE_CODE = "Source Code";
   static const String NEXT_PROJECT = "Next Project";
-
 
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
@@ -205,11 +210,11 @@ class StringConst {
   static const String COMPANY_2_URL = "https://shrinqghana.com/";
   static const String POSITION_2 = "Software Engineer";
   static const String COMPANY_2_ROLE_1 =
-      "Built a mobile app to track the status of all requested fibre broadband for Vodafone Ghana using Java Android";
+      "Built a mobile app to track the status of all requested fibre broadband for Vodafone Ghana using Java Android.";
   static const String COMPANY_2_ROLE_2 =
       "Worked on a team of 2 to build an ID verification application using Java Android.";
   static const String COMPANY_2_ROLE_3 =
-      "Developed and maintained code for in-house and client applications using primarily using HTML, CSS, JavaScript, PHP and Laravel";
+      "Developed and maintained code for in-house and client applications primarily using HTML, CSS, JavaScript, PHP and Laravel.";
   static const String LOCATION_2 = "Asylum Down - Accra";
   static const String DURATION_2 = "April 2018 - June 2019";
 
@@ -221,17 +226,17 @@ class StringConst {
   static const String COMPANY_3_ROLE_2 =
       "Architected and implemented a mobile application using flutter for the Palestinian Agriculture Advisory System which helps with data collection and equipping farmers with the right information.";
   static const String COMPANY_3_ROLE_3 =
-      "Modified existing software to correct errors, upgrade interfaces and improve performance";
+      "Modified existing software to correct errors, upgrade interfaces and improve performance.";
   static const String LOCATION_3 = "East Legon - Accra";
   static const String DURATION_3 = "August 2019 - April 2020";
 
-  static const String COMPANY_4 = "Freelancer";
+  static const String COMPANY_4 = "Consultant";
   static const String COMPANY_4_URL = SITE_URL;
   static const String POSITION_4 = "Software Engineer Consultant";
   static const String COMPANY_4_ROLE_1 =
       "Led a team of two engineers to build a research grid monitoring application for Hive Power in Switzerland using flutter.";
   static const String COMPANY_4_ROLE_2 =
-      "Technically reviewed code base of clients as a flutter consultant at Ex Machina in the UK";
+      "Technically reviewed flutter code base of clients as a consultant and suggested ways to improve it at Ex Machina in the UK.";
   static const String COMPANY_4_ROLE_3 =
       "Worked as a contractor for Shrinq Ghana Ltd. to build an insurance calculator for Milife Ghana.";
   static const String COMPANY_4_ROLE_4 =
@@ -245,7 +250,7 @@ class StringConst {
   static const String COMPANY_5_ROLE_1 =
       "Worked in a team of 4 mobile engineers and  2 designers to build a mobile application for making payments across 3 countries in Africa using flutter.";
   static const String COMPANY_5_ROLE_2 =
-      "Engineered and maintained major features of the Brij mobile application";
+      "Engineered and maintained major features of the Brij mobile application.";
   static const String COMPANY_5_ROLE_3 =
       "Interfaced with user experience designers and other developers to ensure thoughtful and coherent user experiences across brij’s iOS and Android mobile apps.";
 
@@ -266,7 +271,7 @@ class StringConst {
   static const String PORTFOLIO_SITE_V2_WEB_URL = "https://davidcobbina.com/";
 
   static const String DROP = "Drop";
-  static const String DROP_PLATFORM = "Mobile App.";
+  static const String DROP_PLATFORM = "Android / IOS.";
   static const String DROP_CATEGORY = "Ecommerce.";
   static const String DROP_DESIGNER = "Stepan Slobodiansky.";
   static const String DROP_SUBTITLE =
@@ -278,7 +283,7 @@ class StringConst {
       "https://play.google.com/store/apps/details?id=com.davidcobbina.drop";
 
   static const String NIMBUS = "Nimbus";
-  static const String NIMBUS_PLATFORM = "Progressive Web App.";
+  static const String NIMBUS_PLATFORM = "Web.";
   static const String NIMBUS_CATEGORY = "Portfolio / CV.";
   static const String NIMBUS_DESIGNER = "Web Genius Labs.";
   static const String NIMBUS_SUBTITLE =
@@ -290,7 +295,7 @@ class StringConst {
   static const String NIMBUS_WEB_URL = "https://david-legend.github.io/nimbus/";
 
   static const String ROAM = "Roam";
-  static const String ROAM_PLATFORM = "Mobile App.";
+  static const String ROAM_PLATFORM = "Android / IOS.";
   static const String ROAM_CATEGORY = "Travel.";
   static const String ROAM_DESIGNER = "Georgina Sekyi.";
   static const String ROAM_SUBTITLE =
@@ -302,7 +307,7 @@ class StringConst {
       "https://play.google.com/store/apps/details?id=com.davidcobbina.roam";
 
   static const String LOGIN_CATALOG = "Login Catalog";
-  static const String LOGIN_CATALOG_PLATFORM = "Mobile App.";
+  static const String LOGIN_CATALOG_PLATFORM = "Android / IOS.";
   static const String LOGIN_CATALOG_CATEGORY = "UI Kit.";
   static const String LOGIN_CATALOG_SUBTITLE =
       "A beautiful catalog of login designs";
@@ -314,7 +319,7 @@ class StringConst {
       "https://github.com/david-legend/login_catalog";
 
   static const String FOODY_BITE = "FoodyBite";
-  static const String FOODY_BITE_PLATFORM = "Mobile App.";
+  static const String FOODY_BITE_PLATFORM = "Android / IOS.";
   static const String FOODY_BITE_CATEGORY = "Food / Restaurant.";
   static const String FOODY_BITE_DESIGNER = "Yagnesh P.";
   static const String FOODY_BITE_SUBTITLE =
@@ -338,7 +343,7 @@ class StringConst {
       "https://pub.dev/packages/flutter_otp_text_field";
 
   static const String FLUTTER_CATALOG = "Flutter Catalog";
-  static const String FLUTTER_CATALOG_PLATFORM = "Mobile App.";
+  static const String FLUTTER_CATALOG_PLATFORM = "Android / IOS.";
   static const String FLUTTER_CATALOG_CATEGORY = "UI Kit.";
   static const String FLUTTER_CATALOG_SUBTITLE =
       "A beautiful cataalog of login designs";
@@ -350,7 +355,7 @@ class StringConst {
       "https://github.com/david-legend/flutter_catalog";
 
   static const String AERIUM = "Aerium";
-  static const String AERIUM_PLATFORM = "Flutter Web.";
+  static const String AERIUM_PLATFORM = "Web.";
   static const String AERIUM_CATEGORY = "Portfolio / CV.";
   static const String AERIUM_DESIGNER = "Pavel G.";
   static const String AERIUM_SUBTITLE =
@@ -362,7 +367,7 @@ class StringConst {
   static const String AERIUM_WEB_URL = "http://david-legend.github.io/aerium";
 
   static const String AERIUM_V2 = "Aerium V2 ";
-  static const String AERIUM_V2_PLATFORM = "Flutter Web.";
+  static const String AERIUM_V2_PLATFORM = "Web.";
   static const String AERIUM_V2_CATEGORY = "Portfolio / CV.";
   static const String AERIUM_V2_DESIGNER = "Julius G.";
   static const String AERIUM_V2_SUBTITLE =
@@ -374,7 +379,7 @@ class StringConst {
   static const String AERIUM_V2_WEB_URL = "https://davidcobbina.com/#/";
 
   static const String OUTFITR = "Outfitr";
-  static const String OUTFITR_PLATFORM = "Mobile App.";
+  static const String OUTFITR_PLATFORM = "Android / IOS.";
   static const String OUTFITR_CATEGORY = "Ecommerce.";
   static const String OUTFITR_SUBTITLE =
       "Design your fashion app faster and easier with Outfitr Fashion UI Kit.";
@@ -397,7 +402,7 @@ class StringConst {
   static const String PROGRAMMING_FOR_DATA_SCIENCE_DETAIL_WEB_URL = "";
 
   static const String FINOPP = "Finopp";
-  static const String FINOPP_PLATFORM = "Flutter.";
+  static const String FINOPP_PLATFORM = "Android / IOS.";
   static const String FINOPP_SUBTITLE =
       "Finopp - Financial Opportunities - Its an app that connects startups to Investors. I built this UI as a prototype to compete in the African app launchpad(http://techleaders.eg/aal/competition/).";
   static const String FINOPP_DETAIL =
@@ -417,7 +422,7 @@ class StringConst {
   static const String PYTHON_ALGORITHMS_DETAIL_WEB_URL = "";
 
   static const String AMOR_APP = "Amor";
-  static const String AMOR_APP_PLATFORM = "Flutter.";
+  static const String AMOR_APP_PLATFORM = "Web.";
   static const String AMOR_APP_SUBTITLE =
       "beautifully designed portfolio website built with flutter.";
   static const String AMOR_APP_DETAIL =
@@ -427,7 +432,7 @@ class StringConst {
   static const String AMOR_APP_WEB_URL = "https://david-legend.github.io/amor/";
 
   static const String ONBOARDING_APP = "Onboarding App.";
-  static const String ONBOARDING_APP_PLATFORM = "Flutter.";
+  static const String ONBOARDING_APP_PLATFORM = "Android / IOS.";
   static const String ONBOARDING_APP_SUBTITLE =
       "A beautifully crafted app that takes you through an onboarding experience.";
   static const String ONBOARDING_APP_DETAIL =
@@ -440,7 +445,6 @@ class StringConst {
   static const String VISUELT_PRO = "VisueltPro";
 
   //API
-  static const String BASE_URL =
-      "https://portfolio-api-chi.vercel.app/api";
+  static const String BASE_URL = "https://portfolio-api-chi.vercel.app/api";
   static const String GET_IN_TOUCH_POINT = "/getintouch";
 }

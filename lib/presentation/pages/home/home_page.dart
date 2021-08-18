@@ -278,7 +278,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             subheight: subHeight.toDouble(),
             backgroundColor: AppColors.accentColor2.withOpacity(0.35),
             title: data[index].title.toLowerCase(),
-            subtitle: data[index].platform,
+            subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
               Functions.navigateToProject(
@@ -310,7 +310,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
             title: data[index].title.toLowerCase(),
-            subtitle: data[index].platform,
+            subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
               Functions.navigateToProject(

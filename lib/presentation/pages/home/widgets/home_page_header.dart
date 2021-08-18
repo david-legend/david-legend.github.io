@@ -154,12 +154,12 @@ class _HomePageHeaderState extends State<HomePageHeader>
                           RotationTransition(
                             turns: rotationController,
                             child: Image.asset(
-                              ImagePath.DEV_SKILLS_7,
+                              ImagePath.DEV_SKILLS,
                               width: screenWidth,
                             ),
                           ),
                           Image.asset(
-                            ImagePath.DEV_MEDITATE_2,
+                            ImagePath.DEV_MEDITATE,
                             width: screenWidth,
                           ),
                         ],
@@ -203,12 +203,12 @@ class _HomePageHeaderState extends State<HomePageHeader>
                           RotationTransition(
                             turns: rotationController,
                             child: Image.asset(
-                              ImagePath.DEV_SKILLS_7,
+                              ImagePath.DEV_SKILLS,
                               width: screenWidth * 0.35,
                             ),
                           ),
                           Image.asset(
-                            ImagePath.DEV_MEDITATE_2,
+                            ImagePath.DEV_MEDITATE,
                             width: screenWidth * 0.35,
                           ),
                         ],
@@ -314,7 +314,37 @@ class _AboutDevState extends State<AboutDev> {
           margin: margin,
           child: AnimatedTextSlideBoxTransition(
             controller: widget.controller,
+            text: StringConst.HI,
+            width: widget.width,
+            maxLines: 3,
+            textStyle: textTheme.headline2?.copyWith(
+              color: AppColors.black,
+              fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+            ),
+          ),
+        ),
+        SpaceH12(),
+        Container(
+          margin: margin,
+          child: AnimatedTextSlideBoxTransition(
+            controller: widget.controller,
+            text: StringConst.DEV_INTRO,
+            width: widget.width,
+            maxLines: 3,
+            textStyle: textTheme.headline2?.copyWith(
+              color: AppColors.black,
+              fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+            ),
+          ),
+        ),
+        SpaceH12(),
+        Container(
+          margin: margin,
+          child: AnimatedTextSlideBoxTransition(
+            controller: widget.controller,
             text: StringConst.DEV_TITLE,
+            width: widget.width,
+            maxLines: 3,
             textStyle: textTheme.headline2?.copyWith(
               color: AppColors.black,
               fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),

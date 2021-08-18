@@ -191,7 +191,7 @@ class _ExperiencePageState extends State<ExperiencePage>
               children: _buildRoles(
                 roles: data[index].roles,
                 controller: _experienceControllers[index],
-                width: width,
+                width: width * 0.75,
               ),
             ),
           ),

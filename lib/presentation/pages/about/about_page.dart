@@ -179,14 +179,21 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                             controller: _storySectionAnimation,
                             width: widthOfBody,
                             maxLines: 5,
-                            text: StringConst.ABOUT_DEV_STORY_CONTENT,
+                            text: StringConst.ABOUT_DEV_STORY_CONTENT_1,
                             textStyle: bodyText1Style,
                           ),
                           AnimatedPositionedText(
                             controller: _storySectionAnimation,
                             width: widthOfBody,
                             maxLines: 5,
-                            text: StringConst.ABOUT_DEV_STORY_CONTENT,
+                            text: StringConst.ABOUT_DEV_STORY_CONTENT_2,
+                            textStyle: bodyText1Style,
+                          ),
+                           AnimatedPositionedText(
+                            controller: _storySectionAnimation,
+                            width: widthOfBody,
+                            maxLines: 5,
+                            text: StringConst.ABOUT_DEV_STORY_CONTENT_3,
                             textStyle: bodyText1Style,
                           ),
                         ],
@@ -306,7 +313,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                         AnimatedTextSlideBoxTransition(
                           controller: _quoteController,
                           text: StringConst.FAMOUS_QUOTE,
-                          maxLines: 3,
+                          maxLines: 5,
                           width: contentAreaWidth,
                           textAlign: TextAlign.center,
                           textStyle: titleStyle?.copyWith(

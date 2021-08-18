@@ -18,12 +18,11 @@ class AboutHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     double spacing = responsiveSize(
       context,
-      width * 0.2,
-      width * 0.2,
-      md: width * 0.1,
+      width * 0.15,
+      width * 0.15,
+      md: width * 0.05,
     );
     double imageWidthLg = responsiveSize(
       context,
@@ -57,10 +56,10 @@ class AboutHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ContentArea(
-                width: width * 0.5,
+                width: width * 0.55,
                 child: AboutDescription(
                   controller: controller,
-                  width: width * 0.5,
+                  width: width * 0.55,
                 ),
               ),
               SizedBox(
@@ -74,7 +73,7 @@ class AboutHeader extends StatelessWidget {
                     minWidth: imageWidthLg,
                     maxHeight: assignHeight(context, 0.55),
                   ),
-                  child: Image.asset(ImagePath.ABOUT_PORTRAIT_1),
+                  child: Image.asset(ImagePath.ABOUT_PORTRAIT),
                 ),
               ),
             ],
@@ -99,7 +98,7 @@ class AboutDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? style = textTheme.bodyText1?.copyWith(
-      fontSize: responsiveSize(context, 30, 46, md: 36),
+      fontSize: responsiveSize(context, 30, 44, md: 34),
       height: 1.2,
       fontWeight: FontWeight.w200,
     );
@@ -109,28 +108,39 @@ class AboutDescription extends StatelessWidget {
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_1,
-          
+          width: width,
+          maxLines: 2,
           textStyle: style,
         ),
         SpaceH8(),
         AnimatedTextSlideBoxTransition(
           controller: controller,
           text: StringConst.ABOUT_DEV_CATCH_LINE_2,
-         
+          width: width,
+          maxLines: 2,
+          textStyle: style,
+        ),
+        // SpaceH8(),
+        // AnimatedTextSlideBoxTransition(
+        //   controller: controller,
+        //   text: StringConst.ABOUT_DEV_CATCH_LINE_3,
+
+        //   textStyle: style,
+        // ),
+        SpaceH8(),
+        AnimatedTextSlideBoxTransition(
+          controller: controller,
+          text: StringConst.ABOUT_DEV_CATCH_LINE_4,
+          width: width,
+          maxLines: 2,
           textStyle: style,
         ),
         SpaceH8(),
         AnimatedTextSlideBoxTransition(
           controller: controller,
-          text: StringConst.ABOUT_DEV_CATCH_LINE_3,
-         
-          textStyle: style,
-        ),
-         SpaceH8(),
-        AnimatedTextSlideBoxTransition(
-          controller: controller,
-          text: StringConst.ABOUT_DEV_CATCH_LINE_4,
-         
+          text: StringConst.ABOUT_DEV_CATCH_LINE_5,
+          width: width,
+          maxLines: 2,
           textStyle: style,
         ),
       ],

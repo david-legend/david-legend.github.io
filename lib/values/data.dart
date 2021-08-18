@@ -1,5 +1,6 @@
 part of 'values.dart';
 
+
 class CertificationData {
   CertificationData({
     required this.title,
@@ -154,6 +155,8 @@ class Data {
     "SQL",
     "C++",
     "Firebase",
+    "Figma",
+    "Adobe XD",
   ];
   static List<SocialData> socialData1 = [
     SocialData(
@@ -374,6 +377,8 @@ class Data {
       duration: StringConst.DURATION_2,
     ),
   ];
+
+ 
 }
 
 class Projects {
@@ -489,7 +494,6 @@ class Projects {
       ImagePath.FOODY_BITE_HOME_FLOW,
       ImagePath.FOODY_BITE_REVIEW_FLOW,
       ImagePath.FOODY_BITE_TYPOGRAPHY,
-      ImagePath.FOODY_BITE_PROTOTYPING,
     ],
     portfolioDescription: StringConst.FOODY_BITE_DETAIL,
     isPublic: true,
@@ -544,7 +548,7 @@ class Projects {
     image: ImagePath.AERIUM,
     coverUrl: ImagePath.AERIUM,
     projectAssets: [
-      ImagePath.AERIUM_DESIGN_1,
+      ImagePath.AERIUM,
       ImagePath.AERIUM_DESIGN_2,
       ImagePath.AERIUM_DESIGN_3,
     ],
@@ -569,7 +573,6 @@ class Projects {
        ImagePath.AERIUM_V2_OVERALL,
        ImagePath.AERIUM_V2_FIRST,
        ImagePath.AERIUM_V2_TYPOGRAPHY,
-       ImagePath.AERIUM_V2_BODY,
        ImagePath.AERIUM_V2_LAST,
     ],
     isPublic: true,

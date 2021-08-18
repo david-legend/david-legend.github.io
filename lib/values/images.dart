@@ -33,20 +33,11 @@ class ImagePath {
   static const String ARROW_DOWN_IOS = "$imageDir/ios-down-arrow.png";
   static const String CAESAR = "$imageDir/ceasar-bust.png";
   static const String MEDITATION = "$imageDir/meditation.png";
-  static const String ABOUT_PORTRAIT_1 = "$imageDir/about_portrait_1.png";
-  static const String ABOUT_PORTRAIT_2 = "$imageDir/about_portrait_2.png";
+  static const String ABOUT_PORTRAIT = "$imageDir/about_portrait.png";
   static const String DEV_ABOUT = "$imageDir/dev-about.jpg";
-  static const String DEV_MEDITATE_1 = "$imageDir/dev_meditate_1.png";
-  static const String DEV_MEDITATE_2 = "$imageDir/dev_meditate_2.png";
-  static const String DEV_MEDITATE_3 = "$imageDir/dev_meditate_3.png";
-  static const String DEV_MEDITATE_4 = "$imageDir/dev_meditate_4.png";
+  static const String DEV_MEDITATE = "$imageDir/dev_meditate.png";
+  
   static const String DEV_SKILLS = "$imageDir/skills.png";
-  static const String DEV_SKILLS_2 = "$imageDir/skills_2.png";
-  static const String DEV_SKILLS_3 = "$imageDir/skills_3.png";
-  static const String DEV_SKILLS_4 = "$imageDir/skills_4.png";
-  static const String DEV_SKILLS_5 = "$imageDir/skills_5.png";
-  static const String DEV_SKILLS_6 = "$imageDir/skills_6.png";
-  static const String DEV_SKILLS_7 = "$imageDir/skills_7.png";
   static const String GOOGLE_PLAY = "$imageDir/google_play.png";
 
   // Certifications
@@ -74,8 +65,6 @@ class ImagePath {
       "$projectsDir/foodybite/foodybite_review_favorite_notifications_flow.png";
   static const String FOODY_BITE_TYPOGRAPHY =
       "$projectsDir/foodybite/foodybite_typography.png";
-  static const String FOODY_BITE_PROTOTYPING =
-      "$projectsDir/foodybite/foodybite_prototyping.png";
 
   // Portfolio Site V2
   static const String AERIUM_V2_COVER =
@@ -84,7 +73,6 @@ class ImagePath {
   static const String AERIUM_V2_FIRST = "$projectsDir/aerium-v2/first.jpg";
   static const String AERIUM_V2_TYPOGRAPHY =
       "$projectsDir/aerium-v2/typography.jpg";
-  static const String AERIUM_V2_BODY = "$projectsDir/aerium-v2/body.jpg";
   static const String AERIUM_V2_LAST = "$projectsDir/aerium-v2/last.jpg";
 
   // Drop
@@ -144,16 +132,11 @@ class ImagePath {
   // OTP Textfield Package
   static const String OTP_TEXTFIELD_COVER =
       "$projectsDir/otp_package/otp_cover.png";
-  static const String OTP_TEXTFIELD_1 =
-      "$projectsDir/otp_package/otp_textfield_style_1.gif";
-  static const String OTP_TEXTFIELD_2 =
-      "$projectsDir/otp_package/otp_textfield_style_2.gif";
 
   // Aerium
   static const String AERIUM_COVER =
       "$projectsDir/aerium-v1/portfolio_cover.png";
-  static const String AERIUM_DESIGN_1 =
-      "$projectsDir/aerium-v1/portfolio_design_1.png";
+  
   static const String AERIUM_DESIGN_2 =
       "$projectsDir/aerium-v1/portfolio_design_2.png";
   static const String AERIUM_DESIGN_3 =

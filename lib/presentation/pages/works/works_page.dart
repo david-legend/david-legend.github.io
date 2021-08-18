@@ -126,15 +126,9 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
   }) {
     List<Widget> items = [];
     int margin = subHeight * (data.length - 1);
-    ProjectItemData? nextProject;
-    bool hasNextProject;
+    
     for (int index = data.length - 1; index >= 0; index--) {
-      if ((index + 1) > (data.length - 1)) {
-        hasNextProject = false;
-      } else {
-        hasNextProject = true;
-        nextProject = data[index + 1];
-      }
+      
       items.add(
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
@@ -145,7 +139,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             subheight: subHeight.toDouble(),
             backgroundColor: AppColors.accentColor2.withOpacity(0.35),
             title: data[index].title.toLowerCase(),
-            subtitle: data[index].platform,
+            subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
              Functions.navigateToProject(
@@ -177,7 +171,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
             title: data[index].title.toLowerCase(),
-            subtitle: data[index].platform,
+            subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
               Functions.navigateToProject(
