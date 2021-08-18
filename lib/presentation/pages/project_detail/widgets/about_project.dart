@@ -66,7 +66,7 @@ class _AboutprojectState extends State<Aboutproject> {
     );
     double projectDataSpacing =
         responsiveSize(context, widget.width * 0.2, 48, md: 36);
-    double widthOfProjectItem = (projectDataWidth - (projectDataSpacing)) / 3;
+    double widthOfProjectItem = (projectDataWidth - (projectDataSpacing)) / 2;
     BorderRadiusGeometry borderRadius = BorderRadius.all(
       Radius.circular(100.0),
     );
