@@ -130,7 +130,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     );
     double widthOfBody = responsiveSize(
       context,
-      widthOfScreen(context),
+      assignWidth(context, 0.75),
       assignWidth(context, 0.5),
     );
     return PageWrapper(
