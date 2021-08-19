@@ -69,9 +69,9 @@ class StringConst {
   static const String ABOUT_DEV_STORY_CONTENT_1 =
       "Hi! I'm David Cobbina, a passionate self taught software engineer based in Ghana. I enjoy building high quality and performant applications that provides users with value and a rich experience. I love building things than live on the web and mobile.";
   static const String ABOUT_DEV_STORY_CONTENT_2 =
-      "I am currently pursuing my Masters in IT in Carnegie Mellon University (Graduating in December 2021) and also actively searching for new oppotunities.";
+      "I am currently pursuing my Masters in IT in Carnegie Mellon University (Graduating in December 2021) and also actively searching for new opportunities.";
   static const String ABOUT_DEV_STORY_CONTENT_3 =
-      "I'm an avid reader and a problem solver with a keen eye for details. Love travelling, FAN of poetry, music, documentaries & TV Series.";
+      "I'm an avid reader and a problem solver with a keen eye for details. Love travelling, fan of poetry, music, documentaries & TV Series.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String MOBILE_TECH = "Mobile Technologies";
   static const String OTHER_TECH = "Other Technologies";
