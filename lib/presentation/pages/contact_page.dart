@@ -163,6 +163,7 @@ class _ContactPageState extends State<ContactPage>
             setState(() {
               isSendingEmail = false;
             });
+            clearText();
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: AppColors.white,
@@ -351,5 +352,12 @@ class _ContactPageState extends State<ContactPage>
       _messageFilled = isValid;
       _messageHasError = !isValid;
     });
+  }
+
+  void clearText() {
+    _nameController.text = "";
+    _emailController.text = "";
+    _subjectController.text = "";
+    _messageController.text = "";
   }
 }
