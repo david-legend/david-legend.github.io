@@ -292,7 +292,7 @@ class _ContactPageState extends State<ContactPage>
                               Align(
                                 alignment: Alignment.topRight,
                                 child: AeriumButton(
-                                  height: Sizes.HEIGHT_50,
+                                  height: Sizes.HEIGHT_56,
                                   width: buttonWidth,
                                   isLoading: isSendingEmail,
                                   title: StringConst.SEND_MESSAGE.toUpperCase(),
