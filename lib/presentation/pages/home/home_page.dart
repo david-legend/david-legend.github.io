@@ -35,7 +35,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _viewProjectsController;
   late AnimationController _recentWorksController;
   late AnimationController _slideTextController;
-  late AnimationController _drawerController;
   late NavigationArguments _arguments;
 
   @override
@@ -53,12 +52,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Animations.slideAnimationDurationLong,
     );
-    _drawerController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 7000),
-    )..addListener(() {
-        setState(() {});
-      });
+   
     super.initState();
   }
 
@@ -109,7 +103,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       hasSideTitle: false,
       hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation,
       onLoadingAnimationDone: () {
-        _drawerController.forward();
         _slideTextController.forward();
       },
       customLoadingAnimation: LoadingHomePageAnimation(
@@ -126,9 +119,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
-          // AnimatedAppDrawer(
-          //   controller: _drawerController,
-          // ),
+          
           HomePageHeader(
             controller: _slideTextController,
             scrollToWorksKey: key,
