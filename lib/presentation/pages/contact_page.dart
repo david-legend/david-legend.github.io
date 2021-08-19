@@ -143,7 +143,7 @@ class _ContactPageState extends State<ContactPage>
             });
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                backgroundColor: AppColors.white,
+                backgroundColor: AppColors.errorRed,
                 content: Text(
                   StringConst.EMAIL_FAILED_RESPONSE,
                   textAlign: TextAlign.center,
