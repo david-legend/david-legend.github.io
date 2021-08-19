@@ -98,7 +98,7 @@ class _AboutprojectState extends State<Aboutproject> {
               parent: widget.controller,
               curve: Animations.textSlideInCurve,
             ),
-            width: widget.width,
+            width: widget.width * 0.8,
             maxLines: 10,
             text: widget.projectData.portfolioDescription,
             textStyle: bodyTextStyle,
