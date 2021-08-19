@@ -99,7 +99,7 @@ class _AboutprojectState extends State<Aboutproject> {
               curve: Animations.textSlideInCurve,
             ),
             width: widget.width,
-            maxLines: 5,
+            maxLines: 10,
             text: widget.projectData.portfolioDescription,
             textStyle: bodyTextStyle,
           ),
