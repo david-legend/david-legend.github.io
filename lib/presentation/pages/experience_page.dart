@@ -239,7 +239,7 @@ class _ExperiencePageState extends State<ExperiencePage>
               child: AnimatedPositionedText(
                 text: roles[index],
                 textStyle: bodyText1Style,
-                maxLines: 5,
+                maxLines: 7,
                 width: width,
                 controller: CurvedAnimation(
                   parent: controller,
@@ -251,7 +251,7 @@ class _ExperiencePageState extends State<ExperiencePage>
         ),
       );
 
-      items.add(SpaceH20());
+      items.add(SpaceH12());
     }
 
     return items;

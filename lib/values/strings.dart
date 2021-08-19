@@ -275,7 +275,7 @@ class StringConst {
   static const String DROP_SUBTITLE =
       "A beautiful ecommerce mobile application.";
   static const String DROP_DETAIL =
-      "Drop is an online store which provides users with a simple, smooth experience and enabling users to get their hands on the latest and newest drops. .";
+      "Drop is an online store which provides users with a simple, smooth experience and enabling users to get their hands on the latest and newest drops.";
   static const String DROP_GITHUB_URL = "https://github.com/david-legend/drop";
   static const String DROP_PLAYSTORE_URL =
       "https://play.google.com/store/apps/details?id=com.davidcobbina.drop";
@@ -299,7 +299,7 @@ class StringConst {
   static const String ROAM_SUBTITLE =
       "UI / UX Case study for a travel advisory app.";
   static const String ROAM_DETAIL =
-      "Roam is a UI / UX Case study for a travel advisory app done by Georgina Sekyi and built by me using flutter";
+      "Roam is a UI / UX Case study for a travel advisory app done by Georgina Sekyi and built by me using flutter.";
   static const String ROAM_GITHUB_URL = "https://github.com/david-legend/roam";
   static const String ROAM_PLAYSTORE_URL =
       "https://play.google.com/store/apps/details?id=com.davidcobbina.roam";
@@ -310,7 +310,7 @@ class StringConst {
   static const String LOGIN_CATALOG_SUBTITLE =
       "A beautiful catalog of login designs";
   static const String LOGIN_CATALOG_DETAIL =
-      "Login Catalog is a beautiful catalog of login designs built with flutter. The goal is to catalog as many as a 1000 different login/Signup designs to help flutter devs get right to the most important part of their app. Another reason behind the project is to show that flutter can be used to build beautiful and exquisite UI.";
+      "Login Catalog is a beautiful catalog of login designs built with flutter. The goal is to catalog as many as a 1000 different login/Signup designs to help flutter devs get right to the most important part of their app.";
   static const String LOGIN_CATALOG_PLAYSTORE_URL =
       "https://play.google.com/store/apps/details?id=dev.davidcobbina.logincatalog";
   static const String LOGIN_CATALOG_GITHUB_URL =
@@ -323,7 +323,7 @@ class StringConst {
   static const String FOODY_BITE_SUBTITLE =
       "A useful free ui kit design for food related apps";
   static const String FOODY_BITE_DETAIL =
-      "Foodybite is a free ui kit designed by Yagnesh Pipariya and built by David Cobbina. The goal of this project is to fast track development and inspire developers who want to build a food related app. FoodyBite was beautifully crafted with flutter. You can find the foodybite designs at https://www.behance.net/gallery/81858385/Foodybite-Free-UI-Kit-for-Adobe-XD";
+      "Foodybite is a free ui kit designed by Yagnesh Pipariya and built by David Cobbina. The goal of this project is to fast track development and inspire developers who want to build a food related app.";
   static const String FOODY_BITE_PLAYSTORE_URL = "";
   static const String FOODY_BITE_GITHUB_URL =
       "https://github.com/david-legend/foodybite";
@@ -346,7 +346,7 @@ class StringConst {
   static const String FLUTTER_CATALOG_SUBTITLE =
       "A beautiful cataalog of login designs";
   static const String FLUTTER_CATALOG_DETAIL =
-      "Flutter Catalog is a beautiful catalog of designs built with flutter. The goal is to catalog different components and building blocks of a mobile app to help flutter devs get right to the most important part of their app. Another reason behind the project is to show that flutter can be used to build beautiful and exquisite UI.";
+      "Flutter Catalog is a beautiful catalog of designs built with flutter. The goal is to catalog different components and building blocks of a mobile app to help flutter devs get right to the most important part of their app.";
   static const String FLUTTER_CATALOG_PLAYSTORE_URL =
       "https://play.google.com/store/apps/details?id=dev.davidcobbina.fluttercatalog";
   static const String FLUTTER_CATALOG_GITHUB_URL =
@@ -359,7 +359,7 @@ class StringConst {
   static const String AERIUM_SUBTITLE =
       "A progressive web app for showcasing your portfolio.";
   static const String AERIUM_DETAIL =
-      "As you can tell, you're currently on Aerium right now. Aerium is an elegant progressive web app built to help developers tell their story by showcasing their works and skills.";
+      "Aerium is the first iteration of my portfolio. Aerium is an elegant portfolio website built to help developers tell their story by showcasing their works and skills.";
   static const String AERIUM_GITHUB_URL =
       "https://github.com/david-legend/aerium";
   static const String AERIUM_WEB_URL = "http://david-legend.github.io/aerium";
@@ -371,7 +371,7 @@ class StringConst {
   static const String AERIUM_V2_SUBTITLE =
       "A progressive web app for showcasing your portfolio.";
   static const String AERIUM_V2_DETAIL =
-      "As you can tell, you're currently on aerium v2 right now. It is an elegant progressive web app built to help developers tell their story by showcasing their works and skills.";
+      "As you can tell, you're currently on Aerium v2 right now. It is the second iteration of my portfolio website. Aerium V2 is an elegant progressive website built to help developers tell their story by showcasing their works and skills.";
   static const String AERIUM_V2_GITHUB_URL =
       "https://github.com/david-legend/david-legend.github.io";
   static const String AERIUM_V2_WEB_URL = "https://davidcobbina.com/#/";
@@ -382,7 +382,7 @@ class StringConst {
   static const String OUTFITR_SUBTITLE =
       "Design your fashion app faster and easier with Outfitr Fashion UI Kit.";
   static const String OUTFITR_DETAIL =
-      "With over 30 unique screens, Outfitr UI Kit is a valuable resource for any developer or enterpreneur that wants to standout from the crowd";
+      "With over 30 unique screens, Outfitr UI Kit is a valuable resource for any developer or enterpreneur that wants to standout from the crowd.";
   static const String OUTFITR_GITHUB_URL =
       "https://github.com/david-legend/david-legend.github.io";
   static const String OUTFITR_WEB_URL = "https://davidcobbina.com/#/";

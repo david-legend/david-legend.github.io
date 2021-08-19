@@ -67,7 +67,7 @@ class ImagePath {
 
   // Portfolio Site V2
   static const String AERIUM_V2_COVER =
-      "$projectsDir/aerium-v2/aerium_v2_cover.jpg";
+      "$projectsDir/aerium-v2/aerium_v2_cover.png";
   static const String AERIUM_V2_OVERALL = "$projectsDir/aerium-v2/overall.jpg";
   static const String AERIUM_V2_FIRST = "$projectsDir/aerium-v2/first.jpg";
   static const String AERIUM_V2_TYPOGRAPHY =

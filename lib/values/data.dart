@@ -569,8 +569,8 @@ class Projects {
     designer: StringConst.AERIUM_V2_DESIGNER,
     primaryColor: AppColors.aerium_v1,
     platform: StringConst.AERIUM_V2_PLATFORM,
-    image: ImagePath.AERIUM_V2_COVER,
-    coverUrl: ImagePath.AERIUM_V2_COVER,
+    image: ImagePath.AERIUM_V2_LAST,
+    coverUrl: ImagePath.AERIUM_V2_LAST,
     portfolioDescription: StringConst.AERIUM_V2_DETAIL,
     projectAssets: [
       ImagePath.AERIUM_V2_OVERALL,

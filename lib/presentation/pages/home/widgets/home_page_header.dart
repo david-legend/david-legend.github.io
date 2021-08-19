@@ -115,8 +115,8 @@ class _HomePageHeaderState extends State<HomePageHeader>
       right: responsiveSize(
         context,
         20,
-        screenWidth * 0.10,
-        sm: screenWidth * 0.10,
+        screenWidth * 0.05,
+        sm: screenWidth * 0.05,
       ),
       top: responsiveSize(
         context,
@@ -127,7 +127,6 @@ class _HomePageHeaderState extends State<HomePageHeader>
       bottom: responsiveSize(context, 20, 40),
     );
 
-    
     return Container(
       width: screenWidth,
       color: AppColors.accentColor2.withOpacity(0.35),
@@ -188,10 +187,10 @@ class _HomePageHeaderState extends State<HomePageHeader>
                   Container(
                     margin: textMargin,
                     child: Container(
-                      width: screenWidth * 0.35,
+                      width: screenWidth * 0.40,
                       child: AboutDev(
                         controller: widget.controller,
-                        width: screenWidth * 0.35,
+                        width: screenWidth * 0.40,
                       ),
                     ),
                   ),
@@ -309,7 +308,7 @@ class _AboutDevState extends State<AboutDev> {
       parent: widget.controller,
       curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
     );
-
+    double headerFontSize = responsiveSize(context, 28, 48, md: 36, sm: 32);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -322,7 +321,7 @@ class _AboutDevState extends State<AboutDev> {
             maxLines: 3,
             textStyle: textTheme.headline2?.copyWith(
               color: AppColors.black,
-              fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+              fontSize: headerFontSize,
             ),
           ),
         ),
@@ -336,7 +335,7 @@ class _AboutDevState extends State<AboutDev> {
             maxLines: 3,
             textStyle: textTheme.headline2?.copyWith(
               color: AppColors.black,
-              fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+              fontSize: headerFontSize,
             ),
           ),
         ),
@@ -346,11 +345,17 @@ class _AboutDevState extends State<AboutDev> {
           child: AnimatedTextSlideBoxTransition(
             controller: widget.controller,
             text: StringConst.DEV_TITLE,
-            width: widget.width * 0.9,
-            maxLines: 4,
+            width: responsiveSize(
+              context,
+              widget.width * 0.75,
+              widget.width,
+              md: widget.width,
+              sm: widget.width,
+            ),
+            maxLines: 3,
             textStyle: textTheme.headline2?.copyWith(
               color: AppColors.black,
-              fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
+              fontSize: headerFontSize,
             ),
           ),
         ),
@@ -374,7 +379,6 @@ class _AboutDevState extends State<AboutDev> {
           ),
         ),
         SpaceH30(),
-        
         AnimatedPositionedWidget(
           controller: curvedAnimation,
           width: 200,
@@ -438,7 +442,6 @@ class _AboutDevState extends State<AboutDev> {
         AnimatedLineThroughText(
           text: data[index].name,
           isUnderlinedByDefault: true,
-          
           controller: widget.controller,
           hasSlideBoxAnimation: true,
           hasOffsetAnimation: true,

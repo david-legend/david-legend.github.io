@@ -158,7 +158,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                       children: [
                         AnimatedTextSlideBoxTransition(
                           controller: _controller,
-                          widthFactor: 1.25,
+                          widthFactor: 1.20,
                           text: "${projectDetails.data.title}.",
                           coverColor: projectDetails.data.primaryColor,
                           textStyle: coverTitleStyle,
@@ -167,7 +167,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                         SpaceH20(),
                         AnimatedTextSlideBoxTransition(
                           controller: _controller,
-                          widthFactor: 1.25,
+                          widthFactor: 1.20,
                           text: projectDetails.data.category,
                           coverColor: projectDetails.data.primaryColor,
                           textStyle: coverSubtitleStyle,

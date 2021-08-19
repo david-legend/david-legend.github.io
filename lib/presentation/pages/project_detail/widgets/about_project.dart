@@ -51,6 +51,8 @@ class _AboutprojectState extends State<Aboutproject> {
   @override
   Widget build(BuildContext context) {
     double googlePlayButtonWidth = 150;
+    double targetWidth = responsiveSize(context, 118, 150, md: 150);
+    double initialWidth = responsiveSize(context, 36, 50, md: 50);
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? bodyTextStyle = textTheme.bodyText1?.copyWith(
       fontSize: Sizes.TEXT_SIZE_18,
@@ -65,7 +67,7 @@ class _AboutprojectState extends State<Aboutproject> {
       md: widget.width * 0.75,
     );
     double projectDataSpacing =
-        responsiveSize(context, widget.width * 0.2, 48, md: 36);
+        responsiveSize(context, widget.width * 0.1, 48, md: 36);
     double widthOfProjectItem = (projectDataWidth - (projectDataSpacing)) / 2;
     BorderRadiusGeometry borderRadius = BorderRadius.all(
       Radius.circular(100.0),
@@ -98,12 +100,12 @@ class _AboutprojectState extends State<Aboutproject> {
               parent: widget.controller,
               curve: Animations.textSlideInCurve,
             ),
-            width: widget.width * 0.8,
+            width: widget.width * 0.7,
             maxLines: 10,
             text: widget.projectData.portfolioDescription,
             textStyle: bodyTextStyle,
           ),
-          SpaceH40(),
+          // SpaceH12(),
           Container(
             width: projectDataWidth,
             child: Wrap(
@@ -156,13 +158,16 @@ class _AboutprojectState extends State<Aboutproject> {
                         parent: widget.projectDataController,
                         curve: Animations.textSlideInCurve,
                       ),
-                      width: 150,
-                      height: 50,
+                       width: targetWidth,
+                      height: initialWidth,
                       child: AnimatedBubbleButton(
                         title: StringConst.LAUNCH_APP,
                         color: AppColors.grey100,
                         imageColor: AppColors.black,
                         startBorderRadius: borderRadius,
+                          startWidth: initialWidth,
+                        height: initialWidth,
+                        targetWidth: targetWidth,
                         titleStyle: buttonStyle,
                         onTap: () {
                           Functions.launchUrl(widget.projectData.webUrl);
@@ -179,13 +184,16 @@ class _AboutprojectState extends State<Aboutproject> {
                         parent: widget.projectDataController,
                         curve: Animations.textSlideInCurve,
                       ),
-                      width: 150,
-                      height: 50,
+                      width: targetWidth,
+                      height: initialWidth,
                       child: AnimatedBubbleButton(
                         title: StringConst.SOURCE_CODE,
                         color: AppColors.grey100,
                         imageColor: AppColors.black,
                         startBorderRadius: borderRadius,
+                        startWidth: initialWidth,
+                        height: initialWidth,
+                        targetWidth: targetWidth,
                         titleStyle: buttonStyle,
                         startOffset: Offset(0, 0),
                         targetOffset: Offset(0.1, 0),
