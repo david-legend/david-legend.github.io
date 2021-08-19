@@ -346,8 +346,8 @@ class _AboutDevState extends State<AboutDev> {
           child: AnimatedTextSlideBoxTransition(
             controller: widget.controller,
             text: StringConst.DEV_TITLE,
-            width: widget.width,
-            maxLines: 3,
+            width: widget.width * 0.8,
+            maxLines: 4,
             textStyle: textTheme.headline2?.copyWith(
               color: AppColors.black,
               fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),

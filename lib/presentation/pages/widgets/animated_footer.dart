@@ -112,6 +112,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
                   Center(
                     child: AnimatedPositionedText(
                       text: StringConst.WORK_TOGETHER,
+                     
                       textAlign: TextAlign.center,
                       textStyle: titleStyle,
                       controller: CurvedAnimation(
@@ -128,7 +129,7 @@ class _AnimatedFooterState extends State<AnimatedFooter>
               text: StringConst.AVAILABLE_FOR_FREELANCE,
               textAlign: TextAlign.center,
               textStyle: subtitleStyle,
-              factor: 1.6,
+              factor: 2.0,
               controller: CurvedAnimation(
                 parent: controller,
                 curve: Curves.fastOutSlowIn,
