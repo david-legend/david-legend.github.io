@@ -85,7 +85,10 @@ class _ContactPageState extends State<ContactPage>
         ),
       );
     } else {
-      print("NOTHING");
+      isNameValid( _nameController.text);
+      isEmailValid(_emailController.text);
+      isSubjectValid(_subjectController.text);
+      isMessageValid(_messageController.text);
     }
   }
 
