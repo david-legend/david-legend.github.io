@@ -25,9 +25,15 @@ class ProjectItemData {
     this.hasBeenReleased = true,
     this.playStoreUrl = "",
     this.webUrl = "",
+    this.navTitleColor = AppColors.grey600,
+    this.navSelectedTitleColor = AppColors.black,
+    this.appLogoColor = AppColors.black,
   });
 
   final Color primaryColor;
+  final Color navTitleColor;
+  final Color navSelectedTitleColor;
+  final Color appLogoColor;
   final String image;
   final String coverUrl;
   final String category;

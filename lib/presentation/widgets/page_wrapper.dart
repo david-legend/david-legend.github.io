@@ -31,6 +31,9 @@ class PageWrapper extends StatefulWidget {
     this.hasUnveilPageAnimation = true,
     this.reverseAnimationOnPop = true,
     this.backgroundColor,
+    this.navBarTitleColor = AppColors.grey600,
+    this.navBarSelectedTitleColor = AppColors.black,
+    this.appLogoColor = AppColors.black
   }) : super(key: key);
 
   final String selectedRoute;
@@ -43,6 +46,9 @@ class PageWrapper extends StatefulWidget {
   final bool hasUnveilPageAnimation;
   final bool reverseAnimationOnPop;
   final Color? backgroundColor;
+  final Color navBarTitleColor;
+  final Color navBarSelectedTitleColor;
+  final Color appLogoColor;
 
   @override
   _PageWrapperState createState() => _PageWrapperState();
@@ -65,7 +71,7 @@ class _PageWrapperState extends State<PageWrapper>
       vsync: this,
       duration: duration,
     );
-   
+
     if (widget.hasUnveilPageAnimation) {
       unveilPageSlideController.forward();
       unveilPageSlideController.addStatusListener((status) {
@@ -86,8 +92,6 @@ class _PageWrapperState extends State<PageWrapper>
     unveilPageSlideController.dispose();
     super.dispose();
   }
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +119,9 @@ class _PageWrapperState extends State<PageWrapper>
             controller: widget.navBarAnimationController,
             selectedRouteName: widget.selectedRoute,
             hasSideTitle: widget.hasSideTitle,
+            appLogoColor: widget.appLogoColor,
+            titleColor: widget.navBarTitleColor,
+            selectedTitleColor: widget.navBarSelectedTitleColor,
             onNavItemWebTap: (String route) {
               forwardSlideController.forward();
               forwardSlideController.addStatusListener((status) {

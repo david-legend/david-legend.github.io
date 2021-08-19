@@ -1,6 +1,5 @@
 part of 'values.dart';
 
-
 class CertificationData {
   CertificationData({
     required this.title,
@@ -213,7 +212,6 @@ class Data {
     SkillData(skillLevel: 80, skillName: StringConst.HTML_CSS),
   ];
 
-
   static List<ProjectItemData> recentWorks = [
     Projects.FLUTTER_CATALOG,
     Projects.DROP,
@@ -365,8 +363,6 @@ class Data {
       duration: StringConst.DURATION_2,
     ),
   ];
-
- 
 }
 
 class Projects {
@@ -376,7 +372,9 @@ class Projects {
     platform: StringConst.FLUTTER_CATALOG_PLATFORM,
     primaryColor: AppColors.flutter_catalog,
     image: ImagePath.FLUTTER_CATALOG_COVER,
-    coverUrl: ImagePath.FLUTTER_CATALOG_COVER, 
+    coverUrl: ImagePath.FLUTTER_CATALOG_COVER,
+    navSelectedTitleColor: AppColors.flutterCatalogSelectedNavTitle,
+    appLogoColor: AppColors.flutterCatalogAppLogo,
     projectAssets: [
       ImagePath.FLUTTER_CATALOG_SCREENS,
       ImagePath.FLUTTER_CATALOG_1,
@@ -402,6 +400,9 @@ class Projects {
     category: StringConst.DROP_CATEGORY,
     designer: StringConst.DROP_DESIGNER,
     coverUrl: ImagePath.DROP_COVER,
+    navTitleColor: AppColors.dropNavTitle,
+    navSelectedTitleColor: AppColors.dropSelectedNavTitle,
+    appLogoColor: AppColors.dropAppLogo,
     projectAssets: [
       ImagePath.DROP_DESC,
       ImagePath.DROP_FLOW_CHART,
@@ -427,6 +428,9 @@ class Projects {
     platform: StringConst.ROAM_PLATFORM,
     image: ImagePath.ROAM_COVER,
     coverUrl: ImagePath.ROAM_COVER,
+    navTitleColor: AppColors.roamNavTitle,
+    navSelectedTitleColor: AppColors.roamSelectedNavTitle,
+    appLogoColor: AppColors.roamAppLogo,
     projectAssets: [
       ImagePath.ROAM_OVERALL,
       ImagePath.ROAM_ONBOARDING,
@@ -454,12 +458,15 @@ class Projects {
     image: ImagePath.LOGIN_CATALOG_COVER,
     coverUrl: ImagePath.LOGIN_CATALOG_COVER,
     portfolioDescription: StringConst.LOGIN_CATALOG_DETAIL,
+    navTitleColor: AppColors.loginCatalogNavTitle,
+    navSelectedTitleColor: AppColors.loginCatalogSelectedNavTitle,
+    appLogoColor: AppColors.loginCatalogAppLogo,
     projectAssets: [
-       ImagePath.LOGIN_DESIGN_4,
-       ImagePath.LOGIN_DESIGN_5,
-       ImagePath.LOGIN_DESIGN_7,
-       ImagePath.LOGIN_DESIGN_8,
-       ImagePath.LOGIN_DESIGN_9,
+      ImagePath.LOGIN_DESIGN_4,
+      ImagePath.LOGIN_DESIGN_5,
+      ImagePath.LOGIN_DESIGN_7,
+      ImagePath.LOGIN_DESIGN_8,
+      ImagePath.LOGIN_DESIGN_9,
     ],
     isPublic: true,
     isOnPlayStore: true,
@@ -476,6 +483,9 @@ class Projects {
     platform: StringConst.FOODY_BITE_PLATFORM,
     image: ImagePath.FOODY_BITE_COVER,
     coverUrl: ImagePath.FOODY_BITE_COVER,
+    navTitleColor: AppColors.foodybiteNavTitle,
+    navSelectedTitleColor: AppColors.foodybiteSelectedNavTitle,
+    appLogoColor: AppColors.foodybiteAppLogo,
     projectAssets: [
       ImagePath.FOODY_BITE_HOME,
       ImagePath.FOODY_BITE_STARTING_FLOW,
@@ -499,6 +509,8 @@ class Projects {
     designer: StringConst.NIMBUS_DESIGNER,
     image: ImagePath.NIMBUS_COVER,
     coverUrl: ImagePath.NIMBUS_COVER,
+    navTitleColor: AppColors.nimbusNavTitle,
+    navSelectedTitleColor: AppColors.nimbusSelectedNavTitle,
     projectAssets: [
       ImagePath.NIMBUS,
     ],
@@ -519,7 +531,9 @@ class Projects {
     image: ImagePath.OTP_TEXTFIELD_COVER,
     coverUrl: ImagePath.OTP_TEXTFIELD_COVER,
     portfolioDescription: StringConst.OTP_TEXT_FIELD_DETAIL,
-   
+    navTitleColor: AppColors.otpPackageNavTitle,
+    navSelectedTitleColor: AppColors.otpPackageSelectedNavTitle,
+    appLogoColor: AppColors.otpPackageAppLogo,
     isPublic: true,
     isLive: true,
     technologyUsed: StringConst.FLUTTER,
@@ -535,6 +549,7 @@ class Projects {
     designer: StringConst.AERIUM_DESIGNER,
     image: ImagePath.AERIUM_COVER,
     coverUrl: ImagePath.AERIUM_COVER,
+    navTitleColor: AppColors.aeriumV1NavTitle,
     projectAssets: [
       ImagePath.AERIUM_COVER,
       ImagePath.AERIUM_DESIGN_2,
@@ -558,10 +573,10 @@ class Projects {
     coverUrl: ImagePath.AERIUM_V2_COVER,
     portfolioDescription: StringConst.AERIUM_V2_DETAIL,
     projectAssets: [
-       ImagePath.AERIUM_V2_OVERALL,
-       ImagePath.AERIUM_V2_FIRST,
-       ImagePath.AERIUM_V2_TYPOGRAPHY,
-       ImagePath.AERIUM_V2_LAST,
+      ImagePath.AERIUM_V2_OVERALL,
+      ImagePath.AERIUM_V2_FIRST,
+      ImagePath.AERIUM_V2_TYPOGRAPHY,
+      ImagePath.AERIUM_V2_LAST,
     ],
     isPublic: true,
     isLive: true,
@@ -578,6 +593,9 @@ class Projects {
     image: ImagePath.OUTFITR_COVER,
     coverUrl: ImagePath.OUTFITR_1,
     portfolioDescription: StringConst.OUTFITR_DETAIL,
+    navTitleColor: AppColors.outfitrNavTitle,
+    navSelectedTitleColor: AppColors.outfitrSelectedNavTitle,
+    appLogoColor: AppColors.outfitrAppLogo,
     projectAssets: [
       ImagePath.OUTFITR_2,
       ImagePath.OUTFITR_4,

@@ -113,11 +113,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
         assignWidth(context, 0.10),
         assignWidth(context, 0.25),
       ),
-      // top: responsiveSize(
-      //   context,
-      //   assignHeight(context, 0.25),
-      //   assignHeight(context, 0.3),
-      // ),
+     
     );
     double contentAreaWidth = responsiveSize(
       context,
@@ -130,6 +126,9 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       hasSideTitle: false,
       selectedPageName: StringConst.PROJECT,
       navBarAnimationController: _controller,
+      navBarTitleColor: projectDetails.data.navTitleColor,
+      navBarSelectedTitleColor: projectDetails.data.navSelectedTitleColor,
+      appLogoColor: projectDetails.data.appLogoColor,
       onLoadingAnimationDone: () {
         _controller.forward();
       },
