@@ -12,6 +12,7 @@ import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../injection_container.dart';
 
@@ -28,6 +29,7 @@ class _ContactPageState extends State<ContactPage>
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
   late EmailBloc emailBloc;
+  bool isSendingEmail = false;
   bool isBodyVisible = false;
   bool _nameFilled = false;
   bool _emailFilled = false;
@@ -66,15 +68,14 @@ class _ContactPageState extends State<ContactPage>
   }
 
   bool isFormValid() {
-    return _nameFilled &&
-        _subjectFilled &&
-        _messageFilled &&
-        _emailFilled;
+    return _nameFilled && _subjectFilled && _messageFilled && _emailFilled;
   }
 
   void sendEmail() {
     if (isFormValid()) {
-      print("submit form");
+      setState(() {
+        isSendingEmail = true;
+      });
       emailBloc.add(
         SendEmail(
           name: _nameController.text,
@@ -133,131 +134,181 @@ class _ContactPageState extends State<ContactPage>
       color: AppColors.black,
       fontSize: responsiveSize(context, 40, 60),
     );
-    return PageWrapper(
-      selectedRoute: ContactPage.contactPageRoute,
-      selectedPageName: StringConst.CONTACT,
-      navBarAnimationController: _controller,
-      onLoadingAnimationDone: () {
-        _controller.forward();
-      },
-      child: ListView(
-        padding: EdgeInsets.zero,
-        physics: const BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics(),
-        ),
-        children: [
-          Padding(
-            padding: padding,
-            child: ContentArea(
-              width: contentAreaWidth,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  AnimatedTextSlideBoxTransition(
-                    controller: _controller,
-                    text: StringConst.GET_IN_TOUCH,
-                    textStyle: headingStyle,
+    return BlocConsumer<EmailBloc, EmailState>(
+        bloc: emailBloc,
+        listener: (context, state) {
+          if (state == EmailState.failure()) {
+            setState(() {
+              isSendingEmail = false;
+            });
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: AppColors.white,
+                content: Text(
+                  StringConst.EMAIL_FAILED_RESPONSE,
+                  textAlign: TextAlign.center,
+                  style: textTheme.bodyText1?.copyWith(
+                    fontSize: Sizes.TEXT_SIZE_16,
+                    color: AppColors.black,
                   ),
-                  CustomSpacer(heightFactor: 0.05),
-                  AnimatedPositionedText(
+                ),
+                duration: Animations.emailSnackBarDuration,
+              ),
+            );
+          }
+          if (state == EmailState.emailSentSuccessFully()) {
+            setState(() {
+              isSendingEmail = false;
+            });
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: AppColors.white,
+                content: Text(
+                  StringConst.EMAIL_RESPONSE,
+                  textAlign: TextAlign.center,
+                  style: textTheme.bodyText1?.copyWith(
+                    fontSize: Sizes.TEXT_SIZE_16,
+                    color: AppColors.black,
+                  ),
+                ),
+                duration: Animations.emailSnackBarDuration,
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          return PageWrapper(
+            selectedRoute: ContactPage.contactPageRoute,
+            selectedPageName: StringConst.CONTACT,
+            navBarAnimationController: _controller,
+            onLoadingAnimationDone: () {
+              _controller.forward();
+            },
+            child: ListView(
+              padding: EdgeInsets.zero,
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              children: [
+                Padding(
+                  padding: padding,
+                  child: ContentArea(
                     width: contentAreaWidth,
-                    controller: CurvedAnimation(
-                      parent: _controller,
-                      curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
-                    ),
-                    text: StringConst.CONTACT_MSG,
-                    maxLines: 5,
-                    textStyle: textTheme.bodyText1?.copyWith(
-                      color: AppColors.grey700,
-                      height: 2.0,
-                      fontSize: responsiveSize(
-                        context,
-                        Sizes.TEXT_SIZE_16,
-                        Sizes.TEXT_SIZE_18,
-                      ),
-                    ),
-                  ),
-                  CustomSpacer(heightFactor: 0.05),
-                  SlideTransition(
-                    position: _slideAnimation,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        AeriumTextFormField(
-                          hasTitle: _nameHasError,
-                          title: StringConst.NAME_ERROR_MSG,
-                          titleStyle:
-                              _nameHasError ? errorStyle : initialErrorStyle,
-                          hintText: StringConst.YOUR_NAME,
-                          controller: _nameController,
-                          filled: _nameFilled,
-                          onChanged: (value) {
-                            isNameValid(value);
-                          },
+                        AnimatedTextSlideBoxTransition(
+                          controller: _controller,
+                          text: StringConst.GET_IN_TOUCH,
+                          textStyle: headingStyle,
                         ),
-                        SpaceH20(),
-                        AeriumTextFormField(
-                          hasTitle: _emailHasError,
-                          title: StringConst.EMAIL_ERROR_MSG,
-                          titleStyle:
-                              _emailHasError ? errorStyle : initialErrorStyle,
-                          hintText: StringConst.EMAIL,
-                          controller: _emailController,
-                          filled: _emailFilled,
-                          onChanged: (value) {
-                            isEmailValid(value);
-                          },
-                        ),
-                        SpaceH20(),
-                        AeriumTextFormField(
-                          hasTitle: _subjectHasError,
-                          title: StringConst.SUBJECT_ERROR_MSG,
-                          titleStyle:
-                              _subjectHasError ? errorStyle : initialErrorStyle,
-                          hintText: StringConst.SUBJECT,
-                          controller: _subjectController,
-                          filled: _subjectFilled,
-                          onChanged: (value) {
-                            isSubjectValid(value);
-                          },
-                        ),
-                        SpaceH20(),
-                        AeriumTextFormField(
-                          hasTitle: _messageHasError,
-                          title: StringConst.MESSAGE_ERROR_MSG,
-                          titleStyle:
-                              _messageHasError ? errorStyle : initialErrorStyle,
-                          hintText: StringConst.MESSAGE,
-                          controller: _messageController,
-                          filled: _messageFilled,
-                          textInputType: TextInputType.multiline,
-                          maxLines: 10,
-                          onChanged: (value) {
-                            isMessageValid(value);
-                          },
-                        ),
-                        SpaceH20(),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: AeriumButton(
-                            height: Sizes.HEIGHT_50,
-                            width: buttonWidth,
-                            title: StringConst.SEND_MESSAGE.toUpperCase(),
-                            onPressed: sendEmail,
+                        CustomSpacer(heightFactor: 0.05),
+                        AnimatedPositionedText(
+                          width: contentAreaWidth,
+                          controller: CurvedAnimation(
+                            parent: _controller,
+                            curve:
+                                Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
+                          ),
+                          text: StringConst.CONTACT_MSG,
+                          maxLines: 5,
+                          textStyle: textTheme.bodyText1?.copyWith(
+                            color: AppColors.grey700,
+                            height: 2.0,
+                            fontSize: responsiveSize(
+                              context,
+                              Sizes.TEXT_SIZE_16,
+                              Sizes.TEXT_SIZE_18,
+                            ),
                           ),
                         ),
+                        CustomSpacer(heightFactor: 0.05),
+                        SlideTransition(
+                          position: _slideAnimation,
+                          child: Column(
+                            children: [
+                              AeriumTextFormField(
+                                hasTitle: _nameHasError,
+                                title: StringConst.NAME_ERROR_MSG,
+                                titleStyle: _nameHasError
+                                    ? errorStyle
+                                    : initialErrorStyle,
+                                hintText: StringConst.YOUR_NAME,
+                                controller: _nameController,
+                                filled: _nameFilled,
+                                onChanged: (value) {
+                                  isNameValid(value);
+                                },
+                              ),
+                              SpaceH20(),
+                              AeriumTextFormField(
+                                hasTitle: _emailHasError,
+                                title: StringConst.EMAIL_ERROR_MSG,
+                                titleStyle: _emailHasError
+                                    ? errorStyle
+                                    : initialErrorStyle,
+                                hintText: StringConst.EMAIL,
+                                controller: _emailController,
+                                filled: _emailFilled,
+                                onChanged: (value) {
+                                  isEmailValid(value);
+                                },
+                              ),
+                              SpaceH20(),
+                              AeriumTextFormField(
+                                hasTitle: _subjectHasError,
+                                title: StringConst.SUBJECT_ERROR_MSG,
+                                titleStyle: _subjectHasError
+                                    ? errorStyle
+                                    : initialErrorStyle,
+                                hintText: StringConst.SUBJECT,
+                                controller: _subjectController,
+                                filled: _subjectFilled,
+                                onChanged: (value) {
+                                  isSubjectValid(value);
+                                },
+                              ),
+                              SpaceH20(),
+                              AeriumTextFormField(
+                                hasTitle: _messageHasError,
+                                title: StringConst.MESSAGE_ERROR_MSG,
+                                titleStyle: _messageHasError
+                                    ? errorStyle
+                                    : initialErrorStyle,
+                                hintText: StringConst.MESSAGE,
+                                controller: _messageController,
+                                filled: _messageFilled,
+                                textInputType: TextInputType.multiline,
+                                maxLines: 10,
+                                onChanged: (value) {
+                                  isMessageValid(value);
+                                },
+                              ),
+                              SpaceH20(),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: AeriumButton(
+                                  height: Sizes.HEIGHT_50,
+                                  width: buttonWidth,
+                                  isLoading: isSendingEmail,
+                                  title: StringConst.SEND_MESSAGE.toUpperCase(),
+                                  onPressed: sendEmail,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+                CustomSpacer(heightFactor: 0.15),
+                SimpleFooter(),
+              ],
             ),
-          ),
-          CustomSpacer(heightFactor: 0.15),
-          SimpleFooter(),
-        ],
-      ),
-    );
+          );
+        });
   }
 
   bool isTextValid(String value) {

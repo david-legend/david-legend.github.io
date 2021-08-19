@@ -40,7 +40,7 @@ class EmailBloc extends Bloc<EmailEvent, EmailState> {
           yield EmailState.failure();
         },
         (data) async* {
-          yield EmailState.emailSentSuccessFully(email: data);
+          yield EmailState.emailSentSuccessFully();
         },
       );
     }

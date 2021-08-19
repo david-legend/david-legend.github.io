@@ -7,12 +7,11 @@ import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
 // Priority
-// TODO:: Work on sending email from website
 // TODO:: Show link destination in bottom left corner
+// TODO:: App Drawer animations
+// TODO:: Work on sending email from website
 
-// Later
-// TODO:: Add proper text all over the site
-// TODO:: Make images smaller (reduce quality) and also drop some images to decrease download size
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

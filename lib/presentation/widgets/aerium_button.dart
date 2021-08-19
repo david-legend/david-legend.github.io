@@ -1,6 +1,7 @@
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AeriumButton extends StatefulWidget {
@@ -22,6 +23,7 @@ class AeriumButton extends StatefulWidget {
     this.duration = const Duration(milliseconds: 200),
     this.curve = Curves.fastOutSlowIn,
     this.buttonStyle,
+    this.isLoading = false,
   }) : super(key: key);
 
   final String title;
@@ -42,6 +44,7 @@ class AeriumButton extends StatefulWidget {
   final Duration duration;
   final Curve curve;
   final bool hasIcon;
+  final bool isLoading;
 
   @override
   _AeriumButtonState createState() => _AeriumButtonState();
@@ -167,11 +170,16 @@ class _AeriumButtonState extends State<AeriumButton>
           SpaceW8(),
           SlideTransition(
             position: _offsetAnimation,
-            child: Icon(
-              widget.iconData,
-              size: widget.iconSize,
-              color: _textAndIconColor.value,
-            ),
+            child: widget.isLoading
+                ? SpinKitWanderingCubes(
+                    color: _textAndIconColor.value,
+                    size: 16.0,
+                  )
+                : Icon(
+                    widget.iconData,
+                    size: widget.iconSize,
+                    color: _textAndIconColor.value,
+                  ),
           )
         ],
       ),

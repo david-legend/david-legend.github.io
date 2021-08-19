@@ -34,7 +34,7 @@ class StringConst {
   // Contact Page
   static const String GET_IN_TOUCH = "Get in touch.";
   static const String CONTACT_MSG =
-      "Hey There ✌, Got a project, job offer or consulting work for me? Feel free to contact me ASAP.";
+      "Hey There, Got a project, job offer or consulting work for me? Feel free to contact me ASAP.";
   static const String YOUR_NAME = "Your Name";
   static const String NAME_ERROR_MSG = "* Please enter your name";
   static const String YOUR_EMAIL = "Your Email";
@@ -51,6 +51,8 @@ class StringConst {
   static const String DESIGN_LINK =
       "https://www.behance.net/gallery/63574251/Personal-Portfolio-Website-Design";
   static const String MESSAGE_ME = "Message me";
+  static const String EMAIL_RESPONSE = "Thanks for reaching out to me! I will get back to you ASAP";
+  static const String EMAIL_FAILED_RESPONSE = "Something went wrong. Please send me an email manually - ${StringConst.DEV_EMAIL}";
 
   // About Page
   static const String ABOUT_DEV_CATCH_LINE =
@@ -65,7 +67,7 @@ class StringConst {
   static const String ABOUT_DEV_STORY_TITLE =
       "A little bit about myself.";
   static const String ABOUT_DEV_STORY_CONTENT_1 =
-      "Hi! I'm David Cobbina, a passionate self taught software engineer 🤓  based in Ghana. I enjoy building high quality and performant applications that provides users with value and a rich experience. I love building things than live on the web and mobile.";
+      "Hi! I'm David Cobbina, a passionate self taught software engineer based in Ghana. I enjoy building high quality and performant applications that provides users with value and a rich experience. I love building things than live on the web and mobile.";
   static const String ABOUT_DEV_STORY_CONTENT_2 =
       "I am currently pursuing my Masters in IT in Carnegie Mellon University (Graduating in December 2021) and also actively searching for new oppotunities.";
   static const String ABOUT_DEV_STORY_CONTENT_3 =

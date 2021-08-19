@@ -20,7 +20,6 @@ class ImagePath {
   static const String OTP_TEXT_FIELD = "$imageDir/otp_package.jpg";
   static const String FINOPP = "$imageDir/finopp.jpg";
   static const String BEQUIP_LOGISTICS = "$imageDir/bequip_logistics.jpg";
-  static const String AERIUM = "$imageDir/aerium.jpg";
   static const String LEARN_UPP = "$imageDir/learn_upp.jpg";
   static const String WORKS = "$imageDir/works.png";
 

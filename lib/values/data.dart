@@ -533,10 +533,10 @@ class Projects {
     platform: StringConst.AERIUM_PLATFORM,
     category: StringConst.AERIUM_CATEGORY,
     designer: StringConst.AERIUM_DESIGNER,
-    image: ImagePath.AERIUM,
-    coverUrl: ImagePath.AERIUM,
+    image: ImagePath.AERIUM_COVER,
+    coverUrl: ImagePath.AERIUM_COVER,
     projectAssets: [
-      ImagePath.AERIUM,
+      ImagePath.AERIUM_COVER,
       ImagePath.AERIUM_DESIGN_2,
       ImagePath.AERIUM_DESIGN_3,
     ],

@@ -12,6 +12,7 @@ import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.d
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 const kDuration = Duration(milliseconds: 600);
@@ -125,6 +126,8 @@ class _HomePageHeaderState extends State<HomePageHeader>
       ),
       bottom: responsiveSize(context, 20, 40),
     );
+
+    
     return Container(
       width: screenWidth,
       color: AppColors.accentColor2.withOpacity(0.35),
@@ -371,6 +374,7 @@ class _AboutDevState extends State<AboutDev> {
           ),
         ),
         SpaceH30(),
+        
         AnimatedPositionedWidget(
           controller: curvedAnimation,
           width: 200,

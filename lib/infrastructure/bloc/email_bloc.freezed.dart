@@ -292,10 +292,8 @@ class _$EmailStateTearOff {
     return const Failure();
   }
 
-  EmailSentSuccessFully emailSentSuccessFully({required Email email}) {
-    return EmailSentSuccessFully(
-      email: email,
-    );
+  EmailSentSuccessFully emailSentSuccessFully() {
+    return const EmailSentSuccessFully();
   }
 }
 
@@ -309,7 +307,7 @@ mixin _$EmailState {
     required TResult Function() initial,
     required TResult Function() sendingEmail,
     required TResult Function() failure,
-    required TResult Function(Email email) emailSentSuccessFully,
+    required TResult Function() emailSentSuccessFully,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -317,7 +315,7 @@ mixin _$EmailState {
     TResult Function()? initial,
     TResult Function()? sendingEmail,
     TResult Function()? failure,
-    TResult Function(Email email)? emailSentSuccessFully,
+    TResult Function()? emailSentSuccessFully,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -397,7 +395,7 @@ class _$Initial implements Initial {
     required TResult Function() initial,
     required TResult Function() sendingEmail,
     required TResult Function() failure,
-    required TResult Function(Email email) emailSentSuccessFully,
+    required TResult Function() emailSentSuccessFully,
   }) {
     return initial();
   }
@@ -408,7 +406,7 @@ class _$Initial implements Initial {
     TResult Function()? initial,
     TResult Function()? sendingEmail,
     TResult Function()? failure,
-    TResult Function(Email email)? emailSentSuccessFully,
+    TResult Function()? emailSentSuccessFully,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -491,7 +489,7 @@ class _$SendingEmail implements SendingEmail {
     required TResult Function() initial,
     required TResult Function() sendingEmail,
     required TResult Function() failure,
-    required TResult Function(Email email) emailSentSuccessFully,
+    required TResult Function() emailSentSuccessFully,
   }) {
     return sendingEmail();
   }
@@ -502,7 +500,7 @@ class _$SendingEmail implements SendingEmail {
     TResult Function()? initial,
     TResult Function()? sendingEmail,
     TResult Function()? failure,
-    TResult Function(Email email)? emailSentSuccessFully,
+    TResult Function()? emailSentSuccessFully,
     required TResult orElse(),
   }) {
     if (sendingEmail != null) {
@@ -583,7 +581,7 @@ class _$Failure implements Failure {
     required TResult Function() initial,
     required TResult Function() sendingEmail,
     required TResult Function() failure,
-    required TResult Function(Email email) emailSentSuccessFully,
+    required TResult Function() emailSentSuccessFully,
   }) {
     return failure();
   }
@@ -594,7 +592,7 @@ class _$Failure implements Failure {
     TResult Function()? initial,
     TResult Function()? sendingEmail,
     TResult Function()? failure,
-    TResult Function(Email email)? emailSentSuccessFully,
+    TResult Function()? emailSentSuccessFully,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -640,7 +638,6 @@ abstract class $EmailSentSuccessFullyCopyWith<$Res> {
   factory $EmailSentSuccessFullyCopyWith(EmailSentSuccessFully value,
           $Res Function(EmailSentSuccessFully) then) =
       _$EmailSentSuccessFullyCopyWithImpl<$Res>;
-  $Res call({Email email});
 }
 
 /// @nodoc
@@ -653,50 +650,25 @@ class _$EmailSentSuccessFullyCopyWithImpl<$Res>
 
   @override
   EmailSentSuccessFully get _value => super._value as EmailSentSuccessFully;
-
-  @override
-  $Res call({
-    Object? email = freezed,
-  }) {
-    return _then(EmailSentSuccessFully(
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as Email,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$EmailSentSuccessFully implements EmailSentSuccessFully {
-  const _$EmailSentSuccessFully({required this.email});
-
-  @override
-  final Email email;
+  const _$EmailSentSuccessFully();
 
   @override
   String toString() {
-    return 'EmailState.emailSentSuccessFully(email: $email)';
+    return 'EmailState.emailSentSuccessFully()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is EmailSentSuccessFully &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+    return identical(this, other) || (other is EmailSentSuccessFully);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
-
-  @JsonKey(ignore: true)
-  @override
-  $EmailSentSuccessFullyCopyWith<EmailSentSuccessFully> get copyWith =>
-      _$EmailSentSuccessFullyCopyWithImpl<EmailSentSuccessFully>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -704,9 +676,9 @@ class _$EmailSentSuccessFully implements EmailSentSuccessFully {
     required TResult Function() initial,
     required TResult Function() sendingEmail,
     required TResult Function() failure,
-    required TResult Function(Email email) emailSentSuccessFully,
+    required TResult Function() emailSentSuccessFully,
   }) {
-    return emailSentSuccessFully(email);
+    return emailSentSuccessFully();
   }
 
   @override
@@ -715,11 +687,11 @@ class _$EmailSentSuccessFully implements EmailSentSuccessFully {
     TResult Function()? initial,
     TResult Function()? sendingEmail,
     TResult Function()? failure,
-    TResult Function(Email email)? emailSentSuccessFully,
+    TResult Function()? emailSentSuccessFully,
     required TResult orElse(),
   }) {
     if (emailSentSuccessFully != null) {
-      return emailSentSuccessFully(email);
+      return emailSentSuccessFully();
     }
     return orElse();
   }
@@ -753,11 +725,5 @@ class _$EmailSentSuccessFully implements EmailSentSuccessFully {
 }
 
 abstract class EmailSentSuccessFully implements EmailState {
-  const factory EmailSentSuccessFully({required Email email}) =
-      _$EmailSentSuccessFully;
-
-  Email get email => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EmailSentSuccessFullyCopyWith<EmailSentSuccessFully> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory EmailSentSuccessFully() = _$EmailSentSuccessFully;
 }

@@ -30,16 +30,7 @@ class EmailApiImpl implements EmailApi {
     try {
       final response = await client.post(
         Uri.parse(StringConst.BASE_URL + StringConst.GET_IN_TOUCH_POINT),
-        headers: {
-          "Content-Type": "application/json",
-          // Required for CORS support to work
-          "Access-Control-Allow-Origin": "*",
-          // Required for cookies, authorization headers with HTTPS
-          "Access-Control-Allow-Credentials": "*",
-          // "Access-Control-Allow-Headers":
-          //     "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
-          "Access-Control-Allow-Methods": "POST, OPTIONS"
-        },
+       
         body: jsonEncode({
           "name": name,
           "email": email,
@@ -51,7 +42,7 @@ class EmailApiImpl implements EmailApi {
       print("Status Code ${response}");
       print("Body ${response.body}");
       if (response.statusCode == 200) {
-        return Email.fromJson(json.decode(response.body));
+        return Email(status: "success");
       } else {
         throw EmailFailure.serverError();
       }
