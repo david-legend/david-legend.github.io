@@ -5,6 +5,7 @@ import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
 import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
 import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
 import 'package:aerium/presentation/pages/works/works_page.dart';
+import 'package:aerium/presentation/widgets/animated_app_drawer.dart';
 import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
 import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
 import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
@@ -16,14 +17,6 @@ import 'package:flutter/material.dart';
 import 'package:aerium/values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-// class HomePageArguments {
-//   bool showUnVeilPageAnimation;
-
-//   HomePageArguments({
-//     this.showUnVeilPageAnimation = true,
-//   });
-// }
 
 class HomePage extends StatefulWidget {
   static const String homePageRoute = StringConst.HOME_PAGE;
@@ -42,6 +35,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late AnimationController _viewProjectsController;
   late AnimationController _recentWorksController;
   late AnimationController _slideTextController;
+  late AnimationController _drawerController;
   late NavigationArguments _arguments;
 
   @override
@@ -59,6 +53,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Animations.slideAnimationDurationLong,
     );
+    _drawerController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 7000),
+    )..addListener(() {
+        setState(() {});
+      });
     super.initState();
   }
 
@@ -109,6 +109,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       hasSideTitle: false,
       hasUnveilPageAnimation: _arguments.showUnVeilPageAnimation,
       onLoadingAnimationDone: () {
+        _drawerController.forward();
         _slideTextController.forward();
       },
       customLoadingAnimation: LoadingHomePageAnimation(
@@ -125,6 +126,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
+          // AnimatedAppDrawer(
+          //   controller: _drawerController,
+          // ),
           HomePageHeader(
             controller: _slideTextController,
             scrollToWorksKey: key,
