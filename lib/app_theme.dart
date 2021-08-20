@@ -21,6 +21,11 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         color: AppColors.primaryColor,
       ),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: AppColors.black,
+        selectionColor: AppColors.textSelectionColor,
+        selectionHandleColor: AppColors.primaryColor,
+      ),
       scaffoldBackgroundColor: colorScheme.background,
       highlightColor: Colors.transparent,
       accentColor: colorScheme.primary,

@@ -6,12 +6,6 @@ import 'package:aerium/presentation/routes/routes.dart';
 import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
-// Priority
-// TODO:: Show link destination in bottom left corner
-// TODO:: App Drawer animations
-// TODO:: Work on sending email from website
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
