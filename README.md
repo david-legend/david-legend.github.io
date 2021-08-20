@@ -22,14 +22,6 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [da
 
 ## Enjoy
 
-<br>
-
-### Mobile View
-
-<br>
-
-
-## Actual Designs
 
 ![Screenshot](assets/screenshots/0.jpg)
 
