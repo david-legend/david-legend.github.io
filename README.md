@@ -28,8 +28,6 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [da
 
 <br>
 
-![Screenshot](https://media.giphy.com/media/7lhqghuxV8GkZbvI21/giphy-downsized.gif)
-
 
 ## Actual Designs
 
