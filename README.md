@@ -22,6 +22,17 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [da
 
 ## Enjoy
 
+<br>
+
+### Mobile View
+
+<br>
+
+![Screenshot](https://media.giphy.com/media/7lhqghuxV8GkZbvI21/giphy-downsized.gif)
+
+
+## Actual Designs
+
 ![Screenshot](assets/screenshots/0.jpg)
 
 ![Screenshot](assets/screenshots/1.jpg)
