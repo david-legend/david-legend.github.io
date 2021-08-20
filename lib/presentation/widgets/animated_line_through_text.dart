@@ -140,6 +140,7 @@ class _AnimatedLineThroughTextState extends State<AnimatedLineThroughText>
       onTap: widget.onTap,
       hoverColor: Colors.transparent,
       child: MouseRegion(
+        cursor: SystemMouseCursors.click,
         onEnter: (e) => _mouseEnter(true),
         onExit: (e) => _mouseEnter(false),
         child: SlideTransition(
