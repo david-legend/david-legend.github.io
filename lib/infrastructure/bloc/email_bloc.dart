@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:aerium/infrastructure/api/email_model.dart';
 import 'package:aerium/infrastructure/api/email_repository.dart';
 import 'package:bloc/bloc.dart';
 

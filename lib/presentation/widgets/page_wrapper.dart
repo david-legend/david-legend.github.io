@@ -19,22 +19,22 @@ class NavigationArguments {
 }
 
 class PageWrapper extends StatefulWidget {
-  PageWrapper({
-    Key? key,
-    required this.selectedRoute,
-    required this.selectedPageName,
-    required this.navBarAnimationController,
-    required this.child,
-    this.customLoadingAnimation = const Empty(),
-    this.onLoadingAnimationDone,
-    this.hasSideTitle = true,
-    this.hasUnveilPageAnimation = true,
-    this.reverseAnimationOnPop = true,
-    this.backgroundColor,
-    this.navBarTitleColor = AppColors.grey600,
-    this.navBarSelectedTitleColor = AppColors.black,
-    this.appLogoColor = AppColors.black
-  }) : super(key: key);
+  PageWrapper(
+      {Key? key,
+      required this.selectedRoute,
+      required this.selectedPageName,
+      required this.navBarAnimationController,
+      required this.child,
+      this.customLoadingAnimation = const Empty(),
+      this.onLoadingAnimationDone,
+      this.hasSideTitle = true,
+      this.hasUnveilPageAnimation = true,
+      this.reverseAnimationOnPop = true,
+      this.backgroundColor,
+      this.navBarTitleColor = AppColors.grey600,
+      this.navBarSelectedTitleColor = AppColors.black,
+      this.appLogoColor = AppColors.black})
+      : super(key: key);
 
   final String selectedRoute;
   final String selectedPageName;

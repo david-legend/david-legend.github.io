@@ -1,6 +1,5 @@
 import 'package:aerium/infrastructure/failures/email_failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 
 import 'email_api.dart';
 import 'email_model.dart';

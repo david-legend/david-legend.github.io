@@ -94,7 +94,6 @@ class _CertificationCardState extends State<CertificationCard>
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     return InkWell(
       onTap: widget.onTap,
       child: Container(

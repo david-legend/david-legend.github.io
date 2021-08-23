@@ -39,8 +39,7 @@ class EmailApiImpl implements EmailApi {
         }),
       );
 
-      print("Status Code ${response}");
-      print("Body ${response.body}");
+    
       if (response.statusCode == 200) {
         return Email(status: "success");
       } else {

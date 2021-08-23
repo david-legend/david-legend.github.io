@@ -1,5 +1,4 @@
 import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
-import 'package:aerium/presentation/widgets/page_wrapper.dart';
 import 'package:aerium/presentation/widgets/project_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

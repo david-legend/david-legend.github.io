@@ -3,7 +3,6 @@ import 'package:aerium/values/values.dart';
 import 'package:flutter/material.dart';
 
 import 'animated_line_through_text.dart';
-import 'animated_text_slide_box_transition.dart';
 
 const double indicatorWidth = Sizes.WIDTH_60;
 
