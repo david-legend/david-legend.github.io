@@ -6,10 +6,13 @@ import 'package:aerium/presentation/routes/routes.dart';
 import 'package:aerium/values/values.dart';
 import 'package:layout/layout.dart';
 
+import 'configure_web.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
+   configureApp();
   runApp(Aerium());
 }
 
