@@ -23,7 +23,7 @@ class StringConst {
   static const String HI = "Hi,";
   static const String DEV_INTRO = "I'm David.";
   static const String DEV_TITLE = "Software Engineer.";
-  static const String DEV_DESC = "Full Stack Developer / Flutter Expert";
+  static const String DEV_DESC = "Mobile Engineer / Full Stack Developer / Cloud Devops";
   static const String SEE_MY_WORKS = "See my works";
   static const String SCROLL_DOWN = "Scroll Down";
   static const String CRAFTED_WITH_LOVE = "Crafted with love.";
@@ -138,6 +138,7 @@ class StringConst {
 
   //Skills
   static const String FLUTTER = "Flutter";
+  static const String JETPACK_COMPOSE = "Jetpack Compose";
   static const String JAVA = "Java";
   static const String ANDROID = "Android";
   static const String PYTHON = "Python";
@@ -340,11 +341,22 @@ class StringConst {
   static const String OTP_TEXT_FIELD_WEB_URL =
       "https://pub.dev/packages/flutter_otp_text_field";
 
+  static const String DISNEY_PLUS = "Disney Plus";
+  static const String DISNEY_PLUS_PLATFORM = "Android.";
+  static const String DISNEY_PLUS_CATEGORY = "UI Kit.";
+  static const String DISNEY_PLUS_SUBTITLE =
+      "Disney+, But Better";
+  static const String DISNEY_PLUS_DETAIL =
+      "Disney Plus is an amazing UI Kit  designed by Andre Carioca. He describes the UI Kit as his attempt of making the current disney plus app better. For me, this project is my attempt at learning and playing with Jetpack Compose. It contains everything that I am learning about the current state of native android development with Kotlin & Jetpack Compose";
+  static const String DISNEY_PLUS_PLAYSTORE_URL = "";
+  static const String DISNEY_PLUS_GITHUB_URL =
+      "https://github.com/david-legend/disneyPlus";
+
   static const String FLUTTER_CATALOG = "Flutter Catalog";
   static const String FLUTTER_CATALOG_PLATFORM = "Android / IOS.";
   static const String FLUTTER_CATALOG_CATEGORY = "UI Kit.";
   static const String FLUTTER_CATALOG_SUBTITLE =
-      "A beautiful cataalog of login designs";
+      "A beautiful catalog of login designs";
   static const String FLUTTER_CATALOG_DETAIL =
       "Flutter Catalog is a beautiful catalog of designs built with flutter. The goal is to catalog different components and building blocks of a mobile app to help flutter devs get right to the most important part of their app.";
   static const String FLUTTER_CATALOG_PLAYSTORE_URL =

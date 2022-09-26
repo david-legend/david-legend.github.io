@@ -42,10 +42,11 @@ class AboutHeader extends StatelessWidget {
                 width: widthOfScreen(context),
               ),
               SpaceH30(),
-              Container(
-                color: AppColors.black,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(80),
                 child: Image.asset(
                   ImagePath.DEV,
+                  fit: BoxFit.cover,
                   width: widthOfScreen(context),
                   height: assignHeight(context, 0.45),
                 ),
@@ -66,15 +67,16 @@ class AboutHeader extends StatelessWidget {
               SizedBox(
                 width: spacing,
               ),
-              Container(
-                color: AppColors.black,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(80.0),
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
                     maxWidth: imageWidthLg,
                     minWidth: imageWidthLg,
                     maxHeight: assignHeight(context, 0.55),
                   ),
-                  child: Image.asset(ImagePath.DEV),
+                  child: Image.asset(ImagePath.DEV,
+                    fit: BoxFit.cover,),
                 ),
               ),
             ],

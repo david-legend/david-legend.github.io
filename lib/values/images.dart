@@ -102,6 +102,41 @@ class ImagePath {
   static const String ROAM_WIREFRAMES_3 =
       "$projectsDir/roam/wireframes_signup_login.jpeg";
 
+
+  // Disney
+  static const String DISNEY_PLUS_COVER =
+      "$projectsDir/disneyplus/disneyplus_cover.png";
+  static const String DISNEY_PLUS_SCREENS =
+      "$projectsDir/disneyplus/mockups.png";
+
+  static const String DISNEY_PLUS_1 =
+      "$projectsDir/disneyplus/disneyplus_header.png";
+  static const String DISNEY_PLUS_2 =
+      "$projectsDir/disneyplus/disneyplus_cover.png";
+  static const String DISNEY_PLUS_3 =
+      "$projectsDir/disneyplus/disneyplus_description.png";
+  static const String DISNEY_PLUS_4 =
+      "$projectsDir/disneyplus/disneyplus_theme.png";
+  static const String DISNEY_PLUS_5 =
+      "$projectsDir/disneyplus/disneyplus_mockups.png";
+  static const String DISNEY_PLUS_6 =
+      "$projectsDir/disneyplus/disneyplus_designs.png";
+  static const String DISNEY_PLUS_7 =
+      "$projectsDir/disneyplus/disneyplus_more_description.png";
+  static const String DISNEY_PLUS_8 =
+      "$projectsDir/disneyplus/disneyplus_downloads_feature.png";
+  static const String DISNEY_PLUS_9 =
+      "$projectsDir/disneyplus/disneyplus_great_menu.png";
+  static const String DISNEY_PLUS_10 =
+      "$projectsDir/disneyplus/disneyplus_profiles.png";
+  static const String DISNEY_PLUS_11 =
+      "$projectsDir/disneyplus/disneyplus_home.png";
+  static const String DISNEY_PLUS_12 =
+      "$projectsDir/disneyplus/disneyplus_components.png";
+  static const String DISNEY_PLUS_13 =
+      "$projectsDir/disneyplus/disneyplus_the_end.png";
+
+
   // Flutter Catalog
   static const String FLUTTER_CATALOG_COVER =
       "$projectsDir/flutter_catalog/flutter_catalog_cover.png";

@@ -30,7 +30,7 @@ dependencies:
   url_launcher: ^6.0.9
   flutter_feather_icons: ^2.0.0+1 
   animated_text_kit: ^4.2.1
-  visibility_detector: ^0.2.0
+  visibility_detector: ^0.3.3
   flutter_bloc: ^7.1.0
   layout: ^0.6.2
   freezed_annotation: ^0.14.0
@@ -65,6 +65,7 @@ flutter:
     - assets/images/projects/
     - assets/images/projects/aerium-v1/
     - assets/images/projects/aerium-v2/
+    - assets/images/projects/disneyplus/
     - assets/images/projects/drop/
     - assets/images/projects/flutter_catalog/
     - assets/images/projects/foodybite/

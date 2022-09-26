@@ -198,21 +198,10 @@ class Data {
     ),
   ];
 
-  static List<SkillData> skillData = [
-    SkillData(skillLevel: 95, skillName: StringConst.FLUTTER),
-    SkillData(skillLevel: 70, skillName: StringConst.JAVA),
-    SkillData(skillLevel: 78, skillName: StringConst.ANDROID),
-    SkillData(skillLevel: 70, skillName: StringConst.KOTLIN),
-    SkillData(skillLevel: 80, skillName: StringConst.JAVASCRIPT),
-    SkillData(skillLevel: 80, skillName: StringConst.PHP),
-    SkillData(skillLevel: 80, skillName: StringConst.LARAVEL),
-    SkillData(skillLevel: 80, skillName: StringConst.SQL),
-    SkillData(skillLevel: 90, skillName: StringConst.WORDPRESS),
-    SkillData(skillLevel: 80, skillName: StringConst.BOOTSTRAP),
-    SkillData(skillLevel: 80, skillName: StringConst.HTML_CSS),
-  ];
+
 
   static List<ProjectItemData> recentWorks = [
+    Projects.DISNEY_PLUS,
     Projects.FLUTTER_CATALOG,
     Projects.DROP,
     Projects.ROAM,
@@ -222,6 +211,7 @@ class Data {
   ];
 
   static List<ProjectItemData> projects = [
+    Projects.DISNEY_PLUS,
     Projects.FLUTTER_CATALOG,
     Projects.DROP,
     Projects.ROAM,
@@ -366,6 +356,38 @@ class Data {
 }
 
 class Projects {
+  static ProjectItemData DISNEY_PLUS = ProjectItemData(
+    title: StringConst.DISNEY_PLUS,
+    subtitle: StringConst.DISNEY_PLUS,
+    platform: StringConst.DISNEY_PLUS_PLATFORM,
+    primaryColor: AppColors.flutter_catalog,
+    image: ImagePath.DISNEY_PLUS_COVER,
+    coverUrl: ImagePath.DISNEY_PLUS_SCREENS,
+    navSelectedTitleColor: AppColors.flutterCatalogSelectedNavTitle,
+    appLogoColor: AppColors.flutterCatalogAppLogo,
+    projectAssets: [
+      ImagePath.DISNEY_PLUS_1,
+      ImagePath.DISNEY_PLUS_2,
+      ImagePath.DISNEY_PLUS_3,
+      ImagePath.DISNEY_PLUS_4,
+      ImagePath.DISNEY_PLUS_5,
+      ImagePath.DISNEY_PLUS_6,
+      ImagePath.DISNEY_PLUS_7,
+      ImagePath.DISNEY_PLUS_8,
+      ImagePath.DISNEY_PLUS_9,
+      ImagePath.DISNEY_PLUS_10,
+      ImagePath.DISNEY_PLUS_11,
+      ImagePath.DISNEY_PLUS_12,
+      ImagePath.DISNEY_PLUS_13,
+    ],
+    category: StringConst.DISNEY_PLUS_CATEGORY,
+    portfolioDescription: StringConst.DISNEY_PLUS_DETAIL,
+    isPublic: true,
+    isOnPlayStore: false,
+    technologyUsed: StringConst.JETPACK_COMPOSE,
+    gitHubUrl: StringConst.DISNEY_PLUS_GITHUB_URL,
+    playStoreUrl: StringConst.DISNEY_PLUS_PLAYSTORE_URL,
+  );
   static ProjectItemData FLUTTER_CATALOG = ProjectItemData(
     title: StringConst.FLUTTER_CATALOG,
     subtitle: StringConst.FLUTTER_CATALOG,

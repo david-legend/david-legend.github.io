@@ -8,6 +8,32 @@ import 'package:layout/layout.dart';
 
 import 'configure_web.dart';
 
+// Home
+// TODO:: add well rounded verbose rotating logos -> representing web, mobile & cloud
+// cloud -> kubernets & docker
+// mobile -> kotlin, android, flutter, jetpack compose,
+// web -> react, javascript
+// TODO:: width of tagline
+
+// About
+// TODO:: update about tagline
+// TODO:: update about story
+// TODO:: update about technology section
+// TODO:: update about technologies I use section
+// TODO:: MAYBE --- update quote
+
+// Works
+// TODO:: update noteworthy projects
+
+// Experience
+// TODO:: update experices --> Decide whether to add academic experience
+
+// Certifications
+// TODO:: Add Cloud Certification from Udacity
+
+// Contact
+// TODO:: Fix email service
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
