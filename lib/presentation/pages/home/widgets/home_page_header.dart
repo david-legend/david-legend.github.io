@@ -364,7 +364,8 @@ class _AboutDevState extends State<AboutDev> {
           child: AnimatedPositionedText(
             controller: curvedAnimation,
             width: widget.width,
-            maxLines: 2,
+            maxLines: 3,
+            factor: 2,
             text: StringConst.DEV_DESC,
             textStyle: textTheme.bodyText1?.copyWith(
               fontSize: responsiveSize(

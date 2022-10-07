@@ -74,20 +74,12 @@ class ContentBuilder extends StatelessWidget {
                         text: number,
                         textStyle: numberStyle ?? defaultNumberStyle,
                       ),
-                      // Text(
-                      //   number,
-                      //   style: numberStyle ?? defaultNumberStyle,
-                      // ),
                       SpaceW8(),
                       AnimatedTextSlideBoxTransition(
                         controller: controller,
                         text: section,
                         textStyle: sectionStyle ?? defaultSectionStyle,
                       ),
-                      // Text(
-                      //   section,
-                      //   style: sectionStyle ?? defaultSectionStyle,
-                      // ),
                     ],
                   ),
                   SpaceH16(),
@@ -97,10 +89,6 @@ class ContentBuilder extends StatelessWidget {
                         text: title!,
                         textStyle: titleStyle ?? defaultTitleStyle,
                       ),
-                  // Text(
-                  //   title!,
-                  //   style: titleStyle ?? defaultTitleStyle,
-                  // ),
                   SpaceH30(),
                   body,
                   footer ?? Empty(),

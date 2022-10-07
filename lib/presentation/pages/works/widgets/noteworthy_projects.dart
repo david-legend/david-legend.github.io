@@ -112,7 +112,11 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
                       ? Functions.launchUrl(data[index].webUrl!)
                       : Functions.launchUrl(data[index].playStoreUrl!);
                 }
-              : null,
+              : (data[index].isPublic
+                  ? () {
+                      Functions.launchUrl(data[index].gitHubUrl!);
+                    }
+                  : null),
         ),
       );
       items.add(SpaceH40());
@@ -175,7 +179,6 @@ class NoteWorthyProjectItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AnimatedTextSlideBoxTransition(
-            
             controller: controller,
             text: number,
             textStyle: numberStyle ?? defaultNumberStyle,
@@ -185,7 +188,6 @@ class NoteWorthyProjectItem extends StatelessWidget {
             onTap: onSourceTap,
             hoverColor: Colors.transparent,
             child: AnimatedTextSlideBoxTransition(
-            
               controller: controller,
               text: source,
               textStyle: sourceStyle ?? defaultSourceStyle,

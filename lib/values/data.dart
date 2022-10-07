@@ -134,28 +134,39 @@ class Data {
 
   static List<String> mobileTechnologies = [
     "Android",
-    "Flutter",
-    "Java Android",
     "Kotlin",
+    "Jetpack Compose",
+    "Flutter",
     "Dart"
+        "Java Android",
   ];
 
   static List<String> otherTechnologies = [
     "HTML 5",
     "CSS 3",
     "JavaScript",
-    "Wordpress",
+    "Typescript",
     "React JS",
+    "Next JS",
     "Node JS",
     "Git",
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "Google Cloud",
+    "Azure",
+    "Travis CI",
+    "Circle CI",
+    "Express",
+    "Chakra UI",
     "Laravel",
     "PHP",
-    "Dart",
     "SQL",
     "C++",
     "Firebase",
     "Figma",
     "Adobe XD",
+    "Wordpress",
   ];
   static List<SocialData> socialData1 = [
     SocialData(
@@ -198,8 +209,6 @@ class Data {
     ),
   ];
 
-
-
   static List<ProjectItemData> recentWorks = [
     Projects.DISNEY_PLUS,
     Projects.FLUTTER_CATALOG,
@@ -226,24 +235,23 @@ class Data {
 
   static List<NoteWorthyProjectDetails> noteworthyProjects = [
     NoteWorthyProjectDetails(
-      projectName: StringConst.AMOR_APP,
-      isPublic: true,
-      isOnPlayStore: false,
-      isWeb: true,
-      technologyUsed: StringConst.FLUTTER,
-      projectDescription: StringConst.AMOR_APP_DETAIL,
-      gitHubUrl: StringConst.AMOR_APP_GITHUB_URL,
-      webUrl: StringConst.AMOR_APP_WEB_URL,
-      isLive: true,
-    ),
-    NoteWorthyProjectDetails(
-      projectName: StringConst.PROGRAMMING_FOR_DATA_SCIENCE,
+      projectName: StringConst.UDAGRAM_IMAGE_FILTERING,
       isPublic: true,
       isOnPlayStore: false,
       isWeb: false,
-      technologyUsed: StringConst.PYTHON,
-      projectDescription: StringConst.PROGRAMMING_FOR_DATA_SCIENCE_DETAIL,
-      gitHubUrl: StringConst.PROGRAMMING_FOR_DATA_SCIENCE_GITHUB_URL,
+      technologyUsed: StringConst.UDAGRAM_IMAGE_FILTERING_TECH,
+      projectDescription: StringConst.UDAGRAM_IMAGE_FILTERING_DETAIL,
+      gitHubUrl: StringConst.UDAGRAM_IMAGE_FILTERING_GITHUB_URL,
+      isLive: false,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.SERVERLESS_TODO,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: false,
+      technologyUsed: StringConst.SERVERLESS_TODO_TECH,
+      projectDescription: StringConst.SERVERLESS_TODO_DETAIL,
+      gitHubUrl: StringConst.SERVERLESS_TODO_GITHUB_URL,
       isLive: false,
     ),
     NoteWorthyProjectDetails(
@@ -254,6 +262,16 @@ class Data {
       technologyUsed: StringConst.PYTHON,
       projectDescription: StringConst.PYTHON_ALGORITHMS_DETAIL,
       gitHubUrl: StringConst.PYTHON_ALGORITHMS_GITHUB_URL,
+      isLive: false,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.PROGRAMMING_FOR_DATA_SCIENCE,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: false,
+      technologyUsed: StringConst.PYTHON,
+      projectDescription: StringConst.PROGRAMMING_FOR_DATA_SCIENCE_DETAIL,
+      gitHubUrl: StringConst.PROGRAMMING_FOR_DATA_SCIENCE_GITHUB_URL,
       isLive: false,
     ),
     NoteWorthyProjectDetails(
@@ -275,6 +293,17 @@ class Data {
       projectDescription: StringConst.FINOPP_DETAIL,
       gitHubUrl: StringConst.FINOPP_GITHUB_URL,
       isLive: false,
+    ),
+    NoteWorthyProjectDetails(
+      projectName: StringConst.AMOR_APP,
+      isPublic: true,
+      isOnPlayStore: false,
+      isWeb: true,
+      technologyUsed: StringConst.FLUTTER,
+      projectDescription: StringConst.AMOR_APP_DETAIL,
+      gitHubUrl: StringConst.AMOR_APP_GITHUB_URL,
+      webUrl: StringConst.AMOR_APP_WEB_URL,
+      isLive: true,
     ),
   ];
 
@@ -323,7 +352,6 @@ class Data {
         StringConst.COMPANY_4_ROLE_1,
         StringConst.COMPANY_4_ROLE_2,
         StringConst.COMPANY_4_ROLE_3,
-        StringConst.COMPANY_4_ROLE_4,
       ],
       location: StringConst.LOCATION_4,
       duration: StringConst.DURATION_4,
@@ -360,7 +388,7 @@ class Projects {
     title: StringConst.DISNEY_PLUS,
     subtitle: StringConst.DISNEY_PLUS,
     platform: StringConst.DISNEY_PLUS_PLATFORM,
-    primaryColor: AppColors.flutter_catalog,
+    primaryColor: AppColors.disneyPlus,
     image: ImagePath.DISNEY_PLUS_COVER,
     coverUrl: ImagePath.DISNEY_PLUS_SCREENS,
     navSelectedTitleColor: AppColors.flutterCatalogSelectedNavTitle,

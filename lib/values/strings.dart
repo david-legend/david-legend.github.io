@@ -57,7 +57,7 @@ class StringConst {
   // About Page
   static const String ABOUT_DEV_CATCH_LINE =
       "I am a passionate front-end developer and ui/ux designer with a keen eye for details.";
-  static const String ABOUT_DEV_CATCH_LINE_1 = "I specialize in building high";
+  static const String ABOUT_DEV_CATCH_LINE_1 = "I specialize in building high ";
   static const String ABOUT_DEV_CATCH_LINE_2 =
       "quality mobile & web applications.";
   // static const String ABOUT_DEV_CATCH_LINE_3 = "& web applications";
@@ -67,17 +67,17 @@ class StringConst {
   static const String ABOUT_DEV_STORY_TITLE =
       "A little bit about myself.";
   static const String ABOUT_DEV_STORY_CONTENT_1 =
-      "Hi! I'm David Cobbina, a passionate self taught software engineer based in Ghana. I enjoy building high quality and performant applications that provides users with value and a rich experience. I love building things than live on the web and mobile.";
+      "I am full stack software engineer with great passion for building high quality applications. I have an extensive experience building frontend (mobile & web) and backend applications. I occasionally work as a tech consultant and I am enthusiastic about Devops & Cloud computing technologies.";
   static const String ABOUT_DEV_STORY_CONTENT_2 =
-      "I am currently pursuing my Masters in IT in Carnegie Mellon University (Graduating in December 2021) and also actively searching for new opportunities.";
+      "I have a Masters in IT from Carnegie Mellon University where I majored in Software Engineering. I have strong technical skills as well as excellent interpersonal skills, which has enabled me to work & interact with clients all over the world.";
   static const String ABOUT_DEV_STORY_CONTENT_3 =
-      "I'm an avid reader and a problem solver with a keen eye for details. Love travelling, fan of poetry, music, documentaries & TV Series.";
+      "I am very great at finding solutions to problems and I have a very keen eye for details. I enjoy building fun/useful projects in my free time and open sourcing them. I am an avid reader, lover of all forms art & music, a big fan of poetry & I love travelling.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String MOBILE_TECH = "Mobile Technologies";
-  static const String OTHER_TECH = "Other Technologies";
+  static const String OTHER_TECH = "Web / Cloud / Design Technologies";
   static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use.";
   static const String ABOUT_DEV_TECHNOLOGY_CONTENT =
-      "I use a number of tools to aid my creative process when bringing things to life. When building designs and doing front-end work, I fiddle with Adobe XD and Figma interchangeably to get right specs and resources. For coding, I use different tools to get the job done. Listed below are the tools and technologies that I am most comfortable with.";
+      "I use a number of tools to aid my creative process when bringing things to life. Listed below are the tools and technologies that I have used over the years.";
   static const String ABOUT_DEV_CONTACT = "Contact";
   static const String ABOUT_DEV_CONTACT_SOCIAL = "Social.";
   static const String ABOUT_DEV_CONTACT_EMAIL = "Email.";
@@ -213,7 +213,7 @@ class StringConst {
   static const String COMPANY_2_ROLE_2 =
       "Worked on a team of 2 to build an ID verification application using Java Android.";
   static const String COMPANY_2_ROLE_3 =
-      "Developed and maintained code for in-house and client applications primarily using HTML, CSS, JavaScript, PHP and Laravel.";
+      "Developed and maintained client & in-house projects primarily using Javascript, React js, Next js, Express and Node js";
   static const String LOCATION_2 = "Asylum Down - Accra";
   static const String DURATION_2 = "April 2018 - June 2019";
 
@@ -221,40 +221,39 @@ class StringConst {
   static const String COMPANY_3_URL = "https://bewsys.com/";
   static const String POSITION_3 = "Software Engineer";
   static const String COMPANY_3_ROLE_1 =
-      "Worked in a team of 3 to build an inmate management web application used to manage, record and regulate activities at the national prison of South Sudan.";
+      "Worked in a team of 3 to design and implement backend infrastructure of an inmate management system for the National Prison of South Sudan.";
   static const String COMPANY_3_ROLE_2 =
-      "Architected and implemented a mobile application using flutter for the Palestinian Agriculture Advisory System which helps with data collection and equipping farmers with the right information.";
+      "Architected and implemented a mobile application for the Palestinian Agriculture Advisory System.";
   static const String COMPANY_3_ROLE_3 =
       "Modified existing software to correct errors, upgrade interfaces and improve performance.";
   static const String LOCATION_3 = "East Legon - Accra";
   static const String DURATION_3 = "August 2019 - April 2020";
 
-  static const String COMPANY_4 = "Consultant";
-  static const String COMPANY_4_URL = SITE_URL;
-  static const String POSITION_4 = "Software Engineer Consultant";
+
+  static const String COMPANY_4 = "Brij Money";
+  static const String COMPANY_4_URL = "https://www.brij.money/";
+  static const String POSITION_4 = "Software Engineer Intern";
   static const String COMPANY_4_ROLE_1 =
-      "Led a team of two engineers to build a research grid monitoring application for Hive Power in Switzerland using flutter.";
+      "Worked closely with designers & backend engineers to develop and ship merchants feature which allowed end users to purchase items from a merchant store on the Brij app.";
   static const String COMPANY_4_ROLE_2 =
-      "Technically reviewed flutter code base of clients as a consultant and suggested ways to improve it at Ex Machina in the UK.";
+      "Developed and shipped airtime & bundle purchasing feature on the Brij mobile app.";
   static const String COMPANY_4_ROLE_3 =
-      "Worked as a contractor for Shrinq Ghana Ltd. to build an insurance calculator for Milife Ghana.";
-  static const String COMPANY_4_ROLE_4 =
-      "Worked as a Software engineer with Goflow Services in India to improve an already existing video streaming app (BeThere app) using flutter.";
-  static const String LOCATION_4 = "Kigali - Rwanda";
-  static const String DURATION_4 = "May 2020 - August 2021";
-
-  static const String COMPANY_5 = "Bridge Innovation";
-  static const String COMPANY_5_URL = SITE_URL;
-  static const String POSITION_5 = "Software Engineer Intern";
-  static const String COMPANY_5_ROLE_1 =
-      "Worked in a team of 4 mobile engineers and  2 designers to build a mobile application for making payments across 3 countries in Africa using flutter.";
-  static const String COMPANY_5_ROLE_2 =
-      "Engineered and maintained major features of the Brij mobile application.";
-  static const String COMPANY_5_ROLE_3 =
       "Interfaced with user experience designers and other developers to ensure thoughtful and coherent user experiences across brij’s iOS and Android mobile apps.";
+  static const String LOCATION_4 = "Accra - Ghana";
+  static const String DURATION_4 = "June 2021 - Aug 2021";
 
-  static const String LOCATION_5 = "Accra - Ghana";
-  static const String DURATION_5 = "June 2021 - Aug 2021";
+
+  static const String COMPANY_5 = "Consultant";
+  static const String COMPANY_5_URL = SITE_URL;
+  static const String POSITION_5 = "Software Engineer Consultant";
+  static const String COMPANY_5_ROLE_1 =
+      "Led engineering team to develop & ship a SaaS grid monitoring mobile application platform for Hive Power company in Switzerland.";
+  static const String COMPANY_5_ROLE_2 =
+      "Designed and built technology infrastructure for a leading Ghanaian Insurance company";
+  static const String COMPANY_5_ROLE_3 =
+      "Worked with GoFlow Services in India to improve the architecture of an already existing video streaming mobile application (BeThere).";
+  static const String LOCATION_5 = "Kigali - Rwanda";
+  static const String DURATION_5 = "May 2020 - Sept 2022";
 
   //Portfolio, Projects
   static const String PORTFOLIO_SITE_V2 = "Aerium V2";
@@ -421,14 +420,31 @@ class StringConst {
       "https://github.com/david-legend/finopp";
   static const String FINOPP_DETAIL_WEB_URL = "";
 
+  static const String UDAGRAM_IMAGE_FILTERING = "Udagram Image Filtering App";
+  static const String UDAGRAM_IMAGE_FILTERING_TECH = "Kubernetes / Docker / Ionic / Node.";
+  static const String UDAGRAM_IMAGE_FILTERING_SUBTITLE =
+      "Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.";
+  static const String UDAGRAM_IMAGE_FILTERING_DETAIL =
+      "Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.";
+  static const String UDAGRAM_IMAGE_FILTERING_GITHUB_URL = "https://github.com/david-legend/udagram";
+  static const String UDAGRAM_IMAGE_FILTERING_DETAIL_WEB_URL = "";
+
+  static const String SERVERLESS_TODO = "Serverless Todo App";
+  static const String SERVERLESS_TODO_TECH = "Serverless / AWS Lambda / API GateWay / Node / React";
+  static const String SERVERLESS_TODO_SUBTITLE =
+      "Simple TODO application using AWS Lambda and Serverless framework";
+  static const String SERVERLESS_TODO_DETAIL =
+      "Simple TODO application using AWS Lambda and Serverless framework";
+  static const String SERVERLESS_TODO_GITHUB_URL = "https://github.com/david-legend/serverless-todo-app";
+  static const String SERVERLESS_TODO_DETAIL_WEB_URL = "";
+
   static const String PYTHON_ALGORITHMS = "Python Algorithms";
   static const String PYTHON_ALGORITHMS_PLATFORM = "Python.";
   static const String PYTHON_ALGORITHMS_SUBTITLE =
       "Data structures and interview questions implemented in JavaScript with explanations and links to further readings.";
   static const String PYTHON_ALGORITHMS_DETAIL =
       "Data structures and interview questions implemented in JavaScript with explanations and links to further readings.";
-  static const String PYTHON_ALGORITHMS_GITHUB_URL =
-      "https://github.com/david-legend/python-algorithms";
+  static const String PYTHON_ALGORITHMS_GITHUB_URL = "https://github.com/david-legend/python-algorithms";
   static const String PYTHON_ALGORITHMS_DETAIL_WEB_URL = "";
 
   static const String AMOR_APP = "Amor";
@@ -441,7 +457,7 @@ class StringConst {
       "https://github.com/david-legend/amor";
   static const String AMOR_APP_WEB_URL = "https://david-legend.github.io/amor/";
 
-  static const String ONBOARDING_APP = "Onboarding App.";
+  static const String ONBOARDING_APP = "Onboarding Template UI Kit.";
   static const String ONBOARDING_APP_PLATFORM = "Android / IOS.";
   static const String ONBOARDING_APP_SUBTITLE =
       "A beautifully crafted app that takes you through an onboarding experience.";
