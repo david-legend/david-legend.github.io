@@ -37,6 +37,8 @@ class ImagePath {
   static const String DEV_MEDITATE = "$imageDir/dev_meditate.png";
   
   static const String DEV_SKILLS = "$imageDir/skills.png";
+  static const String DEV_SKILLS_1 = "$imageDir/skills1.png";
+  static const String DEV_SKILLS_2 = "$imageDir/skills2.png";
   static const String GOOGLE_PLAY = "$imageDir/google_play.png";
 
   // Certifications
