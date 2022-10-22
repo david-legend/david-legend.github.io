@@ -46,7 +46,7 @@ class EmailApiImpl implements EmailApi {
         throw EmailFailure.serverError();
       }
     } catch (e) {
-      print("Error  ${e.toString()}");
+      print("Errorss  ${e.toString()}");
       throw EmailFailure.serverError();
     }
   }

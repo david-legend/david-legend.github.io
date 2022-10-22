@@ -309,11 +309,25 @@ class Data {
 
   static List<CertificationData> certificationData = [
     CertificationData(
+      title: StringConst.MSC_IT,
+      url: StringConst.CMU_CERT_URL,
+      image: ImagePath.CMU_MASTERS_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.CMU,
+    ),
+    CertificationData(
       title: StringConst.ASSOCIATE_ANDROID_DEV,
       url: StringConst.ASSOCIATE_ANDROID_DEV_URL,
       image: ImagePath.ASSOCIATE_ANDROID_DEV,
       imageSize: 0.325,
       awardedBy: StringConst.GOOGLE,
+    ),
+    CertificationData(
+      title: StringConst.CLOUD_DEVELOPER,
+      url: StringConst.CLOUD_DEVELOPER_URL,
+      image: ImagePath.CLOUD_DEVELOPER_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.UDACITY,
     ),
     CertificationData(
       title: StringConst.DATA_SCIENCE,

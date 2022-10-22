@@ -34,6 +34,7 @@ class EmailRepositoryImpl implements EmailRepository {
         subject: subject,
         message: message,
       );
+      print(emailStatus);
       return Right(emailStatus);
     } catch (e) {
       print(e.toString());
