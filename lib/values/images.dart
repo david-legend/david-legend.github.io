@@ -9,7 +9,8 @@ class ImagePath {
   //Images
   static const String DEV = "$imageDir/david_legend.png";
   // CV
-  static const String CV = "$imageDir/DAVID_COBBINA_CV.pdf";
+  static const String CV = "$imageDir/david-cobbina-cv.pdf";
+  static const String CV_2 = "$imageDir/DAVID_COBBINA_CV.pdf";
 
   static const String VYBZ = "$imageDir/vybz.jpg";
   static const String DAVID = "$imageDir/david.png";
