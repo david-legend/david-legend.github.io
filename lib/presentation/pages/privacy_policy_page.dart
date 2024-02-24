@@ -77,63 +77,63 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage>
             child: ContentArea(
               width: contentAreaWidth,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Privacy Policy",
                     style: theme.textTheme.titleLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH12(),
                   Text(
-                    "Thank you for using Drop, Flutter Catalog, Login Catalog, FoodyBite, and Roam. We respect your privacy and want to be transparent about how we handle your personal information.",
+                    "Thank you for using any of the following apps: Drop, Flutter Catalog, Login Catalog, FoodyBite, and Roam. We respect your privacy and want to be transparent about how we handle your personal information.",
                     style: theme.textTheme.bodyLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH20(),
                   Text(
                     "Information Collection",
                     style: theme.textTheme.titleLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH12(),
                   Text(
                     "We want to assure you that we do not collect any personally identifiable information from our users. We do not request, store, or have access to any data that could be used to identify you personally.",
                     style: theme.textTheme.bodyLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH20(),
                   Text(
                     "Usage Information",
                     style: theme.textTheme.titleLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH12(),
                   Text(
                     "While you use Drop, Flutter Catalog, Login Catalog, FoodyBite, and Roam, we do not track your activities or gather any usage information. Your interactions with the apps remain entirely anonymous.",
                     style: theme.textTheme.bodyLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH20(),
                   Text(
                     "Third-Party Services",
                     style: theme.textTheme.titleLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH12(),
                   Text(
                     "Our apps do not integrate with any third-party services that collect user data. We prioritize your privacy and aim to provide a secure and enjoyable experience without compromising your personal information.",
                     style: theme.textTheme.bodyLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH20(),
                   Text(
                     "Contact",
                     style: theme.textTheme.titleLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH12(),
                   Text(
-                    '''If you have any questions or concerns regarding our privacy policy, please feel free to contact us at davidcobbina47@gmail.com.
-
-                    Thank you for trusting us with your privacy.''',
+                    '''If you have any questions or concerns regarding our privacy policy, please feel free to contact us at davidcobbina47@gmail.com.\nThank you for trusting us with your privacy.''',
                     style: theme.textTheme.bodyLarge,
                   ),
-                  SpaceH8(),
+                  SpaceH20(),
                 ],
               ),
             ),
           ),
+          SpaceH40(),
           AnimatedFooter(),
         ],
       ),

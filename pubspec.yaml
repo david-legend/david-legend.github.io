@@ -32,7 +32,7 @@ dependencies:
   animated_text_kit: ^4.2.1
   visibility_detector: ^0.3.3
   flutter_bloc: ^7.1.0
-  layout: ^0.6.2
+  layout: ^0.5.1
   freezed_annotation: ^0.14.0
   dartz: ^0.10.0
   get_it: ^7.2.0
