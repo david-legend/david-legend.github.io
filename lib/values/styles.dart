@@ -7,7 +7,7 @@ class Styles {
     Color color = AppColors.primaryColor,
     FontWeight fontWeight = FontWeight.w600,
     double fontSize = Sizes.TEXT_SIZE_14,
-    FontStyle fontStyle: FontStyle.normal,
+    FontStyle fontStyle= FontStyle.normal,
   }) {
     return GoogleFonts.bebasNeue(
       fontSize: fontSize,
@@ -21,7 +21,7 @@ class Styles {
     Color color = AppColors.secondaryColor,
     FontWeight fontWeight = FontWeight.w600,
     double fontSize = Sizes.TEXT_SIZE_16,
-    FontStyle fontStyle: FontStyle.normal,
+    FontStyle fontStyle= FontStyle.normal,
   }) {
     return GoogleFonts.bebasNeue(
       fontSize: fontSize,
@@ -35,7 +35,7 @@ class Styles {
     Color color = AppColors.secondaryColor,
     FontWeight fontWeight = FontWeight.w600,
     double fontSize = Sizes.TEXT_SIZE_16,
-    FontStyle fontStyle: FontStyle.normal,
+    FontStyle fontStyle= FontStyle.normal,
   }) {
     return GoogleFonts.dancingScript(
       fontSize: fontSize,
@@ -49,7 +49,7 @@ class Styles {
     Color color = AppColors.secondaryColor,
     FontWeight fontWeight = FontWeight.w600,
     double fontSize = Sizes.TEXT_SIZE_16,
-    FontStyle fontStyle: FontStyle.normal,
+    FontStyle fontStyle = FontStyle.normal,
   }) {
     return GoogleFonts.notoSerif(
       fontSize: fontSize,

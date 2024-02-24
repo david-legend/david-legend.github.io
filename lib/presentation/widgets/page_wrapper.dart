@@ -97,7 +97,7 @@ class _PageWrapperState extends State<PageWrapper>
   Widget build(BuildContext context) {
     // simple hack to reverse animation when navigation is popped
     // I don't know if there's a better way to do this, but for now it works
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (forwardSlideController.isCompleted && widget.reverseAnimationOnPop) {
         forwardSlideController.reverse();
       }

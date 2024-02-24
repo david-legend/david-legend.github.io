@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts: ^2.1.0 
+  google_fonts: ^2.1.0
   responsive_builder: ^0.4.1
   font_awesome_flutter: ^9.1.0 
   url_launcher: ^6.0.9

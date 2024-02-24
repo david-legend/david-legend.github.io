@@ -2,6 +2,7 @@ import 'package:aerium/presentation/pages/about/about_page.dart';
 import 'package:aerium/presentation/pages/certification_page.dart';
 import 'package:aerium/presentation/pages/contact_page.dart';
 import 'package:aerium/presentation/pages/experience_page.dart';
+import 'package:aerium/presentation/pages/privacy_policy_page.dart';
 import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
 import 'package:aerium/presentation/pages/works/works_page.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,11 @@ class RouteConfiguration {
   /// will be returned. This means that the paths higher up in the list will
   /// take priority.
   static List<Path> paths = [
-   Path(
+    Path(
+      r'^' + PrivacyPolicyPage.pageRoute,
+      (context, matches) => const PrivacyPolicyPage(),
+    ),
+    Path(
       r'^' + ContactPage.contactPageRoute,
       (context, matches) => const ContactPage(),
     ),
@@ -62,9 +67,8 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + HomePage.homePageRoute,
-      (context, matches) =>  HomePage(),
+      (context, matches) => HomePage(),
     ),
-    
   ];
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
